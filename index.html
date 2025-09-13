@@ -1466,6 +1466,86 @@
     }
 }
 
+/* Contact Form */
+#contactForm {
+    background: #f0f0f0; /* lichtere kleur, prettiger voor ogen */
+    margin: 2rem auto;   /* ruim van de rest van de pagina */
+    padding: 2.5em;      /* binnenruimte */
+    border-radius: 15px;
+    max-width: 600px;    /* niet te breed */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;          /* ruimte tussen labels/input/textarea */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+#contactForm label {
+    font-weight: 600;
+}
+
+/* Inputs & Textarea */
+#contactForm input,
+#contactForm textarea {
+    padding: 0.8em 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #007bff;
+}
+
+/* Button */
+#contactForm button {
+    padding: 0.8em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contactForm button:hover {
+    background-color: #e6b800;
+}
+
+/* Status message */
+#status {
+    margin-top: 1em;
+    font-size: 1rem;
+    color: green;
+    text-align: center;
+}
+.va-logo-container {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.va-logo-container a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+}
+
+.va-logo-container a:hover {
+    color: #aaa;
+}
+
+.va-logo {
+    width: 16px;
+    height: 16px;
+}
 
     </style>
 </head>
@@ -1592,12 +1672,6 @@
             </div>
         </section>
 
-       <section class="GoogleForm">
-    <div class="container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmFqzCj_ZbPdaf3sYfG_lkpN__NyC4o-eIPBVB35OVeia3uw/viewform?embedded=true" width="640" height="1849" frameborder="0" marginheight="0" marginwidth="0">Laden…</iframe>
-    </div>
-</section>
-
         <!-- Brands Section -->
         <section class="brands">
             <div class="container">
@@ -1625,11 +1699,10 @@
                 <p class="section-subtitle">Ontdek wat CCR onderscheidt van andere autoservices</p>
                 <div class="why-choose-grid">
                     <article class="feature">
-    <i class="fas fa-car" aria-hidden="true"></i>
-    <h3>Auto ophalen &amp; terugbrengen</h3>
-    <p>Gemak staat voorop. Wij halen uw auto op en brengen deze na de service weer netjes terug. Hiervoor wordt een kleine toeslag berekend.</p>
-</article>
-
+                        <i class="fas fa-car" aria-hidden="true"></i>
+                        <h3>Auto ophalen &amp; terugbrengen</h3>
+                        <p>Gemak staat voorop. Wij halen uw auto op en brengen deze na de service weer netjes terug. Hiervoor wordt een kleine toeslag berekend.</p>
+                    </article>
                     <article class="feature">
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <h3>Snelle service</h3>
@@ -1690,74 +1763,61 @@
             <div class="container">
                 <h2 class="section-title">Contact</h2>
                 <p class="section-subtitle">Neem contact op voor een afspraak of vraag</p>
+
+                <!-- Contactformulier met Apps Script -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <label>Naam</label>
+                        <input type="text" name="naam" required>
+
+                        <label>E-mail</label>
+                        <input type="email" name="email" required>
+
+                        <label>Bericht</label>
+                        <textarea name="bericht" rows="5" required></textarea>
+
+                        <div class="va-logo-container">
+    <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.postimg.cc/2Sf9gFVb/VAfavicon.png" alt="Van Appiah Logo" class="va-logo">
+        <span class="va-text">Van Appiah</span>
+    </a>
+</div>
+
+
+                        <button type="submit">Verstuur</button>
+                    </form>
+                    <p id="status" aria-live="polite"></p>
+                </div>
+
+                <!-- Contact & Openingstijden -->
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Contactgegevens</h3>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            <span>Meeuwenlaan 116, 1021 JM Amsterdam</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                            <a href="tel:+31646102011">06 46102011</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                            <a href="tel:+31203370324">020 337 03 24</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe" aria-hidden="true"></i>
-                            <a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer">www.carcenterrishi.nl</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map" aria-hidden="true"></i>
-                            <a href="https://maps.google.com/?q=Meeuwenlaan+116,+1021+JM+Amsterdam" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                        </div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i>Meeuwenlaan 116, 1021 JM Amsterdam</div>
+                        <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+31646102011">06 46102011</a></div>
+                        <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+31203370324">020 337 03 24</a></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a></div>
+                        <div class="contact-item"><i class="fas fa-globe"></i><a href="https://www.carcenterrishi.nl" target="_blank">www.carcenterrishi.nl</a></div>
+                        <div class="contact-item"><i class="fas fa-map"></i><a href="https://maps.google.com/?q=Meeuwenlaan+116,+1021+JM+Amsterdam" target="_blank">Google Maps</a></div>
                     </div>
+
                     <div class="opening-hours">
                         <h3>Openingstijden</h3>
                         <table class="hours-table">
                             <tbody>
-                                <tr>
-                                    <td>maandag</td>
-                                    <td>09:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>dinsdag</td>
-                                    <td>09:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>woensdag</td>
-                                    <td>09:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>donderdag</td>
-                                    <td>09:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>vrijdag</td>
-                                    <td>09:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>zaterdag</td>
-                                    <td>12:00–18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>zondag</td>
-                                    <td>Gesloten</td>
-                                </tr>
+                                <tr><td>Maandag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Dinsdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Woensdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Donderdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Vrijdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Zaterdag</td><td>12:00–18:00</td></tr>
+                                <tr><td>Zondag</td><td>Gesloten</td></tr>
                             </tbody>
                         </table>
-                        <div class="hours-note">
-                            Afspraken ook buiten openingstijden mogelijk
-                        </div>
+                        <div class="hours-note">Afspraken ook buiten openingstijden mogelijk</div>
                     </div>
                 </div>
-                
+
                 <!-- Google Maps Section -->
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.8234567890123!2d4.9123456789!3d52.3987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3c7654321%3A0x1234567890abcdef!2sMeeuwenlaan%20116%2C%201021%20JM%20Amsterdam%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1234567890123!5m2!1sen!2snl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="CCR Car Center Rishi Locatie op Google Maps">
@@ -1783,13 +1843,12 @@
                 <p class="copyright">
                     © 2024 CCR – Car Center Rishi. Alle rechten voorbehouden.
                 </p>
-               <p class="copyright" style="font-size: 14px; color: #666; line-height: 1.5; text-align: center; padding: 10px;">
-    Powered by 
-    <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer" style="color: #666; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#aaa';" onmouseout="this.style.color='#666';" ontouchstart="this.style.color='#aaa';" ontouchend="this.style.color='#666';">
-        Van Appiah
-    </a>
-</p>
-
+                <p class="copyright" style="font-size: 14px; color: #666; line-height: 1.5; text-align: center; padding: 10px;">
+                    Powered by 
+                    <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer" style="color: #666; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#aaa';" onmouseout="this.style.color='#666';" ontouchstart="this.style.color='#aaa';" ontouchend="this.style.color='#666';">
+                        Van Appiah
+                    </a>
+                </p>
             </div>
         </div>
     </footer>
@@ -1806,6 +1865,34 @@
         <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
+    <!-- Scripts blijven hetzelfde zoals in jouw originele code -->
+</body>
+
+
+    <!-- Script voor Apps Script formulier -->
+<script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(form);
+
+        fetch('YOUR_WEB_APP_URL_HIER', { 
+            method: 'POST',
+            body: data
+        })
+        .then(response => response.text())
+        .then(result => {
+            status.textContent = "Bedankt! We nemen snel contact met je op.";
+            form.reset();
+        })
+        .catch(error => {
+            status.textContent = "Er is iets misgegaan, probeer het later opnieuw.";
+            console.error(error);
+        });
+    });
+</script>
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
