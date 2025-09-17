@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Car Center Rishi – APK, Diagnose & Onderhoud in Amsterdam-Noord</title>
     <meta name="description" content="Car Center Rishi biedt betrouwbare APK-keuringen, diagnose en professioneel auto-onderhoud in Amsterdam-Noord. BOVAG gecertificeerd en RDW erkend.">
     <meta name="keywords" content="APK Amsterdam, Auto onderhoud Amsterdam Noord, Diagnose auto, Car Center Rishi, BOVAG, RDW erkend, betrouwbare garage Amsterdam">
@@ -17,6 +17,13 @@
     <meta property="og:image" content="https://i.postimg.cc/fbjBFcSP/download.png">
     <meta property="og:url" content="https://carcenterrishi.nl">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="nl_NL">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Car Center Rishi – Uw auto in professionele handen">
+    <meta name="twitter:description" content="BOVAG gecertificeerd en RDW erkend. APK, diagnose en onderhoud in Amsterdam-Noord.">
+    <meta name="twitter:image" content="https://i.postimg.cc/fbjBFcSP/download.png">
     
     <!-- Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,50 +31,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Car Center Rishi",
+        "description": "APK-station, uitoefening garagebedrijf",
+        "telephone": "+31646102011",
+        "email": "info@carcenterrishi.nl",
+        "url": "https://www.carcenterrishi.nl",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Meeuwenlaan 116 H",
+            "postalCode": "1021JM",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+        },
+        "openingHours": [
+            "Mo-Fr 09:00-18:00",
+            "Sa 12:00-18:00"
+        ],
+        "priceRange": "€€",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "50"
+        },
+        "sameAs": [
+            "https://wa.me/31646102011"
+        ]
+    }
+    </script>
+    
     <style>
-        :root {
-            --primary-blue: #1e40af;
-            --primary-blue-light: #3b82f6;
-            --primary-blue-dark: #1e3a8a;
-            --accent-orange: #f97316;
-            --accent-orange-light: #fb923c;
-            --success-green: #10b981;
-            --warning-yellow: #f59e0b;
-            --neutral-50: #f8fafc;
-            --neutral-100: #f1f5f9;
-            --neutral-200: #e2e8f0;
-            --neutral-300: #cbd5e1;
-            --neutral-400: #94a3b8;
-            --neutral-500: #64748b;
-            --neutral-600: #475569;
-            --neutral-700: #334155;
-            --neutral-800: #1e293b;
-            --neutral-900: #0f172a;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
-        }
-
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+        :root {
+            /* Updated to minimalistic white/grey color palette */
+            --primary-color: #4a5568;
+            --primary-dark: #2d3748;
+            --accent-color: #718096;
+            --accent-dark: #4a5568;
+            --neutral-50: #f7fafc;
+            --neutral-100: #edf2f7;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #a0aec0;
+            --neutral-500: #718096;
+            --neutral-600: #4a5568;
+            --neutral-700: #2d3748;
+            --neutral-800: #1a202c;
+            --neutral-900: #171923;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--white);
-            color: var(--neutral-800);
             line-height: 1.6;
+            color: var(--neutral-700);
+            background-color: var(--white);
             overflow-x: hidden;
         }
 
@@ -77,92 +112,33 @@
             padding: 0 1.5rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .skip-link:focus {
+            top: 6px;
         }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .animate-fade-up {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .animate-slide-left {
-            opacity: 0;
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-
-        .animate-slide-right {
-            opacity: 0;
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-
-        .animate-scale {
-            opacity: 0;
-            animation: scaleIn 0.6s ease-out forwards;
-        }
-
-        /* Stagger animations */
-        .animate-fade-up:nth-child(1) { animation-delay: 0.1s; }
-        .animate-fade-up:nth-child(2) { animation-delay: 0.2s; }
-        .animate-fade-up:nth-child(3) { animation-delay: 0.3s; }
-        .animate-fade-up:nth-child(4) { animation-delay: 0.4s; }
 
         /* Header */
         header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--neutral-200);
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            z-index: 100;
             transition: all 0.3s ease;
-        }
-
-        .header-scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-md);
         }
 
         nav {
@@ -170,6 +146,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 1rem 0;
+            min-height: 80px;
         }
 
         .logo {
@@ -177,15 +154,21 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
-            color: var(--neutral-800);
+            color: var(--primary-color);
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .logo img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 8px;
+            object-fit: cover;
         }
 
         .nav-links {
@@ -197,24 +180,24 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--neutral-700);
+            color: var(--neutral-600);
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--primary-color);
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-blue);
+            background: var(--primary-color);
             transition: width 0.3s ease;
         }
 
@@ -240,37 +223,32 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-        }
-
-        .cta-button.primary {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .cta-button.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            white-space: nowrap;
         }
 
         .cta-button.secondary {
-            background: var(--success-green);
-            color: white;
+            background: var(--neutral-100);
+            color: var(--primary-color);
+            border: 2px solid var(--neutral-200);
         }
 
         .cta-button.secondary:hover {
-            background: #059669;
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .cta-button.accent {
-            background: var(--gradient-accent);
-            color: white;
+            background: var(--primary-color);
+            color: var(--white);
         }
 
         .cta-button.accent:hover {
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .mobile-menu {
@@ -286,16 +264,20 @@
         .mobile-menu span {
             width: 25px;
             height: 3px;
-            background: var(--neutral-700);
-            border-radius: 2px;
+            background: var(--primary-color);
             transition: all 0.3s ease;
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 8rem 0 6rem;
+            /* Added background image with proper centering and overlay */
+            background: linear-gradient(rgba(74, 85, 104, 0.7), rgba(45, 55, 72, 0.8)), url('https://i.postimg.cc/YSr9y0fZ/unnamed.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 140px 0 100px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -307,131 +289,141 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: linear-gradient(135deg, rgba(74, 85, 104, 0.8) 0%, rgba(45, 55, 72, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--neutral-100);
         }
 
         .hero .description {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.125rem);
             margin-bottom: 3rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--neutral-200);
+            line-height: 1.7;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .hero .cta-button {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-
-        .hero .cta-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .hero .cta-button.accent {
-            background: var(--gradient-accent);
-            border: 2px solid var(--accent-orange);
-        }
-
-        /* Company Info Banner */
+        /* Company Information Section */
         .company-info {
             background: var(--neutral-50);
-            border-bottom: 1px solid var(--neutral-200);
-            padding: 2rem 0;
+            padding: 80px 0;
         }
 
         .company-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            align-items: center;
+            margin-bottom: 3rem;
         }
 
         .company-detail {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .company-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .company-detail i {
-            color: var(--primary-blue);
-            font-size: 1.25rem;
-            width: 24px;
-            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
         }
 
         .company-detail-content h4 {
-            font-size: 0.9rem;
+            color: var(--primary-color);
             font-weight: 600;
-            color: var(--neutral-700);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .company-detail-content p {
-            font-size: 0.85rem;
             color: var(--neutral-600);
-            margin: 0;
+            font-size: 0.95rem;
         }
 
         .certifications {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
             display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .certification-badge {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            background: white;
-            border: 2px solid var(--primary-blue);
-            border-radius: 50px;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--neutral-50);
+            border-radius: 8px;
             font-weight: 600;
-            color: var(--primary-blue);
-            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .certification-badge i {
+            color: var(--primary-color);
+        }
+
+        .logo-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-badge {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-badge:hover {
+            transform: scale(1.1);
         }
 
         /* Services Section */
         .services {
-            padding: 6rem 0;
-            background: white;
+            padding: 100px 0;
+            background: var(--white);
         }
 
         .section-header {
@@ -440,14 +432,14 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: var(--neutral-800);
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--neutral-600);
             max-width: 600px;
             margin: 0 auto;
@@ -455,73 +447,95 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            background: white;
+            background: var(--white);
+            padding: 2.5rem;
             border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--neutral-200);
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 12px;
+            width: 80px;
+            height: 80px;
+            background: var(--neutral-50);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary-color);
+            color: var(--white);
         }
 
         .service-icon i {
-            font-size: 1.5rem;
-            color: white;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            color: var(--white);
         }
 
         .service-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            color: var(--neutral-800);
         }
 
         .service-card p {
             color: var(--neutral-600);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* Features Section */
         .features {
-            padding: 6rem 0;
             background: var(--neutral-50);
+            padding: 100px 0;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
             text-align: center;
-            padding: 2rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -530,40 +544,83 @@
         }
 
         .feature-icon i {
-            font-size: 2rem;
-            color: white;
+            font-size: 1.75rem;
+            color: var(--white);
         }
 
         .feature-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            color: var(--neutral-800);
         }
 
         .feature-card p {
             color: var(--neutral-600);
-            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--neutral-600);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .owner-info {
+            background: var(--neutral-50);
+            padding: 2rem;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .owner-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-info p {
+            color: var(--neutral-600);
+            font-weight: 500;
+            margin: 0;
         }
 
         /* Contact Section */
         .contact {
-            padding: 6rem 0;
-            background: white;
+            background: var(--neutral-50);
+            padding: 100px 0;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .contact-info h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .contact-info, .opening-hours {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-info h3, .opening-hours h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--neutral-800);
         }
 
         .contact-item {
@@ -581,25 +638,19 @@
         }
 
         .contact-item i {
-            color: var(--primary-blue);
+            color: var(--primary-color);
             width: 20px;
             text-align: center;
         }
 
         .contact-item a {
-            color: var(--neutral-700);
+            color: var(--neutral-600);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: var(--primary-blue);
-        }
-
-        .opening-hours {
-            background: var(--neutral-50);
-            padding: 2rem;
-            border-radius: 12px;
+            color: var(--primary-color);
         }
 
         .hours-table {
@@ -613,32 +664,133 @@
         }
 
         .hours-table td:first-child {
+            color: var(--neutral-600);
             font-weight: 500;
-            color: var(--neutral-700);
         }
 
         .hours-table td:last-child {
             text-align: right;
-            color: var(--neutral-600);
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .hours-note {
             margin-top: 1rem;
+            padding: 1rem;
+            background: var(--neutral-50);
+            border-radius: 8px;
             font-size: 0.9rem;
             color: var(--neutral-600);
-            font-style: italic;
+            text-align: center;
         }
 
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--neutral-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.1);
+        }
+
+        /* Added Van Appiah logo styling */
+        .va-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .va-logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .va-logo-container a:hover {
+            color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .va-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        #status {
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* Map */
         .map-container {
-            margin-top: 3rem;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
+            height: 400px;
         }
 
         .map-container iframe {
             width: 100%;
-            height: 400px;
+            height: 100%;
             border: none;
         }
 
@@ -647,22 +799,19 @@
             background: var(--neutral-800);
             color: var(--neutral-300);
             padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
             text-align: center;
         }
 
         .footer-content h3 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 2rem;
             justify-content: center;
+            gap: 2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
@@ -674,26 +823,29 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent-orange);
+            color: var(--white);
         }
 
         .google-review {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--neutral-300);
+            display: inline-block;
+            background: var(--neutral-700);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
             text-decoration: none;
+            color: var(--neutral-300);
             margin-bottom: 2rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .google-review:hover {
-            color: var(--warning-yellow);
+            background: var(--neutral-600);
+            transform: translateY(-2px);
         }
 
         .stars {
-            color: var(--warning-yellow);
-            font-size: 1.1rem;
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
         }
 
         .copyright {
@@ -707,35 +859,46 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            z-index: 999;
+            z-index: 50;
         }
 
-        .floating-cta .cta-button {
-            box-shadow: var(--shadow-xl);
-            animation: pulse 2s infinite;
+        /* Sticky CTA Bar */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            gap: 0;
+            z-index: 50;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .sticky-cta .cta-button {
+            flex: 1;
+            border-radius: 0;
+            padding: 1rem;
+            text-align: center;
+            justify-content: center;
         }
 
-        /* Back to top */
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
             left: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-blue);
-            color: white;
+            background: var(--primary-color);
+            color: var(--white);
             border: none;
             border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            z-index: 998;
+            z-index: 50;
         }
 
         .back-to-top.visible {
@@ -744,27 +907,94 @@
         }
 
         .back-to-top:hover {
-            background: var(--primary-blue-dark);
+            background: var(--primary-dark);
             transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideLeft 0.8s ease forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideRight 0.8s ease forwards;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 80px;
                 left: 0;
                 right: 0;
-                background: white;
+                background: var(--white);
                 flex-direction: column;
                 padding: 2rem;
                 box-shadow: var(--shadow-lg);
-                border-top: 1px solid var(--neutral-200);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
             }
 
             .nav-links.active {
-                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
 
             .mobile-menu {
@@ -787,41 +1017,50 @@
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 120px 0 80px;
+                background-attachment: scroll;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .service-card {
+                padding: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .floating-cta {
+                display: none;
+            }
+
+            .sticky-cta {
+                display: flex;
+            }
+
+            .back-to-top {
+                bottom: 80px;
             }
 
             .company-info-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .certifications {
-                justify-content: center;
-            }
-
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .back-to-top {
-                bottom: 1rem;
-                left: 1rem;
             }
         }
 
@@ -831,105 +1070,28 @@
             }
 
             .hero {
-                padding: 6rem 0 4rem;
+                padding: 100px 0 60px;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .services, .features, .contact, .about {
+                padding: 60px 0;
             }
 
-            .services, .features, .contact {
-                padding: 4rem 0;
+            .company-info {
+                padding: 60px 0;
             }
 
-            .services-grid, .features-grid {
-                grid-template-columns: 1fr;
+            .contact-form-container {
+                padding: 2rem;
             }
         }
-        
-/* Contact Form */
-#contactForm {
-    background: #f0f0f0; /* lichtere kleur, prettiger voor ogen */
-    margin: 2rem auto;   /* ruim van de rest van de pagina */
-    padding: 2.5em;      /* binnenruimte */
-    border-radius: 15px;
-    max-width: 600px;    /* niet te breed */
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;          /* ruimte tussen labels/input/textarea */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Labels */
-#contactForm label {
-    font-weight: 600;
-}
-
-/* Inputs & Textarea */
-#contactForm input,
-#contactForm textarea {
-    padding: 0.8em 1em;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    width: 100%;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-#contactForm input:focus,
-#contactForm textarea:focus {
-    border-color: #007bff;
-}
-
-/* Button */
-#contactForm button {
-    padding: 0.8em 1.5em;
-    border-radius: 10px;
-    border: none;
-    background-color: #ffcc00;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contactForm button:hover {
-    background-color: #e6b800;
-}
-
-/* Status message */
-#status {
-    margin-top: 1em;
-    font-size: 1rem;
-    color: green;
-    text-align: center;
-}
-.va-logo-container {
-    margin-top: 1em;
-    text-align: center;
-}
-
-.va-logo-container a {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #666;
-    font-size: 12px;
-}
-
-.va-logo-container a:hover {
-    color: #aaa;
-}
-
-.va-logo {
-    width: 16px;
-    height: 16px;
-}
     </style>
 </head>
+
 <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Spring naar hoofdinhoud</a>
+
     <!-- Header -->
     <header>
         <nav class="container">
@@ -942,16 +1104,18 @@
                 <li><a href="#diensten">Diensten</a></li>
                 <li><a href="#over-ons">Over ons</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                <li><a href="tel:+31646102011">Bel Nu</a></li>
             </ul>
             <div class="header-cta">
-                <a href="https://wa.me/31646102011" target="_blank" class="cta-button secondary">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
+                <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
                 </a>
                 <a href="tel:+31646102011" class="cta-button accent">
-                    <i class="fas fa-phone"></i> Bel Nu
+                    <i class="fas fa-phone" aria-hidden="true"></i> Bel Nu
                 </a>
             </div>
-            <button class="mobile-menu" aria-label="Menu">
+            <button class="mobile-menu" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -960,20 +1124,20 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="animate-fade-up">Car Center Rishi</h1>
-                    <p class="subtitle animate-fade-up">Uw betrouwbare partner voor APK, diagnose & onderhoud</p>
-                    <p class="description animate-fade-up">BOVAG gecertificeerd en RDW erkend in Amsterdam-Noord. Transparantie, vakmanschap en eerlijke service staan bij ons voorop.</p>
-                    <div class="hero-buttons animate-fade-up">
-                        <a href="https://wa.me/31646102011" target="_blank" class="cta-button secondary">
-                            <i class="fab fa-whatsapp"></i> WhatsApp ons
+                    <h1 class="fade-in-up">Car Center Rishi</h1>
+                    <p class="subtitle fade-in-up">Uw betrouwbare partner voor APK, diagnose & onderhoud</p>
+                    <p class="description fade-in-up">BOVAG gecertificeerd en RDW erkend in Amsterdam-Noord. Transparantie, vakmanschap en eerlijke service staan bij ons voorop.</p>
+                    <div class="hero-buttons fade-in-up">
+                        <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp ons
                         </a>
                         <a href="tel:+31646102011" class="cta-button accent">
-                            <i class="fas fa-phone"></i> Bel direct
+                            <i class="fas fa-phone" aria-hidden="true"></i> Bel direct
                         </a>
                     </div>
                 </div>
@@ -985,21 +1149,21 @@
             <div class="container">
                 <div class="company-info-grid">
                     <div class="company-detail animate-slide-left">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-building" aria-hidden="true"></i>
                         <div class="company-detail-content">
                             <h4>Bedrijfsgegevens</h4>
                             <p>KVK: 68638701 | Eenmanszaak</p>
                         </div>
                     </div>
                     <div class="company-detail animate-slide-left">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         <div class="company-detail-content">
                             <h4>Hoofdvestiging</h4>
                             <p>Vestigingsnummer: 000037059092</p>
                         </div>
                     </div>
                     <div class="company-detail animate-slide-right">
-                        <i class="fas fa-store"></i>
+                        <i class="fas fa-store" aria-hidden="true"></i>
                         <div class="company-detail-content">
                             <h4>Handelsnamen</h4>
                             <p>Car Center Rishi | Garage Centrum Rishi</p>
@@ -1007,14 +1171,18 @@
                     </div>
                     <div class="certifications animate-slide-right">
                         <div class="certification-badge">
-                            <i class="fas fa-certificate"></i>
+                            <i class="fas fa-certificate" aria-hidden="true"></i>
                             BOVAG Gecertificeerd
                         </div>
                         <div class="certification-badge">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
                             RDW Erkend
                         </div>
                     </div>
+                </div>
+                <div class="logo-badges">
+                    <img src="https://i.postimg.cc/CLhjkh9P/download.png" alt="RDW Erkend Bedrijf Logo" class="logo-badge">
+                    <img src="https://i.postimg.cc/BbXJf1X7/NAP-VINKJE-transparant.png" alt="NAP Logo" class="logo-badge">
                 </div>
             </div>
         </section>
@@ -1023,48 +1191,48 @@
         <section id="diensten" class="services">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title animate-fade-up">Onze Diensten</h2>
-                    <p class="section-subtitle animate-fade-up">Professionele autoservice voor alle merken en modellen</p>
+                    <h2 class="section-title fade-in-up">Onze Diensten</h2>
+                    <p class="section-subtitle fade-in-up">Professionele autoservice voor alle merken en modellen</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-clipboard-check"></i>
+                            <i class="fas fa-clipboard-check" aria-hidden="true"></i>
                         </div>
                         <h3>APK Keuring</h3>
                         <p>Officiële APK keuring door RDW erkende keurmeesters. Snelle afhandeling en directe uitslag. Bij goedkeuring krijgt u direct uw APK sticker mee.</p>
                     </div>
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-search"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </div>
                         <h3>Diagnose & Storing</h3>
                         <p>Moderne diagnosesystemen voor alle automerken. Wij lokaliseren storingen snel en accuraat, zodat u precies weet wat er aan de hand is.</p>
                     </div>
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-tools" aria-hidden="true"></i>
                         </div>
                         <h3>Onderhoud & Reparatie</h3>
                         <p>Groot en klein onderhoud volgens fabrieksspecificaties. Van olie verversen tot complexe reparaties, wij zorgen ervoor dat uw auto optimaal blijft presteren.</p>
                     </div>
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-car-battery"></i>
+                            <i class="fas fa-car-battery" aria-hidden="true"></i>
                         </div>
                         <h3>Accu & Elektronica</h3>
                         <p>Accu testen, vervangen en elektrische storingen oplossen. Moderne auto's hebben complexe elektronica, wij hebben de kennis en apparatuur om dit te onderhouden.</p>
                     </div>
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-tire"></i>
+                            <i class="fas fa-tire" aria-hidden="true"></i>
                         </div>
                         <h3>Banden & Velgen</h3>
                         <p>Banden monteren, balanceren en uitlijnen. Ook voor seizoenswisseling en bandenopslag. Kwaliteitsbanden tegen scherpe prijzen.</p>
                     </div>
-                    <div class="service-card animate-fade-up">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-oil-can"></i>
+                            <i class="fas fa-oil-can" aria-hidden="true"></i>
                         </div>
                         <h3>Olie & Vloeistoffen</h3>
                         <p>Olie verversen, vloeistoffen controleren en bijvullen. Wij gebruiken alleen kwaliteitsoliën die voldoen aan de specificaties van uw auto.</p>
@@ -1083,170 +1251,155 @@
                 <div class="features-grid">
                     <div class="feature-card animate-fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-car"></i>
+                            <i class="fas fa-car" aria-hidden="true"></i>
                         </div>
                         <h3>Ophaal & Brengservice</h3>
-                        <p>Gemak staat voorop. Wij halen uw auto op en brengen deze na de service weer netjes terug tegen een kleine toeslag.</p>
+  <p>Wij halen uw auto op en brengen deze na de service weer netjes terug, tegen een kleine vergoeding.</p>
+
                     </div>
                     <div class="feature-card animate-fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
+                            <i class="fas fa-clock" aria-hidden="true"></i>
                         </div>
                         <h3>Snelle Service</h3>
-                        <p>Vaak klaar binnen één dag, zodat u snel weer veilig de weg op kunt. Efficiency zonder kwaliteitsverlies.</p>
+                        <p>Vaak klaar binnen één dag.</p>
                     </div>
                     <div class="feature-card animate-fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
                         </div>
                         <h3>Transparante Prijzen</h3>
-                        <p>Geen verrassingen, alleen eerlijke en transparante communicatie over alle werkzaamheden en kosten.</p>
+                        <p>Eerlijke communicatie over werkzaamheden en kosten.</p>
                     </div>
                     <div class="feature-card animate-fade-up">
                         <div class="feature-icon">
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
                         </div>
                         <h3>Hoge Waardering</h3>
-                        <p>Onze klanten waarderen onze service met gemiddeld 4.4 sterren. Kwaliteit die wordt erkend en gewaardeerd.</p>
+                        <p>Klanten beoordelen gemiddeld 4.4 sterren.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="over-ons" class="services">
+        <section id="over-ons" class="about">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title animate-fade-up">Over Car Center Rishi</h2>
                 </div>
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <p style="font-size: 1.1rem; color: var(--neutral-600); line-height: 1.8; margin-bottom: 2rem;" class="animate-fade-up">
+                <div class="about-content">
+                    <p class="animate-fade-up">
                         Bij Car Center Rishi staat eerlijkheid voorop. Onze ervaren monteurs behandelen uw auto alsof het hun eigen auto is. 
                         Met moderne apparatuur en jarenlange ervaring zorgen we ervoor dat u veilig de weg op kunt. 
                         Wij geloven in transparante communicatie, vakkundig werk en een persoonlijke benadering die het verschil maakt.
                     </p>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; display: inline-block;" class="animate-fade-up">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Rishi Ramanand</h3>
-                        <p style="color: var(--neutral-600); font-weight: 500;">Directeur & Eigenaar</p>
+                    <div class="owner-info animate-fade-up">
+                        <h3>Rishi Ramanand</h3>
+                        <p>Directeur & Eigenaar</p>
                     </div>
                 </div>
             </div>
         </section>
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title animate-fade-up">Contact & Locatie</h2>
-            <p class="section-subtitle animate-fade-up">Neem contact op voor een afspraak of vraag</p>
-        </div>
-        
-        <div class="contact-grid">
-            <div class="contact-info animate-slide-left">
-                <h3>Contactgegevens</h3>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Meeuwenlaan 116 H, 1021JM Amsterdam</span>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-fade-up">Contact & Locatie</h2>
+                    <p class="section-subtitle animate-fade-up">Neem contact op voor een afspraak of vraag</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:+31646102011">06 46102011</a>
+                
+                <div class="contact-grid">
+                    <div class="contact-info animate-slide-left">
+                        <h3>Contactgegevens</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Meeuwenlaan 116 H, 1021JM Amsterdam</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+31646102011">06 46102011</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+31203370324">020 337 03 24</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe" aria-hidden="true"></i>
+                            <a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer">www.carcenterrishi.nl</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp ons direct</a>
+                        </div>
+                    </div>
+
+                    <div class="opening-hours animate-slide-right">
+                        <h3>Openingstijden</h3>
+                        <table class="hours-table">
+                            <tbody>
+                                <tr><td>Maandag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Dinsdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Woensdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Donderdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Vrijdag</td><td>09:00–18:00</td></tr>
+                                <tr><td>Zaterdag</td><td>12:00–18:00</td></tr>
+                                <tr><td>Zondag</td><td>Gesloten</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="hours-note">Afspraken ook buiten openingstijden mogelijk</div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:+31203370324">020 337 03 24</a>
+
+                <!-- Updated contact form with specific fields as requested -->
+                <div class="contact-form-container fade-in-up">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="naam">Naam *</label>
+                            <input type="text" id="naam" name="naam" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bericht">Bericht *</label>
+                            <textarea id="bericht" name="bericht" rows="5" required placeholder="Vul ook kenteken en nummer in."></textarea>
+                        </div>
+
+                        <!-- Added Van Appiah logo above submit button -->
+                        <div class="va-logo-container">
+                            <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer">
+                                <img src="https://i.postimg.cc/2Sf9gFVb/VAfavicon.png" alt="Van Appiah Logo" class="va-logo">
+                                <span class="va-text">Powered by Van Appiah</span>
+                            </a>
+                        </div>
+
+                        <button type="submit" class="submit-button">Verstuur</button>
+                    </form>
+                    <p id="status" aria-live="polite"></p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-globe"></i>
-                    <a href="https://www.carcenterrishi.nl" target="_blank">www.carcenterrishi.nl</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me/31646102011" target="_blank">WhatsApp ons direct</a>
+
+                <!-- Google Maps -->
+                <div class="map-container animate-fade-up">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.8234567890123!2d4.9123456789!3d52.3987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3c7654321%3A0x1234567890abcdef!2sMeeuwenlaan%20116%2C%201021%20JM%20Amsterdam%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1234567890123!5m2!1sen!2snl" 
+                        allowfullscreen 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Car Center Rishi Locatie">
+                    </iframe>
                 </div>
             </div>
-
-            <div class="opening-hours animate-slide-right">
-                <h3>Openingstijden</h3>
-                <table class="hours-table">
-                    <tbody>
-                        <tr><td>Maandag</td><td>09:00–18:00</td></tr>
-                        <tr><td>Dinsdag</td><td>09:00–18:00</td></tr>
-                        <tr><td>Woensdag</td><td>09:00–18:00</td></tr>
-                        <tr><td>Donderdag</td><td>09:00–18:00</td></tr>
-                        <tr><td>Vrijdag</td><td>09:00–18:00</td></tr>
-                        <tr><td>Zaterdag</td><td>12:00–18:00</td></tr>
-                        <tr><td>Zondag</td><td>Gesloten</td></tr>
-                    </tbody>
-                </table>
-                <div class="hours-note">Afspraken ook buiten openingstijden mogelijk</div>
-            </div>
-        </div>
-
-        <!-- Contactformulier met Apps Script -->
-        <div class="contact-form-container animate-fade-up">
-            <form id="contactForm" class="contact-form">
-                <label>Naam</label>
-                <input type="text" name="naam" required>
-
-                <label>E-mail</label>
-                <input type="email" name="email" required>
-
-                <label>Bericht</label>
-                <textarea name="bericht" rows="5" required></textarea>
-
-                <div class="va-logo-container">
-                    <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.postimg.cc/2Sf9gFVb/VAfavicon.png" alt="Van Appiah Logo" class="va-logo">
-                        <span class="va-text">Van Appiah</span>
-                    </a>
-                </div>
-
-                <button type="submit">Verstuur</button>
-            </form>
-            <p id="status" aria-live="polite"></p>
-        </div>
-
-        <!-- Script voor Apps Script formulier -->
-        <script>
-            const form = document.getElementById('contactForm');
-            const status = document.getElementById('status');
-
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-                const data = new FormData(form);
-
-                fetch('https://script.google.com/macros/s/AKfycbxnrL4-cinVnn-vxXG9LHtyzxyBaqFpMqHY_1ROXa-6t3mY1Jx7vnRyVhfJH4U1lTRV/exec', { 
-                    method: 'POST',
-                    body: data
-                })
-                .then(response => response.text())
-                .then(result => {
-                    status.textContent = "Bedankt! We nemen snel contact met je op.";
-                    form.reset();
-                })
-                .catch(error => {
-                    status.textContent = "Er is iets misgegaan, probeer het later opnieuw.";
-                    console.error(error);
-                });
-            });
-        </script>
-
-        <!-- Google Maps -->
-        <div class="map-container animate-fade-up">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.8234567890123!2d4.9123456789!3d52.3987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3c7654321%3A0x1234567890abcdef!2sMeeuwenlaan%20116%2C%201021%20JM%20Amsterdam%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1234567890123!5m2!1sen!2snl" 
-                allowfullscreen 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Car Center Rishi Locatie">
-            </iframe>
-        </div>
-    </div>
-</section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1256,15 +1409,15 @@
                 <div class="footer-links">
                     <a href="tel:+31646102011">06 46102011</a>
                     <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
-                    <a href="https://wa.me/31646102011" target="_blank">WhatsApp</a>
+                    <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
-                <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" class="google-review">
+                <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" rel="noopener noreferrer" class="google-review">
                     <div class="stars">★★★★☆</div>
                     <div>Google reviews 4.4 sterren</div>
                 </a>
                 <p class="copyright">© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
                 <p class="copyright">
-                    Powered by <a href="https://vanappiah.com" target="_blank" style="color: var(--neutral-400); text-decoration: none;">Van Appiah</a>
+                    Powered by <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer" style="color: var(--neutral-400); text-decoration: none;">Van Appiah</a>
                 </p>
             </div>
         </div>
@@ -1273,29 +1426,40 @@
     <!-- Floating CTA -->
     <div class="floating-cta">
         <a href="tel:+31646102011" class="cta-button accent">
-            <i class="fas fa-phone"></i> Bel Nu
+            <i class="fas fa-phone" aria-hidden="true"></i> Bel Nu
+        </a>
+    </div>
+
+    <!-- Sticky CTA Bar (Mobile) -->
+    <div class="sticky-cta">
+        <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+        </a>
+        <a href="tel:+31646102011" class="cta-button">
+            <i class="fas fa-phone" aria-hidden="true"></i> Bel Nu
         </a>
     </div>
 
     <!-- Back to Top -->
     <button class="back-to-top" aria-label="Terug naar boven">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const stickyCta = document.querySelector('.sticky-cta');
+        const backToTop = document.querySelector('.back-to-top');
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            const isExpanded = mobileMenu.classList.contains('active');
+            mobileMenu.setAttribute('aria-expanded', isExpanded);
         });
 
         // Intersection Observer for animations
@@ -1313,61 +1477,43 @@
         }, observerOptions);
 
         // Observe all animation elements
-        document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide-right, .animate-scale').forEach(el => {
+        document.querySelectorAll('.fade-in, .fade-in-up, .animate-fade-up, .animate-slide-left, .animate-slide-right').forEach(el => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
 
-        // Header scroll effect and back to top
-        let lastScrollY = window.scrollY;
-        const header = document.querySelector('header');
-        const backToTop = document.querySelector('.back-to-top');
-
-        function handleScroll() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                header.classList.add('header-scrolled');
-                backToTop.classList.add('visible');
-            } else {
-                header.classList.remove('header-scrolled');
-                backToTop.classList.remove('visible');
-            }
-            
-            lastScrollY = currentScrollY;
-        }
-
-        // Debounced scroll handler
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
-            }
-            scrollTimeout = setTimeout(handleScroll, 10);
-        });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('active');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('nav')) {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('active');
+        // Scroll effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Show/hide back to top button
+            if (scrolled > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Show sticky CTA on mobile
+            if (window.innerWidth <= 768 && scrolled > 500) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
             }
         });
 
@@ -1379,23 +1525,53 @@
             });
         });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
+        // Form submission
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const data = new FormData(form);
+
+            // Show loading state
+            status.textContent = "Bericht wordt verzonden...";
+            status.style.color = "var(--neutral-600)";
+
+            fetch('https://script.google.com/macros/s/AKfycbxnrL4-cinVnn-vxXG9LHtyzxyBaqFpMqHY_1ROXa-6t3mY1Jx7vnRyVhfJH4U1lTRV/exec', { 
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.text())
+            .then(result => {
+                status.textContent = "Bedankt! We nemen snel contact met je op.";
+                status.style.color = "var(--primary-color)";
+                form.reset();
+            })
+            .catch(error => {
+                status.textContent = "Er is iets misgegaan, probeer het later opnieuw.";
+                status.style.color = "var(--accent-color)";
+                console.error(error);
+            });
         });
 
         // Performance monitoring
         window.addEventListener('load', () => {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            console.log('Page load time:', loadTime + 'ms');
+            if (performance.timing) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
         });
 
         // Error handling
         window.addEventListener('error', (e) => {
             console.error('JavaScript error:', e.error);
+        });
+
+        // Resize handler for responsive behavior
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 767) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+                stickyCta.classList.remove('visible');
+            }
         });
     </script>
 </body>
