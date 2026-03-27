@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Center Rishi Demo</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h2 { margin-top: 30px; }
+  button { margin: 5px 0; padding: 8px 12px; }
+  pre { background: #f4f4f4; padding: 10px; max-height: 300px; overflow: auto; }
+  input, select { margin: 5px 0; padding: 5px; width: 200px; }
+  .section { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<h1>Car Center Rishi Demo</h1>
+
+<div class="section">
+  <h2>Klant functies</h2>
+  <div>
+    <strong>Login</strong><br>
+    E-mail: <input id="loginEmail" value="test@test.com"><br>
+    Wachtwoord: <input id="loginPassword" value="1234"><br>
+    <button onclick="login()">Login</button>
+  </div>
+  <div>
+    <strong>Register</strong><br>
+    Naam: <input id="regName" value="Demo User"><br>
+    E-mail: <input id="regEmail" value="demo@test.com"><br>
+    Telefoon: <input id="regPhone" value="0612345678"><br>
+    Kenteken: <input id="regPlate" value="ABC123"><br>
+    Wachtwoord: <input id="regPass" value="1234"><br>
+    <button onclick="register()">Register</button>
+  </div>
+  <div>
+    <strong>Check voertuigstatus</strong><br>
+    Kenteken: <input id="vehiclePlate" value="ABC123"><br>
+    <button onclick="checkVehicle()">Check Vehicle</button>
+  </div>
+  <div>
+    <strong>Bekijk reviews</strong><br>
+    <button onclick="viewReviews()">View Reviews</button>
+  </div>
+  <div>
+    <strong>Bericht sturen</strong><br>
+    Naam: <input id="msgName" value="Demo User"><br>
+    E-mail: <input id="msgEmail" value="demo@test.com"><br>
+    Bericht: <input id="msgText" value="Test bericht"><br>
+    <button onclick="leaveMessage()">Send Message</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Admin functies</h2>
+  <div>
+    <button onclick="getUsers()">Get Users</button>
+    <button onclick="getMessages()">Get Messages</button>
+    <button onclick="getAllReviews()">Get All Reviews</button>
+    <button onclick="getLogs()">Get Logs</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Klant/Website gerelateerd</h2>
+  <div>
+    <button onclick="getOpeningHours()">Get Opening Hours</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Admin gerelateerd (demo)</h2>
+  <div>
+    <button onclick="moderateReviewDemo()">Moderate Review (demo)</button>
+    <button onclick="addVehicleDemo()">Add Vehicle (demo)</button>
+    <button onclick="updateStatusDemo()">Update Vehicle Status (demo)</button>
+    <button onclick="updateOpeningHoursDemo()">Update Opening Hours (demo)</button>
+    <button onclick="getEmployeesDemo()">Get Employees</button>
+    <button onclick="addEmployeeDemo()">Add Employee (demo)</button>
+    <button onclick="getRolesDemo()">Get Roles</button>
+    <button onclick="addRoleDemo()">Add Role (demo)</button>
+    <button onclick="getWorkProcessesDemo()">Get WorkProcesses</button>
+    <button onclick="addWorkProcessDemo()">Add WorkProcess (demo)</button>
+  </div>
+</div>
+
+<h2>Resultaat</h2>
+<pre id="output"></pre>
+
+<script>
+const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw-rSXLRpworoq-9Aqkv3xSeZCBRW-XnQ3VJXxLGjcnJFxGMr_i1c1LXZjsqLs_fV-b/exec";
+
+function showResult(data){
+  document.getElementById('output').textContent = JSON.stringify(data,null,2);
+}
+
+// -----------------------
+// Klant functies
+// -----------------------
+function login(){
+  fetch(WEBAPP_URL, {
+    method:"POST",
+    body: JSON.stringify({action:"login", email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value})
+  }).then(r=>r.json()).then(showResult);
+}
+
+function register(){
+  fetch(WEBAPP_URL, {
+    method:"POST",
+    body: JSON.stringify({
+      action:"register",
+      naam: document.getElementById('regName').value,
+      email: document.getElementById('regEmail').value,
+      telefoon: document.getElementById('regPhone').value,
+      kenteken: document.getElementById('regPlate').value,
+      password: document.getElementById('regPass').value
+    })
+  }).then(r=>r.json()).then(showResult);
+}
+
+function checkVehicle(){
+  fetch(WEBAPP_URL, {
+    method:"POST",
+    body: JSON.stringify({action:"getVehicleStatus", kenteken: document.getElementById('vehiclePlate').value})
+  }).then(r=>r.json()).then(showResult);
+}
+
+function viewReviews(){
+  fetch(WEBAPP_URL, {
+    method:"POST",
+    body: JSON.stringify({action:"getReviews"})
+  }).then(r=>r.json()).then(showResult);
+}
+
+function leaveMessage(){
+  fetch(WEBAPP_URL, {
+    method:"POST",
+    body: JSON.stringify({
+      action:"leaveMessage",
+      naam: document.getElementById('msgName').value,
+      email: document.getElementById('msgEmail').value,
+      bericht: document.getElementById('msgText').value
+    })
+  }).then(r=>r.json()).then(showResult);
+}
+
+// -----------------------
+// Admin functies
+// -----------------------
+function getUsers(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getUsers"})}).then(r=>r.json()).then(showResult); }
+function getMessages(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getMessages"})}).then(r=>r.json()).then(showResult); }
+function getAllReviews(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getAllReviews"})}).then(r=>r.json()).then(showResult); }
+function getLogs(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getLogs"})}).then(r=>r.json()).then(showResult); }
+
+// -----------------------
+// Website / Klant
+// -----------------------
+function getOpeningHours(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getOpeningHours"})}).then(r=>r.json()).then(showResult); }
+
+// -----------------------
+// Admin demo functies
+// -----------------------
+function moderateReviewDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"moderateReview", row:2, status:"Approved"})}).then(r=>r.json()).then(showResult);}
+function addVehicleDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addVehicle", kenteken:"XYZ123", beschrijving:"Demo Vehicle", userID:"U123"})}).then(r=>r.json()).then(showResult);}
+function updateStatusDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"updateStatus", kenteken:"XYZ123", status:"Klaar"})}).then(r=>r.json()).then(showResult);}
+function updateOpeningHoursDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"updateOpeningHours", hours:[["Maandag","09:00","17:30","N","Demo"]]])}).then(r=>r.json()).then(showResult);}
+function getEmployeesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getEmployees"})}).then(r=>r.json()).then(showResult);}
+function addEmployeeDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addEmployee", naam:"Demo Employee", role:"R1"})}).then(r=>r.json()).then(showResult);}
+function getRolesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getRoles"})}).then(r=>r.json()).then(showResult);}
+function addRoleDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addRole", roleName:"DemoRole", permissions:"{}"})}).then(r=>r.json()).then(showResult);}
+function getWorkProcessesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getWorkProcesses"})}).then(r=>r.json()).then(showResult);}
+function addWorkProcessDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addWorkProcess", titel:"Demo Work", beschrijving:"Demo WorkProcess", status:"Gestart"})}).then(r=>r.json()).then(showResult);}
+</script>
+
+</body>
+</html>
