@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Center Rishi Admin</title>
 
+<style>
+body{
+  margin:0;
+  font-family:Inter, Arial;
+  background:#0D0D0D;
+  color:white;
+  display:flex;
+}
+.sidebar{
+  width:240px;
+  background:#111;
+  padding:20px;
+  height:100vh;
+}
+.sidebar button{
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  background:#1A1A1A;
+  border:none;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+.sidebar button:hover{
+  background:#FFD700;
+  color:black;
+}
+.content{
+  flex:1;
+  padding:30px;
+}
+.card{
+  background:#1A1A1A;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+input, textarea, select{
+  width:100%;
+  padding:8px;
+  margin:5px 0;
+  border-radius:6px;
+  border:none;
+}
+button.action{
+  background:#FFD700;
+  color:black;
+  font-weight:bold;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+.result{
+  margin-top:10px;
+  font-size:13px;
+  color:#00ffcc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h3>Admin Panel</h3>
+<button onclick="dashboard()">Dashboard</button>
+<button onclick="vehicleAdd()">Voertuig toevoegen</button>
+<button onclick="vehicleUpdate()">Status wijzigen</button>
+<button onclick="vehicleCheck()">Voertuig status bekijken</button>
+<button onclick="openingHours()">Opening Hours</button>
+<button onclick="addReview()">Review toevoegen</button>
+<button onclick="getReviews()">Bekijk Approved Reviews</button>
+<button onclick="leaveMessage()">Nieuw Bericht</button>
+</div>
+
+<div class="content" id="content">
+<h2>Dashboard</h2>
+<p>Car Center Rishi Admin actief</p>
+</div>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbw-rSXLRpworoq-9Aqkv3xSeZCBRW-XnQ3VJXxLGjcnJFxGMr_i1c1LXZjsqLs_fV-b/exec";
+
+async function api(action,data={}){
+  const res = await fetch(API,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({action,...data})
+  });
+  return await res.json();
+}
+
+function dashboard(){
+  document.getElementById("content").innerHTML = `
+    <h2>Dashboard</h2>
+    <p>Gebruik de sidebar om acties uit te voeren.</p>
+  `;
+}
+
+// ------------------ VEHICLE ADD ------------------
+
+function vehicleAdd(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Voertuig toevoegen</h2>
+    <input id="kenteken" placeholder="Kenteken">
+    <input id="userID" placeholder="UserID (optioneel)">
+    <textarea id="beschrijving" placeholder="Werkbeschrijving"></textarea>
+    <button class="action" onclick="submitVehicle()">Toevoegen</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitVehicle(){
+  const r = await api("addVehicle",{
+    kenteken:document.getElementById("kenteken").value,
+    userID:document.getElementById("userID").value,
+    beschrijving:document.getElementById("beschrijving").value
+  });
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ UPDATE STATUS ------------------
+
+function vehicleUpdate(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Status wijzigen</h2>
+    <input id="kenteken" placeholder="Kenteken">
+    <select id="status">
+      <option>Ontvangen</option>
+      <option>In behandeling</option>
+      <option>Wachten op onderdelen</option>
+      <option>Klaar</option>
+      <option>Afgeleverd</option>
+    </select>
+    <button class="action" onclick="submitStatus()">Update</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitStatus(){
+  const r = await api("updateStatus",{
+    kenteken:document.getElementById("kenteken").value,
+    status:document.getElementById("status").value
+  });
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ CHECK STATUS ------------------
+
+function vehicleCheck(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Voertuig status bekijken</h2>
+    <input id="kenteken" placeholder="Kenteken">
+    <button class="action" onclick="submitCheck()">Zoek</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitCheck(){
+  const r = await api("getVehicleStatus",{
+    kenteken:document.getElementById("kenteken").value
+  });
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ OPENING HOURS ------------------
+
+function openingHours(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Opening Hours aanpassen</h2>
+    <textarea id="hours" placeholder='JSON voorbeeld:
+[
+["Maandag","09:00","17:00","N",""],
+["Dinsdag","09:00","17:00","N",""]
+]'></textarea>
+    <button class="action" onclick="submitHours()">Opslaan</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitHours(){
+  const hours = JSON.parse(document.getElementById("hours").value);
+  const r = await api("updateOpeningHours",{hours:hours});
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ REVIEW ------------------
+
+function addReview(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Review toevoegen (Pending)</h2>
+    <input id="score" placeholder="Score (1-5)">
+    <input id="titel" placeholder="Titel">
+    <textarea id="bericht" placeholder="Review tekst"></textarea>
+    <button class="action" onclick="submitReview()">Toevoegen</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitReview(){
+  const r = await api("addReview",{
+    score:document.getElementById("score").value,
+    titel:document.getElementById("titel").value,
+    bericht:document.getElementById("bericht").value
+  });
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ GET APPROVED REVIEWS ------------------
+
+function getReviews(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Approved Reviews</h2>
+    <button class="action" onclick="loadReviews()">Laden</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function loadReviews(){
+  const r = await api("getReviews");
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+// ------------------ MESSAGE ------------------
+
+function leaveMessage(){
+  document.getElementById("content").innerHTML = `
+  <div class="card">
+    <h2>Nieuw bericht toevoegen</h2>
+    <input id="naam" placeholder="Naam">
+    <input id="email" placeholder="Email">
+    <input id="kenteken" placeholder="Kenteken">
+    <textarea id="bericht" placeholder="Bericht"></textarea>
+    <button class="action" onclick="submitMessage()">Versturen</button>
+    <div id="result"></div>
+  </div>`;
+}
+
+async function submitMessage(){
+  const r = await api("leaveMessage",{
+    naam:document.getElementById("naam").value,
+    email:document.getElementById("email").value,
+    kenteken:document.getElementById("kenteken").value,
+    bericht:document.getElementById("bericht").value
+  });
+  document.getElementById("result").innerText = JSON.stringify(r,null,2);
+}
+
+</script>
+
+</body>
+</html>
