@@ -1,177 +1,625 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Center Rishi Demo</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  h2 { margin-top: 30px; }
-  button { margin: 5px 0; padding: 8px 12px; }
-  pre { background: #f4f4f4; padding: 10px; max-height: 300px; overflow: auto; }
-  input, select { margin: 5px 0; padding: 5px; width: 200px; }
-  .section { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-</style>
-</head>
-<body>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Status Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<h1>Car Center Rishi Demo</h1>
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-secondary: #f8fafc;
+      --color-text: #000000;
+      --color-text-muted: #64748b;
+      --color-border: #e2e8f0;
+      --color-status-ready: #10b981;
+      --color-status-progress: #f59e0b;
+      --color-accent: #0066ff;
+      --color-accent-hover: #0052cc;
+      --color-error: #ef4444;
+      --color-shadow: rgba(0, 0, 0, 0.06);
+      --color-shadow-hover: rgba(0, 0, 0, 0.1);
+      --color-glass-bg: rgba(255, 255, 255, 0.8);
+      --color-glass-border: rgba(255, 255, 255, 0.3);
+    }
 
-<div class="section">
-  <h2>Klant functies</h2>
-  <div>
-    <strong>Login</strong><br>
-    E-mail: <input id="loginEmail" value="test@test.com"><br>
-    Wachtwoord: <input id="loginPassword" value="1234"><br>
-    <button onclick="login()">Login</button>
-  </div>
-  <div>
-    <strong>Register</strong><br>
-    Naam: <input id="regName" value="Demo User"><br>
-    E-mail: <input id="regEmail" value="demo@test.com"><br>
-    Telefoon: <input id="regPhone" value="0612345678"><br>
-    Kenteken: <input id="regPlate" value="ABC123"><br>
-    Wachtwoord: <input id="regPass" value="1234"><br>
-    <button onclick="register()">Register</button>
-  </div>
-  <div>
-    <strong>Check voertuigstatus</strong><br>
-    Kenteken: <input id="vehiclePlate" value="ABC123"><br>
-    <button onclick="checkVehicle()">Check Vehicle</button>
-  </div>
-  <div>
-    <strong>Bekijk reviews</strong><br>
-    <button onclick="viewReviews()">View Reviews</button>
-  </div>
-  <div>
-    <strong>Bericht sturen</strong><br>
-    Naam: <input id="msgName" value="Demo User"><br>
-    E-mail: <input id="msgEmail" value="demo@test.com"><br>
-    Bericht: <input id="msgText" value="Test bericht"><br>
-    <button onclick="leaveMessage()">Send Message</button>
-  </div>
-</div>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
 
-<div class="section">
-  <h2>Admin functies</h2>
-  <div>
-    <button onclick="getUsers()">Get Users</button>
-    <button onclick="getMessages()">Get Messages</button>
-    <button onclick="getAllReviews()">Get All Reviews</button>
-    <button onclick="getLogs()">Get Logs</button>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+      color: var(--color-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .header-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+      display: inline-block;
+      animation: slideInScale 0.6s ease;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: fadeIn 0.6s ease 0.1s both;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input {
+      padding: 14px 16px;
+      font-size: 16px;
+      font-family: inherit;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      color: var(--color-text);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: var(--color-text-muted);
+      opacity: 0.6;
+    }
+
+    input:focus {
+      border-color: var(--color-accent);
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    input:hover:not(:focus) {
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      padding: 14px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+    }
+
+    button:hover:not(:disabled) {
+      background: linear-gradient(135deg, var(--color-accent-hover) 0%, #003d99 100%);
+      box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .button-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .result-section {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .back-button {
+      background-color: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-border);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background-color: var(--color-bg-secondary);
+      box-shadow: none;
+      transform: translateY(0);
+    }
+
+    .card {
+      background-color: var(--color-glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--color-glass-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 8px var(--color-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      animation: slideInUp 0.4s ease;
+    }
+
+    .card:hover {
+      border-color: var(--color-border);
+      box-shadow: 0 12px 32px var(--color-shadow-hover), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 82, 204, 0.15) 100%);
+      border: 1px solid rgba(0, 102, 255, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-accent);
+    }
+
+    .card-title-group h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-title-group p {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      margin: 16px 0;
+      width: fit-content;
+      backdrop-filter: blur(10px);
+      border: 1px solid transparent;
+    }
+
+    .status-badge.ready {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--color-status-ready);
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .status-badge.progress {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--color-status-progress);
+      border-color: rgba(245, 158, 11, 0.2);
+    }
+
+    .status-badge-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 600;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .info-value.price {
+      color: var(--color-accent);
+      font-size: 18px;
+    }
+
+    .info-value.notes {
+      color: var(--color-text-muted);
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .timestamp {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-border);
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      backdrop-filter: blur(10px);
+      color: var(--color-error);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideInDown 0.3s ease;
+      display: none;
+    }
+
+    .error-message.show {
+      display: flex;
+    }
+
+    .error-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .header-icon {
+        font-size: 48px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      input, button {
+        font-size: 16px;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <div class="header-icon">
+     🚗
+    </div>
+    <h1>Auto Status Check</h1>
+    <p>Controleer eenvoudig de status van uw voertuig</p>
+   </div>
+   <div id="errorMessage" class="error-message">
+    <i data-lucide="alert-circle" class="error-icon"></i> <span id="errorText"></span>
+   </div>
+   <div id="formSection" class="form-section">
+    <div class="input-group">
+     <label for="email" class="input-label">E-mailadres</label> <input id="email" type="email" placeholder="uw.email@example.com" autocomplete="email">
+    </div>
+    <div class="input-group">
+     <label for="plate" class="input-label">Kenteken</label> <input id="plate" type="text" placeholder="Bijv. AB-123-CD" autocomplete="off" style="text-transform: uppercase;">
+    </div><button id="checkButton" onclick="handleCheckStatus()"> <i data-lucide="search" class="button-icon"></i> <span>Status Controleren</span> </button>
+   </div>
+   <div id="resultSection" class="result-section">
+    <button class="back-button" onclick="handleReset()"> <i data-lucide="arrow-left" class="button-icon"></i> <span>Terug</span> </button>
+    <div id="carCard" class="card"></div>
+   </div>
   </div>
-</div>
+  <script>
+const API = "https://script.google.com/macros/s/AKfycbwbPmm4NI2BuPSlq-9wEo4feE8JG3dC0oEDgGO6V3U-2GGIiOc57Xxt6jeE0h9faIW8/exec";
 
-<div class="section">
-  <h2>Klant/Website gerelateerd</h2>
-  <div>
-    <button onclick="getOpeningHours()">Get Opening Hours</button>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Admin gerelateerd (demo)</h2>
-  <div>
-    <button onclick="moderateReviewDemo()">Moderate Review (demo)</button>
-    <button onclick="addVehicleDemo()">Add Vehicle (demo)</button>
-    <button onclick="updateStatusDemo()">Update Vehicle Status (demo)</button>
-    <button onclick="updateOpeningHoursDemo()">Update Opening Hours (demo)</button>
-    <button onclick="getEmployeesDemo()">Get Employees</button>
-    <button onclick="addEmployeeDemo()">Add Employee (demo)</button>
-    <button onclick="getRolesDemo()">Get Roles</button>
-    <button onclick="addRoleDemo()">Add Role (demo)</button>
-    <button onclick="getWorkProcessesDemo()">Get WorkProcesses</button>
-    <button onclick="addWorkProcessDemo()">Add WorkProcess (demo)</button>
-  </div>
-</div>
-
-<h2>Resultaat</h2>
-<pre id="output"></pre>
-
-<script>
-const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw-rSXLRpworoq-9Aqkv3xSeZCBRW-XnQ3VJXxLGjcnJFxGMr_i1c1LXZjsqLs_fV-b/exec";
-
-function showResult(data){
-  document.getElementById('output').textContent = JSON.stringify(data,null,2);
+function updateLucideIcons() {
+  if (window.lucide) lucide.createIcons();
 }
 
-// -----------------------
-// Klant functies
-// -----------------------
-function login(){
-  fetch(WEBAPP_URL, {
-    method:"POST",
-    body: JSON.stringify({action:"login", email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value})
-  }).then(r=>r.json()).then(showResult);
+function showError(message) {
+  const errorEl = document.getElementById("errorMessage");
+  const errorText = document.getElementById("errorText");
+  errorText.textContent = message;
+  errorEl.classList.add("show");
+  setTimeout(() => errorEl.classList.remove("show"), 5000);
 }
 
-function register(){
-  fetch(WEBAPP_URL, {
-    method:"POST",
-    body: JSON.stringify({
-      action:"register",
-      naam: document.getElementById('regName').value,
-      email: document.getElementById('regEmail').value,
-      telefoon: document.getElementById('regPhone').value,
-      kenteken: document.getElementById('regPlate').value,
-      password: document.getElementById('regPass').value
-    })
-  }).then(r=>r.json()).then(showResult);
+function clearError() {
+  document.getElementById("errorMessage").classList.remove("show");
 }
 
-function checkVehicle(){
-  fetch(WEBAPP_URL, {
-    method:"POST",
-    body: JSON.stringify({action:"getVehicleStatus", kenteken: document.getElementById('vehiclePlate').value})
-  }).then(r=>r.json()).then(showResult);
+function cleanPlate(p) {
+  return p.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-function viewReviews(){
-  fetch(WEBAPP_URL, {
-    method:"POST",
-    body: JSON.stringify({action:"getReviews"})
-  }).then(r=>r.json()).then(showResult);
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function leaveMessage(){
-  fetch(WEBAPP_URL, {
-    method:"POST",
-    body: JSON.stringify({
-      action:"leaveMessage",
-      naam: document.getElementById('msgName').value,
-      email: document.getElementById('msgEmail').value,
-      bericht: document.getElementById('msgText').value
-    })
-  }).then(r=>r.json()).then(showResult);
+async function handleCheckStatus() {
+  clearError();
+  
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const plate = document.getElementById("plate").value.trim();
+
+  if (!email || !plate) {
+    showError("Vul alstublieft uw e-mailadres en kenteken in");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    showError("Vul een geldig e-mailadres in");
+    return;
+  }
+
+  if (plate.length < 4) {
+    showError("Vul een geldig kenteken in");
+    return;
+  }
+
+  const button = document.getElementById("checkButton");
+  button.disabled = true;
+  button.innerHTML = '<div class="spinner"></div><span>Even geduld...</span>';
+
+  try {
+    const res = await fetch(API);
+    const data = await res.json();
+
+    if (!data.success) {
+      showError("Fout bij het laden van gegevens. Probeer alstublieft opnieuw.");
+      throw new Error("API returned success: false");
+    }
+
+    const cleanedPlate = cleanPlate(plate);
+    const car = data.cars.find(c =>
+      c.email.toLowerCase() === email &&
+      cleanPlate(c.plate) === cleanedPlate
+    );
+
+    if (!car) {
+      showError("Auto niet gevonden. Controleer uw e-mailadres en kenteken.");
+      return;
+    }
+
+    showCar(car);
+
+  } catch (err) {
+    showError("Verbindingsfout. Controleer uw internetverbinding.");
+    console.error("API Error:", err);
+  } finally {
+    button.disabled = false;
+    button.innerHTML = '<i data-lucide="search" class="button-icon"></i><span>Status Controleren</span>';
+    updateLucideIcons();
+  }
 }
 
-// -----------------------
-// Admin functies
-// -----------------------
-function getUsers(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getUsers"})}).then(r=>r.json()).then(showResult); }
-function getMessages(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getMessages"})}).then(r=>r.json()).then(showResult); }
-function getAllReviews(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getAllReviews"})}).then(r=>r.json()).then(showResult); }
-function getLogs(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getLogs"})}).then(r=>r.json()).then(showResult); }
+function showCar(car) {
+  const isReady = car.status.toLowerCase().includes("klaar");
+  const statusIcon = isReady ? "check-circle" : "clock";
+  const statusClass = isReady ? "ready" : "progress";
+  const statusLabel = isReady ? "Klaar" : "In bewerking";
 
-// -----------------------
-// Website / Klant
-// -----------------------
-function getOpeningHours(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getOpeningHours"})}).then(r=>r.json()).then(showResult); }
+  const updatedDate = new Date(car.updated);
+  const formattedDate = updatedDate.toLocaleDateString('nl-NL', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 
-// -----------------------
-// Admin demo functies
-// -----------------------
-function moderateReviewDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"moderateReview", row:2, status:"Approved"})}).then(r=>r.json()).then(showResult);}
-function addVehicleDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addVehicle", kenteken:"XYZ123", beschrijving:"Demo Vehicle", userID:"U123"})}).then(r=>r.json()).then(showResult);}
-function updateStatusDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"updateStatus", kenteken:"XYZ123", status:"Klaar"})}).then(r=>r.json()).then(showResult);}
-function updateOpeningHoursDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"updateOpeningHours", hours:[["Maandag","09:00","17:30","N","Demo"]]])}).then(r=>r.json()).then(showResult);}
-function getEmployeesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getEmployees"})}).then(r=>r.json()).then(showResult);}
-function addEmployeeDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addEmployee", naam:"Demo Employee", role:"R1"})}).then(r=>r.json()).then(showResult);}
-function getRolesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getRoles"})}).then(r=>r.json()).then(showResult);}
-function addRoleDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addRole", roleName:"DemoRole", permissions:"{}"})}).then(r=>r.json()).then(showResult);}
-function getWorkProcessesDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"getWorkProcesses"})}).then(r=>r.json()).then(showResult);}
-function addWorkProcessDemo(){ fetch(WEBAPP_URL, {method:"POST", body: JSON.stringify({action:"addWorkProcess", titel:"Demo Work", beschrijving:"Demo WorkProcess", status:"Gestart"})}).then(r=>r.json()).then(showResult);}
+  const cardHTML = `
+    <div class="card-header">
+      <div class="card-icon">
+        <i data-lucide="car" style="width: 24px; height: 24px;"></i>
+      </div>
+      <div class="card-title-group">
+        <h2>${car.plate.toUpperCase()}</h2>
+        <p>Voertuiginformatie</p>
+      </div>
+    </div>
+
+    <div class="status-badge ${statusClass}">
+      <i data-lucide="${statusIcon}" class="status-badge-icon"></i>
+      <span>${statusLabel}</span>
+    </div>
+
+    <div class="info-row">
+      <span class="info-label">Status</span>
+      <span class="info-value">${car.status}</span>
+    </div>
+
+    <div class="info-row">
+      <span class="info-label">Prijs</span>
+      <span class="info-value price">€${parseFloat(car.price).toFixed(2)}</span>
+    </div>
+
+    ${car.notes ? `
+    <div class="info-row">
+      <span class="info-label">Opmerkingen</span>
+      <span class="info-value notes">${car.notes}</span>
+    </div>
+    ` : ''}
+
+    <div class="timestamp">
+      <strong>Bijgewerkt:</strong> ${formattedDate}
+    </div>
+  `;
+
+  document.getElementById("carCard").innerHTML = cardHTML;
+  document.getElementById("formSection").classList.add("hidden");
+  document.getElementById("resultSection").style.display = "block";
+  updateLucideIcons();
+}
+
+function handleReset() {
+  document.getElementById("formSection").classList.remove("hidden");
+  document.getElementById("resultSection").style.display = "none";
+  document.getElementById("email").value = "";
+  document.getElementById("plate").value = "";
+  clearError();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateLucideIcons();
+  
+  document.getElementById("email").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") handleCheckStatus();
+  });
+  
+  document.getElementById("plate").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") handleCheckStatus();
+  });
+});
 </script>
-
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e2e6ddbb504f5d1',t:'MTc3NDYxNDg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
