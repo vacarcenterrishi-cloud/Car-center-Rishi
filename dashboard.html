@@ -2,265 +2,142 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Center Rishi Admin</title>
-
+<title>AutoTrack Dashboard Full</title>
 <style>
-body{
-  margin:0;
-  font-family:Inter, Arial;
-  background:#0D0D0D;
-  color:white;
-  display:flex;
-}
-.sidebar{
-  width:240px;
-  background:#111;
-  padding:20px;
-  height:100vh;
-}
-.sidebar button{
-  width:100%;
-  margin-bottom:10px;
-  padding:10px;
-  background:#1A1A1A;
-  border:none;
-  color:white;
-  border-radius:8px;
-  cursor:pointer;
-}
-.sidebar button:hover{
-  background:#FFD700;
-  color:black;
-}
-.content{
-  flex:1;
-  padding:30px;
-}
-.card{
-  background:#1A1A1A;
-  padding:20px;
-  border-radius:12px;
-  margin-bottom:20px;
-}
-input, textarea, select{
-  width:100%;
-  padding:8px;
-  margin:5px 0;
-  border-radius:6px;
-  border:none;
-}
-button.action{
-  background:#FFD700;
-  color:black;
-  font-weight:bold;
-  padding:8px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-.result{
-  margin-top:10px;
-  font-size:13px;
-  color:#00ffcc;
-}
+body{font-family:Arial; background:#f7f7f7; padding:20px;}
+.container{max-width:1200px; margin:auto; background:white; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+table{width:100%; border-collapse:collapse; margin-top:10px;}
+th,td{border:1px solid #ccc; padding:6px; text-align:center;}
+.status-In_behandeling{background:#fff3b0;}
+.status-Diagnose{background:#ffe0b0;}
+.status-Onderhoud{background:#b0d4ff;}
+.status-Afgerond{background:#b3ffb3;}
+.status-Klaar_om_op_te_halen{background:#b3ffdf;}
+button{padding:3px 6px; margin:2px; cursor:pointer;}
+input,select,textarea{padding:3px; width:100%;}
+#loading{font-weight:bold;}
 </style>
 </head>
-
 <body>
+<div class="container">
+<h1>AutoTrack Dashboard - Full</h1>
 
-<div class="sidebar">
-<h3>Admin Panel</h3>
-<button onclick="dashboard()">Dashboard</button>
-<button onclick="vehicleAdd()">Voertuig toevoegen</button>
-<button onclick="vehicleUpdate()">Status wijzigen</button>
-<button onclick="vehicleCheck()">Voertuig status bekijken</button>
-<button onclick="openingHours()">Opening Hours</button>
-<button onclick="addReview()">Review toevoegen</button>
-<button onclick="getReviews()">Bekijk Approved Reviews</button>
-<button onclick="leaveMessage()">Nieuw Bericht</button>
-</div>
+<h2>Nieuwe auto toevoegen</h2>
+<table>
+<tr>
+<td><input type="email" id="newEmail" placeholder="Email"></td>
+<td><input type="text" id="newPlate" placeholder="Kenteken"></td>
+<td>
+<select id="newStatus">
+<option>In behandeling</option>
+<option>Diagnose</option>
+<option>Onderhoud</option>
+<option>Afgerond</option>
+<option>Klaar om op te halen</option>
+</select>
+</td>
+<td><input type="number" id="newPrice" value="50"></td>
+<td><input type="text" id="newNotes" placeholder="Notities"></td>
+<td><button id="addBtn" onclick="addCar()">Toevoegen</button></td>
+</tr>
+</table>
 
-<div class="content" id="content">
-<h2>Dashboard</h2>
-<p>Car Center Rishi Admin actief</p>
+<div id="loading">Data wordt geladen...</div>
+
+<h2>Actieve auto’s</h2>
+<table id="activeCarsTable">
+<thead><tr><th>Email</th><th>Kenteken</th><th>Status</th><th>Prijs</th><th>Notities</th><th>Email</th><th>Acties</th></tr></thead>
+<tbody></tbody>
+</table>
+
+<h2>Afgeronde auto’s</h2>
+<table id="doneCarsTable">
+<thead><tr><th>Email</th><th>Kenteken</th><th>Status</th><th>Prijs</th><th>Notities</th><th>Email</th><th>Acties</th></tr></thead>
+<tbody></tbody>
+</table>
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycbw-rSXLRpworoq-9Aqkv3xSeZCBRW-XnQ3VJXxLGjcnJFxGMr_i1c1LXZjsqLs_fV-b/exec";
+const API_URL="https://script.google.com/macros/s/AKfycbwbPmm4NI2BuPSlq-9wEo4feE8JG3dC0oEDgGO6V3U-2GGIiOc57Xxt6jeE0h9faIW8/exec"; // vervang met je Web App URL
+const statuses=["In behandeling","Diagnose","Onderhoud","Afgerond","Klaar om op te halen"];
 
-async function api(action,data={}){
-  const res = await fetch(API,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({action,...data})
+function fetchCars(){
+  document.getElementById("loading").style.display="block";
+  fetch(API_URL).then(r=>r.json()).then(data=>{
+    document.getElementById("loading").style.display="none";
+    renderCars(data.cars);
   });
-  return await res.json();
 }
 
-function dashboard(){
-  document.getElementById("content").innerHTML = `
-    <h2>Dashboard</h2>
-    <p>Gebruik de sidebar om acties uit te voeren.</p>
-  `;
-}
-
-// ------------------ VEHICLE ADD ------------------
-
-function vehicleAdd(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Voertuig toevoegen</h2>
-    <input id="kenteken" placeholder="Kenteken">
-    <input id="userID" placeholder="UserID (optioneel)">
-    <textarea id="beschrijving" placeholder="Werkbeschrijving"></textarea>
-    <button class="action" onclick="submitVehicle()">Toevoegen</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function submitVehicle(){
-  const r = await api("addVehicle",{
-    kenteken:document.getElementById("kenteken").value,
-    userID:document.getElementById("userID").value,
-    beschrijving:document.getElementById("beschrijving").value
+function renderCars(cars){
+  const active=document.querySelector("#activeCarsTable tbody");
+  const done=document.querySelector("#doneCarsTable tbody");
+  active.innerHTML=""; done.innerHTML="";
+  
+  cars.forEach(car=>{
+    const tr=document.createElement("tr");
+    tr.className='status-'+car.status.replace(/ /g,'_');
+    const statusOptions=statuses.map(s=>`<option value="${s}" ${s===car.status?'selected':''}>${s}</option>`).join('');
+    tr.innerHTML=`
+      <td>${car.email}</td>
+      <td>${car.plate}</td>
+      <td><select id="status_${car.plate}">${statusOptions}</select></td>
+      <td><input type="number" id="price_${car.plate}" value="${car.price}"></td>
+      <td><textarea id="notes_${car.plate}">${car.notes}</textarea></td>
+      <td>${car.emailSent||''}</td>
+      <td>
+        <button onclick='saveCar("${car.plate}")'>Opslaan</button>
+        <button onclick='deleteCar("${car.plate}")'>Verwijder</button>
+      </td>
+    `;
+    if(car.status==="Afgerond" || car.status==="Klaar om op te halen") done.appendChild(tr);
+    else active.appendChild(tr);
   });
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
 }
 
-// ------------------ UPDATE STATUS ------------------
-
-function vehicleUpdate(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Status wijzigen</h2>
-    <input id="kenteken" placeholder="Kenteken">
-    <select id="status">
-      <option>Ontvangen</option>
-      <option>In behandeling</option>
-      <option>Wachten op onderdelen</option>
-      <option>Klaar</option>
-      <option>Afgeleverd</option>
-    </select>
-    <button class="action" onclick="submitStatus()">Update</button>
-    <div id="result"></div>
-  </div>`;
+function saveCar(plate){
+  const status=document.getElementById("status_"+plate).value;
+  const price=parseFloat(document.getElementById("price_"+plate).value);
+  const notes=document.getElementById("notes_"+plate).value;
+  fetch(API_URL,{
+    method:'POST',
+    body:JSON.stringify({action:'updateCar',plate,status,price,notes})
+  }).then(r=>r.json()).then(()=>fetchCars());
 }
 
-async function submitStatus(){
-  const r = await api("updateStatus",{
-    kenteken:document.getElementById("kenteken").value,
-    status:document.getElementById("status").value
+function deleteCar(plate){
+  if(!confirm("Auto echt verwijderen?")) return;
+  fetch(API_URL,{
+    method:'POST',
+    body:JSON.stringify({action:'deleteCar',plate})
+  }).then(r=>r.json()).then(()=>fetchCars());
+}
+
+function addCar(){
+  const btn=document.getElementById("addBtn");
+  btn.disabled=true;
+
+  const email=document.getElementById("newEmail").value;
+  const plate=document.getElementById("newPlate").value;
+  const status=document.getElementById("newStatus").value;
+  const price=parseFloat(document.getElementById("newPrice").value)||50;
+  const notes=document.getElementById("newNotes").value;
+  if(!email||!plate){ alert("Email en kenteken verplicht"); btn.disabled=false; return; }
+
+  fetch(API_URL,{
+    method:'POST',
+    body:JSON.stringify({action:'addCar',email,plate,status,price,notes})
+  }).then(r=>r.json()).then(data=>{
+    if(data.success===false) alert(data.message);
+    fetchCars();
+    btn.disabled=false;
+    document.getElementById("newEmail").value="";
+    document.getElementById("newPlate").value="";
+    document.getElementById("newNotes").value="";
   });
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
 }
 
-// ------------------ CHECK STATUS ------------------
-
-function vehicleCheck(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Voertuig status bekijken</h2>
-    <input id="kenteken" placeholder="Kenteken">
-    <button class="action" onclick="submitCheck()">Zoek</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function submitCheck(){
-  const r = await api("getVehicleStatus",{
-    kenteken:document.getElementById("kenteken").value
-  });
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
-}
-
-// ------------------ OPENING HOURS ------------------
-
-function openingHours(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Opening Hours aanpassen</h2>
-    <textarea id="hours" placeholder='JSON voorbeeld:
-[
-["Maandag","09:00","17:00","N",""],
-["Dinsdag","09:00","17:00","N",""]
-]'></textarea>
-    <button class="action" onclick="submitHours()">Opslaan</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function submitHours(){
-  const hours = JSON.parse(document.getElementById("hours").value);
-  const r = await api("updateOpeningHours",{hours:hours});
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
-}
-
-// ------------------ REVIEW ------------------
-
-function addReview(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Review toevoegen (Pending)</h2>
-    <input id="score" placeholder="Score (1-5)">
-    <input id="titel" placeholder="Titel">
-    <textarea id="bericht" placeholder="Review tekst"></textarea>
-    <button class="action" onclick="submitReview()">Toevoegen</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function submitReview(){
-  const r = await api("addReview",{
-    score:document.getElementById("score").value,
-    titel:document.getElementById("titel").value,
-    bericht:document.getElementById("bericht").value
-  });
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
-}
-
-// ------------------ GET APPROVED REVIEWS ------------------
-
-function getReviews(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Approved Reviews</h2>
-    <button class="action" onclick="loadReviews()">Laden</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function loadReviews(){
-  const r = await api("getReviews");
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
-}
-
-// ------------------ MESSAGE ------------------
-
-function leaveMessage(){
-  document.getElementById("content").innerHTML = `
-  <div class="card">
-    <h2>Nieuw bericht toevoegen</h2>
-    <input id="naam" placeholder="Naam">
-    <input id="email" placeholder="Email">
-    <input id="kenteken" placeholder="Kenteken">
-    <textarea id="bericht" placeholder="Bericht"></textarea>
-    <button class="action" onclick="submitMessage()">Versturen</button>
-    <div id="result"></div>
-  </div>`;
-}
-
-async function submitMessage(){
-  const r = await api("leaveMessage",{
-    naam:document.getElementById("naam").value,
-    email:document.getElementById("email").value,
-    kenteken:document.getElementById("kenteken").value,
-    bericht:document.getElementById("bericht").value
-  });
-  document.getElementById("result").innerText = JSON.stringify(r,null,2);
-}
-
+fetchCars();
 </script>
-
 </body>
 </html>
