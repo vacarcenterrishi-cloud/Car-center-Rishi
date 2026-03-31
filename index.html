@@ -1573,10 +1573,170 @@
                 transition: right 0.35s ease;
                 padding: 2.5rem;
                 overflow-y: auto;
+                z-index: 998;
             }
 
             .side-tool-panel.active {
                 right: 0;
+            }
+
+            .side-tool-header {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .side-tool-header-icon {
+                width: 28px;
+                height: 28px;
+                color: var(--black);
+            }
+
+            .side-tool-header h3 {
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                margin: 0;
+            }
+
+            .side-tool-result-container {
+                display: none;
+                animation: expandDown 0.4s ease;
+            }
+
+            .side-tool-result-container.active {
+                display: block;
+            }
+
+            @keyframes expandDown {
+                from {
+                    opacity: 0;
+                    max-height: 0;
+                    transform: translateY(-15px);
+                }
+                to {
+                    opacity: 1;
+                    max-height: 600px;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes slideInResult {
+                from {
+                    opacity: 0;
+                    transform: translateY(-8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .side-tool-result-success {
+                background: linear-gradient(135deg, #E8F5E9 0%, var(--bg-light) 100%);
+                border: 1px solid #81C784;
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                animation: slideInResult 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .side-tool-result-vehicle {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid var(--border-soft);
+            }
+
+            .side-tool-vehicle-icon {
+                width: 40px;
+                height: 40px;
+                background: var(--black);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .side-tool-vehicle-icon i {
+                width: 24px;
+                height: 24px;
+                color: var(--white);
+            }
+
+            .side-tool-vehicle-info h4 {
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                margin: 0 0 0.25rem 0;
+                color: var(--black);
+            }
+
+            .side-tool-vehicle-info p {
+                font-size: 13px;
+                color: var(--gray);
+                margin: 0;
+            }
+
+            .side-tool-vehicle-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .side-tool-vehicle-item {
+                background: #FFFFFF;
+                border: 1px solid #E0E0E0;
+                border-radius: 8px;
+                padding: 0.875rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            }
+
+            .side-tool-vehicle-label {
+                font-size: 11px;
+                color: var(--gray);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+
+            .side-tool-vehicle-value {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--black);
+                line-height: 1.4;
+            }
+
+            .side-tool-result-fallback {
+                background: #FFF4E6;
+                border: 1px solid #FFB74D;
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+                text-align: center;
+                animation: slideInResult 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .side-tool-result-fallback-text {
+                font-size: 14px;
+                color: #E65100;
+                line-height: 1.6;
+                margin-bottom: 0.75rem;
+                font-weight: 500;
+            }
+
+            .side-tool-result-fallback-kenteken {
+                font-family: 'Courier New', monospace;
+                font-weight: 700;
+                font-size: 20px;
+                letter-spacing: 2px;
+                color: #E65100;
             }
 
             .side-tool-close {
@@ -1882,54 +2042,48 @@
      </div>
      <div class="side-tool"><button class="side-tool-btn" id="side-tool-btn">Kenteken Check</button>
       <div class="side-tool-panel" id="side-tool-panel"><button class="side-tool-close" id="side-tool-close">×</button>
-       <h3 style="margin-bottom: 1rem;">Kenteken Controle</h3>
+       <div class="side-tool-header">
+        <i class="side-tool-header-icon" data-lucide="check-circle"></i>
+        <h3>Kenteken Check</h3>
+       </div>
        <form class="kenteken-form" id="kenteken-form-side"><input type="text" class="kenteken-input" id="kenteken-input-side" placeholder="XX-XX-XX" maxlength="8"> <button type="submit" class="kenteken-btn">Check</button>
        </form>
-       <div class="kenteken-result" id="kenteken-result-side">
-        <div class="kenteken-result-title">
-         Voertuig herkend
-        </div>
-        <div class="kenteken-info">
-         <div class="kenteken-info-item">
-          <div class="kenteken-info-label">
-           Merk
+       <div class="side-tool-result-container" id="side-tool-result-container">
+        <div class="side-tool-result-success" id="side-tool-result-success">
+         <div class="side-tool-result-vehicle">
+          <div class="side-tool-vehicle-icon"><i data-lucide="car"></i>
           </div>
-          <div class="kenteken-info-value" id="vehicle-merk-side">
-           -
+          <div class="side-tool-vehicle-info">
+           <h4 id="side-tool-vehicle-merk">Merk</h4>
+           <p id="side-tool-vehicle-model">Model</p>
           </div>
          </div>
-         <div class="kenteken-info-item">
-          <div class="kenteken-info-label">
-           Model
+         <div class="side-tool-vehicle-grid">
+          <div class="side-tool-vehicle-item">
+           <div class="side-tool-vehicle-label">
+            Bouwjaar
+           </div>
+           <div class="side-tool-vehicle-value" id="side-tool-vehicle-jaar">
+            -
+           </div>
           </div>
-          <div class="kenteken-info-value" id="vehicle-model-side">
-           -
-          </div>
-         </div>
-         <div class="kenteken-info-item">
-          <div class="kenteken-info-label">
-           Bouwjaar
-          </div>
-          <div class="kenteken-info-value" id="vehicle-jaar-side">
-           -
-          </div>
-         </div>
-         <div class="kenteken-info-item">
-          <div class="kenteken-info-label">
-           Brandstof
-          </div>
-          <div class="kenteken-info-value" id="vehicle-brandstof-side">
-           -
+          <div class="side-tool-vehicle-item">
+           <div class="side-tool-vehicle-label">
+            Brandstof
+           </div>
+           <div class="side-tool-vehicle-value" id="side-tool-vehicle-brandstof">
+            -
+           </div>
           </div>
          </div>
         </div>
-       </div>
-       <div class="kenteken-fallback" id="kenteken-fallback-side">
-        <div class="kenteken-fallback-text">
-         Kenteken ontvangen
-        </div>
-        <div class="kenteken-fallback-kenteken" id="fallback-kenteken-side">
-         -
+        <div class="side-tool-result-fallback" id="side-tool-result-fallback">
+         <div class="side-tool-result-fallback-text">
+          Kenteken ontvangen
+         </div>
+         <div class="side-tool-result-fallback-kenteken" id="side-tool-fallback-kenteken">
+          -
+         </div>
         </div>
        </div>
       </div>
@@ -2116,7 +2270,7 @@
             try {
                 // Fetch live data from Apps Script (no caching)
                 const res = await fetch(
-                    'https://script.google.com/macros/s/AKfycbwiTDPCQ1ZtMKXh11JDERAugsHs9hfvChBxx9f25KrL0EQLyc_0BUzliaPNR0PuOnM0Cg/exec',
+                    'https://script.google.com/macros/s/AKfycbyoqBxPZwjCbXTDZ2OVFzuTm0vUV5uAVHjDDBYA3k84BgzFxYMKfW1Jq2XwTINntUkgjw/exec',
                     { cache: 'no-store' }
                 );
 
@@ -2289,6 +2443,67 @@
             }
         }
 
+        // Handle side tool kenteken check with smooth animation
+        async function handleKentekenCheckSideTool() {
+            const input = document.getElementById('kenteken-input-side');
+            const btn = document.querySelector('#kenteken-form-side .kenteken-btn');
+            const resultContainer = document.getElementById('side-tool-result-container');
+            const resultSuccess = document.getElementById('side-tool-result-success');
+            const resultFallback = document.getElementById('side-tool-result-fallback');
+
+            if (!input.value) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Laden...';
+
+            // Hide result container first
+            resultContainer.classList.remove('active');
+            resultSuccess.style.display = 'none';
+            resultFallback.style.display = 'none';
+
+            try {
+                const data = await checkKenteken(input.value);
+                currentVehicleData = data;
+
+                if (data.success) {
+                    // Populate success result
+                    document.getElementById('side-tool-vehicle-merk').textContent = data.merk;
+                    document.getElementById('side-tool-vehicle-model').textContent = data.model;
+                    document.getElementById('side-tool-vehicle-jaar').textContent = data.bouwjaar;
+                    document.getElementById('side-tool-vehicle-brandstof').textContent = data.brandstof;
+                    
+                    resultSuccess.style.display = 'block';
+                    
+                    // Show result container with animation
+                    setTimeout(() => {
+                        resultContainer.classList.add('active');
+                    }, 10);
+                } else {
+                    // Show fallback message
+                    document.getElementById('side-tool-fallback-kenteken').textContent = data.kenteken;
+                    resultFallback.style.display = 'block';
+                    
+                    // Show result container with animation
+                    setTimeout(() => {
+                        resultContainer.classList.add('active');
+                    }, 10);
+                }
+            } catch (error) {
+                // Extreme fallback
+                currentVehicleData = { success: false, kenteken: input.value.toUpperCase() };
+                document.getElementById('side-tool-fallback-kenteken').textContent = input.value.toUpperCase();
+                resultFallback.style.display = 'block';
+                
+                // Show result container with animation
+                setTimeout(() => {
+                    resultContainer.classList.add('active');
+                }, 10);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Check';
+            }
+        }
+
         // Contact form submission with smart validation
         async function handleContactSubmit(e) {
             e.preventDefault();
@@ -2337,7 +2552,7 @@
 
             try {
                 // Send to Google Sheets - correct Apps Script handling
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzpugxiHBZU5GgVNDHiiETNtUrqiqcNegEk0dh3d6k6UJsqW8GuRz60JWxX3qnsExQpNg/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyoqBxPZwjCbXTDZ2OVFzuTm0vUV5uAVHjDDBYA3k84BgzFxYMKfW1Jq2XwTINntUkgjw/exec', {
                     method: 'POST',
                     body: formData
                 });
@@ -2517,7 +2732,7 @@
             if (sideForm) {
                 sideForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    handleKentekenSubmit('kenteken-form-side', 'kenteken-result-side', 'kenteken-fallback-side', 'vehicle-merk-side', 'vehicle-model-side', 'vehicle-jaar-side', 'vehicle-brandstof-side', 'fallback-kenteken-side');
+                    handleKentekenCheckSideTool();
                 });
             }
 
@@ -2565,5 +2780,5 @@
     </script>
    </footer>
   </div>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e5007cd907291f2',t:'MTc3NDk2NzIwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e50245886dffeb7',t:'MTc3NDk2ODM3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
