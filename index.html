@@ -108,6 +108,7 @@
         .logo img {
             height: 40px;
             width: auto;
+            display: block !important;
         }
 
         .nav {
@@ -168,11 +169,12 @@
             bottom: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            padding: 2rem 1rem;
+            padding: 0;
             flex-direction: column;
             gap: 0;
             animation: slideDown 0.3s ease;
             overflow-y: auto;
+            z-index: 999;
         }
 
         @keyframes slideDown {
@@ -194,18 +196,25 @@
             color: var(--black);
             text-decoration: none;
             font-weight: 500;
-            font-size: 18px;
-            padding: 1.25rem 0;
+            font-size: 16px;
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid var(--border-soft);
             min-height: var(--touch-target);
             display: flex;
             align-items: center;
-            transition: color 0.2s ease;
-            gap: 0.5rem;
+            transition: all 0.2s ease;
+            gap: 0.75rem;
+            background: var(--white);
+        }
+
+        .mobile-nav a:active {
+            background: var(--bg-light);
+            color: var(--black);
         }
 
         .mobile-nav a:hover {
-            color: var(--gray);
+            background: var(--bg-light);
+            color: var(--black);
         }
 
         /* Sticky bottom CTA - mobile only */
@@ -937,6 +946,7 @@
             height: 20px;
             width: auto;
             filter: brightness(0) invert(1);
+            display: block !important;
         }
 
         @media (min-width: 768px) {
@@ -1422,6 +1432,7 @@
             width: auto;
             filter: brightness(0) invert(1);
             opacity: 0.9;
+            display: block !important;
         }
 
         .footer-links {
@@ -1569,26 +1580,33 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
  </head>
  <body>
-  <div class="page-wrapper"><!-- Header -->
+  <div class="page-wrapper">
+   <!-- Header -->
    <header class="header">
     <div class="header-container">
-     <div class="logo"><img src="https://i.postimg.cc/Dw8FpW3y/CCR-logo.png" alt="Car Center Rishi" onerror="this.style.display='none'">
+     <div class="logo">
+      <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi">
      </div>
-     <nav class="nav"><a href="#home">Home</a> <a href="#diensten">Diensten</a> <a href="#over-ons">Over ons</a> <a href="#contact">Contact</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.5rem 1rem; border-radius: 6px; transition: all 0.25s ease;" onmouseover="this.style.background='#2D2D2D'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--black)'; this.style.transform='translateY(0)'"><i data-lucide="user-circle" style="width: 18px; height: 18px;"></i><span>Mijn Auto</span></a>
+     <nav class="nav">
+      <a href="#home">Home</a> <a href="#diensten">Diensten</a> <a href="#over-ons">Over ons</a> <a href="#contact">Contact</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.5rem 1rem; border-radius: 6px; transition: all 0.25s ease;" onmouseover="this.style.background='#2D2D2D'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--black)'; this.style.transform='translateY(0)'"><i data-lucide="user-circle" style="width: 18px; height: 18px;"></i><span>Mijn Auto</span></a>
      </nav>
-     <div class="header-cta"><a href="tel:+31646102011" class="btn-call">Bel nu</a> <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+     <div class="header-cta">
+      <a href="tel:+31646102011" class="btn-call">Bel nu</a> <button class="mobile-menu-btn" aria-label="Menu">☰</button>
      </div>
     </div>
-    <nav class="mobile-nav"><a href="#home">Home</a> <a href="#diensten">Diensten</a> <a href="#over-ons">Over ons</a> <a href="#contact">Contact</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); margin-top: 0.5rem; border: none;">📋 Mijn Auto</a>
+    <nav class="mobile-nav">
+     <a href="#home">Home</a> <a href="#diensten">Diensten</a> <a href="#over-ons">Over ons</a> <a href="#contact">Contact</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); margin-top: 0.5rem; border: none;">📋 Mijn Auto</a>
     </nav>
    </header><!-- Sticky CTA (mobile only) -->
-   <div class="sticky-cta"><a href="tel:+31646102011" class="btn">Bel Nu</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
+   <div class="sticky-cta">
+    <a href="tel:+31646102011" class="btn">Bel Nu</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
    </div><!-- Hero -->
    <section class="hero" id="home">
     <div class="hero-content">
      <h1 data-config="hero_title">Uw betrouwbare partner voor APK, diagnose &amp; onderhoud</h1>
      <p class="hero-subtitle" data-config="hero_subtitle">RDW erkend • 25+ jaar ervaring • Amsterdam-Noord</p>
-     <div class="hero-cta"><a href="tel:+31646102011" class="btn-primary">Bel direct</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="btn-secondary">WhatsApp</a>
+     <div class="hero-cta">
+      <a href="tel:+31646102011" class="btn-primary">Bel direct</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer" class="btn-secondary">WhatsApp</a>
      </div>
     </div>
    </section><!-- Kenteken Checker -->
@@ -1596,7 +1614,8 @@
     <div class="kenteken-container">
      <h2 class="kenteken-title">Controleer uw voertuig</h2>
      <p class="kenteken-subtitle">Vul uw kenteken in voor voertuiginformatie</p>
-     <form class="kenteken-form" id="kenteken-form"><input type="text" class="kenteken-input" id="kenteken-input" placeholder="XX-XX-XX" maxlength="8" required> <button type="submit" class="kenteken-btn">Controleer</button>
+     <form class="kenteken-form" id="kenteken-form">
+      <input type="text" class="kenteken-input" id="kenteken-input" placeholder="XX-XX-XX" maxlength="8" required> <button type="submit" class="kenteken-btn">Controleer</button>
      </form>
      <div class="kenteken-result" id="kenteken-result">
       <div class="kenteken-result-title">
@@ -1656,7 +1675,8 @@
      Onderstaand vindt u een overzicht van onze meest voorkomende werkzaamheden.<br><strong>Staat uw vraag of reparatie hier niet tussen?</strong><br>
       Neem gerust contact met ons op, dan kijken wij of wij u kunnen helpen.
     </div>
-    <div class="diensten-grid" id="diensten-grid"><!-- Diensten worden dynamisch geladen -->
+    <div class="diensten-grid" id="diensten-grid">
+     <!-- Diensten worden dynamisch geladen -->
     </div>
     <div class="diensten-footer">
      Heeft u een specifieke vraag of een reparatie die hier niet wordt genoemd?<br><strong>Neem contact met ons op om de mogelijkheden te bespreken.</strong>
@@ -1669,28 +1689,32 @@
      </div>
      <div class="waarom-grid">
       <div class="waarom-item">
-       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
        </svg>
        <div class="waarom-text" data-config="why_point_1">
         RDW erkend
        </div>
       </div>
       <div class="waarom-item">
-       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2">
+        <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
        </svg>
        <div class="waarom-text" data-config="why_point_2">
         Transparante communicatie
        </div>
       </div>
       <div class="waarom-item">
-       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z" />
+       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2">
+        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
        </svg>
        <div class="waarom-text" data-config="why_point_3">
         Snelle service
        </div>
       </div>
       <div class="waarom-item">
-       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /> <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 001 1h2m-4 0a1 1 0 001 1h4a1 1 0 001-1v-3a1 1 0 00-1-1h-1m0-4h3l2 4" />
+       <svg class="waarom-icon" viewbox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2">
+        <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /> <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 001 1h2m-4 0a1 1 0 001 1h4a1 1 0 001-1v-3a1 1 0 00-1-1h-1m0-4h3l2 4" />
        </svg>
        <div class="waarom-text" data-config="why_point_4">
         Ophaal &amp; brengservice
@@ -1700,7 +1724,8 @@
     </div>
    </section><!-- Reviews -->
    <section class="reviews-section">
-    <div class="reviews-container"><span class="review-stars">★★★★☆</span> <span class="review-text">4.4 Google Reviews</span> <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" rel="noopener noreferrer" class="review-link">Bekijk reviews</a>
+    <div class="reviews-container">
+     <span class="review-stars">★★★★☆</span> <span class="review-text">4.4 Google Reviews</span> <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" rel="noopener noreferrer" class="review-link">Bekijk reviews</a>
     </div>
    </section><!-- Contact Hero -->
    <section class="contact-hero" id="contact">
@@ -1708,9 +1733,11 @@
      <h2>Maak een afspraak</h2>
      <p class="contact-hero-subtitle">Of stel uw vraag — wij nemen contact met u op</p>
      <div class="trust-badges">
-      <div class="trust-badge"><img src="https://i.postimg.cc/CLhjkh9P/download.png" alt="RDW" onerror="this.style.display='none'"> <span>RDW erkend</span>
+      <div class="trust-badge">
+       <img src="https://i.postimg.cc/Tw9t4wPy/Muurschild-RDW-Erkend-bedrijf.jpg" alt="RDW" loading="lazy" onerror="console.error('RDW logo failed:', this.src); this.style.display='none';"> <span>RDW erkend</span>
       </div>
-      <div class="trust-badge"><img src="https://i.postimg.cc/BbXJf1X7/NAP-VINKJE-transparant.png" alt="NAP" onerror="this.style.display='none'"> <span>NAP Gecertificeerd</span>
+      <div class="trust-badge">
+       <img src="https://i.postimg.cc/ht1Qx7ZB/download.png" alt="NAP" loading="lazy" onerror="console.error('NAP logo failed:', this.src); this.style.display='none';"> <span>NAP Gecertificeerd</span>
       </div>
      </div>
     </div>
@@ -1719,21 +1746,26 @@
     <div class="direct-contact-title">
      Liever direct contact?
     </div>
-    <div class="direct-contact-buttons"><a href="tel:+31646102011">Bel Nu</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div class="direct-contact-buttons">
+     <a href="tel:+31646102011">Bel Nu</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
    </div><!-- Contact Form Section -->
    <section class="contact-section">
     <div class="contact-grid">
-     <div class="contact-form-wrapper"><!-- Closed notice (shown when shop is closed) -->
-      <div id="form-closed-notice" class="form-closed-notice"><strong>Wij zijn momenteel gesloten</strong><br>
+     <div class="contact-form-wrapper">
+      <!-- Closed notice (shown when shop is closed) -->
+      <div id="form-closed-notice" class="form-closed-notice">
+       <strong>Wij zijn momenteel gesloten</strong><br>
         U kunt wel een bericht sturen, wij reageren zodra wij weer open zijn.
       </div>
-      <form id="contact-form"><!-- Hidden field - bron wordt automatisch meegezonden --> <input type="hidden" name="bron" value="Website"> <!-- Voertuig informatie -->
+      <form id="contact-form">
+       <!-- Hidden field - bron wordt automatisch meegezonden --> <input type="hidden" name="bron" value="Website"> <!-- Voertuig informatie -->
        <div class="kenteken-mini">
         <div class="kenteken-mini-title">
          Voertuig informatie
         </div>
-        <div class="kenteken-form"><input type="text" class="kenteken-input" id="kenteken-input-form" name="kenteken" placeholder="Bijv. AB-123-C" maxlength="8" required> <button type="button" class="kenteken-btn" id="kenteken-btn-form">Check</button>
+        <div class="kenteken-form">
+         <input type="text" class="kenteken-input" id="kenteken-input-form" name="kenteken" placeholder="Bijv. AB-123-C" maxlength="8" required> <button type="button" class="kenteken-btn" id="kenteken-btn-form">Check</button>
         </div>
         <div class="form-help-text">
          Wordt meegestuurd met uw aanvraag
@@ -1759,15 +1791,20 @@
          </div>
         </div>
        </div><!-- Type aanvraag -->
-       <div class="form-group"><label for="type">Waar kunnen wij u mee helpen?</label> <select id="type" name="type"> <option value="">Kies type aanvraag (optioneel)</option> <option value="Onderhoud">Onderhoud</option> <option value="Reparatie">Reparatie</option> <option value="Diagnose">Diagnose</option> <option value="APK">APK</option> <option value="Airco">Airco</option> <option value="Banden">Banden</option> <option value="Automaatbak">Automaatbak</option> <option value="Elektronica">Elektronica</option> <option value="Overig">Overig</option> </select>
+       <div class="form-group">
+        <label for="type">Waar kunnen wij u mee helpen?</label> <select id="type" name="type"> <option value="">Kies type aanvraag (optioneel)</option> <option value="Onderhoud">Onderhoud</option> <option value="Reparatie">Reparatie</option> <option value="Diagnose">Diagnose</option> <option value="APK">APK</option> <option value="Airco">Airco</option> <option value="Banden">Banden</option> <option value="Automaatbak">Automaatbak</option> <option value="Elektronica">Elektronica</option> <option value="Overig">Overig</option> </select>
        </div><!-- Toelichting (optioneel) -->
-       <div class="form-group"><label for="bericht">Toelichting <span class="optional">(optioneel)</span></label> <textarea id="bericht" name="bericht" placeholder="Heeft u aanvullende informatie? Bijvoorbeeld een klacht, geluid of specifieke vraag."></textarea>
+       <div class="form-group">
+        <label for="bericht">Toelichting <span class="optional">(optioneel)</span></label> <textarea id="bericht" name="bericht" placeholder="Heeft u aanvullende informatie? Bijvoorbeeld een klacht, geluid of specifieke vraag."></textarea>
        </div><!-- Naam -->
-       <div class="form-group"><label for="naam">Naam *</label> <input type="text" id="naam" name="naam" placeholder="Uw naam" required>
+       <div class="form-group">
+        <label for="naam">Naam *</label> <input type="text" id="naam" name="naam" placeholder="Uw naam" required>
        </div><!-- E-mail -->
-       <div class="form-group"><label for="email">E-mail *</label> <input type="email" id="email" name="email" placeholder="Uw e-mailadres" required>
+       <div class="form-group">
+        <label for="email">E-mail *</label> <input type="email" id="email" name="email" placeholder="Uw e-mailadres" required>
        </div><!-- Telefoon -->
-       <div class="form-group"><label for="telefoon">Telefoonnummer</label> <input type="tel" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer">
+       <div class="form-group">
+        <label for="telefoon">Telefoonnummer</label> <input type="tel" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer">
        </div><!-- Footer note -->
        <div class="form-footer-note">
         U hoeft niet alles uit te leggen.<br>
@@ -1782,32 +1819,28 @@
        <div class="contact-label">
         Telefoon
        </div>
-       <div class="contact-value">
-        <a href="tel:+31646102011">+31 6 46102011</a>
+       <div class="contact-value"><a href="tel:+31646102011">+31 6 46102011</a>
        </div>
       </div>
       <div class="contact-item">
        <div class="contact-label">
         WhatsApp
        </div>
-       <div class="contact-value">
-        <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">+31 6 46102011</a>
+       <div class="contact-value"><a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">+31 6 46102011</a>
        </div>
       </div>
       <div class="contact-item">
        <div class="contact-label">
         E-mail
        </div>
-       <div class="contact-value">
-        <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
+       <div class="contact-value"><a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a>
        </div>
       </div>
       <div class="contact-item">
        <div class="contact-label">
         Voertuig Portal
        </div>
-       <div class="contact-value">
-        <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer">📋 Volg je auto</a>
+       <div class="contact-value"><a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer">📋 Volg je auto</a>
        </div>
       </div>
       <div class="contact-item">
@@ -1837,19 +1870,24 @@
    </section><!-- Footer -->
    <footer class="footer">
     <div class="footer-container">
-     <div class="footer-logo"><img src="https://i.postimg.cc/Dw8FpW3y/CCR-logo.png" alt="Car Center Rishi" onerror="this.style.display='none'">
+     <div class="footer-logo">
+      <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi">
      </div>
-     <div class="footer-links"><a href="tel:+31646102011">+31 6 46102011</a> <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a> <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" rel="noopener noreferrer">Google Reviews</a>
+     <div class="footer-links">
+      <a href="tel:+31646102011">+31 6 46102011</a> <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a> <a href="https://wa.me/31646102011" target="_blank" rel="noopener noreferrer">WhatsApp</a> <a href="https://www.google.com/search?q=Car+Center+Rishi+reviews" target="_blank" rel="noopener noreferrer">Google Reviews</a>
      </div>
      <div class="footer-powered">
       Website by <a href="https://vanappiah.com" target="_blank" rel="noopener noreferrer">Van Appiah</a>
      </div>
     </div>
    </footer><!-- Side Tool (desktop only) -->
-   <div class="side-tool"><button class="side-tool-btn" id="side-tool-btn">Kenteken Check</button>
-    <div class="side-tool-panel" id="side-tool-panel"><button class="side-tool-close" id="side-tool-close">×</button>
+   <div class="side-tool">
+    <button class="side-tool-btn" id="side-tool-btn">Kenteken Check</button>
+    <div class="side-tool-panel" id="side-tool-panel">
+     <button class="side-tool-close" id="side-tool-close">×</button>
      <h3 style="margin-bottom: 1rem;">Kenteken Controle</h3>
-     <form class="kenteken-form" id="kenteken-form-side"><input type="text" class="kenteken-input" id="kenteken-input-side" placeholder="XX-XX-XX" maxlength="8"> <button type="submit" class="kenteken-btn">Check</button>
+     <form class="kenteken-form" id="kenteken-form-side">
+      <input type="text" class="kenteken-input" id="kenteken-input-side" placeholder="XX-XX-XX" maxlength="8"> <button type="submit" class="kenteken-btn">Check</button>
      </form>
      <div class="kenteken-result" id="kenteken-result-side">
       <div class="kenteken-result-title">
@@ -1979,6 +2017,36 @@
             `).join('');
         }
 
+        // Format time helper - convert Date or ISO string to HH:mm format
+        function formatTime(value) {
+            if (!value) return 'Gesloten';
+
+            // If already a properly formatted string like "9:00" or "09:00"
+            if (typeof value === 'string' && value.includes(':') && value.length <= 5) {
+                // Ensure proper leading zero
+                const parts = value.split(':');
+                return `${String(parts[0]).padStart(2, '0')}:${parts[1]}`;
+            }
+
+            // If it's a Date object or ISO string
+            try {
+                const date = new Date(value);
+                // Check if date is the 1899 placeholder (RDW format bug) - this indicates a time was passed
+                if (date.getFullYear() === 1899) {
+                    // Extract just the time part
+                    const hours = String(date.getHours()).padStart(2, '0');
+                    const minutes = String(date.getMinutes()).padStart(2, '0');
+                    return `${hours}:${minutes}`;
+                }
+                // For other dates, still extract time
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                return `${hours}:${minutes}`;
+            } catch (e) {
+                return 'Gesloten';
+            }
+        }
+
         // Render opening hours - parse Apps Script string format
         function renderOpeningHours(hoursData) {
             const displayEl = document.getElementById('opening-hours-display');
@@ -2009,12 +2077,22 @@
             dayOrder.forEach(dayKey => {
                 const dayData = hoursData[dayKey];
                 let timeText = 'Gesloten';
-                
-                // Backend geeft strings terug (bijv. "9:00 – 17:30" of "Gesloten")
-                if (dayData && dayData.trim() !== '' && dayData !== 'Gesloten') {
-                    timeText = dayData;
-                } else if (dayData === 'Gesloten') {
-                    timeText = 'Gesloten';
+
+                if (dayData) {
+                    // If data is an object with open/close times
+                    if (typeof dayData === 'object' && dayData.open && dayData.close) {
+                        const openTime = formatTime(dayData.open);
+                        const closeTime = formatTime(dayData.close);
+                        timeText = `${openTime} - ${closeTime}`;
+                    }
+                    // If data is already a formatted string like "9:00 – 17:30"
+                    else if (typeof dayData === 'string' && dayData !== 'Gesloten' && dayData.trim() !== 'Gesloten') {
+                        timeText = dayData;
+                    }
+                    // If data is "Gesloten"
+                    else if (dayData === 'Gesloten' || (typeof dayData === 'string' && dayData.trim() === 'Gesloten')) {
+                        timeText = 'Gesloten';
+                    }
                 }
 
                 const isToday = dayKey === todayKey;
@@ -2051,11 +2129,6 @@
                 const data = await res.json();
                 shopStatusData = data;
 
-                // 🧪 DEBUG: Log API response for troubleshooting
-                console.log('✅ Shop Status API Response:', data);
-                console.log('🟢 Open status:', data.open);
-                console.log('📅 Hours data:', data.hours);
-
                 // Render opening hours from hours object (mon, tue, wed, etc.)
                 if (data.hours) {
                     renderOpeningHours(data.hours);
@@ -2067,23 +2140,20 @@
                 if (data.open === true) {
                     // Shop is OPEN
                     statusEl.className = 'shop-status open';
-                    statusEl.innerHTML = `<span class="shop-status-icon"></span>${data.label || 'Open'}${data.message ? '<span class="shop-status-message">' + data.message + '</span>' : ''}`;
+                    statusEl.innerHTML = `<span class="shop-status-icon"></span>Open${data.message ? '<span class="shop-status-message">' + data.message + '</span>' : ''}`;
                     closedNoticeEl.classList.remove('active');
-                    console.log('✅ Status: OPEN');
                     
                 } else if (data.open === false) {
                     // Shop is CLOSED
                     statusEl.className = 'shop-status closed';
-                    statusEl.innerHTML = `<span class="shop-status-icon"></span>${data.label || 'Gesloten'}${data.message ? '<span class="shop-status-message">' + data.message + '</span>' : ''}`;
+                    statusEl.innerHTML = `<span class="shop-status-icon"></span>Gesloten${data.message ? '<span class="shop-status-message">' + data.message + '</span>' : ''}`;
                     closedNoticeEl.classList.add('active');
-                    console.log('🔴 Status: GESLOTEN');
                     
                 } else {
                     // Unknown status
                     statusEl.className = 'shop-status';
                     statusEl.textContent = 'Status niet beschikbaar';
                     closedNoticeEl.classList.remove('active');
-                    console.warn('⚠️ Status onbekend - data.open:', data.open);
                 }
 
             } catch (e) {
@@ -2487,5 +2557,5 @@
             });
         }
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e2e700325f3f5d1',t:'MTc3NDYxNDk1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e4fdbb517720a4b',t:'MTc3NDk2NTM5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
