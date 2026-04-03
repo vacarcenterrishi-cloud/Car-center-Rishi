@@ -154,8 +154,8 @@
 
     .sticky-cta {
       position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 1rem;
+      right: 1rem;
       z-index: 40;
       display: flex;
       gap: 0.75rem;
@@ -163,8 +163,8 @@
     }
 
     .sticky-btn {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -194,6 +194,81 @@
       background: #25D366;
       color: #FFFFFF;
       border-color: #25D366;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 26, 26, 0.95);
+      z-index: 45;
+      animation: slideIn 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 0;
+    }
+
+    .mobile-menu-item {
+      display: block;
+      padding: 1rem;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      padding-left: 1.5rem;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      color: #1a1a1a;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: none;
+      z-index: 51;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     .fade-in {
@@ -246,21 +321,247 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .sticky-cta {
-        bottom: 1rem;
-        right: 1rem;
-        flex-direction: row;
-      }
-      .heading-xl {
-        font-size: 2rem;
-      }
+    @media (max-width: 768px) {
       .grid-4, .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
       }
       .grid-4.desktop-3 {
         grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      * {
+        box-sizing: border-box !important;
+      }
+      
+      html, body {
+        width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+
+      body {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sticky-cta {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
+      }
+
+      .sticky-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+      }
+
+      .heading-xl {
+        font-size: 1.75rem;
+        line-height: 1.1;
+      }
+
+      .heading-lg {
+        font-size: 1.5rem;
+      }
+
+      .heading-md {
+        font-size: 1rem;
+      }
+
+      .navbar {
+        padding: 0.75rem 1rem !important;
+      }
+
+      .navbar .max-w-6xl {
+        padding: 0 !important;
+      }
+
+      .navbar .flex {
+        gap: 0.5rem;
+      }
+
+      .logo-img {
+        height: 40px;
+      }
+
+      .btn-login {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.8rem;
+      }
+
+      .card {
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+
+      .btn-primary, .btn-secondary {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        width: 100%;
+      }
+
+      .btn-primary:hover {
+        box-shadow: 0 4px 12px rgba(26, 26, 26, 0.15);
+      }
+
+      section {
+        padding: 1rem !important;
+      }
+
+      .max-w-6xl {
+        padding: 0 0.75rem !important;
+      }
+
+      .grid-4, .grid-2 {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.75rem;
+      }
+
+      .usp-badge {
+        padding: 0.75rem;
+      }
+
+      .usp-badge-icon {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 0.5rem;
+      }
+
+      .usp-badge-text {
+        font-size: 0.7rem;
+      }
+
+      .input-field {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.9rem;
+      }
+
+      .step-number {
+        font-size: 2rem;
+      }
+
+      .form-step {
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      #heroHeadline {
+        margin-bottom: 0.75rem;
+      }
+
+      #heroSubheadline {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .flex.flex-col.sm\:flex-row {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .metal-line {
+        height: 1px;
+      }
+
+      .grid.grid-cols-2.gap-3 {
+        gap: 0.5rem;
+      }
+
+      .grid.grid-cols-2.gap-3 p:first-of-type {
+        font-size: 0.7rem;
+      }
+
+      .grid.grid-cols-2.gap-3 p:last-of-type {
+        font-size: 0.85rem;
+      }
+
+      .text-xs {
+        font-size: 0.75rem;
+      }
+
+      .text-sm {
+        font-size: 0.85rem;
+      }
+
+      .space-y-4 > * + * {
+        margin-top: 0.75rem;
+      }
+
+      .space-y-3 > * + * {
+        margin-top: 0.5rem;
+      }
+
+      .mb-12 {
+        margin-bottom: 0.75rem;
+      }
+
+      .mb-8 {
+        margin-bottom: 1rem;
+      }
+
+      .mb-6 {
+        margin-bottom: 0.75rem;
+      }
+
+      .mb-4 {
+        margin-bottom: 0.5rem;
+      }
+
+      .mt-4 {
+        margin-top: 0.5rem;
+      }
+
+      .mt-6 {
+        margin-top: 0.75rem;
+      }
+
+      .pt-24 {
+        padding-top: 1rem;
+      }
+
+      .pb-32 {
+        padding-bottom: 1.5rem;
+      }
+
+      .py-24 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .py-12 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .px-4 {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+
+      [style*="width: 50%"],
+      [style*="width: 33%"] {
+        width: 100% !important;
+      }
+
+      iframe {
+        max-width: 100% !important;
+        height: 300px !important;
+      }
+
+      .grid.grid-cols-1.md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
       }
     }
 
@@ -312,12 +613,18 @@
  </head>
  <body class="w-full h-full bg-white">
   <div class="w-full h-full overflow-auto bg-white">
-   <!-- NAVBAR -->
+   <!-- MOBILE MENU -->
+   <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+     <h3 class="heading-md text-white" style="color: #FFFFFF;">Menu</h3><button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+    </div>
+    <div class="mobile-menu-items"><a href="#" class="mobile-menu-item" onclick="scrollToSection('hero'); toggleMobileMenu();">Home</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="mobile-menu-item">Mijn Auto</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('services'); toggleMobileMenu();">Onze Diensten</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('howItWorks'); toggleMobileMenu();">Hoe het werkt</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('reviews'); toggleMobileMenu();">Reviews</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('contact'); toggleMobileMenu();">Contact</a>
+    </div>
+   </div><!-- NAVBAR -->
    <nav class="navbar">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-     <div class="flex items-center">
-      <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi Logo" class="logo-img" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.background='#f0f0f0'; this.alt='Logo unavailable';">
-     </div><a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="btn-login"> <i data-lucide="user" style="width: 16px; height: 16px;"></i> Mijn Auto </a>
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"><button class="menu-btn" onclick="toggleMobileMenu()"> <i data-lucide="menu" style="width: 24px; height: 24px;"></i> </button>
+     <div class="flex items-center min-w-0 flex-1 justify-center"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi Logo" class="logo-img" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.background='#f0f0f0'; this.alt='Logo unavailable';">
+     </div><a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="btn-login flex-shrink-0"> <i data-lucide="user" style="width: 16px; height: 16px;"></i> <span class="hidden sm:inline">Mijn Auto</span> </a>
     </div>
    </nav><!-- STICKY CTA BUTTONS -->
    <div class="sticky-cta" id="stickyCta"><button class="sticky-btn sticky-call" onclick="makeCall()" title="Bel ons"> <i data-lucide="phone" style="width: 24px; height: 24px;"></i> </button> <button class="sticky-btn sticky-whatsapp" onclick="openWhatsApp()" title="WhatsApp"> <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i> </button>
@@ -327,11 +634,11 @@
      <div class="text-center fade-in">
       <h1 id="heroHeadline" class="heading-xl text-black mb-4">Vakmanschap onder de motorkap</h1>
       <p id="heroSubheadline" class="text-base text-gray-600 mb-12 max-w-2xl mx-auto font-light tracking-wide">APK, onderhoud en diagnose voor alle automerken</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12"><button class="btn-primary" onclick="scrollToSection('booking')">Plan afspraak</button> <button class="btn-secondary" onclick="makeCall()">Bel direct</button>
+      <div class="flex flex-col gap-3 justify-center mb-12"><button class="btn-primary" onclick="scrollToSection('booking')">Plan afspraak</button> <button class="btn-secondary" onclick="makeCall()">Bel direct</button>
       </div><!-- LICENSE PLATE CHECK -->
-      <div class="max-w-md mx-auto">
+      <div class="max-w-md mx-auto w-full">
        <div class="card"><label class="block text-xs font-bold text-gray-700 mb-3 text-left uppercase tracking-widest">Voer kenteken in</label>
-        <div class="flex gap-2"><input type="text" id="licensePlateInput" class="input-field placeholder-gray-400 text-center text-lg font-mono tracking-widest uppercase flex-1" placeholder="AB-12-CD" maxlength="8"> <button class="btn-primary text-sm px-4" type="button" onclick="checkLicense()">Check</button>
+        <div class="flex gap-2 w-full"><input type="text" id="licensePlateInput" class="input-field placeholder-gray-400 text-center text-lg font-mono tracking-widest uppercase flex-1" placeholder="AB-12-CD" maxlength="8"> <button class="btn-primary text-sm px-4 flex-shrink-0" type="button" onclick="checkLicense()">Check</button>
         </div>
        </div>
        <div id="licenseResult" class="mt-4 hidden">
@@ -386,7 +693,7 @@
     <div class="max-w-6xl mx-auto">
      <h2 class="heading-lg text-black mb-2 text-center">Onze Diensten</h2>
      <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Professionele autopflege en -reparatie</p>
-     <div class="grid-4">
+     <div class="grid-2">
       <div class="card"><i data-lucide="check-circle-2" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">APK Keuring</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Jaarlijkse APK voor alle voertuigen</p>
@@ -646,8 +953,6 @@
         </div>
        </div>
       </div>
-      <div class="card overflow-hidden border-2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.6893519048147!2d4.933815!3d52.378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5d0e3a3a3a3a3%3A0x1234567890abcdef!2sMeeuwenlaan%20116H%2C%201021%20JM%20Amsterdam!5e0!3m2!1snl!2snl!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
-      </div>
      </div>
     </div>
    </section><!-- FOOTER -->
@@ -898,6 +1203,11 @@
       }
     }
 
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
     async function checkLicense() {
       const input = document.getElementById('licensePlateInput').value.toUpperCase().replace(/[^A-Z0-9]/g, '');
       const resultDiv = document.getElementById('licenseResult');
@@ -1005,5 +1315,5 @@
       window.open('https://maps.google.com/?q=Meeuwenlaan%20116H%201021%20JM%20Amsterdam', '_blank');
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e68498fa1c4e149',t:'MTc3NTIyMTU1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e68e154c6f28072',t:'MTc3NTIyNzc2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
