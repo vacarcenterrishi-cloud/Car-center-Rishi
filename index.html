@@ -280,6 +280,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes loading {
+      0% { width: 0%; }
+      50% { width: 100%; }
+      100% { width: 100%; }
+    }
+
     .input-field {
       background: rgba(26, 26, 26, 0.05);
       border: 1.5px solid rgba(26, 26, 26, 0.1);
@@ -618,13 +624,13 @@
     <div class="mobile-menu-header">
      <h3 class="heading-md text-white" style="color: #FFFFFF;">Menu</h3><button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
     </div>
-    <div class="mobile-menu-items"><a href="#" class="mobile-menu-item" onclick="scrollToSection('hero'); toggleMobileMenu();">Home</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="mobile-menu-item">Mijn Auto</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('services'); toggleMobileMenu();">Onze Diensten</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('howItWorks'); toggleMobileMenu();">Hoe het werkt</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('reviews'); toggleMobileMenu();">Reviews</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('contact'); toggleMobileMenu();">Contact</a>
+    <div class="mobile-menu-items"><a href="#" class="mobile-menu-item" onclick="scrollToSection('hero'); toggleMobileMenu();">Home</a> <a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="mobile-menu-item">Mijn Auto Portaal</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('services'); toggleMobileMenu();">Onze Diensten</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('howItWorks'); toggleMobileMenu();">Hoe het werkt</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('reviews'); toggleMobileMenu();">Reviews</a> <a href="#" class="mobile-menu-item" onclick="scrollToSection('contact'); toggleMobileMenu();">Contact</a>
     </div>
    </div><!-- NAVBAR -->
    <nav class="navbar">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"><button class="menu-btn" onclick="toggleMobileMenu()"> <i data-lucide="menu" style="width: 24px; height: 24px;"></i> </button>
      <div class="flex items-center min-w-0 flex-1 justify-center"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi Logo" class="logo-img" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.background='#f0f0f0'; this.alt='Logo unavailable';">
-     </div><a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="btn-login flex-shrink-0"> <i data-lucide="user" style="width: 16px; height: 16px;"></i> <span class="hidden sm:inline">Mijn Auto</span> </a>
+     </div><a href="https://carcenterrishi.nl/portal" target="_blank" rel="noopener noreferrer" class="btn-login flex-shrink-0 flex items-center gap-1.5"> <i data-lucide="user" style="width: 18px; height: 18px;"></i> <span class="hidden sm:inline">Mijn Auto</span> </a>
     </div>
    </nav><!-- STICKY CTA BUTTONS -->
    <div class="sticky-cta" id="stickyCta"><button class="sticky-btn sticky-call" onclick="makeCall()" title="Bel ons"> <i data-lucide="phone" style="width: 24px; height: 24px;"></i> </button> <button class="sticky-btn sticky-whatsapp" onclick="openWhatsApp()" title="WhatsApp"> <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i> </button>
@@ -638,7 +644,7 @@
       </div><!-- LICENSE PLATE CHECK -->
       <div class="max-w-md mx-auto w-full">
        <div class="card"><label class="block text-xs font-bold text-gray-700 mb-3 text-left uppercase tracking-widest">Voer kenteken in</label>
-        <div class="flex gap-2 w-full"><input type="text" id="licensePlateInput" class="input-field placeholder-gray-400 text-center text-lg font-mono tracking-widest uppercase flex-1" placeholder="AB-12-CD" maxlength="8"> <button class="btn-primary text-sm px-4 flex-shrink-0" type="button" onclick="checkLicense()">Check</button>
+        <div class="flex flex-col gap-2 w-full"><input type="text" id="licensePlateInput" class="input-field placeholder-gray-400 text-center text-lg font-mono tracking-widest uppercase w-full" placeholder="AB-12-CD" maxlength="8"> <button class="btn-primary text-sm w-full" type="button" onclick="checkLicense()">Check</button>
         </div>
        </div>
        <div id="licenseResult" class="mt-4 hidden">
@@ -697,42 +703,42 @@
       <div class="card"><i data-lucide="check-circle-2" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">APK Keuring</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Jaarlijkse APK voor alle voertuigen</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €25</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €25</p><button class="btn-secondary text-xs w-full" onclick="selectService('APK Keuring')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="activity" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Diagnose</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Computergestuurde voertuigdiagnose</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €45</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €45</p><button class="btn-secondary text-xs w-full" onclick="selectService('Diagnose')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="wrench" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Groot Onderhoud</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Volledige onderhoudsbeurt</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Groot Onderhoud')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="droplet" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Olie Verversen</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Olieverversing met filters</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €35</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €35</p><button class="btn-secondary text-xs w-full" onclick="selectService('Olie Verversen')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="wind" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Airco Service</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Airco vervulling &amp; inspectie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €60</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €60</p><button class="btn-secondary text-xs w-full" onclick="selectService('Airco Service')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="circle" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Bandenservice</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Montage, balancering &amp; opslag</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €20</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €20</p><button class="btn-secondary text-xs w-full" onclick="selectService('Bandenservice')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="cog" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Automaatbak</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Service en reparatie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Automaatbak')">Kies deze dienst</button>
       </div>
       <div class="card"><i data-lucide="zap-off" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
        <h3 class="heading-md text-black mb-2">Elektronica</h3>
        <p class="text-gray-600 text-xs mb-4 leading-relaxed">Elektra- en sensorreparatie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €50</p><button class="btn-secondary text-xs w-full">Meer info</button>
+       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €50</p><button class="btn-secondary text-xs w-full" onclick="selectService('Elektronica')">Kies deze dienst</button>
       </div>
      </div>
     </div>
@@ -785,6 +791,11 @@
        <div class="flex-1 h-1 bg-gray-300 rounded-full" id="progressBar" style="width: 33.33%;"></div>
        <div class="ml-4 text-xs font-bold text-gray-600 uppercase">
         <span id="stepIndicator">Stap 1 van 3</span>
+       </div>
+      </div><!-- Loading bar for submission -->
+      <div id="submissionLoadingBar" class="mb-8 hidden">
+       <div class="h-1 bg-gray-300 rounded-full overflow-hidden">
+        <div class="h-full bg-gray-700 rounded-full" style="width: 0%; animation: loading 2s infinite;"></div>
        </div>
       </div><!-- Multi-Step Form -->
       <form id="appointmentForm" onsubmit="submitAppointment(event)">
@@ -923,33 +934,125 @@
       </div>
      </div>
     </div>
-   </section><!-- CONTACT & MAP SECTION -->
-   <section class="w-full py-24 px-4 bg-white">
+   </section><!-- CONTACT FORM SECTION -->
+   <section id="contact" class="w-full py-24 px-4 bg-white border-b border-gray-100">
+    <div class="max-w-2xl mx-auto">
+     <h2 class="heading-lg text-black mb-2 text-center">Bericht achterlaten</h2>
+     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Vragen? Neem contact met ons op via het formulier</p>
+     <div class="card p-8 border-2">
+      <form id="contactForm" onsubmit="submitContactForm(event)">
+       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Onderwerp *</label> <input type="text" name="contact_subject" class="input-field" placeholder="Waar gaat uw vraag over?" required>
+       </div>
+       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Naam *</label> <input type="text" name="contact_name" class="input-field" placeholder="Uw volledige naam" required>
+       </div>
+       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Email *</label> <input type="email" name="contact_email" class="input-field" placeholder="uw.email@gmail.com" required>
+       </div>
+       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Telefoon (optioneel)</label> <input type="tel" name="contact_phone" class="input-field" placeholder="+31 6 123 45 678">
+       </div>
+       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Uw Bericht *</label> <textarea name="contact_message" class="input-field" rows="5" placeholder="Beschrijf uw vraag of bericht..." required></textarea>
+       </div>
+       <div id="contactNote" class="mb-6 p-3 bg-gray-100 border border-gray-200 rounded-lg text-xs text-gray-700 font-semibold uppercase tracking-widest">
+        Wij reageren binnen 24 uur
+       </div>
+       <div id="contactLoadingBar" class="mb-6 hidden">
+        <div class="h-1 bg-gray-300 rounded-full overflow-hidden">
+         <div class="h-full bg-gray-700 rounded-full" style="width: 0%; animation: loading 2s infinite;"></div>
+        </div>
+       </div><button type="submit" class="btn-primary w-full text-sm" id="contactSubmitBtn">Bericht Verzenden</button>
+       <div id="contactStatus" class="mt-4 text-center text-xs hidden p-3 rounded-lg"></div>
+      </form>
+     </div>
+    </div>
+   </section><!-- COMPANY INFO & CONTACT SECTION -->
+   <section class="w-full py-24 px-4 bg-gray-50 border-b border-gray-100">
     <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-12 text-center">Contact &amp; Locatie</h2>
+     <h2 class="heading-lg text-black mb-12 text-center">Bedrijfsgegevens &amp; Openingstijden</h2>
      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Bedrijfsgegevens -->
       <div>
-       <div class="card p-6 border-2">
-        <h3 class="heading-md text-black mb-6">Car Center Rishi</h3>
-        <div class="space-y-4 mb-8">
-         <div class="flex gap-3"><i data-lucide="map-pin" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+       <div class="card p-6 border-2 h-full">
+        <h3 class="heading-md text-black mb-6" id="companyNameDisplay">Car Center Rishi</h3>
+        <div class="space-y-4">
+         <!-- Adres -->
+         <div class="flex gap-3 pb-4 border-b border-gray-200">
+          <i data-lucide="map-pin" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
           <div>
-           <p class="text-gray-900 text-sm">Meeuwenlaan 116 H</p>
-           <p class="text-gray-600 text-xs">1021 JM Amsterdam-Noord</p>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Adres</p>
+           <p id="companyAddressDisplay" class="text-gray-900 text-sm font-medium">Meeuwenlaan 116 H, Amsterdam</p>
           </div>
-         </div>
-         <div id="openStatus" class="flex gap-3"><i data-lucide="clock" style="width: 20px; height: 20px; color: #1a1a1a;"></i>
+         </div><!-- Telefoon -->
+         <div class="flex gap-3 pb-4 border-b border-gray-200">
+          <i data-lucide="phone" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
           <div>
-           <p id="statusText" class="text-gray-900 text-sm">Status: <span id="statusIcon"></span></p>
-           <p class="text-gray-600 text-xs">Ma-Vr: 08:00 - 17:30 | Za: 09:00 - 14:00</p>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Telefoon</p>
+           <p id="companyPhoneDisplay" class="text-gray-900 text-sm font-medium"><a href="tel:+31201234567" class="hover:text-black transition">+31 (0)20 123 4567</a></p>
           </div>
-         </div>
-         <div id="companyPhone" class="flex gap-3"><i data-lucide="phone" style="width: 20px; height: 20px; color: #1a1a1a;"></i> <a href="tel:+31201234567" class="text-gray-900 hover:text-black transition text-sm">+31 (0)20 123 4567</a>
-         </div>
-         <div id="companyEmail" class="flex gap-3"><i data-lucide="mail" style="width: 20px; height: 20px; color: #1a1a1a;"></i> <a href="mailto:info@carcentrershi.nl" class="text-gray-900 hover:text-black transition text-sm">info@carcentrershi.nl</a>
+         </div><!-- Email -->
+         <div class="flex gap-3 pb-4 border-b border-gray-200">
+          <i data-lucide="mail" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+          <div>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Email</p>
+           <p id="companyEmailDisplay" class="text-gray-900 text-sm font-medium"><a href="mailto:info@carcentrershi.nl" class="hover:text-black transition">info@carcentrershi.nl</a></p>
+          </div>
+         </div><!-- KvK -->
+         <div class="flex gap-3 pb-4 border-b border-gray-200">
+          <i data-lucide="briefcase" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+          <div>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">KvK Nummer</p>
+           <p id="companyKvKDisplay" class="text-gray-900 text-sm font-medium">12345678</p>
+          </div>
+         </div><!-- BTW -->
+         <div class="flex gap-3 pb-4 border-b border-gray-200">
+          <i data-lucide="file-text" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+          <div>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">BTW Nummer</p>
+           <p id="companyBTWDisplay" class="text-gray-900 text-sm font-medium">NL123456789B01</p>
+          </div>
+         </div><!-- Status -->
+         <div class="flex gap-3">
+          <i data-lucide="clock" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+          <div>
+           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Status</p>
+           <p id="liveStatusDisplay" class="text-gray-900 text-sm font-medium">⏳ Laden...</p>
+          </div>
          </div>
         </div>
-        <div class="space-y-3"><button class="btn-primary w-full text-xs" onclick="openMaps()">Route plannen</button> <button class="btn-secondary w-full text-xs" onclick="makeCall()">Bel nu</button>
+        <div class="space-y-3 mt-8"><button class="btn-primary w-full text-xs" onclick="openMaps()">Route plannen</button> <button class="btn-secondary w-full text-xs" onclick="makeCall()">Bel nu</button>
+        </div>
+       </div>
+      </div><!-- Openingstijden -->
+      <div>
+       <div class="card p-6 border-2">
+        <h3 class="heading-md text-black mb-6">Openingstijden</h3>
+        <div class="space-y-3">
+         <div id="openingHoursSun" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Zondag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursMon" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Maandag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursTue" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Dinsdag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursWed" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Woensdag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursThu" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Donderdag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursFri" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Vrijdag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
+         <div id="openingHoursSat" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+          <p class="text-xs font-semibold text-gray-600 uppercase">Zaterdag</p>
+          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         </div>
         </div>
        </div>
       </div>
@@ -965,7 +1068,7 @@
   </div>
   <script>
     let currentData = [];
-    const API_URL = 'https://script.google.com/macros/s/AKfycbzKdOzZvNgfbNjDjsLBGmugfqnrPq-JofaVzXECP8gLCf1X1Y7j7TeUnb7DZT7524DG2A/exec';
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyUufYVu86bivgcW0FA4u4XyuzQd-rX7APNk0vu3NckNmfERALtrpV9onTcHkwFLcMX/exec';
     const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     const DAY_NAMES = ['ZONDAG', 'MAANDAG', 'DINSDAG', 'WOENSDAG', 'DONDERDAG', 'VRIJDAG', 'ZATERDAG'];
 
@@ -974,10 +1077,14 @@
       const defaultConfig = {
         hero_headline: "Vakmanschap onder de motorkap",
         hero_subheadline: "APK, onderhoud en diagnose voor alle automerken",
+        company_name: "Car Center Rishi",
+        company_address: "Meeuwenlaan 116 H, Amsterdam",
         company_phone: "+31 (0)20 123 4567",
         company_email: "info@carcentrtershi.nl",
+        kvk_number: "12345678",
+        btw_number: "NL123456789B01",
         appointment_note: "Wij reageren binnen 24 uur",
-        status_title: "Openingstijden & Status"
+        contact_response_time: "Wij reageren binnen 24 uur"
       };
 
       if (window.elementSdk) {
@@ -987,11 +1094,17 @@
             document.getElementById('heroHeadline').textContent = config.hero_headline || defaultConfig.hero_headline;
             document.getElementById('heroSubheadline').textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
             document.getElementById('appointmentNote').textContent = config.appointment_note || defaultConfig.appointment_note;
+            document.getElementById('contactNote').textContent = config.contact_response_time || defaultConfig.appointment_note;
             
-            const phoneLink = document.querySelector('#companyPhone a');
+            document.getElementById('companyNameDisplay').textContent = config.company_name || defaultConfig.company_name;
+            document.getElementById('companyAddressDisplay').textContent = config.company_address || defaultConfig.company_address;
+            document.getElementById('companyKvKDisplay').textContent = config.kvk_number || defaultConfig.kvk_number;
+            document.getElementById('companyBTWDisplay').textContent = config.btw_number || defaultConfig.btw_number;
+            
+            const phoneLink = document.querySelector('#companyPhoneDisplay a');
             if (phoneLink) phoneLink.href = `tel:${config.company_phone}`;
             
-            const emailLink = document.querySelector('#companyEmail a');
+            const emailLink = document.querySelector('#companyEmailDisplay a');
             if (emailLink) emailLink.href = `mailto:${config.company_email}`;
           },
           mapToCapabilities: () => ({
@@ -1003,10 +1116,14 @@
           mapToEditPanelValues: (config) => new Map([
             ["hero_headline", config.hero_headline],
             ["hero_subheadline", config.hero_subheadline],
+            ["company_name", config.company_name],
+            ["company_address", config.company_address],
             ["company_phone", config.company_phone],
             ["company_email", config.company_email],
+            ["kvk_number", config.kvk_number],
+            ["btw_number", config.btw_number],
             ["appointment_note", config.appointment_note],
-            ["status_title", config.status_title]
+            ["contact_response_time", config.contact_response_time]
           ])
         });
       }
@@ -1025,7 +1142,7 @@
 
     async function loadStoreStatus() {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(WEBAPP_URL + '?type=status');
         const data = await response.json();
         updateStatusDisplay(data);
       } catch (error) {
@@ -1067,10 +1184,12 @@
       }
 
       updateHoursGrid(data.hours, today);
+      updateLiveStatus(data);
     }
 
     function updateHoursGrid(hours, today) {
       const dayIds = ['hourSun', 'hourMon', 'hourTue', 'hourWed', 'hourThu', 'hourFri', 'hourSat'];
+      const openingIds = ['openingHoursSun', 'openingHoursMon', 'openingHoursTue', 'openingHoursWed', 'openingHoursThu', 'openingHoursFri', 'openingHoursSat'];
       
       dayIds.forEach((id, index) => {
         const element = document.getElementById(id);
@@ -1093,6 +1212,27 @@
         timeElement.textContent = hoursText;
         timeElement.style.color = hoursText === 'Gesloten' ? '#9ca3af' : '#1f2937';
       });
+
+      // Also update the opening hours section
+      openingIds.forEach((id, index) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const dayKey = DAYS[index];
+        const hoursText = hours[dayKey] || 'Gesloten';
+        const timeElement = element.querySelector('p:last-child');
+
+        if (index === today) {
+          element.style.backgroundColor = '#fef08a';
+          element.style.borderColor = '#eab308';
+        } else {
+          element.style.backgroundColor = '#ffffff';
+          element.style.borderColor = '#e5e7eb';
+        }
+
+        timeElement.textContent = hoursText;
+        timeElement.style.color = hoursText === 'Gesloten' ? '#9ca3af' : '#1f2937';
+      });
     }
 
     function showErrorStatus() {
@@ -1105,6 +1245,21 @@
       statusLabel.textContent = 'Status onbekend';
       statusLabel.style.color = '#b45309';
       statusMessage.textContent = 'Kon status niet ophalen. Probeer later opnieuw.';
+      
+      updateLiveStatus({ open: false, label: 'Laden...' });
+    }
+
+    function updateLiveStatus(data) {
+      const liveStatusDisplay = document.getElementById('liveStatusDisplay');
+      if (liveStatusDisplay) {
+        if (data.open) {
+          liveStatusDisplay.textContent = '🟢 Open';
+          liveStatusDisplay.style.color = '#15803d';
+        } else {
+          liveStatusDisplay.textContent = '🔴 Gesloten';
+          liveStatusDisplay.style.color = '#991b1b';
+        }
+      }
     }
 
     setInterval(loadStoreStatus, 5 * 60 * 1000);
@@ -1127,31 +1282,45 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       
-      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzM-reVZHipVw0g4lIISn_GXGJ7THqQqpPEvSr9l71ujuOL5Y_BvLqJK71fohg3aJ3z/exec';
-      
       const submitBtn = document.getElementById('submitBtn');
       const formStatus = document.getElementById('formStatus');
+      const loadingBar = document.getElementById('submissionLoadingBar');
       
       submitBtn.disabled = true;
       submitBtn.textContent = 'Bezig met verzenden...';
+      loadingBar.classList.remove('hidden');
       formStatus.classList.remove('hidden');
       formStatus.classList.remove('text-green-400', 'text-red-400');
       formStatus.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
       formStatus.textContent = '⏳ Uw afspraak wordt verzonden...';
 
-      fetch(SCRIPT_URL, {
+      const payload = {
+        type: 'afspraak',
+        data: {
+          naam: data.naam,
+          email: data.email,
+          telefoon: data.telefoon,
+          datum: data.datum,
+          tijd: data.tijd,
+          dienst: data.dienst,
+          opmerking: data.opmerking || ''
+        }
+      };
+
+      fetch(WEBAPP_URL, {
         method: 'POST',
-        body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(payload)
       })
       .then(response => response.json())
       .then(result => {
-        if (result.status === 'success' || result.status === 'ok') {
+        if (result.status === 'ok' || result.success === true) {
           formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
           formStatus.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
           formStatus.textContent = '✓ Afspraak succesvol verzonden! U ontvangt binnenkort bevestiging per mail.';
+          loadingBar.classList.add('hidden');
           
           submitBtn.disabled = false;
           submitBtn.textContent = 'Afspraak Maken';
@@ -1180,6 +1349,7 @@
           formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
           formStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
           formStatus.textContent = '✗ Er is iets misgegaan. Probeer het later opnieuw.';
+          loadingBar.classList.add('hidden');
           
           submitBtn.disabled = false;
           submitBtn.textContent = 'Afspraak Maken';
@@ -1190,6 +1360,7 @@
         formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
         formStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
         formStatus.textContent = '✗ Fout bij verzenden. Controleer uw internetverbinding.';
+        loadingBar.classList.add('hidden');
         
         submitBtn.disabled = false;
         submitBtn.textContent = 'Afspraak Maken';
@@ -1206,6 +1377,15 @@
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
+    }
+
+    function selectService(serviceName) {
+      scrollToSection('booking');
+      nextStep(3);
+      const dienstSelect = document.querySelector('select[name="dienst"]');
+      if (dienstSelect) {
+        dienstSelect.value = serviceName;
+      }
     }
 
     async function checkLicense() {
@@ -1314,6 +1494,96 @@
     function openMaps() {
       window.open('https://maps.google.com/?q=Meeuwenlaan%20116H%201021%20JM%20Amsterdam', '_blank');
     }
+
+    async function submitContactForm(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
+      
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const contactStatus = document.getElementById('contactStatus');
+      const loadingBar = document.getElementById('contactLoadingBar');
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Bezig met verzenden...';
+      loadingBar.classList.remove('hidden');
+      contactStatus.classList.remove('hidden');
+      contactStatus.classList.remove('text-green-400', 'text-red-400');
+      contactStatus.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
+      contactStatus.textContent = '⏳ Uw bericht wordt verzonden...';
+
+      const payload = {
+        type: 'contact',
+        data: {
+          naam: formData.get('contact_name'),
+          email: formData.get('contact_email'),
+          telefoon: formData.get('contact_phone') || '',
+          onderwerp: formData.get('contact_subject'),
+          bericht: formData.get('contact_message')
+        }
+      };
+
+      try {
+        const response = await fetch(WEBAPP_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'ok' || result.success === true) {
+          contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          contactStatus.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
+          contactStatus.textContent = '✓ Bericht succesvol verzonden! Wij nemen snel contact met u op.';
+          loadingBar.classList.add('hidden');
+          
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Bericht Verzenden';
+          
+          setTimeout(() => {
+            form.reset();
+            contactStatus.classList.add('hidden');
+          }, 3000);
+
+          if (window.dataSdk && currentData.length < 999) {
+            window.dataSdk.create({
+              serviceType: 'Contact Form',
+              licensePlate: '',
+              name: payload.data.naam,
+              phone: payload.data.telefoon,
+              email: payload.data.email,
+              notes: payload.data.bericht,
+              createdAt: new Date().toISOString(),
+              status: 'Contact',
+              appointmentDate: new Date().toISOString().split('T')[0],
+              appointmentTime: new Date().toTimeString().split(' ')[0],
+              contactType: 'Website Form'
+            }).catch(err => console.error('Data SDK error:', err));
+          }
+        } else {
+          contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          contactStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+          contactStatus.textContent = '✗ Er is iets misgegaan. Probeer het later opnieuw.';
+          loadingBar.classList.add('hidden');
+          
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Bericht Verzenden';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+        contactStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+        contactStatus.textContent = '✗ Fout bij verzenden. Controleer uw internetverbinding.';
+        loadingBar.classList.add('hidden');
+        
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Bericht Verzenden';
+      }
+    }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e68e154c6f28072',t:'MTc3NTIyNzc2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7035f485a54389',t:'MTc3NTMwNDYzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
