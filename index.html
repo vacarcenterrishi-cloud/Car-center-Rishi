@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;600;700&display=swap');
 
@@ -616,6 +615,7 @@
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="w-full h-full bg-white">
   <div class="w-full h-full overflow-auto bg-white">
@@ -674,402 +674,377 @@
         </div>
        </div>
       </div>
-     </div>
-    </div>
-   </section><!-- USP SECTION -->
-   <section class="w-full py-12 px-4 bg-gray-50 border-b border-gray-100">
-    <div class="max-w-6xl mx-auto">
-     <div class="grid-4">
-      <div class="card usp-badge"><i data-lucide="award" class="usp-badge-icon mx-auto"></i>
-       <p class="usp-badge-text">RDW Erkend</p>
-      </div>
-      <div class="card usp-badge"><i data-lucide="shield-check" class="usp-badge-icon mx-auto"></i>
-       <p class="usp-badge-text">NAP Gecertificeerd</p>
-      </div>
-      <div class="card usp-badge"><i data-lucide="clock" class="usp-badge-icon mx-auto"></i>
-       <p class="usp-badge-text">25+ Jaar Ervaring</p>
-      </div>
-      <div class="card usp-badge"><i data-lucide="zap" class="usp-badge-icon mx-auto"></i>
-       <p class="usp-badge-text">Snelle Service</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- SERVICES SECTION -->
-   <section class="w-full py-24 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Onze Diensten</h2>
-     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Professionele autopflege en -reparatie</p>
-     <div class="grid-2">
-      <div class="card"><i data-lucide="check-circle-2" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">APK Keuring</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Jaarlijkse APK voor alle voertuigen</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €25</p><button class="btn-secondary text-xs w-full" onclick="selectService('APK Keuring')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="activity" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Diagnose</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Computergestuurde voertuigdiagnose</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €45</p><button class="btn-secondary text-xs w-full" onclick="selectService('Diagnose')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="wrench" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Groot Onderhoud</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Volledige onderhoudsbeurt</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Groot Onderhoud')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="droplet" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Olie Verversen</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Olieverversing met filters</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €35</p><button class="btn-secondary text-xs w-full" onclick="selectService('Olie Verversen')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="wind" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Airco Service</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Airco vervulling &amp; inspectie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €60</p><button class="btn-secondary text-xs w-full" onclick="selectService('Airco Service')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="circle" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Bandenservice</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Montage, balancering &amp; opslag</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €20</p><button class="btn-secondary text-xs w-full" onclick="selectService('Bandenservice')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="cog" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Automaatbak</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Service en reparatie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Automaatbak')">Kies deze dienst</button>
-      </div>
-      <div class="card"><i data-lucide="zap-off" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
-       <h3 class="heading-md text-black mb-2">Elektronica</h3>
-       <p class="text-gray-600 text-xs mb-4 leading-relaxed">Elektra- en sensorreparatie</p>
-       <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €50</p><button class="btn-secondary text-xs w-full" onclick="selectService('Elektronica')">Kies deze dienst</button>
-      </div>
-     </div>
-    </div>
-   </section><!-- HOE HET WERKT SECTION -->
-   <section class="w-full py-24 px-4 bg-gray-50 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Hoe het werkt</h2>
-     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Drie simpele stappen naar uw afspraak</p>
-     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center">
-       <div class="step-number">
-        1
-       </div>
-       <h3 class="heading-md text-black mb-3">Kenteken invoeren</h3>
-       <p class="text-gray-600 text-xs leading-relaxed">Voer uw kenteken in en selecteer de gewenste service</p>
-       <div class="mt-6">
-        <i data-lucide="keyboard" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
-       </div>
-      </div>
-      <div class="text-center">
-       <div class="step-number">
-        2
-       </div>
-       <h3 class="heading-md text-black mb-3">Diagnose</h3>
-       <p class="text-gray-600 text-xs leading-relaxed">Wij voeren een grondige diagnose uit van uw voertuig</p>
-       <div class="mt-6">
-        <i data-lucide="activity" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
-       </div>
-      </div>
-      <div class="text-center">
-       <div class="step-number">
-        3
-       </div>
-       <h3 class="heading-md text-black mb-3">Afspraak plannen</h3>
-       <p class="text-gray-600 text-xs leading-relaxed">Boek uw afspraak op uw gewenste datum en tijd</p>
-       <div class="mt-6">
-        <i data-lucide="calendar-check-2" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- BOOKING FORM SECTION - MULTI-STEP -->
-   <section id="booking" class="w-full py-24 px-4 bg-white">
-    <div class="max-w-2xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Plan uw afspraak</h2>
-     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Vul het formulier in 3 stappen in en wij nemen snel contact met u op</p>
-     <div class="card p-8 border-2">
-      <!-- Progress Indicator -->
-      <div class="mb-8 flex items-center justify-between">
-       <div class="flex-1 h-1 bg-gray-300 rounded-full" id="progressBar" style="width: 33.33%;"></div>
-       <div class="ml-4 text-xs font-bold text-gray-600 uppercase">
-        <span id="stepIndicator">Stap 1 van 3</span>
-       </div>
-      </div><!-- Loading bar for submission -->
-      <div id="submissionLoadingBar" class="mb-8 hidden">
-       <div class="h-1 bg-gray-300 rounded-full overflow-hidden">
-        <div class="h-full bg-gray-700 rounded-full" style="width: 0%; animation: loading 2s infinite;"></div>
-       </div>
-      </div><!-- Multi-Step Form -->
-      <form id="appointmentForm" onsubmit="submitAppointment(event)">
-       <!-- STAP 1: GEGEVENS -->
-       <div class="form-step active" id="step1">
-        <h3 class="heading-md text-black mb-6">Stap 1: Uw Gegevens</h3>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Voornaam *</label> <input type="text" name="naam" class="input-field" placeholder="Uw voornaam" required>
-        </div>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Email *</label> <input type="email" name="email" class="input-field" placeholder="uw.email@gmail.com" required>
-        </div>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Telefoon *</label> <input type="tel" name="telefoon" class="input-field" placeholder="+31 6 123 45 678" required>
-        </div>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Kenteken (bijv. AB-12-CD) *</label> <input type="text" name="kenteken" class="input-field uppercase text-center tracking-widest" maxlength="8" placeholder="AB-12-CD" required>
-        </div><button type="button" class="btn-primary w-full text-sm" onclick="nextStep(2)">Volgende →</button>
-       </div><!-- STAP 2: DATUM & TIJD -->
-       <div class="form-step" id="step2">
-        <h3 class="heading-md text-black mb-6">Stap 2: Datum &amp; Tijd</h3>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Gewenste Datum *</label> <input type="date" name="datum" class="input-field" required>
-        </div>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Gewenste Tijd *</label> <input type="time" name="tijd" class="input-field" required>
-        </div>
-        <div class="mb-6 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-700">
-         <i data-lucide="info" style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; vertical-align: middle;"></i> Openingsuren: Ma-Vr 08:00-17:30 | Za 09:00-14:00
-        </div>
-        <div class="flex gap-3">
-         <button type="button" class="btn-secondary flex-1 text-sm" onclick="nextStep(1)">← Vorige</button> <button type="button" class="btn-primary flex-1 text-sm" onclick="nextStep(3)">Volgende →</button>
-        </div>
-       </div><!-- STAP 3: DIENST & OPMERKING -->
-       <div class="form-step" id="step3">
-        <h3 class="heading-md text-black mb-6">Stap 3: Dienst &amp; Opmerking</h3>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Selecteer Dienst *</label> <select name="dienst" class="input-field" required> <option value="">Kies een service...</option> <option value="APK Keuring">APK Keuring</option> <option value="Diagnose">Diagnose</option> <option value="Groot Onderhoud">Groot Onderhoud</option> <option value="Olie Verversen">Olie Verversen</option> <option value="Airco Service">Airco Service</option> <option value="Bandenservice">Bandenservice</option> <option value="Automaatbak Service">Automaatbak Service</option> <option value="Auto Elektronica">Auto Elektronica</option> <option value="Overig">Overig</option> </select>
-        </div>
-        <div class="mb-6">
-         <label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Extra Info (optioneel)</label> <textarea name="opmerking" class="input-field" rows="3" placeholder="Beschrijf uw voertuigprobleem of speciale wensen..."></textarea>
-        </div>
-        <div id="appointmentNote" class="mb-6 p-3 bg-gray-100 border border-gray-200 rounded-lg text-xs text-gray-700 font-semibold uppercase tracking-widest">
-         Wij reageren binnen 24 uur
-        </div>
-        <div class="flex gap-3">
-         <button type="button" class="btn-secondary flex-1 text-sm" onclick="nextStep(2)">← Vorige</button> <button type="submit" class="btn-primary flex-1 text-sm" id="submitBtn">Afspraak Maken</button>
-        </div>
-        <div id="formStatus" class="mt-4 text-center text-xs hidden p-3 rounded-lg"></div>
-       </div>
-      </form>
-     </div>
-    </div>
-   </section><!-- OPENINGSTIJDEN SECTION -->
-   <section class="w-full py-24 px-4 bg-white border-b border-gray-100">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Openingstijden &amp; Status</h2>
-     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Bekijk wanneer we open zijn</p>
-     <div class="card p-8 border-2 max-w-2xl mx-auto">
-      <!-- Status Indicator -->
-      <div class="mb-8 p-6 rounded-lg border-2 text-center" id="statusContainer" style="border-color: #e5e7eb; background-color: #f9fafb;">
-       <div class="flex items-center justify-center gap-3 mb-4"><i data-lucide="user" style="width: 24px; height: 24px; color: #1a1a1a;"></i> <span id="statusLabel" class="text-2xl font-bold" style="color: #1a1a1a;">Laden...</span>
-       </div>
-       <p id="statusMessage" class="text-gray-600 text-sm mb-3">Status wordt geladen...</p>
-       <p id="statusTime" class="text-gray-900 font-semibold text-sm">Vandaag open van -- tot --</p>
-      </div><!-- Hours Grid -->
-      <div class="mb-6">
-       <h3 class="heading-md text-black mb-4">Uren per dag</h3>
-       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div id="hourSun" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">ZONDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourMon" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">MAANDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourTue" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">DINSDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourWed" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">WOENSDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourThu" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">DONDERDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourFri" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">VRIJDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-        <div id="hourSat" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-         <p class="text-xs font-bold text-gray-600 mb-1">ZATERDAG</p>
-         <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-        </div>
-       </div>
-      </div><button class="btn-primary w-full text-xs" onclick="scrollToSection('booking')">Plan afspraak</button>
-     </div>
-    </div>
-   </section><!-- REVIEWS SECTION -->
-   <section class="w-full py-24 px-4 bg-gray-50 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Wat klanten zeggen</h2>
-     <div class="max-w-6xl mx-auto">
-      <div class="flex items-center justify-center gap-3 mb-12">
-       <div class="flex gap-1"><i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star-half-2" style="width: 20px; height: 20px; fill: #1a1a1a;"></i>
-       </div><span class="text-lg font-bold text-black">4.4/5</span> <span class="text-gray-600 text-sm">(156 reviews)</span>
-      </div>
-      <div class="grid-2">
-       <div class="card">
-        <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
-        </div>
-        <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Heel professioneel team. Mijn APK was binnen een uur klaar. Aanrader!"</p>
-        <p class="font-semibold text-black text-xs">— Johannes M.</p>
-       </div>
-       <div class="card">
-        <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
-        </div>
-        <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Service bussen waren perfect. Snelle diagnose en eerlijke prijzen. Bedankt!"</p>
-        <p class="font-semibold text-black text-xs">— Maria D.</p>
-       </div>
-       <div class="card">
-        <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star-half-2" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
-        </div>
-        <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Zeer tevreden met het onderhoud. Vakkundig werk tegen redelijke prijzen."</p>
-        <p class="font-semibold text-black text-xs">— Peter L.</p>
-       </div>
-       <div class="card">
-        <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
-        </div>
-        <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Snelle service en zeer vriendelijk personeel. Zeker terug!"</p>
-        <p class="font-semibold text-black text-xs">— Thomas K.</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- CONTACT FORM SECTION -->
-   <section id="contact" class="w-full py-24 px-4 bg-white border-b border-gray-100">
-    <div class="max-w-2xl mx-auto">
-     <h2 class="heading-lg text-black mb-2 text-center">Bericht achterlaten</h2>
-     <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Vragen? Neem contact met ons op via het formulier</p>
-     <div class="card p-8 border-2">
-      <form id="contactForm" onsubmit="submitContactForm(event)">
-       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Onderwerp *</label> <input type="text" name="contact_subject" class="input-field" placeholder="Waar gaat uw vraag over?" required>
-       </div>
-       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Naam *</label> <input type="text" name="contact_name" class="input-field" placeholder="Uw volledige naam" required>
-       </div>
-       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Email *</label> <input type="email" name="contact_email" class="input-field" placeholder="uw.email@gmail.com" required>
-       </div>
-       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Telefoon (optioneel)</label> <input type="tel" name="contact_phone" class="input-field" placeholder="+31 6 123 45 678">
-       </div>
-       <div class="mb-6"><label class="block text-xs font-bold text-gray-700 mb-2 uppercase tracking-widest">Uw Bericht *</label> <textarea name="contact_message" class="input-field" rows="5" placeholder="Beschrijf uw vraag of bericht..." required></textarea>
-       </div>
-       <div id="contactNote" class="mb-6 p-3 bg-gray-100 border border-gray-200 rounded-lg text-xs text-gray-700 font-semibold uppercase tracking-widest">
-        Wij reageren binnen 24 uur
-       </div>
-       <div id="contactLoadingBar" class="mb-6 hidden">
-        <div class="h-1 bg-gray-300 rounded-full overflow-hidden">
-         <div class="h-full bg-gray-700 rounded-full" style="width: 0%; animation: loading 2s infinite;"></div>
-        </div>
-       </div><button type="submit" class="btn-primary w-full text-sm" id="contactSubmitBtn">Bericht Verzenden</button>
-       <div id="contactStatus" class="mt-4 text-center text-xs hidden p-3 rounded-lg"></div>
-      </form>
-     </div>
-    </div>
-   </section><!-- COMPANY INFO & CONTACT SECTION -->
-   <section class="w-full py-24 px-4 bg-gray-50 border-b border-gray-100">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="heading-lg text-black mb-12 text-center">Bedrijfsgegevens &amp; Openingstijden</h2>
-     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Bedrijfsgegevens -->
-      <div>
-       <div class="card p-6 border-2 h-full">
-        <h3 class="heading-md text-black mb-6" id="companyNameDisplay">Car Center Rishi</h3>
-        <div class="space-y-4">
-         <!-- Adres -->
-         <div class="flex gap-3 pb-4 border-b border-gray-200">
-          <i data-lucide="map-pin" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
-          <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Adres</p>
-           <p id="companyAddressDisplay" class="text-gray-900 text-sm font-medium">Meeuwenlaan 116 H, Amsterdam</p>
+     </div><!-- Contact Form Section -->
+     <div class="mt-16">
+      <div class="max-w-2xl mx-auto">
+       <h3 class="heading-md text-black mb-4 text-center">Stuur ons een bericht</h3>
+       <p class="text-gray-600 text-center mb-8 text-sm">Vul het formulier in en we nemen zo snel mogelijk contact met u op</p>
+       <div class="card p-8 border-2">
+        <form id="contactForm" onsubmit="submitContactForm(event)">
+         <div class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Naam <span class="text-red-500">*</span></label> <input type="text" name="naam" class="input-field" placeholder="Voor- en achternaam" required>
+           </div>
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Email <span class="text-red-500">*</span></label> <input type="email" name="email" class="input-field" placeholder="naam@email.nl" required>
+           </div>
           </div>
-         </div><!-- Telefoon -->
-         <div class="flex gap-3 pb-4 border-b border-gray-200">
-          <i data-lucide="phone" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
-          <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Telefoon</p>
-           <p id="companyPhoneDisplay" class="text-gray-900 text-sm font-medium"><a href="tel:+31201234567" class="hover:text-black transition">+31 (0)20 123 4567</a></p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Telefoon</label> <input type="tel" name="telefoon" class="input-field" placeholder="06 12345678">
+           </div>
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Onderwerp <span class="text-red-500">*</span></label> <input type="text" name="onderwerp" class="input-field" placeholder="Waar gaat uw bericht over?" required>
+           </div>
           </div>
-         </div><!-- Email -->
-         <div class="flex gap-3 pb-4 border-b border-gray-200">
-          <i data-lucide="mail" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
           <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Email</p>
-           <p id="companyEmailDisplay" class="text-gray-900 text-sm font-medium"><a href="mailto:info@carcentrershi.nl" class="hover:text-black transition">info@carcentrershi.nl</a></p>
+           <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Bericht <span class="text-red-500">*</span></label> <textarea name="bericht" class="input-field" placeholder="Typ hier uw bericht…" rows="4" required></textarea>
           </div>
-         </div><!-- KvK -->
-         <div class="flex gap-3 pb-4 border-b border-gray-200">
-          <i data-lucide="briefcase" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
-          <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">KvK Nummer</p>
-           <p id="companyKvKDisplay" class="text-gray-900 text-sm font-medium">12345678</p>
+         </div><button type="submit" class="btn-primary w-full mt-6 text-sm" id="contactSubmitBtn">Bericht verzenden</button>
+         <div id="contactStatus" class="hidden mt-4 p-3 rounded-lg border text-xs font-semibold"></div>
+        </form>
+       </div>
+      </div>
+     </div><!-- Appointment Form Section -->
+     <div class="mt-16" id="booking">
+      <div class="max-w-2xl mx-auto">
+       <h3 class="heading-md text-black mb-4 text-center">Afspraak aanvragen</h3>
+       <p class="text-gray-600 text-center mb-8 text-sm">Kies een datum en tijd die u uitkomt. We bevestigen uw afspraak per email</p>
+       <div class="card p-8 border-2">
+        <form id="appointmentForm" onsubmit="submitAppointmentForm(event)">
+         <div class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Naam <span class="text-red-500">*</span></label> <input type="text" name="naam" class="input-field" placeholder="Voor- en achternaam" required>
+           </div>
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Email <span class="text-red-500">*</span></label> <input type="email" name="email" class="input-field" placeholder="naam@email.nl" required>
+           </div>
           </div>
-         </div><!-- BTW -->
-         <div class="flex gap-3 pb-4 border-b border-gray-200">
-          <i data-lucide="file-text" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
-          <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">BTW Nummer</p>
-           <p id="companyBTWDisplay" class="text-gray-900 text-sm font-medium">NL123456789B01</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Telefoon</label> <input type="tel" name="telefoon" class="input-field" placeholder="06 12345678">
+           </div>
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Dienst <span class="text-red-500">*</span></label> <select name="dienst" class="input-field" required> <option value="">— Selecteer dienst —</option> <option>APK Keuring</option> <option>Diagnose</option> <option>Groot Onderhoud</option> <option>Olie Verversen</option> <option>Airco Service</option> <option>Bandenservice</option> <option>Automaatbak</option> <option>Elektronica</option> <option>Anders</option> </select>
+           </div>
           </div>
-         </div><!-- Status -->
-         <div class="flex gap-3">
-          <i data-lucide="clock" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Kenteken</label> <input type="text" name="kenteken" class="input-field" placeholder="AB-12-CD" maxlength="8">
+           </div>
+           <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Gewenste datum <span class="text-red-500">*</span></label> <input type="date" name="datum" class="input-field" required>
+           </div>
+          </div>
           <div>
-           <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Status</p>
-           <p id="liveStatusDisplay" class="text-gray-900 text-sm font-medium">⏳ Laden...</p>
+           <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Gewenste tijd <span class="text-red-500">*</span></label> <input type="time" name="tijd" class="input-field" required>
+          </div>
+          <div>
+           <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Opmerking</label> <textarea name="opmerking" class="input-field" placeholder="Eventuele opmerkingen of wensen…" rows="4"></textarea>
+          </div>
+         </div><button type="submit" class="btn-primary w-full mt-6 text-sm" id="appointmentSubmitBtn">Afspraak aanvragen</button>
+         <div id="appointmentStatus" class="hidden mt-4 p-3 rounded-lg border text-xs font-semibold"></div>
+        </form>
+       </div>
+      </div>
+     </div><!-- USP SECTION -->
+     <section class="w-full py-12 px-4 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-6xl mx-auto">
+       <div class="grid-4">
+        <div class="card usp-badge"><i data-lucide="award" class="usp-badge-icon mx-auto"></i>
+         <p class="usp-badge-text">RDW Erkend</p>
+        </div>
+        <div class="card usp-badge"><i data-lucide="shield-check" class="usp-badge-icon mx-auto"></i>
+         <p class="usp-badge-text">NAP Gecertificeerd</p>
+        </div>
+        <div class="card usp-badge"><i data-lucide="clock" class="usp-badge-icon mx-auto"></i>
+         <p class="usp-badge-text">25+ Jaar Ervaring</p>
+        </div>
+        <div class="card usp-badge"><i data-lucide="zap" class="usp-badge-icon mx-auto"></i>
+         <p class="usp-badge-text">Snelle Service</p>
+        </div>
+       </div>
+      </div>
+     </section><!-- SERVICES SECTION -->
+     <section class="w-full py-24 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <h2 class="heading-lg text-black mb-2 text-center">Onze Diensten</h2>
+       <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Professionele autopflege en -reparatie</p>
+       <div class="grid-2">
+        <div class="card"><i data-lucide="check-circle-2" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">APK Keuring</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Jaarlijkse APK voor alle voertuigen</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €25</p><button class="btn-secondary text-xs w-full" onclick="selectService('APK Keuring')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="activity" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Diagnose</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Computergestuurde voertuigdiagnose</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €45</p><button class="btn-secondary text-xs w-full" onclick="selectService('Diagnose')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="wrench" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Groot Onderhoud</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Volledige onderhoudsbeurt</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Groot Onderhoud')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="droplet" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Olie Verversen</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Olieverversing met filters</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €35</p><button class="btn-secondary text-xs w-full" onclick="selectService('Olie Verversen')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="wind" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Airco Service</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Airco vervulling &amp; inspectie</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €60</p><button class="btn-secondary text-xs w-full" onclick="selectService('Airco Service')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="circle" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Bandenservice</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Montage, balancering &amp; opslag</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €20</p><button class="btn-secondary text-xs w-full" onclick="selectService('Bandenservice')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="cog" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Automaatbak</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Service en reparatie</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Offerte op aanvraag</p><button class="btn-secondary text-xs w-full" onclick="selectService('Automaatbak')">Kies deze dienst</button>
+        </div>
+        <div class="card"><i data-lucide="zap-off" class="mb-3" style="width: 40px; height: 40px; color: #1a1a1a;"></i>
+         <h3 class="heading-md text-black mb-2">Elektronica</h3>
+         <p class="text-gray-600 text-xs mb-4 leading-relaxed">Elektra- en sensorreparatie</p>
+         <p class="text-gray-900 font-bold mb-4 text-sm">Vanaf €50</p><button class="btn-secondary text-xs w-full" onclick="selectService('Elektronica')">Kies deze dienst</button>
+        </div>
+       </div>
+      </div>
+     </section><!-- HOE HET WERKT SECTION -->
+     <section class="w-full py-24 px-4 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-6xl mx-auto">
+       <h2 class="heading-lg text-black mb-2 text-center">Hoe het werkt</h2>
+       <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Drie simpele stappen naar uw afspraak</p>
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+         <div class="step-number">
+          1
+         </div>
+         <h3 class="heading-md text-black mb-3">Kenteken invoeren</h3>
+         <p class="text-gray-600 text-xs leading-relaxed">Voer uw kenteken in en selecteer de gewenste service</p>
+         <div class="mt-6">
+          <i data-lucide="keyboard" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
+         </div>
+        </div>
+        <div class="text-center">
+         <div class="step-number">
+          2
+         </div>
+         <h3 class="heading-md text-black mb-3">Diagnose</h3>
+         <p class="text-gray-600 text-xs leading-relaxed">Wij voeren een grondige diagnose uit van uw voertuig</p>
+         <div class="mt-6">
+          <i data-lucide="activity" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
+         </div>
+        </div>
+        <div class="text-center">
+         <div class="step-number">
+          3
+         </div>
+         <h3 class="heading-md text-black mb-3">Afspraak plannen</h3>
+         <p class="text-gray-600 text-xs leading-relaxed">Boek uw afspraak op uw gewenste datum en tijd</p>
+         <div class="mt-6">
+          <i data-lucide="calendar-check-2" style="width: 48px; height: 48px; margin: 0 auto; color: #1a1a1a;"></i>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section><!-- OPENINGSTIJDEN SECTION -->
+     <section class="w-full py-24 px-4 bg-white border-b border-gray-100">
+      <div class="max-w-6xl mx-auto">
+       <h2 class="heading-lg text-black mb-2 text-center">Openingstijden &amp; Status</h2>
+       <p class="text-gray-600 text-center mb-12 text-sm tracking-wide">Bekijk wanneer we open zijn</p>
+       <div class="card p-8 border-2 max-w-2xl mx-auto">
+        <!-- Status Indicator -->
+        <div class="mb-8 p-6 rounded-lg border-2 text-center" id="statusContainer" style="border-color: #e5e7eb; background-color: #f9fafb;">
+         <div class="flex items-center justify-center gap-3 mb-4"><i data-lucide="user" style="width: 24px; height: 24px; color: #1a1a1a;"></i> <span id="statusLabel" class="text-2xl font-bold" style="color: #1a1a1a;">Laden...</span>
+         </div>
+         <p id="statusMessage" class="text-gray-600 text-sm mb-3">Status wordt geladen...</p>
+         <p id="statusTime" class="text-gray-900 font-semibold text-sm">Vandaag open van -- tot --</p>
+        </div><!-- Hours Grid -->
+        <div class="mb-6">
+         <h3 class="heading-md text-black mb-4">Uren per dag</h3>
+         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div id="hourSun" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">ZONDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourMon" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">MAANDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourTue" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">DINSDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourWed" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">WOENSDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourThu" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">DONDERDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourFri" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">VRIJDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+          </div>
+          <div id="hourSat" class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+           <p class="text-xs font-bold text-gray-600 mb-1">ZATERDAG</p>
+           <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
           </div>
          </div>
-        </div>
-        <div class="space-y-3 mt-8"><button class="btn-primary w-full text-xs" onclick="openMaps()">Route plannen</button> <button class="btn-secondary w-full text-xs" onclick="makeCall()">Bel nu</button>
-        </div>
+        </div><button class="btn-primary w-full text-xs" onclick="scrollToSection('booking')">Plan afspraak</button>
        </div>
-      </div><!-- Openingstijden -->
-      <div>
-       <div class="card p-6 border-2">
-        <h3 class="heading-md text-black mb-6">Openingstijden</h3>
-        <div class="space-y-3">
-         <div id="openingHoursSun" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Zondag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+      </div>
+     </section><!-- REVIEWS SECTION -->
+     <section class="w-full py-24 px-4 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-6xl mx-auto">
+       <h2 class="heading-lg text-black mb-2 text-center">Wat klanten zeggen</h2>
+       <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-center gap-3 mb-12">
+         <div class="flex gap-1"><i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 20px; height: 20px; fill: #1a1a1a;"></i> <i data-lucide="star-half-2" style="width: 20px; height: 20px; fill: #1a1a1a;"></i>
+         </div><span class="text-lg font-bold text-black">4.4/5</span> <span class="text-gray-600 text-sm">(156 reviews)</span>
+        </div>
+        <div class="grid-2">
+         <div class="card">
+          <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
+          </div>
+          <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Heel professioneel team. Mijn APK was binnen een uur klaar. Aanrader!"</p>
+          <p class="font-semibold text-black text-xs">— Johannes M.</p>
          </div>
-         <div id="openingHoursMon" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Maandag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         <div class="card">
+          <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
+          </div>
+          <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Service bussen waren perfect. Snelle diagnose en eerlijke prijzen. Bedankt!"</p>
+          <p class="font-semibold text-black text-xs">— Maria D.</p>
          </div>
-         <div id="openingHoursTue" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Dinsdag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         <div class="card">
+          <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star-half-2" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
+          </div>
+          <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Zeer tevreden met het onderhoud. Vakkundig werk tegen redelijke prijzen."</p>
+          <p class="font-semibold text-black text-xs">— Peter L.</p>
          </div>
-         <div id="openingHoursWed" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Woensdag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-         </div>
-         <div id="openingHoursThu" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Donderdag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-         </div>
-         <div id="openingHoursFri" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Vrijdag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
-         </div>
-         <div id="openingHoursSat" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-          <p class="text-xs font-semibold text-gray-600 uppercase">Zaterdag</p>
-          <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+         <div class="card">
+          <div class="flex gap-1 mb-3"><i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i> <i data-lucide="star" style="width: 16px; height: 16px; fill: #1a1a1a;"></i>
+          </div>
+          <p class="text-gray-700 mb-4 text-xs leading-relaxed">"Snelle service en zeer vriendelijk personeel. Zeker terug!"</p>
+          <p class="font-semibold text-black text-xs">— Thomas K.</p>
          </div>
         </div>
        </div>
       </div>
-     </div>
+     </section><!-- COMPANY INFO & CONTACT SECTION -->
+     <section class="w-full py-24 px-4 bg-gray-50 border-b border-gray-100">
+      <div class="max-w-6xl mx-auto">
+       <h2 class="heading-lg text-black mb-12 text-center">Contact</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Bedrijfsgegevens -->
+        <div>
+         <div class="card p-6 border-2 h-full">
+          <h3 class="heading-md text-black mb-6" id="companyNameDisplay">Car Center Rishi</h3>
+          <div class="space-y-4">
+           <!-- Adres -->
+           <div class="flex gap-3 pb-4 border-b border-gray-200">
+            <i data-lucide="map-pin" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Adres</p>
+             <p id="companyAddressDisplay" class="text-gray-900 text-sm font-medium">Meeuwenlaan 116 H, Amsterdam</p>
+            </div>
+           </div><!-- Telefoon -->
+           <div class="flex gap-3 pb-4 border-b border-gray-200">
+            <i data-lucide="phone" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Telefoon</p>
+             <p id="companyPhoneDisplay" class="text-gray-900 text-sm font-medium"><a href="tel:+31201234567" class="hover:text-black transition">+31 (0)20 123 4567</a></p>
+            </div>
+           </div><!-- Email -->
+           <div class="flex gap-3 pb-4 border-b border-gray-200">
+            <i data-lucide="mail" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Email</p>
+             <p id="companyEmailDisplay" class="text-gray-900 text-sm font-medium"><a href="mailto:info@carcentrershi.nl" class="hover:text-black transition">info@carcentrershi.nl</a></p>
+            </div>
+           </div><!-- KvK -->
+           <div class="flex gap-3 pb-4 border-b border-gray-200">
+            <i data-lucide="briefcase" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">KvK Nummer</p>
+             <p id="companyKvKDisplay" class="text-gray-900 text-sm font-medium">12345678</p>
+            </div>
+           </div><!-- BTW -->
+           <div class="flex gap-3 pb-4 border-b border-gray-200">
+            <i data-lucide="file-text" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">BTW Nummer</p>
+             <p id="companyBTWDisplay" class="text-gray-900 text-sm font-medium">NL123456789B01</p>
+            </div>
+           </div><!-- Status -->
+           <div class="flex gap-3">
+            <i data-lucide="clock" style="width: 20px; height: 20px; flex-shrink: 0; color: #1a1a1a;"></i>
+            <div>
+             <p class="text-xs font-semibold text-gray-600 uppercase mb-1">Status</p>
+             <p id="liveStatusDisplay" class="text-gray-900 text-sm font-medium">⏳ Laden...</p>
+            </div>
+           </div>
+          </div>
+          <div class="space-y-3 mt-8"><button class="btn-primary w-full text-xs" onclick="openMaps()">Route plannen</button> <button class="btn-secondary w-full text-xs" onclick="makeCall()">Bel nu</button>
+          </div>
+         </div>
+        </div><!-- Openingstijden -->
+        <div>
+         <div class="card p-6 border-2">
+          <h3 class="heading-md text-black mb-6">Openingstijden</h3>
+          <div class="space-y-3">
+           <div id="openingHoursSun" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Zondag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursMon" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Maandag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursTue" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Dinsdag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursWed" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Woensdag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursThu" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Donderdag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursFri" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Vrijdag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+           <div id="openingHoursSat" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+            <p class="text-xs font-semibold text-gray-600 uppercase">Zaterdag</p>
+            <p class="text-sm text-gray-900 font-semibold">--:-- – --:--</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section><!-- FOOTER -->
+     <section class="w-full py-8 px-4 bg-gray-900 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto text-center">
+       <p class="text-gray-400 text-xs mb-1">© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
+       <p class="text-gray-500 text-xs font-semibold uppercase tracking-widest">RDW erkend | NAP gecertificeerd</p>
+      </div>
+     </section>
     </div>
-   </section><!-- FOOTER -->
-   <section class="w-full py-8 px-4 bg-gray-900 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto text-center">
-     <p class="text-gray-400 text-xs mb-1">© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
-     <p class="text-gray-500 text-xs font-semibold uppercase tracking-widest">RDW erkend | NAP gecertificeerd</p>
-    </div>
-   </section>
-  </div>
-  <script>
+    <script>
     let currentData = [];
-    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyUufYVu86bivgcW0FA4u4XyuzQd-rX7APNk0vu3NckNmfERALtrpV9onTcHkwFLcMX/exec';
-    const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzFotBqcjVMf4VAu9xzt7ZyGzTZ4JS88p5QbedlwfQWbCqoeSTtJcIDudLxeHu6ALqo/exec';
+    const DAYS = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
     const DAY_NAMES = ['ZONDAG', 'MAANDAG', 'DINSDAG', 'WOENSDAG', 'DONDERDAG', 'VRIJDAG', 'ZATERDAG'];
 
     // Initialize SDKs
@@ -1135,237 +1110,110 @@
           }
         });
       }
-
-      await loadStoreStatus();
       lucide.createIcons();
     })();
 
     async function loadStoreStatus() {
       try {
-        const response = await fetch(WEBAPP_URL + '?type=status');
+        const response = await fetch(WEBAPP_URL + '?action=bedrijf');
         const data = await response.json();
-        updateStatusDisplay(data);
+
+        const statusContainer = document.getElementById('statusContainer');
+        const statusLabel = document.getElementById('statusLabel');
+        const statusMessage = document.getElementById('statusMessage');
+        const statusTime = document.getElementById('statusTime');
+
+        // Update status indicator
+        const today = new Date().getDay();
+        const todayKey = DAYS[today];
+        const todayHours = data[todayKey] || 'Gesloten';
+        const isOpen = todayHours && todayHours !== 'Gesloten' && todayHours !== '-';
+
+        if (isOpen || data.ForcedClose !== 'Ja') {
+          statusContainer.style.borderColor = '#22c55e';
+          statusContainer.style.backgroundColor = '#f0fdf4';
+          statusLabel.textContent = 'Open';
+          statusLabel.style.color = '#15803d';
+          statusMessage.textContent = 'Wij zijn nu geopend en klaar voor uw bezoek.';
+        } else {
+          statusContainer.style.borderColor = '#ef4444';
+          statusContainer.style.backgroundColor = '#fef2f2';
+          statusLabel.textContent = 'Gesloten';
+          statusLabel.style.color = '#991b1b';
+          statusMessage.textContent = 'Wij zijn momenteel gesloten.';
+        }
+
+        if (todayHours !== 'Gesloten' && todayHours !== '-') {
+          statusTime.textContent = `Vandaag open: ${todayHours}`;
+        } else {
+          statusTime.textContent = 'Vandaag gesloten';
+        }
+
+        // Update hours grid
+        const dayIds = ['hourSun', 'hourMon', 'hourTue', 'hourWed', 'hourThu', 'hourFri', 'hourSat'];
+        const openingIds = ['openingHoursSun', 'openingHoursMon', 'openingHoursTue', 'openingHoursWed', 'openingHoursThu', 'openingHoursFri', 'openingHoursSat'];
+        
+        dayIds.forEach((id, index) => {
+          const element = document.getElementById(id);
+          if (!element) return;
+          
+          const dayKey = DAYS[index];
+          const hoursText = data[dayKey] || 'Gesloten';
+          const timeElement = element.querySelector('p:last-child');
+
+          if (index === today) {
+            element.style.backgroundColor = '#fef08a';
+            element.style.borderColor = '#eab308';
+          } else {
+            element.style.backgroundColor = '#f3f4f6';
+            element.style.borderColor = '#e5e7eb';
+          }
+
+          timeElement.textContent = hoursText;
+          timeElement.style.color = (hoursText === 'Gesloten' || hoursText === '-') ? '#9ca3af' : '#1f2937';
+        });
+
+        openingIds.forEach((id, index) => {
+          const element = document.getElementById(id);
+          if (!element) return;
+
+          const dayKey = DAYS[index];
+          const hoursText = data[dayKey] || 'Gesloten';
+          const timeElement = element.querySelector('p:last-child');
+
+          if (index === today) {
+            element.style.backgroundColor = '#fef08a';
+            element.style.borderColor = '#eab308';
+          } else {
+            element.style.backgroundColor = '#ffffff';
+            element.style.borderColor = '#e5e7eb';
+          }
+
+          timeElement.textContent = hoursText;
+          timeElement.style.color = (hoursText === 'Gesloten' || hoursText === '-') ? '#9ca3af' : '#1f2937';
+        });
+
+        // Update live status
+        const liveStatusDisplay = document.getElementById('liveStatusDisplay');
+        if (liveStatusDisplay) {
+          if (isOpen) {
+            liveStatusDisplay.textContent = '🟢 Open';
+            liveStatusDisplay.style.color = '#15803d';
+          } else {
+            liveStatusDisplay.textContent = '🔴 Gesloten';
+            liveStatusDisplay.style.color = '#991b1b';
+          }
+        }
+
       } catch (error) {
         console.error('Error loading store status:', error);
-        showErrorStatus();
-      }
-    }
-
-    function updateStatusDisplay(data) {
-      const statusContainer = document.getElementById('statusContainer');
-      const statusLabel = document.getElementById('statusLabel');
-      const statusMessage = document.getElementById('statusMessage');
-      const statusTime = document.getElementById('statusTime');
-
-      if (data.open) {
-        statusContainer.style.borderColor = '#22c55e';
-        statusContainer.style.backgroundColor = '#f0fdf4';
-        statusLabel.textContent = data.label || 'Open';
-        statusLabel.style.color = '#15803d';
-      } else {
-        statusContainer.style.borderColor = '#ef4444';
-        statusContainer.style.backgroundColor = '#fef2f2';
-        statusLabel.textContent = data.label || 'Gesloten';
-        statusLabel.style.color = '#991b1b';
-      }
-
-      statusMessage.textContent = data.message || '';
-
-      const today = new Date().getDay();
-      const dayKey = DAYS[today];
-      const todayHours = data.hours[dayKey] || 'Gesloten';
-      
-      if (data.opens_at && data.closes_at) {
-        statusTime.textContent = `Vandaag open van ${data.opens_at} tot ${data.closes_at}`;
-      } else if (todayHours !== 'Gesloten') {
-        statusTime.textContent = `Vandaag: ${todayHours}`;
-      } else {
-        statusTime.textContent = 'Vandaag gesloten';
-      }
-
-      updateHoursGrid(data.hours, today);
-      updateLiveStatus(data);
-    }
-
-    function updateHoursGrid(hours, today) {
-      const dayIds = ['hourSun', 'hourMon', 'hourTue', 'hourWed', 'hourThu', 'hourFri', 'hourSat'];
-      const openingIds = ['openingHoursSun', 'openingHoursMon', 'openingHoursTue', 'openingHoursWed', 'openingHoursThu', 'openingHoursFri', 'openingHoursSat'];
-      
-      dayIds.forEach((id, index) => {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        const dayKey = DAYS[index];
-        const hoursText = hours[dayKey] || 'Gesloten';
-        const timeElement = element.querySelector('p:last-child');
-
-        if (index === today) {
-          element.style.backgroundColor = '#fef08a';
-          element.style.borderColor = '#eab308';
-          element.style.fontWeight = '700';
-        } else {
-          element.style.backgroundColor = '#f3f4f6';
-          element.style.borderColor = '#e5e7eb';
-          element.style.fontWeight = '500';
-        }
-
-        timeElement.textContent = hoursText;
-        timeElement.style.color = hoursText === 'Gesloten' ? '#9ca3af' : '#1f2937';
-      });
-
-      // Also update the opening hours section
-      openingIds.forEach((id, index) => {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        const dayKey = DAYS[index];
-        const hoursText = hours[dayKey] || 'Gesloten';
-        const timeElement = element.querySelector('p:last-child');
-
-        if (index === today) {
-          element.style.backgroundColor = '#fef08a';
-          element.style.borderColor = '#eab308';
-        } else {
-          element.style.backgroundColor = '#ffffff';
-          element.style.borderColor = '#e5e7eb';
-        }
-
-        timeElement.textContent = hoursText;
-        timeElement.style.color = hoursText === 'Gesloten' ? '#9ca3af' : '#1f2937';
-      });
-    }
-
-    function showErrorStatus() {
-      const statusContainer = document.getElementById('statusContainer');
-      const statusLabel = document.getElementById('statusLabel');
-      const statusMessage = document.getElementById('statusMessage');
-
-      statusContainer.style.borderColor = '#fbbf24';
-      statusContainer.style.backgroundColor = '#fffbeb';
-      statusLabel.textContent = 'Status onbekend';
-      statusLabel.style.color = '#b45309';
-      statusMessage.textContent = 'Kon status niet ophalen. Probeer later opnieuw.';
-      
-      updateLiveStatus({ open: false, label: 'Laden...' });
-    }
-
-    function updateLiveStatus(data) {
-      const liveStatusDisplay = document.getElementById('liveStatusDisplay');
-      if (liveStatusDisplay) {
-        if (data.open) {
-          liveStatusDisplay.textContent = '🟢 Open';
-          liveStatusDisplay.style.color = '#15803d';
-        } else {
-          liveStatusDisplay.textContent = '🔴 Gesloten';
-          liveStatusDisplay.style.color = '#991b1b';
-        }
       }
     }
 
     setInterval(loadStoreStatus, 5 * 60 * 1000);
 
     // Multi-step form functions
-    function nextStep(step) {
-      const steps = document.querySelectorAll('.form-step');
-      steps.forEach(s => s.classList.remove('active'));
-      document.getElementById('step' + step).classList.add('active');
-      
-      const progress = (step / 3) * 100;
-      document.getElementById('progressBar').style.width = progress + '%';
-      document.getElementById('stepIndicator').textContent = 'Stap ' + step + ' van 3';
-    }
 
-    function submitAppointment(event) {
-      event.preventDefault();
-
-      const form = document.getElementById('appointmentForm');
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const formStatus = document.getElementById('formStatus');
-      const loadingBar = document.getElementById('submissionLoadingBar');
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Bezig met verzenden...';
-      loadingBar.classList.remove('hidden');
-      formStatus.classList.remove('hidden');
-      formStatus.classList.remove('text-green-400', 'text-red-400');
-      formStatus.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
-      formStatus.textContent = '⏳ Uw afspraak wordt verzonden...';
-
-      const payload = {
-        type: 'afspraak',
-        data: {
-          naam: data.naam,
-          email: data.email,
-          telefoon: data.telefoon,
-          datum: data.datum,
-          tijd: data.tijd,
-          dienst: data.dienst,
-          opmerking: data.opmerking || ''
-        }
-      };
-
-      fetch(WEBAPP_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.status === 'ok' || result.success === true) {
-          formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          formStatus.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
-          formStatus.textContent = '✓ Afspraak succesvol verzonden! U ontvangt binnenkort bevestiging per mail.';
-          loadingBar.classList.add('hidden');
-          
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Afspraak Maken';
-          
-          setTimeout(() => {
-            form.reset();
-            nextStep(1);
-            formStatus.classList.add('hidden');
-          }, 3000);
-
-          if (window.dataSdk && currentData.length < 999) {
-            window.dataSdk.create({
-              serviceType: data.dienst,
-              licensePlate: data.kenteken,
-              name: data.naam,
-              phone: data.telefoon,
-              email: data.email,
-              notes: data.opmerking,
-              appointmentDate: data.datum,
-              appointmentTime: data.tijd,
-              createdAt: new Date().toISOString(),
-              status: 'Pending'
-            }).catch(err => console.error('Data SDK error:', err));
-          }
-        } else {
-          formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          formStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-          formStatus.textContent = '✗ Er is iets misgegaan. Probeer het later opnieuw.';
-          loadingBar.classList.add('hidden');
-          
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Afspraak Maken';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        formStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-        formStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-        formStatus.textContent = '✗ Fout bij verzenden. Controleer uw internetverbinding.';
-        loadingBar.classList.add('hidden');
-        
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Afspraak Maken';
-      });
-    }
 
     function scrollToSection(id) {
       const element = document.getElementById(id);
@@ -1381,11 +1229,6 @@
 
     function selectService(serviceName) {
       scrollToSection('booking');
-      nextStep(3);
-      const dienstSelect = document.querySelector('select[name="dienst"]');
-      if (dienstSelect) {
-        dienstSelect.value = serviceName;
-      }
     }
 
     async function checkLicense() {
@@ -1497,93 +1340,147 @@
 
     async function submitContactForm(event) {
       event.preventDefault();
-
-      const form = document.getElementById('contactForm');
-      const formData = new FormData(form);
+      const form = event.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       
       const submitBtn = document.getElementById('contactSubmitBtn');
-      const contactStatus = document.getElementById('contactStatus');
-      const loadingBar = document.getElementById('contactLoadingBar');
+      const statusDiv = document.getElementById('contactStatus');
       
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Bezig met verzenden...';
-      loadingBar.classList.remove('hidden');
-      contactStatus.classList.remove('hidden');
-      contactStatus.classList.remove('text-green-400', 'text-red-400');
-      contactStatus.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
-      contactStatus.textContent = '⏳ Uw bericht wordt verzonden...';
+      submitBtn.textContent = 'Verzenden…';
+      statusDiv.classList.remove('hidden', 'text-green-700', 'bg-green-50', 'border-green-200', 'text-red-700', 'bg-red-50', 'border-red-200');
+      statusDiv.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
+      statusDiv.textContent = '⏳ Uw bericht wordt verzonden...';
+
+      const now = new Date();
+      const datumTimestamp = now.toLocaleString('nl-NL', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
       const payload = {
-        type: 'contact',
-        data: {
-          naam: formData.get('contact_name'),
-          email: formData.get('contact_email'),
-          telefoon: formData.get('contact_phone') || '',
-          onderwerp: formData.get('contact_subject'),
-          bericht: formData.get('contact_message')
-        }
+        action: 'bericht',
+        datum: datumTimestamp,
+        naam: form.querySelector('[name="naam"]').value.trim(),
+        email: form.querySelector('[name="email"]').value.trim(),
+        telefoon: form.querySelector('[name="telefoon"]').value.trim(),
+        kenteken: '',
+        onderwerp: form.querySelector('[name="onderwerp"]').value.trim(),
+        bericht: form.querySelector('[name="bericht"]').value.trim(),
+        bron: 'contactformulier'
       };
 
       try {
         const response = await fetch(WEBAPP_URL, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
           body: JSON.stringify(payload)
         });
 
         const result = await response.json();
 
-        if (result.status === 'ok' || result.success === true) {
-          contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          contactStatus.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
-          contactStatus.textContent = '✓ Bericht succesvol verzonden! Wij nemen snel contact met u op.';
-          loadingBar.classList.add('hidden');
+        if (result.success === true || result.status === 'ok') {
+          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          statusDiv.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
+          statusDiv.textContent = '✓ Bedankt! Uw bericht is ontvangen. We nemen zo snel mogelijk contact op.';
           
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Bericht Verzenden';
+          submitBtn.textContent = 'Bericht verzenden';
           
           setTimeout(() => {
             form.reset();
-            contactStatus.classList.add('hidden');
+            statusDiv.classList.add('hidden');
           }, 3000);
-
-          if (window.dataSdk && currentData.length < 999) {
-            window.dataSdk.create({
-              serviceType: 'Contact Form',
-              licensePlate: '',
-              name: payload.data.naam,
-              phone: payload.data.telefoon,
-              email: payload.data.email,
-              notes: payload.data.bericht,
-              createdAt: new Date().toISOString(),
-              status: 'Contact',
-              appointmentDate: new Date().toISOString().split('T')[0],
-              appointmentTime: new Date().toTimeString().split(' ')[0],
-              contactType: 'Website Form'
-            }).catch(err => console.error('Data SDK error:', err));
-          }
         } else {
-          contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          contactStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-          contactStatus.textContent = '✗ Er is iets misgegaan. Probeer het later opnieuw.';
-          loadingBar.classList.add('hidden');
+          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+          statusDiv.textContent = '✗ Er is iets misgegaan. Probeer opnieuw of bel ons.';
           
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Bericht Verzenden';
+          submitBtn.textContent = 'Bericht verzenden';
         }
       } catch (error) {
         console.error('Error:', error);
-        contactStatus.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-        contactStatus.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-        contactStatus.textContent = '✗ Fout bij verzenden. Controleer uw internetverbinding.';
-        loadingBar.classList.add('hidden');
+        statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+        statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+        statusDiv.textContent = '✗ Fout bij verzenden. Controleer uw internetverbinding.';
         
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Bericht Verzenden';
+        submitBtn.textContent = 'Bericht verzenden';
+      }
+    }
+
+    async function submitAppointmentForm(event) {
+      event.preventDefault();
+      const form = event.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      
+      const submitBtn = document.getElementById('appointmentSubmitBtn');
+      const statusDiv = document.getElementById('appointmentStatus');
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Aanvragen…';
+      statusDiv.classList.remove('hidden', 'text-green-700', 'bg-green-50', 'border-green-200', 'text-red-700', 'bg-red-50', 'border-red-200');
+      statusDiv.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
+      statusDiv.textContent = '⏳ Uw afspraak wordt aangevraagd...';
+
+      const datumRaw = form.querySelector('[name="datum"]').value;
+      const datumObj = new Date(datumRaw + 'T00:00:00');
+      const datumNL = datumObj.toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      const now = new Date();
+      const datumTimestamp = now.toLocaleString('nl-NL', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+      const payload = {
+        action: 'afspraak',
+        datum: datumTimestamp,
+        naam: form.querySelector('[name="naam"]').value.trim(),
+        email: form.querySelector('[name="email"]').value.trim(),
+        telefoon: form.querySelector('[name="telefoon"]').value.trim(),
+        kenteken: form.querySelector('[name="kenteken"]').value.trim(),
+        dienst: form.querySelector('[name="dienst"]').value,
+        afsprakdatum: datumNL,
+        afspraktijd: form.querySelector('[name="tijd"]').value,
+        opmerking: form.querySelector('[name="opmerking"]').value.trim(),
+        bron: 'afspraakformulier'
+      };
+
+      try {
+        const response = await fetch(WEBAPP_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.success === true || result.status === 'ok') {
+          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          statusDiv.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
+          statusDiv.textContent = '✓ Afspraak aangevraagd! U ontvangt een bevestiging per email.';
+          
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Afspraak aanvragen';
+          
+          setTimeout(() => {
+            form.reset();
+            statusDiv.classList.add('hidden');
+          }, 3000);
+        } else {
+          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+          statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+          statusDiv.textContent = '✗ Er is iets misgegaan. Probeer opnieuw of bel ons.';
+          
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Afspraak aanvragen';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
+        statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
+        statusDiv.textContent = '✗ Fout bij aanvragen. Controleer uw internetverbinding.';
+        
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Afspraak aanvragen';
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e7035f485a54389',t:'MTc3NTMwNDYzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+   </section>
+  </div>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e709f4564af9ffa',t:'MTc3NTMwODk0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
