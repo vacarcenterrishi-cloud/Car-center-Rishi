@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact & Afspraak Formulieren</title>
+<style>
+  /* ── Pas dit aan aan je eigen website stijl ── */
+  :root {
+    --accent: #6c63ff;
+    --bg: #fff;
+    --text: #1a1a2e;
+    --muted: #666;
+    --border: #e2e2e2;
+    --radius: 10px;
+    --error: #ef4444;
+    --success: #22c55e;
+  }
+
+  body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 24px; }
+
+  .form-section { max-width: 600px; margin: 0 auto 60px; }
+  h2 { font-size: 1.6rem; margin-bottom: 6px; }
+  .form-desc { color: var(--muted); margin-bottom: 24px; font-size: .9rem; }
+
+  /* Openingstijden widget */
+  #openingstijden-widget {
+    background: #f8f8fd;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  #openingstijden-widget h3 { margin: 0 0 12px; font-size: 1rem; }
+  .ot-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: .875rem; }
+  .ot-dag { color: var(--muted); }
+  .ot-tijd { font-weight: 500; }
+  .ot-closed { color: var(--error); }
+
+  /* Formulier */
+  .velden { display: grid; gap: 14px; }
+  .veld-rij { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:500px){ .veld-rij { grid-template-columns:1fr; } }
+
+  label { display: block; font-size: .82rem; color: var(--muted); margin-bottom: 5px; font-weight: 500; }
+  label .req { color: var(--accent); }
+
+  input, textarea, select {
+    width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+    border-radius: var(--radius); font-size: .9rem; color: var(--text);
+    outline: none; transition: border .2s; background: #fff; font-family: inherit;
+    box-sizing: border-box;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .btn-submit {
+    width: 100%; padding: 13px; background: var(--accent); color: #fff;
+    border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 600;
+    cursor: pointer; transition: .15s; margin-top: 4px;
+  }
+  .btn-submit:hover { opacity: .88; }
+  .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+  .form-msg {
+    margin-top: 14px; padding: 12px 16px; border-radius: var(--radius);
+    font-size: .875rem; display: none;
+  }
+  .form-msg.success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+  .form-msg.error   { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+  /* Gesloten banner */
+  #gesloten-banner {
+    display: none;
+    background: #fff7ed; border: 1px solid #fed7aa; border-radius: var(--radius);
+    padding: 12px 16px; font-size: .875rem; color: #c2410c; margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     OPENINGSTIJDEN WIDGET (inladen vanuit sheet)
+════════════════════════════════════════════════ -->
+<div id="openingstijden-widget">
+  <h3 id="ot-bedrijfnaam">Laden…</h3>
+  <div id="ot-rijen"><p style="color:#aaa;font-size:.85rem">Openingstijden laden…</p></div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     CONTACTFORMULIER
+════════════════════════════════════════════════ -->
+<div class="form-section">
+  <h2>Stuur ons een bericht</h2>
+  <p class="form-desc">Vul het formulier in en we nemen zo snel mogelijk contact op.</p>
+  <div id="gesloten-banner">⚠️ We zijn momenteel gesloten. U kunt wel een bericht achterlaten.</div>
+
+  <form id="contactForm" novalidate>
+    <div class="velden">
+      <div class="veld-rij">
+        <div>
+          <label>Naam <span class="req">*</span></label>
+          <input type="text" name="naam" placeholder="Voor- en achternaam" required>
+        </div>
+        <div>
+          <label>E-mailadres <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="naam@email.nl" required>
+        </div>
+      </div>
+      <div class="veld-rij">
+        <div>
+          <label>Telefoon</label>
+          <input type="tel" name="telefoon" placeholder="06 12345678">
+        </div>
+        <div>
+          <label>Onderwerp <span class="req">*</span></label>
+          <input type="text" name="onderwerp" placeholder="Waar gaat uw bericht over?" required>
+        </div>
+      </div>
+      <div>
+        <label>Bericht <span class="req">*</span></label>
+        <textarea name="bericht" placeholder="Typ hier uw bericht…" required></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn-submit" id="btnContact">Verstuur bericht</button>
+    <div class="form-msg" id="msgContact"></div>
+  </form>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     AFSPRAAKFORMULIER
+════════════════════════════════════════════════ -->
+<div class="form-section">
+  <h2>Afspraak maken</h2>
+  <p class="form-desc">Kies een datum en tijd die je uitkomt. We bevestigen je afspraak per e-mail.</p>
+
+  <form id="afspraakForm" novalidate>
+    <div class="velden">
+      <div class="veld-rij">
+        <div>
+          <label>Naam <span class="req">*</span></label>
+          <input type="text" name="naam" placeholder="Voor- en achternaam" required>
+        </div>
+        <div>
+          <label>E-mailadres <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="naam@email.nl" required>
+        </div>
+      </div>
+      <div class="veld-rij">
+        <div>
+          <label>Telefoon</label>
+          <input type="tel" name="telefoon" placeholder="06 12345678">
+        </div>
+        <div>
+          <label>Dienst <span class="req">*</span></label>
+          <select name="dienst" required>
+            <option value="">— Selecteer dienst —</option>
+            <!-- Voeg hier je eigen diensten toe -->
+            <option>Consultatie</option>
+            <option>Adviesgesprek</option>
+            <option>Onderhoud</option>
+            <option>Anders</option>
+          </select>
+        </div>
+      </div>
+      <div class="veld-rij">
+        <div>
+          <label>Gewenste datum <span class="req">*</span></label>
+          <input type="date" name="datum" required>
+        </div>
+        <div>
+          <label>Gewenste tijd <span class="req">*</span></label>
+          <input type="time" name="tijd" required>
+        </div>
+      </div>
+      <div>
+        <label>Opmerking</label>
+        <textarea name="opmerking" placeholder="Eventuele opmerkingen of wensen…"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn-submit" id="btnAfspraak">Afspraak aanvragen</button>
+    <div class="form-msg" id="msgAfspraak"></div>
+  </form>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// ⚙️  CONFIGURATIE — verander alleen deze URL
+// ══════════════════════════════════════════════════════════════
+const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzQt4o6XacftySHaK7gbJ4Le3Tp0ZoZRF3e4tOnI9Ma7qWoPd0wH-_SrbjlZWv_KUMD/exec';
+
+// Minimum datum instellen (vandaag)
+document.querySelector('[name="datum"]').min = new Date().toISOString().split('T')[0];
+
+// ══════════════════════════════════════════════════════════════
+// OPENINGSTIJDEN LADEN
+// ══════════════════════════════════════════════════════════════
+const DAGEN_NL = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+
+async function laadBedrijfData() {
+  try {
+    const r = await fetch(WEBAPP_URL + '?action=bedrijf');
+    const data = await r.json();
+
+    document.getElementById('ot-bedrijfnaam').textContent =
+      (data.BedrijfsNaam || '') + ' — Openingstijden';
+
+    const rijen = document.getElementById('ot-rijen');
+    const dagNamen = ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag'];
+
+    rijen.innerHTML = dagNamen.map(dag => {
+      const tijd = data[dag] || '';
+      const gesloten = !tijd || tijd.toLowerCase() === 'gesloten' || tijd === '-';
+      return `<div class="ot-row">
+        <span class="ot-dag">${dag}</span>
+        <span class="ot-tijd ${gesloten ? 'ot-closed' : ''}">${gesloten ? 'Gesloten' : tijd}</span>
+      </div>`;
+    }).join('');
+
+    // Toon banner als geforceerd gesloten
+    if (data.ForcedClose && data.ForcedClose.toLowerCase() === 'ja') {
+      document.getElementById('gesloten-banner').style.display = 'block';
+    } else {
+      // Check of vandaag gesloten is
+      const vandaag = DAGEN_NL[new Date().getDay()];
+      const tijd = data[vandaag] || '';
+      if (!tijd || tijd.toLowerCase() === 'gesloten') {
+        document.getElementById('gesloten-banner').style.display = 'block';
+      }
+    }
+  } catch (e) {
+    document.getElementById('ot-rijen').innerHTML =
+      '<p style="color:#aaa;font-size:.85rem">Kon openingstijden niet laden.</p>';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// CONTACTFORMULIER
+// ══════════════════════════════════════════════════════════════
+document.getElementById('contactForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  const btn = document.getElementById('btnContact');
+  btn.disabled = true;
+  btn.textContent = 'Versturen…';
+
+  const data = {
+    action:    'bericht',
+    naam:      form.naam.value.trim(),
+    email:     form.email.value.trim(),
+    telefoon:  form.telefoon.value.trim(),
+    onderwerp: form.onderwerp.value.trim(),
+    bericht:   form.bericht.value.trim(),
+    url:       window.location.href,
+    source:    'contactformulier'
+  };
+
+  const res = await stuurNaarSheet(data);
+  const msg = document.getElementById('msgContact');
+
+  if (res.success) {
+    msg.className = 'form-msg success';
+    msg.textContent = '✅ Bedankt! Uw bericht is ontvangen. We nemen zo snel mogelijk contact op.';
+    form.reset();
+  } else {
+    msg.className = 'form-msg error';
+    msg.textContent = '❌ Er is iets misgegaan. Probeer opnieuw of bel ons.';
+  }
+
+  msg.style.display = 'block';
+  btn.disabled = false;
+  btn.textContent = 'Verstuur bericht';
+});
+
+// ══════════════════════════════════════════════════════════════
+// AFSPRAAKFORMULIER
+// ══════════════════════════════════════════════════════════════
+document.getElementById('afspraakForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  const btn = document.getElementById('btnAfspraak');
+  btn.disabled = true;
+  btn.textContent = 'Aanvragen…';
+
+  // Datum formatteren naar nl formaat
+  const datum = new Date(form.datum.value);
+  const datumNL = datum.toLocaleDateString('nl-NL', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+  const data = {
+    action:    'afspraak',
+    naam:      form.naam.value.trim(),
+    email:     form.email.value.trim(),
+    telefoon:  form.telefoon.value.trim(),
+    dienst:    form.dienst.value,
+    datum:     datumNL,
+    tijd:      form.tijd.value,
+    opmerking: form.opmerking.value.trim(),
+    url:       window.location.href,
+    source:    'afspraakformulier'
+  };
+
+  const res = await stuurNaarSheet(data);
+  const msg = document.getElementById('msgAfspraak');
+
+  if (res.success) {
+    msg.className = 'form-msg success';
+    msg.textContent = '✅ Afspraak aangevraagd! U ontvangt een bevestiging per e-mail.';
+    form.reset();
+  } else {
+    msg.className = 'form-msg error';
+    msg.textContent = '❌ Er is iets misgegaan. Probeer opnieuw of bel ons.';
+  }
+
+  msg.style.display = 'block';
+  btn.disabled = false;
+  btn.textContent = 'Afspraak aanvragen';
+});
+
+// ══════════════════════════════════════════════════════════════
+// HELPER: POST naar Web App
+// ══════════════════════════════════════════════════════════════
+async function stuurNaarSheet(data) {
+  try {
+    const r = await fetch(WEBAPP_URL, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      // Google Apps Script vereist geen extra headers
+    });
+    return await r.json();
+  } catch (err) {
+    console.error('Fout bij versturen:', err);
+    return { success: false, error: err.message };
+  }
+}
+
+// ── Initialiseer ──────────────────────────────────────────────
+laadBedrijfData();
+</script>
+
+<!--
+═══════════════════════════════════════════════════════════
+  📋  HOE GEBRUIK JE DEZE FORMULIEREN OP JE EIGEN WEBSITE?
+═══════════════════════════════════════════════════════════
+
+1. Plak je Web App URL bij WEBAPP_URL hierboven.
+
+2. Kopieer het <style> blok en de formulieren die je nodig hebt
+   naar je eigen HTML pagina.
+
+3. Pas de <option> elementen aan bij het afspraakformulier
+   voor jouw eigen diensten.
+
+4. Klaar! Inzendingen gaan automatisch naar je Google Sheet
+   + bevestigingsmail naar bezoeker
+   + notificatie naar jou (admin)
+
+  ⚠️  CORS: Zorg dat je Web App gedeployd is als:
+   - Execute as: Me
+   - Who has access: Anyone
+═══════════════════════════════════════════════════════════
+-->
+</body>
+</html>
