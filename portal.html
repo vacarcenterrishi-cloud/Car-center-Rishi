@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Status Check</title>
+  <title>Car Center Rishi - Client Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -17,19 +17,19 @@
 
     :root {
       --color-bg: #ffffff;
-      --color-bg-secondary: #f8fafc;
+      --color-bg-secondary: #f5f5f5;
       --color-text: #000000;
-      --color-text-muted: #64748b;
-      --color-border: #e2e8f0;
+      --color-text-muted: #666666;
+      --color-border: #e0e0e0;
       --color-status-ready: #10b981;
       --color-status-progress: #f59e0b;
-      --color-accent: #0066ff;
-      --color-accent-hover: #0052cc;
+      --color-accent: #1a73e8;
+      --color-accent-hover: #1557b0;
       --color-error: #ef4444;
-      --color-shadow: rgba(0, 0, 0, 0.06);
-      --color-shadow-hover: rgba(0, 0, 0, 0.1);
-      --color-glass-bg: rgba(255, 255, 255, 0.8);
-      --color-glass-border: rgba(255, 255, 255, 0.3);
+      --color-shadow: rgba(0, 0, 0, 0.08);
+      --color-shadow-hover: rgba(0, 0, 0, 0.12);
+      --color-glass-bg: rgba(255, 255, 255, 0.95);
+      --color-glass-border: rgba(0, 0, 0, 0.1);
     }
 
     html, body {
@@ -39,48 +39,56 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+      background: #ffffff;
       color: var(--color-text);
       transition: background-color 0.3s ease, color 0.3s ease;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 16px;
+      padding: 20px;
+      width: 100%;
     }
 
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 420px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       animation: fadeInDown 0.6s ease;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .header-icon {
-      font-size: 56px;
-      margin-bottom: 16px;
-      display: inline-block;
-      animation: slideInScale 0.6s ease;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    .header-logo {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 16px;
+      border-radius: 12px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
     .header h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
-      letter-spacing: -0.6px;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      color: var(--color-text);
     }
 
     .header p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--color-text-muted);
       font-weight: 400;
     }
@@ -111,31 +119,29 @@
       padding: 14px 16px;
       font-size: 16px;
       font-family: inherit;
-      background-color: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
+      background-color: #ffffff;
       color: var(--color-text);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 8px;
       transition: all 0.2s ease;
       outline: none;
     }
 
     input::placeholder {
       color: var(--color-text-muted);
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
     input:focus {
       border-color: var(--color-accent);
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+      background-color: #ffffff;
     }
 
     input:hover:not(:focus) {
-      border-color: rgba(0, 0, 0, 0.1);
+      border-color: var(--color-accent);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: #ffffff;
     }
 
     button {
@@ -143,10 +149,10 @@
       font-size: 16px;
       font-weight: 600;
       font-family: inherit;
-      background: linear-gradient(135deg, var(--color-accent) 0%, #0052cc 100%);
+      background: var(--color-accent);
       color: #ffffff;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
@@ -156,21 +162,21 @@
       margin-top: 8px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.25);
     }
 
     button:hover:not(:disabled) {
-      background: linear-gradient(135deg, var(--color-accent-hover) 0%, #003d99 100%);
-      box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
-      transform: translateY(-3px);
+      background: var(--color-accent-hover);
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.35);
+      transform: translateY(-2px);
     }
 
     button:active:not(:disabled) {
-      transform: translateY(-1px);
+      transform: translateY(0);
     }
 
     button:disabled {
-      opacity: 0.6;
+      opacity: 0.65;
       cursor: not-allowed;
     }
 
@@ -198,34 +204,34 @@
     }
 
     .back-button {
-      background-color: transparent;
-      color: var(--color-accent);
+      background-color: #f5f5f5;
+      color: var(--color-text);
       border: 1px solid var(--color-border);
       margin-bottom: 24px;
       font-weight: 500;
     }
 
     .back-button:hover {
-      background-color: var(--color-bg-secondary);
-      box-shadow: none;
-      transform: translateY(0);
+      background-color: #eeeeee;
+      border-color: var(--color-text-muted);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
     }
 
     .card {
       background-color: var(--color-glass-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--color-glass-border);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 2px 8px var(--color-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px var(--color-shadow);
       transition: all 0.3s ease;
       animation: slideInUp 0.4s ease;
     }
 
     .card:hover {
-      border-color: var(--color-border);
-      box-shadow: 0 12px 32px var(--color-shadow-hover), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-      transform: translateY(-4px);
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 12px var(--color-shadow-hover);
+      transform: translateY(-2px);
     }
 
     .card-header {
@@ -240,9 +246,9 @@
     .card-icon {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 82, 204, 0.15) 100%);
-      border: 1px solid rgba(0, 102, 255, 0.2);
-      border-radius: 10px;
+      background: #f0f4ff;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,12 +344,11 @@
     }
 
     .error-message {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      backdrop-filter: blur(10px);
+      background: #fff5f5;
+      border: 1px solid #ffcccc;
       color: var(--color-error);
       padding: 12px 14px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 14px;
       margin-bottom: 16px;
       display: flex;
@@ -402,24 +407,126 @@
     }
 
     @media (max-width: 480px) {
-      .header h1 {
-        font-size: 28px;
+      body {
+        padding: 0;
       }
 
-      .header-icon {
-        font-size: 48px;
-      }
-
-      .card {
-        padding: 20px;
-      }
-
-      input, button {
-        font-size: 16px;
+      .main-wrapper {
+        padding: 16px;
+        min-height: 100vh;
       }
 
       .container {
         max-width: 100%;
+        width: 100%;
+      }
+
+      .header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+      }
+
+      .header h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .header-logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .header p {
+        font-size: 13px;
+      }
+
+      .form-section {
+        gap: 12px;
+      }
+
+      .input-group {
+        gap: 6px;
+      }
+
+      .input-label {
+        font-size: 11px;
+      }
+
+      input {
+        padding: 12px 14px;
+        font-size: 16px;
+        border-radius: 8px;
+      }
+
+      button {
+        padding: 12px 14px;
+        font-size: 15px;
+        margin-top: 6px;
+        border-radius: 8px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 10px;
+      }
+
+      .card-header {
+        gap: 10px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+      }
+
+      .card-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .card-title-group h2 {
+        font-size: 16px;
+      }
+
+      .card-title-group p {
+        font-size: 11px;
+      }
+
+      .status-badge {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin: 12px 0;
+      }
+
+      .info-row {
+        padding: 10px 0;
+      }
+
+      .info-label {
+        font-size: 12px;
+      }
+
+      .info-value {
+        font-size: 14px;
+      }
+
+      .info-value.price {
+        font-size: 16px;
+      }
+
+      .timestamp {
+        font-size: 11px;
+        margin-top: 12px;
+        padding-top: 10px;
+      }
+
+      .back-button {
+        margin-bottom: 16px;
+        padding: 11px 12px;
+        font-size: 14px;
+      }
+
+      .error-message {
+        padding: 10px 12px;
+        font-size: 13px;
+        margin-bottom: 12px;
       }
     }
 
@@ -433,30 +540,50 @@
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
  <body>
-  <div class="container">
-   <div class="header">
-    <div class="header-icon">
-     🚗
+  <div class="main-wrapper">
+   <div class="container">
+    <div class="header">
+     <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" class="header-logo" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.background='#f0f4ff'; this.alt='Logo unavailable';">
+     <h1>Car Center Rishi</h1>
+     <p>Client Portal</p>
     </div>
-    <h1>Auto Status Check</h1>
-    <p>Controleer eenvoudig de status van uw voertuig</p>
-   </div>
-   <div id="errorMessage" class="error-message">
-    <i data-lucide="alert-circle" class="error-icon"></i> <span id="errorText"></span>
-   </div>
-   <div id="formSection" class="form-section">
-    <div class="input-group">
-     <label for="email" class="input-label">E-mailadres</label> <input id="email" type="email" placeholder="uw.email@example.com" autocomplete="email">
+    <div id="errorMessage" class="error-message">
+     <i data-lucide="alert-circle" class="error-icon"></i> <span id="errorText"></span>
     </div>
-    <div class="input-group">
-     <label for="plate" class="input-label">Kenteken</label> <input id="plate" type="text" placeholder="Bijv. AB-123-CD" autocomplete="off" style="text-transform: uppercase;">
-    </div><button id="checkButton" onclick="handleCheckStatus()"> <i data-lucide="search" class="button-icon"></i> <span>Status Controleren</span> </button>
-   </div>
-   <div id="resultSection" class="result-section">
-    <button class="back-button" onclick="handleReset()"> <i data-lucide="arrow-left" class="button-icon"></i> <span>Terug</span> </button>
-    <div id="carCard" class="card"></div>
+    <div id="formSection" class="form-section">
+     <div class="input-group">
+      <label for="email" class="input-label">E-mailadres</label> <input id="email" type="email" placeholder="uw.email@example.com" autocomplete="email">
+     </div>
+     <div class="input-group">
+      <label for="plate" class="input-label">Kenteken</label> <input id="plate" type="text" placeholder="Bijv. AB-123-CD" autocomplete="off" style="text-transform: uppercase;">
+     </div><button id="checkButton" onclick="handleCheckStatus()"> <i data-lucide="search" class="button-icon"></i> <span>Status Controleren</span> </button>
+    </div>
+    <div id="resultSection" class="result-section">
+     <button class="back-button" onclick="handleReset()"> <i data-lucide="arrow-left" class="button-icon"></i> <span>Terug</span> </button>
+     <div id="carCard" class="card"></div>
+    </div>
    </div>
   </div>
+  <footer style="background-color: #f5f5f5; border-top: 1px solid #e0e0e0; padding: 20px; font-size: 12px; color: #666666;">
+   <div style="max-width: 100%; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 12px; align-items: start;">
+     <div><strong style="color: #000000; display: block; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Adres</strong>
+      <p style="margin: 0; font-size: 11px; line-height: 1.4;">Meeuwenlaan 116 H<br>
+       1021JM Amsterdam</p>
+     </div>
+     <div><strong style="color: #000000; display: block; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Contact</strong>
+      <p style="margin: 0; font-size: 11px; line-height: 1.4;"><a href="tel:+31201234567" style="color: #1a73e8; text-decoration: none;">+31 (0)20 123 4567</a><br><a href="mailto:info@carcentrershi.nl" style="color: #1a73e8; text-decoration: none;">info@carcentrershi.nl</a></p>
+     </div>
+     <div><strong style="color: #000000; display: block; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Bedrijf</strong>
+      <p style="margin: 0; font-size: 11px; line-height: 1.4;">KVK: 68638701<br>
+       Vestig: 000037059092</p>
+     </div>
+    </div>
+    <div style="padding-top: 12px; border-top: 1px solid #e0e0e0; text-align: center; font-size: 10px; color: #999999;">
+     APK-station • Garagebedrijf • Eenmanszaak
+    </div>
+   </div>
+  </footer>
   <script>
 const API = "https://script.google.com/macros/s/AKfycbwbPmm4NI2BuPSlq-9wEo4feE8JG3dC0oEDgGO6V3U-2GGIiOc57Xxt6jeE0h9faIW8/exec";
 
@@ -621,5 +748,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e2e6ddbb504f5d1',t:'MTc3NDYxNDg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e70ab2c17eb9ffa',t:'MTc3NTMwOTQzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
