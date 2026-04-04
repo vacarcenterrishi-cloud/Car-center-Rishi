@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --bg: #f6f6f2;
+      --panel: #ffffff;
+      --ink: #222222;
+      --muted: #666b63;
+      --accent: #1f5c4a;
+      --accent-soft: #d8ece5;
+      --line: #dde3db;
+      --danger: #b33939;
+      --success: #2d7b46;
+      --radius: 20px;
+      --shadow: 0 18px 34px rgba(22, 34, 24, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(180deg, #eef4f1 0%, #f7f7f2 100%);
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 18px 70px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    h1, h2 { margin: 0 0 12px; }
+    p { color: var(--muted); line-height: 1.55; }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+      margin-top: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cfd8d1;
+      border-radius: 14px;
+      background: #fff;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+    }
+
+    button.secondary {
+      background: #ebf2ef;
+      color: var(--accent);
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tables {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      background: white;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eef1ed;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f4f8f6;
+      position: sticky;
+      top: 0;
+    }
+
+    .status {
+      min-height: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .status.success { color: var(--success); }
+    .status.error { color: var(--danger); }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hidden-frame {
+      width: 0;
+      height: 0;
+      border: 0;
+      position: absolute;
+    }
+
+    @media (max-width: 960px) {
+      .topbar,
+      .field-grid,
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <section class="panel">
+        <h1>Admin dashboard</h1>
+        <p>Beheer hier bedrijfsinformatie, lees berichten en werk afspraakstatussen bij. Dit dashboard gebruikt dezelfde Apps Script web app als de publieke site.</p>
+        <div class="field-grid">
+          <label>Web app URL<input id="webappUrl" type="text" placeholder="https://script.google.com/macros/s/.../exec"></label>
+          <label>Admin key<input id="adminKey" type="text" placeholder="AdminKey uit de Admin-sheet"></label>
+        </div>
+        <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;">
+          <button onclick="loadAdminData()">Dashboard laden</button>
+          <button class="secondary" onclick="saveSettingsLocally()">Opslaan in browser</button>
+        </div>
+        <div class="status" id="loadStatus"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Wat dit dashboard doet</h2>
+        <p><span class="badge">Bedrijf</span> Pas naam, adres, KvK, BTW en openingstijden aan.</p>
+        <p><span class="badge">Berichten</span> Bekijk formulierinzendingen en markeer ze als behandeld.</p>
+        <p><span class="badge">Afspraken</span> Zie geplande aanvragen en zet hun status op bevestigd of afgerond.</p>
+      </section>
+    </div>
+
+    <section class="panel stack">
+      <div>
+        <h2>Bedrijfsgegevens</h2>
+        <div class="field-grid">
+          <label>Bedrijfsnaam<input id="BedrijfsNaam"></label>
+          <label>Email<input id="Email"></label>
+          <label>Telefoon<input id="Telefoon"></label>
+          <label>Adres<input id="Adres"></label>
+          <label>KvK<input id="KvK"></label>
+          <label>BTW<input id="BTW"></label>
+        </div>
+        <div class="hours-grid">
+          <label>Maandag<input id="Maandag"></label>
+          <label>Dinsdag<input id="Dinsdag"></label>
+          <label>Woensdag<input id="Woensdag"></label>
+          <label>Donderdag<input id="Donderdag"></label>
+          <label>Vrijdag<input id="Vrijdag"></label>
+          <label>Zaterdag<input id="Zaterdag"></label>
+          <label>Zondag<input id="Zondag"></label>
+          <label>ForcedClose
+            <select id="ForcedClose">
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>
+          </label>
+        </div>
+        <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+          <button onclick="saveCompany()">Bedrijfsgegevens opslaan</button>
+        </div>
+        <div class="status" id="companyStatus"></div>
+      </div>
+    </section>
+
+    <section class="tables">
+      <section class="panel">
+        <h2>Berichten</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Timestamp</th>
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Telefoon</th>
+                <th>Onderwerp</th>
+                <th>Bericht</th>
+                <th>Status</th>
+                <th>Actie</th>
+              </tr>
+            </thead>
+            <tbody id="messagesBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Afspraken</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Timestamp</th>
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Telefoon</th>
+                <th>Datum</th>
+                <th>Tijd</th>
+                <th>Dienst</th>
+                <th>Opmerking</th>
+                <th>Status</th>
+                <th>Actie</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <iframe name="adminSubmitFrame" class="hidden-frame"></iframe>
+
+  <script>
+    const COMPANY_FIELDS = [
+      'BedrijfsNaam', 'Email', 'Telefoon', 'Adres', 'KvK', 'BTW',
+      'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag', 'ForcedClose'
+    ];
+
+    function jsonp(url) {
+      return new Promise((resolve, reject) => {
+        const callbackName = 'admin_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+        const script = document.createElement('script');
+        const separator = url.includes('?') ? '&' : '?';
+
+        window[callbackName] = (data) => {
+          resolve(data);
+          cleanup();
+        };
+
+        script.onerror = () => {
+          reject(new Error('JSONP verzoek mislukt'));
+          cleanup();
+        };
+
+        function cleanup() {
+          delete window[callbackName];
+          script.remove();
+        }
+
+        script.src = url + separator + 'callback=' + callbackName;
+        document.body.appendChild(script);
+      });
+    }
+
+    function saveSettingsLocally() {
+      localStorage.setItem('dashboard_webapp_url', document.getElementById('webappUrl').value);
+      localStorage.setItem('dashboard_admin_key', document.getElementById('adminKey').value);
+      setStatus('loadStatus', 'Instellingen lokaal opgeslagen.', 'success');
+    }
+
+    function loadSettingsLocally() {
+      document.getElementById('webappUrl').value = localStorage.getItem('dashboard_webapp_url') || '';
+      document.getElementById('adminKey').value = localStorage.getItem('dashboard_admin_key') || '';
+    }
+
+    function getConfig() {
+      return {
+        webappUrl: document.getElementById('webappUrl').value.trim(),
+        adminKey: document.getElementById('adminKey').value.trim()
+      };
+    }
+
+    function setStatus(id, message, type) {
+      const node = document.getElementById(id);
+      node.textContent = message;
+      node.className = 'status' + (type ? ' ' + type : '');
+    }
+
+    async function loadAdminData() {
+      const { webappUrl, adminKey } = getConfig();
+      if (!webappUrl || !adminKey) {
+        setStatus('loadStatus', 'Vul eerst de Web app URL en Admin key in.', 'error');
+        return;
+      }
+
+      saveSettingsLocally();
+      setStatus('loadStatus', 'Dashboard laden...', '');
+
+      try {
+        const data = await jsonp(webappUrl + '?action=getAdminData&key=' + encodeURIComponent(adminKey));
+        if (!data.ok) {
+          throw new Error(data.message || 'Kon dashboarddata niet ophalen');
+        }
+
+        fillCompany(data.company);
+        renderMessages(data.messages || []);
+        renderAppointments(data.appointments || []);
+        setStatus('loadStatus', 'Dashboard geladen.', 'success');
+      } catch (error) {
+        setStatus('loadStatus', error.message, 'error');
+      }
+    }
+
+    function fillCompany(company) {
+      COMPANY_FIELDS.forEach((field) => {
+        if (document.getElementById(field)) {
+          document.getElementById(field).value = company[field] ?? '';
+        }
+      });
+    }
+
+    function submitViaIframe(payload) {
+      return new Promise((resolve, reject) => {
+        const { webappUrl } = getConfig();
+        if (!webappUrl) {
+          reject(new Error('Web app URL ontbreekt'));
+          return;
+        }
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = webappUrl;
+        form.target = 'adminSubmitFrame';
+        form.style.display = 'none';
+
+        Object.entries(payload).forEach(([key, value]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = value == null ? '' : String(value);
+          form.appendChild(input);
+        });
+
+        const timeout = window.setTimeout(() => {
+          cleanup();
+          reject(new Error('Geen antwoord ontvangen van de web app'));
+        }, 20000);
+
+        function handler(event) {
+          if (!event.data || typeof event.data !== 'object') {
+            return;
+          }
+          cleanup();
+          resolve(event.data);
+        }
+
+        function cleanup() {
+          window.clearTimeout(timeout);
+          window.removeEventListener('message', handler);
+          form.remove();
+        }
+
+        window.addEventListener('message', handler);
+        document.body.appendChild(form);
+        form.submit();
+      });
+    }
+
+    async function saveCompany() {
+      const { adminKey } = getConfig();
+      const payload = { action: 'saveCompany', key: adminKey };
+      COMPANY_FIELDS.forEach((field) => {
+        payload[field] = document.getElementById(field).value;
+      });
+
+      try {
+        const result = await submitViaIframe(payload);
+        if (!result.ok) {
+          throw new Error(result.message || 'Opslaan mislukt');
+        }
+        setStatus('companyStatus', 'Bedrijfsgegevens opgeslagen.', 'success');
+      } catch (error) {
+        setStatus('companyStatus', error.message, 'error');
+      }
+    }
+
+    function renderMessages(rows) {
+      const body = document.getElementById('messagesBody');
+      body.innerHTML = rows.map((row) => `
+        <tr>
+          <td>${escapeHtml(row.ID)}</td>
+          <td>${formatValue(row.Timestamp)}</td>
+          <td>${escapeHtml(row.Naam)}</td>
+          <td>${escapeHtml(row.Email)}</td>
+          <td>${escapeHtml(row.Telefoon)}</td>
+          <td>${escapeHtml(row.Onderwerp)}</td>
+          <td>${escapeHtml(row.Bericht)}</td>
+          <td>${escapeHtml(row.Status)}</td>
+          <td><button class="secondary" onclick="updateMessageStatus('${escapeAttr(row.ID)}', 'Beantwoord')">Markeer behandeld</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderAppointments(rows) {
+      const body = document.getElementById('appointmentsBody');
+      body.innerHTML = rows.map((row) => `
+        <tr>
+          <td>${escapeHtml(row.ID)}</td>
+          <td>${formatValue(row.Timestamp)}</td>
+          <td>${escapeHtml(row.Naam)}</td>
+          <td>${escapeHtml(row.Email)}</td>
+          <td>${escapeHtml(row.Telefoon)}</td>
+          <td>${escapeHtml(row.Datum)}</td>
+          <td>${escapeHtml(row.Tijd)}</td>
+          <td>${escapeHtml(row.Dienst)}</td>
+          <td>${escapeHtml(row.Opmerking)}</td>
+          <td>${escapeHtml(row.Status)}</td>
+          <td><button class="secondary" onclick="updateAppointmentStatus('${escapeAttr(row.ID)}', 'Bevestigd')">Bevestigen</button></td>
+        </tr>
+      `).join('');
+    }
+
+    async function updateMessageStatus(id, status) {
+      await updateStatus({ action: 'updateMessageStatus', id, status }, 'Berichtstatus bijgewerkt.');
+    }
+
+    async function updateAppointmentStatus(id, status) {
+      await updateStatus({ action: 'updateAppointmentStatus', id, status }, 'Afspraakstatus bijgewerkt.');
+    }
+
+    async function updateStatus(payload, successMessage) {
+      const { adminKey } = getConfig();
+      try {
+        const result = await submitViaIframe({ ...payload, key: adminKey });
+        if (!result.ok) {
+          throw new Error(result.message || 'Bijwerken mislukt');
+        }
+        setStatus('loadStatus', successMessage, 'success');
+        await loadAdminData();
+      } catch (error) {
+        setStatus('loadStatus', error.message, 'error');
+      }
+    }
+
+    function formatValue(value) {
+      if (!value) return '';
+      return escapeHtml(String(value));
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeAttr(value) {
+      return String(value ?? '').replace(/'/g, "\\'");
+    }
+
+    loadSettingsLocally();
+  </script>
+</body>
+</html>
