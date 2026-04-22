@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="nl" class="h-full">
- <head>
-  <!-- BASIC SEO -->
+ <head><!-- BASIC SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Car Center Rishi | Garage Amsterdam Noord | APK, Onderhoud &amp; Reparatie</title>
@@ -66,6 +65,9 @@
       color: #1f2937;
       background-color: #f9fafb;
       line-height: 1.6;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -562,6 +564,8 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     .section {
@@ -726,7 +730,8 @@
  <body class="h-full">
   <div class="mobile-menu-overlay" id="menuOverlay" onclick="closeMobileMenu()"></div>
   <nav class="navbar">
-   <div class="navbar-container"><a href="#" class="navbar-brand"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" style="height: 40px; width: auto; object-fit: contain;"></a>
+   <div class="navbar-container">
+    <a href="#" class="navbar-brand"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" style="height: 40px; width: auto; object-fit: contain;"></a>
     <ul class="navbar-menu" id="mobileMenu">
      <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
@@ -744,23 +749,34 @@
   </section>
   <section class="section" style="background-color: #f9fafb; padding: 2rem 1.5rem;">
    <div class="container">
-    <div class="usp-slider" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0;">
+    <div class="usp-slider" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; padding: 0;">
      <style>
-       @media (min-width: 640px) {
+       .usp-slider {
+         display: grid !important;
+         grid-template-columns: repeat(4, 1fr) !important;
+         gap: 0.75rem !important;
+       }
+       @media (max-width: 640px) {
+         .usp-slider {
+           grid-template-columns: repeat(4, 1fr) !important;
+           gap: 0.5rem !important;
+         }
+       }
+       @media (min-width: 641px) and (max-width: 1024px) {
+         .usp-slider {
+           grid-template-columns: repeat(4, 1fr) !important;
+           gap: 1rem !important;
+         }
+       }
+       @media (min-width: 1025px) {
          .usp-slider {
            grid-template-columns: repeat(4, 1fr) !important;
            gap: 1.5rem !important;
          }
        }
-       @media (min-width: 1024px) {
-         .usp-slider {
-           grid-template-columns: repeat(4, 1fr) !important;
-           gap: 2rem !important;
-         }
-       }
        .usp-item {
          text-align: center;
-         padding: 1.25rem;
+         padding: 0.75rem;
          background-color: #fff;
          border-radius: 8px;
          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -769,27 +785,36 @@
          align-items: center;
          justify-content: center;
        }
+       @media (max-width: 640px) {
+         .usp-item {
+           padding: 0.5rem !important;
+         }
+         .usp-item i {
+           width: 24px !important;
+           height: 24px !important;
+         }
+         .usp-item p {
+           font-size: 0.7rem !important;
+           line-height: 1.2 !important;
+         }
+       }
        .usp-item i {
-         margin-bottom: 0.75rem;
+         margin-bottom: 0.5rem;
        }
        .usp-item p {
          margin: 0;
        }
      </style>
-     <div class="usp-item">
-      <i data-lucide="star" style="width: 40px; height: 40px; color: #fbbf24;"></i>
+     <div class="usp-item"><i data-lucide="star" style="width: 40px; height: 40px; color: #fbbf24;"></i>
       <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">RDW Erkend</p>
      </div>
-     <div class="usp-item">
-      <i data-lucide="check-circle" style="width: 40px; height: 40px; color: #22c55e;"></i>
+     <div class="usp-item"><i data-lucide="check-circle" style="width: 40px; height: 40px; color: #22c55e;"></i>
       <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">NAP Gecertificeerd</p>
      </div>
-     <div class="usp-item">
-      <i data-lucide="award" style="width: 40px; height: 40px; color: #000;"></i>
+     <div class="usp-item"><i data-lucide="award" style="width: 40px; height: 40px; color: #000;"></i>
       <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">25+ Jaar Ervaring</p>
      </div>
-     <div class="usp-item">
-      <i data-lucide="zap" style="width: 40px; height: 40px; color: #f59e0b;"></i>
+     <div class="usp-item"><i data-lucide="zap" style="width: 40px; height: 40px; color: #f59e0b;"></i>
       <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">Snelle Service</p>
      </div>
     </div>
@@ -799,7 +824,8 @@
    <div class="container">
     <h2 class="section-title">Onze Diensten</h2>
     <p class="section-subtitle">Professionele autopflege en -reparatie</p>
-    <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));"><!-- Mobiel: 2x2, Tablet: 3 kolommen, Desktop: 4 kolommen -->
+    <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+     <!-- Mobiel: 2x2, Tablet: 3 kolommen, Desktop: 4 kolommen -->
      <style>
        .service-card {
          display: flex;
@@ -987,7 +1013,8 @@
      <p id="statusMessage" style="margin-bottom: 0.5rem;"></p>
      <p id="statusTime" style="color: #6b7280; font-size: 0.9rem;"></p>
     </div>
-    <div class="opening-hours-grid"><!-- Mobiel responsive: 2 kolommen, Tablet: 3, Desktop: 7 in 1 rij -->
+    <div class="opening-hours-grid">
+     <!-- Mobiel responsive: 2 kolommen, Tablet: 3, Desktop: 7 in 1 rij -->
      <style>
        @media (max-width: 768px) {
          .opening-hours-grid {
@@ -1046,8 +1073,7 @@
    <div class="container">
     <h2 class="section-title">Neem contact op</h2>
     <p class="section-subtitle">Kies uw voorkeur</p>
-    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-     <!-- Compacte CTA cards -->
+    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;"><!-- Compacte CTA cards -->
      <style>
        @media (max-width: 768px) {
          .cta-cards-grid {
@@ -1087,22 +1113,19 @@
        }
      </style>
      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #25d366;">
-       <i data-lucide="message-circle" style="width: 32px; height: 32px; display: inline-block;"></i>
+      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #25d366;"><i data-lucide="message-circle" style="width: 32px; height: 32px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">WhatsApp</h3>
       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct bericht, snelle reactie</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Open</button>
      </div><!-- Bellen CTA -->
      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #000;">
-       <i data-lucide="phone" style="width: 32px; height: 32px; display: inline-block;"></i>
+      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #000;"><i data-lucide="phone" style="width: 32px; height: 32px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Bellen</h3>
       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct advies van onze team</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Bel</button>
      </div><!-- Email CTA -->
      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #666;">
-       <i data-lucide="mail" style="width: 32px; height: 32px; display: inline-block;"></i>
+      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #666;"><i data-lucide="mail" style="width: 32px; height: 32px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Email</h3>
       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Gedetailleerd bericht sturen</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Mail</button>
@@ -1170,7 +1193,8 @@
   <section id="contact" class="section" style="background-color: #f9fafb;">
    <div class="container">
     <h2 class="section-title">Contact</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;"><!-- Mobiel responsive: formulier eerst, daarna info -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+     <!-- Mobiel responsive: formulier eerst, daarna info -->
      <style>
        @media (max-width: 768px) {
          .contact-grid {
@@ -1186,34 +1210,34 @@
            grid-column: auto !important;
            grid-row: auto !important;
            order: 2;
-         }
-         .contact-info, .contact-form {
-           grid-column: auto !important;
+           display: grid;
+           grid-template-columns: 1fr 1fr;
+           gap: 0.75rem;
          }
          .contact-form h3 {
            font-size: 1.1rem !important;
            margin-bottom: 1rem !important;
          }
-         .contact-info h3 {
+         .contact-info > h3 {
+           grid-column: 1 / -1;
            font-size: 1rem !important;
-           margin-bottom: 0.75rem !important;
+           margin-bottom: 0.5rem !important;
          }
          .contact-info > div {
-           margin-bottom: 0.75rem !important;
            padding: 0.75rem;
            background-color: #f9fafb;
            border-radius: 6px;
            border-left: 3px solid #000;
          }
          .contact-info p {
-           font-size: 0.85rem !important;
+           font-size: 0.8rem !important;
            margin-bottom: 0.25rem !important;
          }
          .action-buttons {
+           grid-column: 1 / -1;
            grid-template-columns: 1fr 1fr !important;
            gap: 0.5rem !important;
-           margin-bottom: 0 !important;
-           margin-top: 1rem;
+           margin: 0.75rem 0 0 0 !important;
          }
          .action-buttons .btn-primary {
            padding: 8px 12px !important;
@@ -1232,48 +1256,42 @@
      <div class="contact-form" style="grid-column: 2; grid-row: 1;">
       <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Stuur ons een bericht</h3>
       <form onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 0.75rem;">
-       <div class="form-group">
-        <label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
+       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group">
-        <label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
+       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group">
-        <label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
+       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group">
-        <label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
+       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group">
-        <label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
+       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
        </div>
        <div id="contactStatus" class="hidden" style="padding: 0.75rem; margin-bottom: 0.75rem; border-radius: 6px; border: 2px solid #dbeafe; font-size: 0.85rem;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; min-height: 44px; font-size: 0.95rem;">Bericht verzenden</button>
       </form>
      </div>
      <div class="contact-info" style="grid-column: 1; grid-row: 1;">
       <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Car Center Rishi</h3>
-      <div style="margin-bottom: 1rem; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
+      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Adres</p>
        <p id="contactAddressDisplay" style="font-weight: 600; margin: 0;">Meeuwenlaan 116, 1021 JM Amsterdam</p>
       </div>
-      <div style="margin-bottom: 1rem; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
+      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Telefoon</p>
        <p style="font-weight: 600; margin: 0;"><a id="contactPhoneLink" href="tel:+31203370324" style="color: #000; text-decoration: none; font-weight: 600;">020 337 0324</a></p>
       </div>
-      <div style="margin-bottom: 1rem; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
+      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="mail" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Email</p>
        <p style="font-weight: 600; margin: 0;"><a id="contactEmailLink" href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none; font-weight: 600;">info@carcenterrishi.nl</a></p>
       </div>
-      <div style="margin-bottom: 1rem; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
+      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">KvK Nummer</p>
        <p id="contactKvKDisplay" style="font-weight: 600; margin: 0;">68638701</p>
       </div>
-      <div style="margin-bottom: 1.5rem; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
+      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">BTW Nummer</p>
        <p id="contactBTWDisplay" style="font-weight: 600; margin: 0;">NL0545.97.481</p>
       </div>
-      <div class="action-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0;">
-       <button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Routes</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Bel</button>
+      <div class="action-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem;"><button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Routes</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Bel</button>
       </div>
      </div>
     </div>
@@ -1281,7 +1299,8 @@
   </section>
   <footer>
    <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;"><!-- Mobiel responsive footer -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+     <!-- Mobiel responsive footer -->
      <style>
        @media (max-width: 768px) {
          footer {
@@ -1328,15 +1347,13 @@
      <div class="footer-section">
       <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Openingstijden</h3>
       <div style="font-size: 0.85rem; line-height: 1.8; color: #d1d5db;">
-       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;">
-        <span>Zondag</span><span id="footerSunday">10:00 - 18:00</span> <span>Maandag</span><span id="footerMonday">09:00 - 18:00</span> <span>Dinsdag</span><span id="footerTuesday">09:00 - 18:00</span> <span>Woensdag</span><span id="footerWednesday">09:00 - 18:00</span> <span>Donderdag</span><span id="footerThursday">09:00 - 18:00</span> <span>Vrijdag</span><span id="footerFriday">09:00 - 18:00</span> <span>Zaterdag</span><span id="footerSaturday">10:00 - 18:00</span>
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;"><span>Zondag</span><span id="footerSunday">10:00 - 18:00</span> <span>Maandag</span><span id="footerMonday">09:00 - 18:00</span> <span>Dinsdag</span><span id="footerTuesday">09:00 - 18:00</span> <span>Woensdag</span><span id="footerWednesday">09:00 - 18:00</span> <span>Donderdag</span><span id="footerThursday">09:00 - 18:00</span> <span>Vrijdag</span><span id="footerFriday">09:00 - 18:00</span> <span>Zaterdag</span><span id="footerSaturday">10:00 - 18:00</span>
        </div>
       </div>
      </div><!-- Column 3: Status & CTA -->
      <div class="footer-section">
       <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Status</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-       <span id="footerStatusDot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #22c55e; display: inline-block; margin-right: 0.5rem; animation: pulse 2s infinite;"></span> <span id="footerStatus" style="color: #d1d5db; font-size: 0.9rem;">Open</span>
+      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;"><span id="footerStatusDot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #22c55e; display: inline-block; margin-right: 0.5rem; animation: pulse 2s infinite;"></span> <span id="footerStatus" style="color: #d1d5db; font-size: 0.9rem;">Open</span>
       </div><button class="btn-primary" onclick="scrollToSection('booking')" style="width: 100%; min-height: 44px; font-size: 0.9rem;">Contact opnemen</button>
      </div>
     </div>
@@ -1508,45 +1525,12 @@
      * Updates global state and all UI elements
      */
     async function loadCompanyData() {
-      isLoading = true;
-      loadError = null;
-      
-      try {
-        const response = await fetch(API_URL + '?action=getCompany', {
-          method: 'GET',
-          mode: 'cors',
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (!response.ok) {
-          throw new Error(`Network error: ${response.status}`);
-        }
-        
-        const result = await response.json();
-        
-        if (!result.ok || !result.company) {
-          throw new Error('Invalid response from API');
-        }
-        
-        // Update global state
-        companyData = result.company;
-        isLoading = false;
-        
-        // Render all UI elements with new data
-        renderCompanyInfo();
-        renderOpeningHours();
-        renderCTAButtons();
-        renderFooter();
-        
-        console.log('✓ Company data loaded successfully:', companyData);
-      } catch (error) {
-        console.error('✗ Error loading company data:', error);
-        isLoading = false;
-        loadError = error.message;
-        renderErrorState();
-      }
+      // Use default company data (no API call needed)
+      renderCompanyInfo();
+      renderOpeningHours();
+      renderCTAButtons();
+      renderFooter();
+      console.log('✓ Company data initialized successfully:', companyData);
     }
 
     /**
@@ -1913,5 +1897,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f059674c32d656e',t:'MTc3Njg3MDk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f063e45b2a666a6',t:'MTc3Njg3Nzg0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
