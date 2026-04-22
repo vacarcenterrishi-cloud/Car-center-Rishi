@@ -2,7 +2,10 @@
 <html lang="nl" class="h-full">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#000000">
   <title>Car Center Rishi - APK &amp; Autoonderhoud Amsterdam</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -352,6 +355,27 @@
       font-size: 0.95rem;
       transition: border-color 0.3s ease;
       font-family: inherit;
+      min-height: 40px;
+    }
+
+    .btn-primary {
+      min-height: 44px;
+    }
+
+    @media (max-width: 768px) {
+      .form-group {
+        margin-bottom: 1rem !important;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        padding: 10px 12px !important;
+        font-size: 1rem !important;
+        min-height: 40px !important;
+      }
+      .form-group textarea {
+        min-height: 100px !important;
+      }
     }
 
     .form-group input:focus,
@@ -425,30 +449,33 @@
       background-color: #000;
       bottom: 2rem;
       right: 2rem;
+      display: none;
     }
 
     .cta-button.whatsapp {
       background-color: #25d366;
-      bottom: 8.5rem;
+      bottom: 2rem;
       right: 2rem;
+      display: flex !important;
     }
 
     .cta-button:hover {
       transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 768px) {
       .cta-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
         bottom: 1.5rem;
         right: 1.5rem;
+        box-shadow: 0 2px 12px rgba(37, 211, 102, 0.4);
       }
 
-      .cta-button.whatsapp {
-        bottom: 7rem;
-        right: 1.5rem;
+      .cta-button.whatsapp:active {
+        transform: scale(0.95);
       }
     }
 
@@ -550,8 +577,7 @@
  </head>
  <body class="h-full">
   <nav class="navbar">
-   <div class="navbar-container">
-    <a href="#" class="navbar-brand"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" style="height: 40px; width: auto; object-fit: contain;"></a>
+   <div class="navbar-container"><a href="#" class="navbar-brand"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" style="height: 40px; width: auto; object-fit: contain;"></a>
     <ul class="navbar-menu" id="mobileMenu">
      <li><a href="#home">Home</a></li>
      <li><a href="#services">Services</a></li>
@@ -571,26 +597,22 @@
    <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.5rem; text-align: center; margin-bottom: 3rem;">
      <div>
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-       <i data-lucide="star" style="width: 32px; height: 32px; color: #fbbf24; display: inline-block;"></i>
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i data-lucide="star" style="width: 32px; height: 32px; color: #fbbf24; display: inline-block;"></i>
       </div>
       <p style="font-weight: 600; font-size: 0.9rem;">RDW Erkend</p>
      </div>
      <div>
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-       <i data-lucide="check-circle" style="width: 32px; height: 32px; color: #22c55e; display: inline-block;"></i>
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i data-lucide="check-circle" style="width: 32px; height: 32px; color: #22c55e; display: inline-block;"></i>
       </div>
       <p style="font-weight: 600; font-size: 0.9rem;">NAP Gecertificeerd</p>
      </div>
      <div>
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-       <i data-lucide="award" style="width: 32px; height: 32px; color: #000; display: inline-block;"></i>
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i data-lucide="award" style="width: 32px; height: 32px; color: #000; display: inline-block;"></i>
       </div>
       <p style="font-weight: 600; font-size: 0.9rem;">25+ Jaar Ervaring</p>
      </div>
      <div>
-      <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-       <i data-lucide="zap" style="width: 32px; height: 32px; color: #f59e0b; display: inline-block;"></i>
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i data-lucide="zap" style="width: 32px; height: 32px; color: #f59e0b; display: inline-block;"></i>
       </div>
       <p style="font-weight: 600; font-size: 0.9rem;">Snelle Service</p>
      </div>
@@ -601,46 +623,74 @@
    <div class="container">
     <h2 class="section-title">Onze Diensten</h2>
     <p class="section-subtitle">Professionele autopflege en -reparatie</p>
-    <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));"><!-- Mobiel: 2x2, Tablet: 3 kolommen, Desktop: 4 kolommen -->
+     <style>
+       @media (max-width: 768px) {
+         .service-grid {
+           grid-template-columns: repeat(2, 1fr) !important;
+           gap: 0.75rem !important;
+         }
+         .service-card {
+           padding: 0.75rem !important;
+         }
+         .service-card h3 {
+           font-size: 0.95rem !important;
+           margin-bottom: 0.25rem !important;
+         }
+         .service-card p {
+           font-size: 0.8rem !important;
+         }
+         .service-card .btn-primary {
+           padding: 8px 12px !important;
+           font-size: 0.8rem !important;
+           min-height: 36px !important;
+         }
+       }
+       @media (min-width: 769px) and (max-width: 1024px) {
+         .service-grid {
+           grid-template-columns: repeat(3, 1fr) !important;
+         }
+       }
+     </style>
      <div class="service-card" onclick="selectService('APK')">
-      <h3><i data-lucide="clipboard-check" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>APK Keuring</h3>
+      <h3><i data-lucide="clipboard-check" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>APK Keuring</h3>
       <p>Jaarlijkse APK voor alle voertuigen</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €40</p><button class="btn-primary" onclick="selectService('APK')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €40</p><button class="btn-primary" onclick="selectService('APK')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Diagnose')">
-      <h3><i data-lucide="stethoscope" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Diagnose</h3>
+      <h3><i data-lucide="stethoscope" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Diagnose</h3>
       <p>Computergestuurde voertuigdiagnose</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €50/€85</p><button class="btn-primary" onclick="selectService('Diagnose')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50/€85</p><button class="btn-primary" onclick="selectService('Diagnose')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Onderhoud')">
-      <h3><i data-lucide="wrench" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Groot Onderhoud</h3>
+      <h3><i data-lucide="wrench" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Groot Onderhoud</h3>
       <p>Volledige onderhoudsbeurt</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Offerte op aanvraag</p><button class="btn-primary" onclick="selectService('Onderhoud')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Onderhoud')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Olie')">
-      <h3><i data-lucide="droplet" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Olie Verversen</h3>
+      <h3><i data-lucide="droplet" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Olie Verversen</h3>
       <p>Olieverversing met filters</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €150</p><button class="btn-primary" onclick="selectService('Olie')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €150</p><button class="btn-primary" onclick="selectService('Olie')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Airco')">
-      <h3><i data-lucide="wind" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Airco Service</h3>
+      <h3><i data-lucide="wind" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Airco Service</h3>
       <p>Airco vervulling &amp; inspectie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €100</p><button class="btn-primary" onclick="selectService('Airco')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €100</p><button class="btn-primary" onclick="selectService('Airco')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Banden')">
-      <h3><i data-lucide="circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Bandenservice</h3>
+      <h3><i data-lucide="circle" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Bandenservice</h3>
       <p>Montage, balancering &amp; opslag</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €12,50</p><button class="btn-primary" onclick="selectService('Banden')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €12,50</p><button class="btn-primary" onclick="selectService('Banden')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Automaatbak')">
-      <h3><i data-lucide="gear" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Automaatbak</h3>
+      <h3><i data-lucide="gear" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Automaatbak</h3>
       <p>Service en reparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Offerte op aanvraag</p><button class="btn-primary" onclick="selectService('Automaatbak')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Automaatbak')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Elektronica')">
-      <h3><i data-lucide="zap" style="width: 20px; height: 20px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Elektronica</h3>
+      <h3><i data-lucide="zap" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Elektronica</h3>
       <p>Elektra- en sensorreparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 1rem;">Vanaf €50</p><button class="btn-primary" onclick="selectService('Elektronica')">Kies deze dienst</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50</p><button class="btn-primary" onclick="selectService('Elektronica')">Kies</button>
      </div>
     </div>
    </div>
@@ -683,7 +733,30 @@
      <p id="statusMessage" style="margin-bottom: 0.5rem;"></p>
      <p id="statusTime" style="color: #6b7280; font-size: 0.9rem;"></p>
     </div>
-    <div class="opening-hours-grid">
+    <div class="opening-hours-grid"><!-- Mobiel responsive: 2 kolommen, Tablet: 3, Desktop: 7 in 1 rij -->
+     <style>
+       @media (max-width: 768px) {
+         .opening-hours-grid {
+           grid-template-columns: repeat(2, 1fr) !important;
+           gap: 0.5rem !important;
+         }
+         .hour-card {
+           padding: 0.75rem !important;
+         }
+         .hour-card h4 {
+           font-size: 0.8rem !important;
+           margin-bottom: 0.25rem !important;
+         }
+         .hour-card p {
+           font-size: 0.75rem !important;
+         }
+       }
+       @media (min-width: 769px) and (max-width: 1024px) {
+         .opening-hours-grid {
+           grid-template-columns: repeat(3, 1fr) !important;
+         }
+       }
+     </style>
      <div id="hourSun" class="hour-card">
       <h4>Zondag</h4>
       <p id="openingHoursSun">--</p>
@@ -719,24 +792,64 @@
    <div class="container">
     <h2 class="section-title">Neem contact op</h2>
     <p class="section-subtitle">Kies uw voorkeur</p>
-    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;"><!-- WhatsApp CTA -->
-     <div style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #25d366;"><i data-lucide="message-circle" style="width: 40px; height: 40px; display: inline-block;"></i>
+    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+     <!-- Mobiel responsive CTA -->
+     <style>
+       @media (max-width: 768px) {
+         .cta-cards-grid {
+           display: flex !important;
+           flex-direction: column !important;
+           gap: 1rem !important;
+         }
+         .cta-card {
+           padding: 1.25rem !important;
+         }
+         .cta-card-icon {
+           font-size: 2rem !important;
+           margin-bottom: 0.75rem !important;
+         }
+         .cta-card h3 {
+           font-size: 1.1rem !important;
+           margin-bottom: 0.5rem !important;
+         }
+         .cta-card p {
+           font-size: 0.85rem !important;
+           margin-bottom: 1rem !important;
+         }
+         .cta-card .btn-primary {
+           min-height: 44px !important;
+           width: 100% !important;
+           font-size: 0.9rem !important;
+         }
+       }
+       @media (min-width: 769px) {
+         .cta-cards-grid {
+           display: grid !important;
+           grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+           gap: 2rem !important;
+         }
+       }
+     </style>
+     <div class="cta-card" style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
+      <div class="cta-card-icon" style="font-size: 2.5rem; margin-bottom: 1rem; color: #25d366;">
+       <i data-lucide="message-circle" style="width: 40px; height: 40px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.75rem; font-size: 1.25rem;">WhatsApp</h3>
-      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;">Direct chatbericht sturen en meteen antwoord krijgen</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.95rem;">Open WhatsApp</button>
+      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;">Direct chatbericht sturen en meteen antwoord krijgen</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.95rem; min-height: 44px;">Open WhatsApp</button>
      </div><!-- Bellen CTA -->
-     <div style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #000;"><i data-lucide="phone" style="width: 40px; height: 40px; display: inline-block;"></i>
+     <div class="cta-card" style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
+      <div class="cta-card-icon" style="font-size: 2.5rem; margin-bottom: 1rem; color: #000;">
+       <i data-lucide="phone" style="width: 40px; height: 40px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.75rem; font-size: 1.25rem;">Bellen</h3>
-      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;" id="phoneParagraph">Bel onze service afdeling voor direct advies</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.95rem;">Bel nu</button>
+      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;" id="phoneParagraph">Bel onze service afdeling voor direct advies</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.95rem; min-height: 44px;">Bel nu</button>
      </div><!-- Email CTA -->
-     <div style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem; color: #666;"><i data-lucide="mail" style="width: 40px; height: 40px; display: inline-block;"></i>
+     <div class="cta-card" style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column;">
+      <div class="cta-card-icon" style="font-size: 2.5rem; margin-bottom: 1rem; color: #666;">
+       <i data-lucide="mail" style="width: 40px; height: 40px; display: inline-block;"></i>
       </div>
       <h3 style="margin-bottom: 0.75rem; font-size: 1.25rem;">Email</h3>
-      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;">Stuur ons een gedetailleerd bericht</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.95rem;">Email sturen</button>
+      <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem; flex-grow: 1;">Stuur ons een gedetailleerd bericht</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.95rem; min-height: 44px;">Email sturen</button>
      </div>
     </div>
    </div>
@@ -746,7 +859,31 @@
     <h2 class="section-title">Wat klanten zeggen</h2>
     <p class="section-subtitle" style="margin-bottom: 0.5rem;">4.4/5</p>
     <p class="section-subtitle" style="color: #fbbf24; margin-bottom: 2rem;">★★★★☆ (156 reviews)</p>
-    <div class="review-grid">
+    <div class="review-grid"><!-- Mobiel responsive slider -->
+     <style>
+       @media (max-width: 768px) {
+         .review-grid {
+           display: flex !important;
+           overflow-x: auto !important;
+           gap: 1rem !important;
+           scroll-snap-type: x mandatory;
+           -webkit-overflow-scrolling: touch;
+           padding-bottom: 0.5rem;
+         }
+         .review-card {
+           flex: 0 0 calc(100vw - 3rem) !important;
+           scroll-snap-align: start;
+           min-width: 280px !important;
+         }
+       }
+       @media (min-width: 769px) {
+         .review-grid {
+           display: grid !important;
+           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+           gap: 1.5rem !important;
+         }
+       }
+     </style>
      <div class="review-card">
       <p class="review-text">"Heel professioneel team. Mijn APK was binnen een uur klaar. Aanrader!"</p>
       <p class="review-author">— Johannes M.</p>
@@ -769,28 +906,59 @@
   <section id="contact" class="section" style="background-color: #f9fafb;">
    <div class="container">
     <h2 class="section-title">Contact</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
-     <div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;"><!-- Mobiel responsive: 1 kolom, Tablet: 2 kolommen -->
+     <style>
+       @media (max-width: 768px) {
+         .contact-grid {
+           grid-template-columns: 1fr !important;
+           gap: 2rem !important;
+         }
+         .contact-info, .contact-form {
+           grid-column: auto !important;
+         }
+         .contact-grid h3 {
+           font-size: 1.1rem !important;
+           margin-bottom: 1rem !important;
+         }
+         .contact-info > div {
+           margin-bottom: 1rem !important;
+         }
+         .contact-info p {
+           font-size: 0.9rem !important;
+           margin-bottom: 0.25rem !important;
+         }
+         .action-buttons {
+           grid-template-columns: 1fr 1fr !important;
+           gap: 0.75rem !important;
+           margin-bottom: 1.5rem !important;
+         }
+         .action-buttons .btn-primary {
+           padding: 10px 12px !important;
+           font-size: 0.85rem !important;
+           min-height: 44px !important;
+         }
+       }
+       @media (min-width: 769px) {
+         .contact-grid {
+           display: grid;
+           grid-template-columns: 1fr 1fr;
+           gap: 3rem;
+         }
+       }
+     </style>
+     <div class="contact-info">
       <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Car Center Rishi</h3>
       <div style="margin-bottom: 1.5rem;">
-       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">Adres</p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Adres</p>
        <p id="companyAddressDisplay" style="font-weight: 600;">Meeuwenlaan 116, 1021 JM Amsterdam</p>
       </div>
       <div style="margin-bottom: 1rem;">
-       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">Telefoon</p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Telefoon</p>
        <p id="companyPhoneDisplay" style="font-weight: 600;"><a href="tel:+31203370324" style="color: #000; text-decoration: none;">020 337 0324</a></p>
       </div>
       <div style="margin-bottom: 1rem;">
-       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">Mobiel</p>
-       <p style="font-weight: 600;"><a href="tel:+31646102011" style="color: #000; text-decoration: none;">06 46 10 2011</a></p>
-      </div>
-      <div style="margin-bottom: 1rem;">
-       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">Email</p>
+       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="mail" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Email</p>
        <p id="companyEmailDisplay" style="font-weight: 600;"><a href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none;">info@carcenterrishi.nl</a></p>
-      </div>
-      <div style="margin-bottom: 1rem;">
-       <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">Website</p>
-       <p style="font-weight: 600;"><a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer" style="color: #000; text-decoration: none;">www.carcenterrishi.nl</a></p>
       </div>
       <div style="margin-bottom: 1rem;">
        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">KvK Nummer</p>
@@ -800,23 +968,29 @@
        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem;">BTW Nummer</p>
        <p id="companyBTWDisplay" style="font-weight: 600;">NL0545.97.481</p>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;"><button class="btn-primary" onclick="openMaps()" style="width: 100%;">📍 Route plannen</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%;">📞 Bel nu</button>
+      <div class="action-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+       <button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px;">Routes plannen</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px;">Bel nu</button>
       </div>
      </div>
-     <div>
+     <div class="contact-form">
       <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Stuur ons een bericht</h3>
       <form onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
-       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required>
+       <div class="form-group">
+        <label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required>
+       <div class="form-group">
+        <label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678">
+       <div class="form-group">
+        <label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required>
+       <div class="form-group">
+        <label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
        </div>
-       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required></textarea>
+       <div class="form-group">
+        <label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
        </div>
-       <div id="contactStatus" class="hidden" style="padding: 1rem; margin-bottom: 1rem; border-radius: 6px; border: 2px solid #dbeafe;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%;">Bericht verzenden</button>
+       <div id="contactStatus" class="hidden" style="padding: 1rem; margin-bottom: 1rem; border-radius: 6px; border: 2px solid #dbeafe;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; min-height: 44px; font-size: 0.95rem;">Bericht verzenden</button>
       </form>
      </div>
     </div>
@@ -824,8 +998,43 @@
   </section>
   <footer>
    <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;"><!-- Column 1: Company Info -->
-     <div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;"><!-- Mobiel responsive footer -->
+     <style>
+       @media (max-width: 768px) {
+         footer {
+           padding: 1.5rem 1rem !important;
+         }
+         footer .container > div {
+           grid-template-columns: 1fr !important;
+           gap: 1.5rem !important;
+           margin-bottom: 1.5rem !important;
+         }
+         footer h3 {
+           font-size: 0.95rem !important;
+           margin-bottom: 0.75rem !important;
+         }
+         footer p {
+           font-size: 0.8rem !important;
+           margin-bottom: 0.25rem !important;
+         }
+         .footer-section {
+           border-top: 1px solid #374151;
+           padding-top: 1rem;
+         }
+         .footer-section:first-child {
+           border-top: none;
+           padding-top: 0;
+         }
+       }
+       @media (min-width: 769px) {
+         footer .container > div {
+           grid-template-columns: 1fr 1fr 1fr;
+           gap: 3rem;
+           margin-bottom: 2rem;
+         }
+       }
+     </style><!-- Column 1: Company Info -->
+     <div class="footer-section">
       <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Car Center Rishi</h3>
       <div style="font-size: 0.85rem; line-height: 1.8;">
        <p style="margin-bottom: 0.75rem;"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; color: #fbbf24;"></i> <span id="footerAddress" style="color: #d1d5db;">Meeuwenlaan 116 H, Amsterdam</span></p>
@@ -833,17 +1042,19 @@
        <p><i data-lucide="mail" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; color: #fbbf24;"></i> <a id="footerEmail" href="mailto:" style="color: #d1d5db; text-decoration: none; transition: color 0.3s;">info@carcenterrishi.nl</a></p>
       </div>
      </div><!-- Column 2: Hours -->
-     <div>
+     <div class="footer-section">
       <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Openingstijden</h3>
       <div style="font-size: 0.85rem; line-height: 1.8; color: #d1d5db;">
-       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;"><span>Zondag</span><span id="footerSunday">10:00 - 18:00</span> <span>Maandag</span><span id="footerMonday">09:00 - 18:00</span> <span>Dinsdag</span><span id="footerTuesday">09:00 - 18:00</span> <span>Woensdag</span><span id="footerWednesday">09:00 - 18:00</span> <span>Donderdag</span><span id="footerThursday">09:00 - 18:00</span> <span>Vrijdag</span><span id="footerFriday">09:00 - 18:00</span> <span>Zaterdag</span><span id="footerSaturday">10:00 - 18:00</span>
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;">
+        <span>Zondag</span><span id="footerSunday">10:00 - 18:00</span> <span>Maandag</span><span id="footerMonday">09:00 - 18:00</span> <span>Dinsdag</span><span id="footerTuesday">09:00 - 18:00</span> <span>Woensdag</span><span id="footerWednesday">09:00 - 18:00</span> <span>Donderdag</span><span id="footerThursday">09:00 - 18:00</span> <span>Vrijdag</span><span id="footerFriday">09:00 - 18:00</span> <span>Zaterdag</span><span id="footerSaturday">10:00 - 18:00</span>
        </div>
       </div>
      </div><!-- Column 3: Status & CTA -->
-     <div>
+     <div class="footer-section">
       <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Status</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;"><span id="footerStatusDot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #22c55e; display: inline-block; margin-right: 0.5rem; animation: pulse 2s infinite;"></span> <span id="footerStatus" style="color: #d1d5db; font-size: 0.9rem;">Open</span>
-      </div><button class="btn-primary" onclick="scrollToSection('booking')" style="width: 100%;">Contact opnemen</button>
+      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+       <span id="footerStatusDot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #22c55e; display: inline-block; margin-right: 0.5rem; animation: pulse 2s infinite;"></span> <span id="footerStatus" style="color: #d1d5db; font-size: 0.9rem;">Open</span>
+      </div><button class="btn-primary" onclick="scrollToSection('booking')" style="width: 100%; min-height: 44px; font-size: 0.9rem;">Contact opnemen</button>
      </div>
     </div>
     <div style="border-top: 1px solid #374151; padding-top: 1.5rem; font-size: 0.85rem; color: #9ca3af;">
@@ -1319,5 +1530,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0555f3776270c7',t:'MTc3Njg2ODMyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f056394437a68cb',t:'MTc3Njg2ODg4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
