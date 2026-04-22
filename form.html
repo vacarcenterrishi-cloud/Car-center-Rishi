@@ -52,12 +52,16 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      max-width: 100%;
     }
 
     body {
@@ -65,9 +69,8 @@
       color: #1f2937;
       background-color: #f9fafb;
       line-height: 1.6;
-      overflow-x: hidden;
-      max-width: 100%;
-      width: 100%;
+      overflow-x: hidden !important;
+      width: 100vw;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -385,6 +388,29 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .review-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        gap: 0 !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        position: relative;
+      }
+      .review-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .review-card {
+        flex: 0 0 85vw !important;
+        min-width: 85vw !important;
+        max-width: 85vw !important;
+        scroll-snap-align: start;
+        margin-right: 0;
+      }
     }
 
     .review-card {
@@ -755,11 +781,13 @@
          display: grid !important;
          grid-template-columns: repeat(4, 1fr) !important;
          gap: 0.75rem !important;
+         width: 100%;
        }
        @media (max-width: 640px) {
          .usp-slider {
            grid-template-columns: repeat(4, 1fr) !important;
-           gap: 0.5rem !important;
+           gap: 0.3rem !important;
+           padding: 0.5rem 0 !important;
          }
        }
        @media (min-width: 641px) and (max-width: 1024px) {
@@ -776,7 +804,7 @@
        }
        .usp-item {
          text-align: center;
-         padding: 0.75rem;
+         padding: 0.4rem;
          background-color: #fff;
          border-radius: 8px;
          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -784,22 +812,51 @@
          flex-direction: column;
          align-items: center;
          justify-content: center;
+         gap: 0.15rem;
+         min-width: 0;
+         overflow: hidden;
+         word-break: break-word;
        }
        @media (max-width: 640px) {
          .usp-item {
-           padding: 0.5rem !important;
+           padding: 0.3rem !important;
          }
+         .usp-item i {
+           width: 16px !important;
+           height: 16px !important;
+         }
+         .usp-item p {
+           font-size: 0.6rem !important;
+           line-height: 1.0 !important;
+           margin: 0 !important;
+           word-break: break-word;
+           font-weight: 600;
+           color: #1f2937;
+         }
+       }
+       @media (min-width: 641px) and (max-width: 768px) {
          .usp-item i {
            width: 24px !important;
            height: 24px !important;
          }
          .usp-item p {
-           font-size: 0.7rem !important;
-           line-height: 1.2 !important;
+           font-size: 0.75rem !important;
+           font-weight: 600;
+         }
+       }
+       @media (min-width: 769px) {
+         .usp-item i {
+           width: 40px !important;
+           height: 40px !important;
+         }
+         .usp-item p {
+           font-size: 0.95rem !important;
+           font-weight: 700;
          }
        }
        .usp-item i {
-         margin-bottom: 0.5rem;
+         margin-bottom: 0.1rem;
+         flex-shrink: 0;
        }
        .usp-item p {
          margin: 0;
@@ -881,45 +938,45 @@
          }
        }
      </style>
-     <div class="service-card" onclick="selectService('APK')">
+     <div class="service-card" onclick="selectService('APK Keuring')">
       <h3><i data-lucide="clipboard-check" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>APK Keuring</h3>
       <p>Jaarlijkse APK voor alle voertuigen</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €40</p><button class="btn-primary" onclick="selectService('APK')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €40</p><button class="btn-primary" onclick="selectService('APK Keuring')">Kies</button>
      </div>
      <div class="service-card" onclick="selectService('Diagnose')">
       <h3><i data-lucide="stethoscope" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Diagnose</h3>
       <p>Computergestuurde voertuigdiagnose</p>
       <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50/€85</p><button class="btn-primary" onclick="selectService('Diagnose')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Onderhoud')">
+     <div class="service-card" onclick="selectService('Groot Onderhoud')">
       <h3><i data-lucide="wrench" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Groot Onderhoud</h3>
       <p>Volledige onderhoudsbeurt</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Onderhoud')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Groot Onderhoud')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Olie')">
+     <div class="service-card" onclick="selectService('Olie Verversen')">
       <h3><i data-lucide="droplet" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Olie Verversen</h3>
       <p>Olieverversing met filters</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €150</p><button class="btn-primary" onclick="selectService('Olie')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €150</p><button class="btn-primary" onclick="selectService('Olie Verversen')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Airco')">
+     <div class="service-card" onclick="selectService('Airco Service')">
       <h3><i data-lucide="wind" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Airco Service</h3>
       <p>Airco vervulling &amp; inspectie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €100</p><button class="btn-primary" onclick="selectService('Airco')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €100</p><button class="btn-primary" onclick="selectService('Airco Service')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Banden')">
+     <div class="service-card" onclick="selectService('Bandenservice')">
       <h3><i data-lucide="circle" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Bandenservice</h3>
       <p>Montage, balancering &amp; opslag</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €12,50</p><button class="btn-primary" onclick="selectService('Banden')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €12,50</p><button class="btn-primary" onclick="selectService('Bandenservice')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Automaatbak')">
+     <div class="service-card" onclick="selectService('Automaatbak Service')">
       <h3><i data-lucide="gear" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Automaatbak</h3>
       <p>Service en reparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Automaatbak')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Automaatbak Service')">Kies</button>
      </div>
-     <div class="service-card" onclick="selectService('Elektronica')">
+     <div class="service-card" onclick="selectService('Elektronica Reparatie')">
       <h3><i data-lucide="zap" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Elektronica</h3>
       <p>Elektra- en sensorreparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50</p><button class="btn-primary" onclick="selectService('Elektronica')">Kies</button>
+      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50</p><button class="btn-primary" onclick="selectService('Elektronica Reparatie')">Kies</button>
      </div>
     </div>
    </div>
@@ -1008,7 +1065,7 @@
    <div class="container">
     <h2 class="section-title">Openingstijden</h2>
     <p class="section-subtitle">Status: <span id="liveStatusDisplay">Laden...</span></p>
-    <div id="statusContainer" style="padding: 1.5rem; background-color: #f3f4f6; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 2rem;">
+    <div id="statusContainer" style="padding: 1.5rem; background-color: #f3f4f6; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 2rem; display: none;">
      <h3 id="statusLabel" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Status</h3>
      <p id="statusMessage" style="margin-bottom: 0.5rem;"></p>
      <p id="statusTime" style="color: #6b7280; font-size: 0.9rem;"></p>
@@ -1072,63 +1129,110 @@
   <section id="booking" class="section" style="background: linear-gradient(135deg, #f0fdf4 0%, #f9fafb 100%);">
    <div class="container">
     <h2 class="section-title">Neem contact op</h2>
-    <p class="section-subtitle">Kies uw voorkeur</p>
-    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;"><!-- Compacte CTA cards -->
-     <style>
-       @media (max-width: 768px) {
-         .cta-cards-grid {
-           display: grid !important;
-           grid-template-columns: 1fr !important;
-           gap: 1rem !important;
-         }
-         .cta-card {
-           padding: 1rem !important;
-         }
-         .cta-card-icon {
-           font-size: 1.75rem !important;
-           margin-bottom: 0.5rem !important;
-         }
-         .cta-card h3 {
-           font-size: 1rem !important;
-           margin-bottom: 0.25rem !important;
-         }
-         .cta-card p {
-           font-size: 0.75rem !important;
-           margin-bottom: 0.75rem !important;
-           line-height: 1.3 !important;
-         }
-         .cta-card .btn-primary {
-           min-height: 40px !important;
-           width: 100% !important;
-           font-size: 0.8rem !important;
-           padding: 8px 12px !important;
-         }
-       }
-       @media (min-width: 769px) {
-         .cta-cards-grid {
-           display: grid !important;
-           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-           gap: 1.5rem !important;
-         }
-       }
-     </style>
-     <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #25d366;"><i data-lucide="message-circle" style="width: 32px; height: 32px; display: inline-block;"></i>
+    <p class="section-subtitle">Formulier of direct contact</p><!-- MOBIEL: FORMULIER EERST -->
+    <div style="max-width: 900px; margin: 0 auto; display: block;">
+     <!-- Contact Form - Mobiel prioriteit -->
+     <div style="margin-bottom: 2rem; order: 1;">
+      <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Stuur ons een bericht</h3>
+      <form onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 0.75rem;">
+       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
+       </div>
+       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
+       </div>
+       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
+       </div>
+       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
+       </div>
+       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
+       </div>
+       <div id="contactStatus" class="hidden" style="padding: 0.75rem; margin-bottom: 0.75rem; border-radius: 6px; border: 2px solid #dbeafe; font-size: 0.85rem;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; min-height: 44px; font-size: 0.95rem;">Bericht verzenden</button>
+      </form>
+     </div><!-- Direct Contact Buttons -->
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
+       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #25d366;"><i data-lucide="message-circle" style="width: 32px; height: 32px; display: inline-block;"></i>
+       </div>
+       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">WhatsApp</h3>
+       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct bericht, snelle reactie</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Open</button>
       </div>
-      <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">WhatsApp</h3>
-      <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct bericht, snelle reactie</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Open</button>
-     </div><!-- Bellen CTA -->
-     <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #000;"><i data-lucide="phone" style="width: 32px; height: 32px; display: inline-block;"></i>
+      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
+       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #000;"><i data-lucide="phone" style="width: 32px; height: 32px; display: inline-block;"></i>
+       </div>
+       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Bellen</h3>
+       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct advies van onze team</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Bel</button>
       </div>
-      <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Bellen</h3>
-      <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct advies van onze team</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Bel</button>
-     </div><!-- Email CTA -->
-     <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #666;"><i data-lucide="mail" style="width: 32px; height: 32px; display: inline-block;"></i>
+      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
+       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #666;"><i data-lucide="mail" style="width: 32px; height: 32px; display: inline-block;"></i>
+       </div>
+       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Email</h3>
+       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Gedetailleerd bericht sturen</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Mail</button>
       </div>
-      <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Email</h3>
-      <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Gedetailleerd bericht sturen</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Mail</button>
+     </div><!-- Company Info Grid (MOBIEL: ONDER FORMULIER) -->
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; max-width: 100%;">
+      <style>
+          @media (max-width: 768px) {
+            .contact-info-grid {
+              grid-template-columns: 1fr 1fr !important;
+              gap: 0.75rem !important;
+            }
+            .contact-info-item {
+              padding: 0.75rem !important;
+              background-color: #f9fafb;
+              border-radius: 6px;
+              border-left: 3px solid #000;
+            }
+            .contact-info-item p:first-child {
+              font-size: 0.75rem !important;
+              color: #6b7280;
+              margin-bottom: 0.25rem !important;
+            }
+            .contact-info-item p:last-child {
+              font-size: 0.85rem !important;
+              font-weight: 600;
+              margin: 0 !important;
+            }
+            .contact-info-item a {
+              color: #000;
+              text-decoration: none;
+              font-weight: 600;
+            }
+          }
+          @media (min-width: 769px) {
+            .contact-info-grid {
+              display: none;
+            }
+          }
+        </style>
+      <div class="contact-info-grid" style="grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 100%;">
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="building" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Bedrijf</p>
+        <p id="contactCompanyName" style="font-weight: 600; margin: 0;">Car Center Rishi</p>
+       </div>
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="map-pin" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Adres</p>
+        <p style="font-weight: 600; margin: 0;">Meeuwenlaan 116<br>
+          1021 JM Amsterdam</p>
+       </div>
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="phone" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Telefoon</p>
+        <p><a id="contactPhoneDisplay" href="tel:+31646102011" style="color: #000; text-decoration: none; font-weight: 600;">+31 6 46102011</a></p>
+       </div>
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="mail" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Email</p>
+        <p><a id="contactEmailDisplay" href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none; font-weight: 600;">info@carcenterrishi.nl</a></p>
+       </div>
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;">KvK</p>
+        <p id="contactKvKDisplay" style="font-weight: 600; margin: 0;">68638701</p>
+       </div>
+       <div class="contact-info-item">
+        <p style="font-size: 0.75rem; color: #6b7280;">BTW</p>
+        <p id="contactBTWDisplay" style="font-weight: 600; margin: 0;">NL0545.97.481</p>
+       </div>
+      </div>
+     </div><!-- Action Buttons Grid -->
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem; max-width: 100%;">
+      <button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">📍 Routes</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">☎️ Bel</button>
      </div>
     </div>
    </div>
@@ -1190,112 +1294,8 @@
     </div>
    </div>
   </section>
-  <section id="contact" class="section" style="background-color: #f9fafb;">
-   <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
-     <!-- Mobiel responsive: formulier eerst, daarna info -->
-     <style>
-       @media (max-width: 768px) {
-         .contact-grid {
-           grid-template-columns: 1fr !important;
-           gap: 2rem !important;
-         }
-         .contact-form {
-           grid-column: auto !important;
-           grid-row: 1 !important;
-           order: 1;
-         }
-         .contact-info {
-           grid-column: auto !important;
-           grid-row: auto !important;
-           order: 2;
-           display: grid;
-           grid-template-columns: 1fr 1fr;
-           gap: 0.75rem;
-         }
-         .contact-form h3 {
-           font-size: 1.1rem !important;
-           margin-bottom: 1rem !important;
-         }
-         .contact-info > h3 {
-           grid-column: 1 / -1;
-           font-size: 1rem !important;
-           margin-bottom: 0.5rem !important;
-         }
-         .contact-info > div {
-           padding: 0.75rem;
-           background-color: #f9fafb;
-           border-radius: 6px;
-           border-left: 3px solid #000;
-         }
-         .contact-info p {
-           font-size: 0.8rem !important;
-           margin-bottom: 0.25rem !important;
-         }
-         .action-buttons {
-           grid-column: 1 / -1;
-           grid-template-columns: 1fr 1fr !important;
-           gap: 0.5rem !important;
-           margin: 0.75rem 0 0 0 !important;
-         }
-         .action-buttons .btn-primary {
-           padding: 8px 12px !important;
-           font-size: 0.75rem !important;
-           min-height: 40px !important;
-         }
-       }
-       @media (min-width: 769px) {
-         .contact-grid {
-           display: grid;
-           grid-template-columns: 1fr 1fr;
-           gap: 3rem;
-         }
-       }
-     </style>
-     <div class="contact-form" style="grid-column: 2; grid-row: 1;">
-      <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Stuur ons een bericht</h3>
-      <form onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 0.75rem;">
-       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
-       </div>
-       <div id="contactStatus" class="hidden" style="padding: 0.75rem; margin-bottom: 0.75rem; border-radius: 6px; border: 2px solid #dbeafe; font-size: 0.85rem;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; min-height: 44px; font-size: 0.95rem;">Bericht verzenden</button>
-      </form>
-     </div>
-     <div class="contact-info" style="grid-column: 1; grid-row: 1;">
-      <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Car Center Rishi</h3>
-      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
-       <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Adres</p>
-       <p id="contactAddressDisplay" style="font-weight: 600; margin: 0;">Meeuwenlaan 116, 1021 JM Amsterdam</p>
-      </div>
-      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
-       <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Telefoon</p>
-       <p style="font-weight: 600; margin: 0;"><a id="contactPhoneLink" href="tel:+31203370324" style="color: #000; text-decoration: none; font-weight: 600;">020 337 0324</a></p>
-      </div>
-      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
-       <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;"><i data-lucide="mail" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Email</p>
-       <p style="font-weight: 600; margin: 0;"><a id="contactEmailLink" href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none; font-weight: 600;">info@carcenterrishi.nl</a></p>
-      </div>
-      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
-       <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">KvK Nummer</p>
-       <p id="contactKvKDisplay" style="font-weight: 600; margin: 0;">68638701</p>
-      </div>
-      <div style="padding: 0.75rem; background-color: #f9fafb; border-radius: 6px; border-left: 3px solid #000;">
-       <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">BTW Nummer</p>
-       <p id="contactBTWDisplay" style="font-weight: 600; margin: 0;">NL0545.97.481</p>
-      </div>
-      <div class="action-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem;"><button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Routes</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">Bel</button>
-      </div>
-     </div>
-    </div>
-   </div>
+  <section id="contact" class="section" style="background-color: #f9fafb; display: none;">
+   <div class="container"></div>
   </section>
   <footer>
    <div class="container">
@@ -1622,32 +1622,35 @@
       const today = new Date().getDay();
       const open = isStoreOpen();
       
-      // Update status container
+      // Update status container - SHOW only if there's an error or special status
       const statusContainer = document.getElementById('statusContainer');
       const statusLabel = document.getElementById('statusLabel');
       const statusMessage = document.getElementById('statusMessage');
       const statusTime = document.getElementById('statusTime');
       
       if (statusContainer) {
-        if (open) {
-          statusContainer.style.borderColor = '#22c55e';
-          statusContainer.style.backgroundColor = '#f0fdf4';
-          statusLabel.style.color = '#15803d';
-          statusLabel.textContent = 'Open';
-          statusMessage.textContent = 'Wij zijn nu geopend en klaar voor uw bezoek.';
-        } else {
-          statusContainer.style.borderColor = '#ef4444';
-          statusContainer.style.backgroundColor = '#fef2f2';
-          statusLabel.style.color = '#991b1b';
-          statusLabel.textContent = 'Gesloten';
-          statusMessage.textContent = 'Wij zijn momenteel gesloten.';
-        }
-        
+        // Only show if there's important info to display
         const todayKey = DAYS[today];
         const todayHours = companyData[todayKey] || 'Gesloten';
-        statusTime.textContent = (todayHours && todayHours !== 'Gesloten' && todayHours !== '-') 
-          ? `Vandaag: ${todayHours}` 
-          : 'Vandaag gesloten';
+        const hasStatus = todayHours && todayHours !== 'Gesloten' && todayHours !== '-';
+        
+        if (hasStatus) {
+          statusContainer.style.display = 'block';
+          if (open) {
+            statusContainer.style.borderColor = '#22c55e';
+            statusContainer.style.backgroundColor = '#f0fdf4';
+            statusLabel.style.color = '#15803d';
+            statusLabel.textContent = 'Open';
+            statusMessage.textContent = 'Wij zijn nu geopend en klaar voor uw bezoek.';
+          } else {
+            statusContainer.style.borderColor = '#ef4444';
+            statusContainer.style.backgroundColor = '#fef2f2';
+            statusLabel.style.color = '#991b1b';
+            statusLabel.textContent = 'Gesloten';
+            statusMessage.textContent = 'Wij zijn momenteel gesloten.';
+          }
+          statusTime.textContent = `Vandaag: ${todayHours}`;
+        }
       }
 
       // Update status display text
@@ -1693,13 +1696,13 @@
     function renderCTAButtons() {
       const phone = companyData.Telefoon || '+31 (0)20 337 0324';
       const email = companyData.Email || 'info@carcenterrishi.nl';
-      const cleanPhone = phone.replace(/\D/g, '');
+      const cleanPhone = '31646102011';
 
       // WhatsApp button
       const whatsappBtn = document.getElementById('whatsappCTA');
       if (whatsappBtn) {
         whatsappBtn.onclick = () => {
-          const waLink = `https://wa.me/${cleanPhone}?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken`;
+          const waLink = `https://wa.me/${cleanPhone}?text=Hallo%2C%20ik%20wil%20graag%20contact%20opnemen.`;
           window.open(waLink, '_blank', 'noopener,noreferrer');
         };
       }
@@ -1708,19 +1711,14 @@
       const phoneBtn = document.getElementById('phoneCTA');
       if (phoneBtn) {
         phoneBtn.textContent = `Bel: ${phone}`;
-        phoneBtn.onclick = () => window.open(`tel:${phone}`, '_self');
-      }
-
-      const phoneParagraph = document.getElementById('phoneParagraph');
-      if (phoneParagraph) {
-        phoneParagraph.textContent = `Bel ${phone} voor direct advies`;
+        phoneBtn.onclick = () => window.location.href = `tel:${phone}`;
       }
 
       // Email button
       const emailBtn = document.getElementById('emailCTA');
       if (emailBtn) {
         emailBtn.textContent = `Mail: ${email}`;
-        emailBtn.onclick = () => window.open(`mailto:${email}`, '_self');
+        emailBtn.onclick = () => window.location.href = `mailto:${email}`;
       }
     }
 
@@ -1778,9 +1776,6 @@
       }
     }
 
-    /**
-     * Show error state when data fails to load
-     */
     function renderErrorState() {
       const statusContainer = document.getElementById('statusContainer');
       if (statusContainer) {
@@ -1827,6 +1822,19 @@
 
     function openMaps() {
       window.open(`https://maps.google.com/?q=${encodeURIComponent(companyData.Adres)}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function makeCall() {
+      const phone = companyData.Telefoon || '+31 (0)20 337 0324';
+      window.location.href = `tel:${phone}`;
+    }
+
+    function selectService(serviceName) {
+      const whatsappNumber = '31646102011';
+      const message = `Ik zou graag de dienst '${serviceName}' bij jullie willen inplannen.`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      window.open(whatsappLink, '_blank', 'noopener,noreferrer');
     }
 
     async function submitContactForm(event) {
@@ -1897,5 +1905,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f063e45b2a666a6',t:'MTc3Njg3Nzg0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0660be923a8e2b',t:'MTc3Njg3OTI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
