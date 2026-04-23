@@ -161,153 +161,219 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body>
-  <div class="app-wrapper scroll-smooth" id="top">
-   <!-- Navigation -->
+  <div class="app-wrapper scroll-smooth" id="top"><!-- Navigation -->
    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex items-center justify-between h-16 sm:h-20">
-      <a href="#top" class="flex items-center gap-3"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" class="h-10 sm:h-12 rounded" loading="lazy" onerror="console.error('Logo failed:', this.src); this.style.display='none';"> <span class="font-heading font-bold text-white text-lg sm:text-xl hidden sm:block">Car Center Rishi</span> </a>
-      <div class="hidden md:flex items-center gap-8">
-       <a href="#diensten" class="nav-link text-slate-300 text-sm font-medium">Diensten</a> <a href="#werkplaats" class="nav-link text-slate-300 text-sm font-medium">Werkplaats</a> <a href="#contact" class="nav-link text-slate-300 text-sm font-medium">Contact</a> <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:16px;height:16px;"></i> Bel Ons </a>
+     <div class="flex items-center justify-between h-16 sm:h-20"><a href="#top" class="flex items-center gap-3"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" class="h-10 sm:h-12 rounded" loading="lazy" onerror="console.error('Logo failed:', this.src); this.style.display='none';"> <span class="font-heading font-bold text-white text-lg sm:text-xl hidden sm:block">Car Center Rishi</span> </a>
+      <div class="hidden md:flex items-center gap-8"><a href="#diensten" class="nav-link text-slate-300 text-sm font-medium">Diensten</a> <a href="#werkplaats" class="nav-link text-slate-300 text-sm font-medium">Werkplaats</a> <a href="#contact" class="nav-link text-slate-300 text-sm font-medium">Contact</a> <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:16px;height:16px;"></i> Bel Ons </a>
       </div><button id="menuBtn" class="md:hidden text-white p-2"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
      </div>
     </div><!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
-     <a href="#diensten" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Diensten</a> <a href="#werkplaats" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Werkplaats</a> <a href="#contact" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Contact</a> <a href="tel:0646102011" class="mt-3 block text-center bg-red-accent text-white py-3 rounded-lg font-semibold">Bel Ons</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4"><a href="#diensten" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Diensten</a> <a href="#werkplaats" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Werkplaats</a> <a href="#contact" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Contact</a> <a href="tel:0646102011" class="mt-3 block text-center bg-red-accent text-white py-3 rounded-lg font-semibold">Bel Ons</a>
     </div>
    </nav><!-- Hero -->
    <section class="hero-bg pt-32 pb-20 sm:pt-40 sm:pb-28 relative">
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="max-w-3xl">
-      <div class="fade-up flex items-center gap-2 mb-4">
-       <span class="rating-stars text-lg">★★★★★</span> <span class="text-slate-400 text-sm">4.470 recensies</span>
+      <div class="fade-up flex items-center gap-2 mb-4"><span class="rating-stars text-lg">★★★★★</span> <span class="text-slate-400 text-sm">4.470 recensies</span>
       </div>
       <h1 id="heroTitle" class="fade-up delay-1 font-heading font-900 text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-4">Car Center Rishi</h1>
-      <p id="heroSubtitle" class="fade-up delay-2 text-slate-300 text-lg sm:text-xl mb-8 max-w-xl">Uw betrouwbare autogarage in Amsterdam Noord — vakkundig, eerlijk en betaalbaar.</p>
-      <div class="fade-up delay-3 flex flex-wrap gap-4">
-       <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:20px;height:20px;"></i> 06 46102011 </a> <a href="#diensten" class="border-2 border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white transition-colors"> Bekijk Diensten </a>
+      <p id="heroSubtitle" class="fade-up delay-2 text-red-accent text-base sm:text-lg font-semibold mb-4">RDW-erkende autogarage Amsterdam Noord</p>
+      <p id="heroDescription" class="fade-up delay-2 text-slate-300 text-lg sm:text-xl mb-8 max-w-xl">Eerlijke prijzen, snelle service, transparant — voor APK, reparatie &amp; onderhoud.</p>
+      <div class="fade-up delay-3 flex flex-wrap gap-4"><a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:20px;height:20px;"></i> Bel direct voor afspraak </a> <a href="#diensten" class="border-2 border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white transition-colors"> Bekijk diensten </a>
       </div>
-      <div class="fade-up delay-4 mt-10 flex flex-wrap gap-6 text-slate-400 text-sm">
-       <span class="flex items-center gap-2"><i data-lucide="map-pin" style="width:16px;height:16px;" class="red-accent"></i> Meeuwenlaan 116, Amsterdam</span> <span class="flex items-center gap-2"><i data-lucide="shield-check" style="width:16px;height:16px;" class="red-accent"></i> RDW Erkend</span> <span class="flex items-center gap-2"><i data-lucide="clock" style="width:16px;height:16px;" class="red-accent"></i> Ma-Vr 9:00-18:00</span>
+      <div class="fade-up delay-4 mt-10 flex flex-wrap gap-6 text-slate-400 text-sm"><span class="flex items-center gap-2"><i data-lucide="map-pin" style="width:16px;height:16px;" class="red-accent"></i> Meeuwenlaan 116, Amsterdam</span> <span class="flex items-center gap-2"><i data-lucide="shield-check" style="width:16px;height:16px;" class="red-accent"></i> RDW Erkend</span> <span class="flex items-center gap-2"><i data-lucide="clock" style="width:16px;height:16px;" class="red-accent"></i> Ma-Vr 9:00-18:00</span>
       </div>
      </div>
     </div><!-- Decorative -->
     <div class="absolute right-0 top-20 w-1/3 h-full opacity-10 hidden lg:block">
-     <svg viewbox="0 0 400 400" fill="none" class="w-full h-full">
-      <circle cx="200" cy="200" r="180" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="140" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="100" stroke="#dc2626" stroke-width="0.5" />
+     <svg viewbox="0 0 400 400" fill="none" class="w-full h-full"><circle cx="200" cy="200" r="180" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="140" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="100" stroke="#dc2626" stroke-width="0.5" />
      </svg>
     </div>
-   </section><!-- Services -->
+   </section><!-- Trust Bar -->
+   <section class="bg-white border-t border-b border-slate-200 py-8 sm:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+      <div class="flex flex-col items-center"><i data-lucide="badge-check" style="width:32px;height:32px;" class="red-accent mb-2"></i>
+       <p class="font-heading font-700 text-slate-900 text-base sm:text-lg">RDW Erkend</p>
+       <p class="text-slate-600 text-xs sm:text-sm">Officieel erkende keurmeesters</p>
+      </div>
+      <div class="flex flex-col items-center"><i data-lucide="star" style="width:32px;height:32px;" class="red-accent mb-2"></i>
+       <p class="font-heading font-700 text-slate-900 text-base sm:text-lg">4.4★ Rated</p>
+       <p class="text-slate-600 text-xs sm:text-sm">470+ beoordelingen</p>
+      </div>
+      <div class="flex flex-col items-center"><i data-lucide="zap" style="width:32px;height:32px;" class="red-accent mb-2"></i>
+       <p class="font-heading font-700 text-slate-900 text-base sm:text-lg">Snel &amp; Eerlijk</p>
+       <p class="text-slate-600 text-xs sm:text-sm">Geen verrassingen</p>
+      </div>
+      <div class="flex flex-col items-center"><i data-lucide="map-pin" style="width:32px;height:32px;" class="red-accent mb-2"></i>
+       <p class="font-heading font-700 text-slate-900 text-base sm:text-lg">Amsterdam Noord</p>
+       <p class="text-slate-600 text-xs sm:text-sm">Specialist in de buurt</p>
+      </div>
+     </div>
+    </div>
+   </section>
    <section id="diensten" class="bg-slate-50 py-20 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16">
-      <span class="text-sm font-semibold tracking-widest uppercase red-accent">Wat wij bieden</span>
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Wat wij bieden</span>
       <h2 id="servicesTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Diensten</h2>
      </div>
-     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-      <!-- Service 1: APK Keuring -->
+     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6"><!-- Service 1: APK Keuring -->
       <div class="service-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5">
-        <i data-lucide="clipboard-check" style="width:24px;height:24px;" class="red-accent"></i>
+       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5"><i data-lucide="clipboard-check" style="width:24px;height:24px;" class="red-accent"></i>
        </div>
        <h3 id="service_1_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">APK Keuring</h3>
-       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Snelle en betrouwbare APK keuring door onze RDW-erkende keurmeesters.</p>
-       <div class="flex items-end justify-between">
-        <p id="service_1_price" class="font-heading font-800 text-base sm:text-xl red-accent">Vanaf €40</p><button class="bg-red-accent hover:bg-red-700 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors">Kies</button>
+       <p id="service_1_desc" class="text-slate-500 mb-2 text-xs sm:text-sm font-medium">Snelle RDW keuring</p>
+       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Door onze erkende keurmeesters. Geen gedoe, geen verrassingen.</p>
+       <div class="flex items-end justify-between gap-2">
+        <div>
+         <p class="text-slate-600 text-xs mb-1">Vanaf</p>
+         <p id="service_1_price" class="font-heading font-800 text-lg sm:text-xl red-accent">€40</p>
+        </div><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1 whitespace-nowrap"> <i data-lucide="phone" style="width:14px;height:14px;"></i> Plan </a>
        </div>
       </div><!-- Service 2: Diagnose -->
       <div class="service-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5">
-        <i data-lucide="zap" style="width:24px;height:24px;" class="red-accent"></i>
+       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5"><i data-lucide="zap" style="width:24px;height:24px;" class="red-accent"></i>
        </div>
        <h3 id="service_2_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Diagnose</h3>
-       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Professionele foutdiagnose met de nieuwste apparatuur.</p>
-       <div class="flex items-end justify-between">
-        <p id="service_2_price" class="font-heading font-800 text-base sm:text-xl red-accent">Vanaf €50 / €85</p><button class="bg-red-accent hover:bg-red-700 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors">Kies</button>
+       <p id="service_2_desc" class="text-slate-500 mb-2 text-xs sm:text-sm font-medium">Foutdiagnose met apparatuur</p>
+       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Met professionele diagnostische apparatuur. Snel antwoord op autofouten.</p>
+       <div class="flex items-end justify-between gap-2">
+        <div>
+         <p class="text-slate-600 text-xs mb-1">Vanaf</p>
+         <p id="service_2_price" class="font-heading font-800 text-lg sm:text-xl red-accent">€50</p>
+        </div><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1 whitespace-nowrap"> <i data-lucide="phone" style="width:14px;height:14px;"></i> Plan </a>
        </div>
       </div><!-- Service 3: Olie verversen -->
       <div class="service-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5">
-        <i data-lucide="droplets" style="width:24px;height:24px;" class="red-accent"></i>
+       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5"><i data-lucide="droplets" style="width:24px;height:24px;" class="red-accent"></i>
        </div>
        <h3 id="service_3_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Olie verversen</h3>
-       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Olieverversing met hoogwaardige olie voor optimale motorprestaties.</p>
-       <div class="flex items-end justify-between">
-        <p id="service_3_price" class="font-heading font-800 text-base sm:text-xl red-accent">Vanaf €150</p><button class="bg-red-accent hover:bg-red-700 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors">Kies</button>
+       <p id="service_3_desc" class="text-slate-500 mb-2 text-xs sm:text-sm font-medium">Motoronderhoud essentieel</p>
+       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Met hoogwaardige motorolie. Essentieel onderhoud voor motorlevensduur.</p>
+       <div class="flex items-end justify-between gap-2">
+        <div>
+         <p class="text-slate-600 text-xs mb-1">Vanaf</p>
+         <p id="service_3_price" class="font-heading font-800 text-lg sm:text-xl red-accent">€150</p>
+        </div><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1 whitespace-nowrap"> <i data-lucide="phone" style="width:14px;height:14px;"></i> Plan </a>
        </div>
       </div><!-- Service 4: Airco Service -->
       <div class="service-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5">
-        <i data-lucide="wind" style="width:24px;height:24px;" class="red-accent"></i>
+       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5"><i data-lucide="wind" style="width:24px;height:24px;" class="red-accent"></i>
        </div>
-       <h3 id="service_4_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Airco service</h3>
-       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Airco bijvullen, reinigen en controleren voor optimaal comfort.</p>
-       <div class="flex items-end justify-between">
-        <p id="service_4_price" class="font-heading font-800 text-base sm:text-xl red-accent">Vanaf €100</p><button class="bg-red-accent hover:bg-red-700 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors">Kies</button>
+       <h3 id="service_4_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Airco Service</h3>
+       <p id="service_4_desc" class="text-slate-500 mb-2 text-xs sm:text-sm font-medium">Bijvullen &amp; reinigen</p>
+       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Airco bijvullen, reinigen en controleren. Comfort voor warme dagen.</p>
+       <div class="flex items-end justify-between gap-2">
+        <div>
+         <p class="text-slate-600 text-xs mb-1">Vanaf</p>
+         <p id="service_4_price" class="font-heading font-800 text-lg sm:text-xl red-accent">€100</p>
+        </div><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1 whitespace-nowrap"> <i data-lucide="phone" style="width:14px;height:14px;"></i> Plan </a>
        </div>
       </div><!-- Service 5: Banden Service -->
       <div class="service-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5">
-        <i data-lucide="circle" style="width:24px;height:24px;" class="red-accent"></i>
+       <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-50 rounded-xl flex items-center justify-center mb-3 sm:mb-5"><i data-lucide="circle" style="width:24px;height:24px;" class="red-accent"></i>
        </div>
-       <h3 id="service_5_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Banden service</h3>
-       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Professionele bandenwisseling, balancering en reparatie.</p>
-       <div class="flex items-end justify-between">
-        <p id="service_5_price" class="font-heading font-800 text-base sm:text-xl red-accent">Vanaf €12,50</p><button class="bg-red-accent hover:bg-red-700 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors">Kies</button>
+       <h3 id="service_5_title" class="font-heading font-700 text-base sm:text-xl text-slate-900 mb-2">Banden Service</h3>
+       <p id="service_5_desc" class="text-slate-500 mb-2 text-xs sm:text-sm font-medium">Wisseling, balancering, reparatie</p>
+       <p class="text-slate-500 mb-4 text-xs sm:text-base flex-grow">Professionele bandenwisseling en balancering. Veiligheid en comfort.</p>
+       <div class="flex items-end justify-between gap-2">
+        <div>
+         <p class="text-slate-600 text-xs mb-1">Vanaf</p>
+         <p id="service_5_price" class="font-heading font-800 text-lg sm:text-xl red-accent">€12,50</p>
+        </div><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1 whitespace-nowrap"> <i data-lucide="phone" style="width:14px;height:14px;"></i> Plan </a>
        </div>
-      </div><!-- Reviews Card: 6e kaart in 2x2 grid -->
+      </div><!-- Reviews Card -->
       <div class="reviews-card bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 h-full flex flex-col">
        <div class="flex items-center justify-between gap-2 mb-4 sm:mb-6">
         <div class="flex-1">
          <h3 class="font-heading font-700 text-base sm:text-xl text-slate-900">Klantreviews</h3>
          <p class="text-slate-500 text-xs sm:text-sm">★★★★★ 4.4/5</p>
         </div>
-        <div class="flex gap-1">
-         <button id="reviewPrev" class="p-1 sm:p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Vorige review"> <i data-lucide="chevron-left" style="width:16px;height:16px;" class="text-slate-600"></i> </button> <button id="reviewNext" class="p-1 sm:p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Volgende review"> <i data-lucide="chevron-right" style="width:16px;height:16px;" class="text-slate-600"></i> </button>
+        <div class="flex gap-1"><button id="reviewPrev" class="p-1 sm:p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Vorige review"> <i data-lucide="chevron-left" style="width:16px;height:16px;" class="text-slate-600"></i> </button> <button id="reviewNext" class="p-1 sm:p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Volgende review"> <i data-lucide="chevron-right" style="width:16px;height:16px;" class="text-slate-600"></i> </button>
         </div>
-       </div><!-- Reviews Carousel Container -->
-       <div class="overflow-hidden flex-grow">
-        <div id="reviewsCarousel" class="flex transition-transform duration-300 ease-out">
-         <!-- Reviews will be inserted here by JS -->
-        </div>
-       </div><!-- Dots -->
-       <div class="flex justify-center gap-2 mt-3 sm:mt-6" id="reviewDots">
-        <!-- Dots will be inserted here by JS -->
        </div>
+       <div class="overflow-hidden flex-grow">
+        <div id="reviewsCarousel" class="flex transition-transform duration-300 ease-out"><!-- Reviews inserted by JS -->
+        </div>
+       </div>
+       <div class="flex justify-center gap-2 mt-3 sm:mt-6" id="reviewDots"><!-- Dots inserted by JS -->
+       </div>
+      </div>
+     </div><!-- Strong CTA after services -->
+     <div class="mt-12 sm:mt-16 text-center"><a href="tel:0646102011" class="inline-flex items-center gap-3 bg-red-accent hover:bg-red-700 text-white px-10 py-4 rounded-xl font-heading font-700 text-lg transition-colors shadow-lg"> <i data-lucide="phone" style="width:24px;height:24px;"></i> Bel Nu Voor Afspraak </a>
+      <p class="text-slate-600 text-sm mt-3">06 46102011</p>
+     </div>
+    </div>
+   </section><!-- Why Us Section -->
+   <section class="bg-white py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 sm:mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Waarom Kiezen Voor Ons?</span>
+      <h2 id="whyUsTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Waarom Car Center Rishi?</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="check-circle" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">Eerlijke Prijzen</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">Geen verrassingen na afloop. U krijgt van tevoren een helder offerte waar u op kunt vertrouwen.</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="zap" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">Snelle Service</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">Wij weten hoe waardevol uw tijd is. Snel gerepareerd, snel weer op weg.</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="message-circle" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">WhatsApp Updates</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">U bent altijd op de hoogte. Via WhatsApp updates over de status van uw auto.</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="badge-check" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">RDW Erkend</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">Wij zijn officieel erkend door de RDW. Alle keuringen zijn geldig en betrouwbaar.</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="eye" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">Transparantie</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">Zien wat wij doen. Onze moderne werkplaatsen zijn open en professioneel gerund.</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+       <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4"><i data-lucide="map-pin" style="width:24px;height:24px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-slate-900 mb-2 text-lg">Amsterdam Noord Specialist</h3>
+       <p class="text-slate-600 text-sm leading-relaxed">Sinds jaren dé vertrouwde garage in Amsterdam Noord. Kennen we de buurt door en door.</p>
       </div>
      </div>
     </div>
    </section>
   </div><!-- Gallery / Werkplaats -->
-  <section id="werkplaats" class="bg-white py-0">
-   <!-- Building Hero Banner -->
-   <div class="w-full h-48 sm:h-80 lg:h-96 overflow-hidden">
-    <img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Car Center Rishi gebouw" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'; this.alt='Gebouw niet beschikbaar';">
+  <section id="werkplaats" class="bg-white py-0"><!-- Building Hero Banner -->
+   <div class="w-full h-48 sm:h-80 lg:h-96 overflow-hidden"><img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Car Center Rishi gebouw" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'; this.alt='Gebouw niet beschikbaar';">
    </div><!-- Content Section -->
    <div class="bg-white py-16 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 sm:mb-16">
-      <span class="text-sm font-semibold tracking-widest uppercase red-accent">Transparantie &amp; Vertrouwen</span>
+     <div class="text-center mb-12 sm:mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Transparantie &amp; Vertrouwen</span>
       <h2 id="galleryTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Werkplaats</h2>
       <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">Zien wat u krijgt — onze moderne werkplaatsen zijn uitgerust met professionele apparatuur en gerund door ervaren monteurs.</p>
      </div><!-- Grid Werkplaats 2x2 -->
      <div class="grid grid-cols-2 gap-3 sm:gap-6 mb-12">
-      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow h-40 sm:h-56">
-       <img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Hoofdwerkplaats" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Werkplaats niet beschikbaar';">
+      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow h-40 sm:h-56"><img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Hoofdwerkplaats" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Werkplaats niet beschikbaar';">
       </div>
-      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow h-40 sm:h-56">
-       <img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Werkplaats sectie 2" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Sectie niet beschikbaar';">
+      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow h-40 sm:h-56"><img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Werkplaats sectie 2" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Sectie niet beschikbaar';">
       </div>
       <div class="bg-slate-900 rounded-[12px] p-4 sm:p-6 flex flex-col justify-between shadow-lg hover:shadow-2xl transition-shadow text-white h-40 sm:h-56">
-       <div>
-        <i data-lucide="info" style="width:20px;height:20px;" class="text-red-500 mb-2 sm:mb-3"></i>
+       <div><i data-lucide="info" style="width:20px;height:20px;" class="text-red-500 mb-2 sm:mb-3"></i>
         <h3 class="font-heading font-700 text-sm sm:text-lg mb-1 sm:mb-2">Openingsuren</h3>
         <p class="text-xs sm:text-sm text-slate-300">Ma–Vr: 09:00–18:00</p>
         <p class="text-xs sm:text-sm text-slate-300">Za: 12:00–18:00</p>
        </div>
       </div>
-      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow relative group h-40 sm:h-56">
-       <img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Comfortabele wachtruimte" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Wachtruimte niet beschikbaar';">
+      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow relative group h-40 sm:h-56"><img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Comfortabele wachtruimte" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Wachtruimte niet beschikbaar';">
        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
         <p class="text-white text-center px-3 sm:px-4 font-semibold text-xs sm:text-sm">Wacht comfortabel terwijl wij uw auto verzorgen</p>
        </div>
@@ -333,66 +399,87 @@
     </div>
    </div>
   </section><!-- Unified Contact Section -->
-  <section id="contact" class="bg-slate-900 py-12 sm:py-20">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-10 sm:mb-12">
-     <span class="text-sm font-semibold tracking-widest uppercase red-accent">Neem contact op</span>
-     <h2 id="contactTitle" class="font-heading font-800 text-3xl sm:text-4xl text-white mt-3">Contact &amp; Openingstijden</h2>
-    </div><!-- Contact Form Section -->
-    <div class="mb-12 bg-white rounded-2xl p-6 sm:p-10 shadow-xl max-w-2xl mx-auto">
-     <h3 class="font-heading font-700 text-2xl sm:text-3xl text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="mail" style="width:28px;height:28px;" class="red-accent"></i> Stuur ons een bericht</h3>
-     <div id="msgContact" class="form-msg mb-6 p-4 rounded-lg border-2 hidden"></div>
-     <form id="contactForm">
-      <div class="mb-4">
-       <label for="contactNaam" class="block font-heading font-600 text-slate-900 mb-2 text-sm">Naam *</label> <input type="text" id="contactNaam" name="naam" required class="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+  <section id="contact" class="bg-gradient-to-b from-red-accent to-red-700 py-12 sm:py-20 relative">
+   <!-- Background Image with Overlay -->
+   <div class="absolute inset-0">
+    <img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Contact background" class="w-full h-full object-cover opacity-35" loading="lazy" onerror="console.error('BG img failed:', this.src);">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/80 to-red-900/70"></div>
+   </div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-24">
+    <!-- Header -->
+    <div class="mb-12 sm:mb-16">
+     <h2 id="contactTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-white mb-2">Klaar voor Service?</h2>
+     <p class="text-slate-200 text-base sm:text-lg max-w-2xl">Wij helpen u graag verder. Bel ons, stuur een bericht, of kom langs. Wij reageren doorgaans binnen 2 uur.</p>
+    </div><!-- Two Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+     <!-- Left Column: Contact Form -->
+     <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
+      <h3 class="font-heading font-700 text-2xl text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="mail" style="width:28px;height:28px;" class="red-accent"></i> Stuur Ons Een Bericht</h3>
+      <p class="text-slate-600 text-sm mb-6">Vul het formulier in en wij nemen zo snel mogelijk contact op.</p>
+      <div id="msgContact" class="form-msg mb-6 p-4 rounded-lg border-2"></div>
+      <form id="contactForm">
+       <div class="mb-3"><label for="contactNaam" class="block font-heading font-600 text-slate-900 mb-1.5 text-sm">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Uw volledige naam" required class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+       </div>
+       <div class="mb-3"><label for="contactEmail" class="block font-heading font-600 text-slate-900 mb-1.5 text-sm">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="uw@email.com" required class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+       </div>
+       <div class="mb-3"><label for="contactPhone" class="block font-heading font-600 text-slate-900 mb-1.5 text-sm">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+       </div>
+       <div class="mb-3"><label for="contactSubject" class="block font-heading font-600 text-slate-900 mb-1.5 text-sm">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Bijv. APK keuring, reparatie" required class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+       </div>
+       <div class="mb-6"><label for="contactMessage" class="block font-heading font-600 text-slate-900 mb-1.5 text-sm">Uw Vraag of Opmerking *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw vraag..." required class="w-full px-4 py-2.5 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm min-h-24 resize-none"></textarea>
+       </div><button type="submit" id="btnContact" class="w-full bg-red-accent hover:bg-red-700 text-white px-8 py-3 rounded-lg font-heading font-700 transition-colors flex items-center justify-center gap-2 text-base"> <i data-lucide="send" style="width:20px;height:20px;"></i> Verstuur Bericht </button>
+      </form>
+     </div><!-- Right Column: Contact Info & Hours -->
+     <div class="space-y-6">
+      <!-- Quick Contact Cards -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-red-accent rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="phone" style="width:24px;height:24px;" class="text-white"></i>
+        </div>
+        <div>
+         <p class="font-heading font-600 text-white mb-1">Bel Direct</p><a href="tel:0646102011" class="text-red-300 hover:text-white transition-colors font-semibold text-lg">06 46102011</a>
+         <p class="text-slate-300 text-sm mt-1">Maandag t/m vrijdag 9:00 - 18:00</p>
+        </div>
+       </div>
       </div>
-      <div class="mb-4">
-       <label for="contactEmail" class="block font-heading font-600 text-slate-900 mb-2 text-sm">Email *</label> <input type="email" id="contactEmail" name="email" required class="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-red-accent rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="map-pin" style="width:24px;height:24px;" class="text-white"></i>
+        </div>
+        <div>
+         <p class="font-heading font-600 text-white mb-1">Bezoek Ons</p>
+         <p class="text-white font-medium">Meeuwenlaan 116</p>
+         <p class="text-slate-300 text-sm">1021 JM Amsterdam</p><a href="https://maps.google.com/?q=Meeuwenlaan+116+Amsterdam" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-red-300 hover:text-white transition-colors text-sm font-semibold mt-2"> <i data-lucide="navigation" style="width:14px;height:14px;"></i> Route Plannen </a>
+        </div>
+       </div>
       </div>
-      <div class="mb-4">
-       <label for="contactPhone" class="block font-heading font-600 text-slate-900 mb-2 text-sm">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" class="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-red-accent rounded-lg flex items-center justify-center flex-shrink-0"><i data-lucide="mail" style="width:24px;height:24px;" class="text-white"></i>
+        </div>
+        <div>
+         <p class="font-heading font-600 text-white mb-1">E-mail</p><a href="mailto:info@carcenterrishi.nl" class="text-white hover:text-red-300 transition-colors font-medium break-all">info@carcenterrishi.nl</a>
+         <p class="text-slate-300 text-sm mt-1">Wij reageren binnen 24 uur</p>
+        </div>
+       </div>
+      </div><!-- Opening Hours Card -->
+      <div class="bg-gradient-to-br from-red-accent/20 to-red-700/20 rounded-xl p-6 border border-red-accent/30">
+       <h3 class="font-heading font-700 text-lg text-white mb-4 flex items-center gap-2"><i data-lucide="clock" style="width:20px;height:20px;"></i> Openingstijden</h3>
+       <div id="hoursGrid" class="space-y-2 text-sm"><!-- Filled by JS -->
+       </div>
+      </div><!-- Trust & Info -->
+      <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+       <p class="text-slate-300 text-sm leading-relaxed mb-4">✓ RDW erkende garage</p>
+       <p class="text-slate-300 text-sm leading-relaxed mb-4">✓ 470+ klanten vertrouwen ons</p>
+       <p class="text-slate-300 text-sm leading-relaxed">KvK: 68638701 • BTW: NL0545.97.481</p>
       </div>
-      <div class="mb-4">
-       <label for="contactSubject" class="block font-heading font-600 text-slate-900 mb-2 text-sm">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" required class="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm">
-      </div>
-      <div class="mb-6">
-       <label for="contactMessage" class="block font-heading font-600 text-slate-900 mb-2 text-sm">Bericht *</label> <textarea id="contactMessage" name="bericht" required class="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-red-accent transition-colors text-sm min-h-32 resize-none"></textarea>
-      </div><button type="submit" id="btnContact" class="w-full bg-red-accent hover:bg-red-700 text-white px-8 py-3 rounded-lg font-heading font-700 transition-colors flex items-center justify-center gap-2 text-base"> <i data-lucide="send" style="width:20px;height:20px;"></i> Verstuur bericht </button>
-     </form>
-    </div><!-- Contact Info Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12"><!-- Phone -->
-     <div class="text-center sm:text-left">
-      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-       <i data-lucide="phone" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-white">Bel ons</span>
-      </div><a href="tel:0646102011" class="block text-slate-300 hover:text-red-accent transition-colors font-medium mb-1 text-sm sm:text-base">06 46102011</a> <a href="tel:0203370324" class="block text-slate-500 text-xs sm:text-sm hover:text-slate-300 transition-colors">020-3370324</a>
-     </div><!-- Email -->
-     <div class="text-center sm:text-left">
-      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-       <i data-lucide="mail" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-white">E-mail</span>
-      </div><a href="mailto:info@carcenterrishi.nl" class="text-slate-300 hover:text-red-accent transition-colors font-medium text-sm sm:text-base">info@carcenterrishi.nl</a>
-     </div><!-- Address -->
-     <div class="text-center sm:text-left">
-      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-       <i data-lucide="map-pin" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-white">Adres</span>
-      </div>
-      <p class="text-slate-300 font-medium mb-1 text-sm sm:text-base">Meeuwenlaan 116</p>
-      <p class="text-slate-500 text-xs sm:text-sm">1021 JM Amsterdam</p>
      </div>
-    </div><!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center mb-10 sm:mb-12">
-     <a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"> <i data-lucide="phone" style="width:18px;height:18px;"></i> Bel Nu </a> <a href="https://maps.google.com/?q=Meeuwenlaan+116+Amsterdam" target="_blank" rel="noopener noreferrer" class="border-2 border-slate-400 hover:border-white text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"> <i data-lucide="map-pin" style="width:18px;height:18px;"></i> Route </a>
-    </div><!-- Hours Grid -->
-    <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-     <h3 class="font-heading font-700 text-lg text-slate-900 mb-6">Openingstijden</h3>
-     <div id="hoursGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-      <!-- Filled by JS -->
-     </div>
-     <p class="text-slate-500 text-xs mt-6 flex items-center gap-1"><i data-lucide="info" style="width:12px;height:12px;"></i> Openingstijden kunnen afwijken</p>
     </div>
    </div>
   </section><!-- Footer -->
   <footer class="bg-slate-900 border-t border-slate-800 py-10 sm:py-12">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><!-- Business Info Grid -->
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Business Info Grid -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-slate-800">
      <div>
       <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">KvK</p>
@@ -411,10 +498,9 @@
      </div>
     </div><!-- Bottom Section -->
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-     <div class="flex items-center gap-2">
-      <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Logo" class="h-6 sm:h-8 rounded" loading="lazy" onerror="this.style.display='none';"> <span class="font-heading font-600 text-white text-xs sm:text-sm">Car Center Rishi</span>
+     <div class="flex items-center gap-2"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Logo" class="h-6 sm:h-8 rounded" loading="lazy" onerror="this.style.display='none';"> <span class="font-heading font-600 text-white text-xs sm:text-sm">Car Center Rishi</span>
      </div>
-     <p class="text-slate-500 text-xs text-center sm:text-right">© 2025 Car Center Rishi. Alle rechten voorbehouden.</p>
+     <p class="text-slate-500 text-xs text-center sm:text-right">© 2025 Car Center Rishi. Alle rechten voorbehouden. | Website ontworpen door <a href="https://vanappiah.com/" target="_blank" rel="noopener noreferrer" class="text-red-accent hover:text-red-400 transition-colors font-medium">VA Van Appiah</a></p>
     </div>
    </div>
   </footer>
@@ -567,14 +653,13 @@
         isOpen = mins >= oh * 60 + om && mins < ch * 60 + cm;
       }
       const row = document.createElement('div');
-      row.className = `hour-card flex items-center justify-between py-2 sm:py-3 px-3 sm:px-4 rounded-lg text-xs sm:text-sm ${isToday ? 'bg-slate-100 border border-slate-300' : 'bg-slate-50'}`;
+      row.className = `flex items-center justify-between py-2 px-2 rounded text-xs sm:text-sm ${isToday ? 'bg-red-accent/30 border border-red-accent/50' : 'border-b border-slate-400/30'}`;
       row.innerHTML = `
         <div class="flex items-center gap-2">
           ${isToday ? `<span class="pulse-dot ${isOpen ? 'open' : 'closed'}"></span>` : '<span style="width:8px;display:inline-block;"></span>'}
-          <span class="${isToday ? 'text-slate-900 font-semibold' : 'text-slate-700'}">${h.day}</span>
-          ${isToday ? '<span class="text-xs text-slate-500 ml-1">(vandaag)</span>' : ''}
+          <span class="${isToday ? 'text-white font-semibold' : 'text-slate-300'}">${h.day}</span>
         </div>
-        <span class="${isClosed ? 'text-red-500 font-medium' : isToday ? 'text-slate-900 font-semibold' : 'text-slate-600'}">${h.time}</span>
+        <span class="${isClosed ? 'text-red-300 font-medium' : isToday ? 'text-white font-semibold' : 'text-slate-300'}">${h.time}</span>
       `;
       grid.appendChild(row);
     });
@@ -605,54 +690,59 @@
     });
   });
 
-  // Element SDK
+  // Element SDK config
   const defaultConfig = {
     hero_title: 'Car Center Rishi',
-    hero_subtitle: 'Uw betrouwbare autogarage in Amsterdam Noord — vakkundig, eerlijk en betaalbaar.',
+    hero_subtitle: 'RDW-erkende autogarage Amsterdam Noord',
+    hero_description: 'Eerlijke prijzen, snelle service, transparant — voor APK, reparatie & onderhoud.',
     services_title: 'Onze Diensten',
+    why_us_title: 'Waarom Car Center Rishi?',
     gallery_title: 'Onze Werkplaats',
-    contact_title: 'Contact & Openingstijden',
-    background_color: '#0f172a',
-    surface_color: '#ffffff',
-    text_color: '#0f172a',
-    accent_color: '#dc2626',
-    secondary_action_color: '#64748b',
-    font_family: 'Outfit',
-    font_size: 16
+    contact_title: 'Klaar voor Service?',
+    service_1_title: 'APK Keuring',
+    service_1_desc: 'Snelle RDW keuring',
+    service_1_price: '€40',
+    service_2_title: 'Diagnose',
+    service_2_desc: 'Foutdiagnose met apparatuur',
+    service_2_price: '€50',
+    service_3_title: 'Olie verversen',
+    service_3_desc: 'Motoronderhoud essentieel',
+    service_3_price: '€150',
+    service_4_title: 'Airco Service',
+    service_4_desc: 'Bijvullen & reinigen',
+    service_4_price: '€100',
+    service_5_title: 'Banden Service',
+    service_5_desc: 'Wisseling, balancering, reparatie',
+    service_5_price: '€12,50'
   };
 
   function applyConfig(config) {
     const c = { ...defaultConfig, ...config };
-    const font = c.font_family || defaultConfig.font_family;
-    const baseSize = c.font_size || defaultConfig.font_size;
 
     document.getElementById('heroTitle').textContent = c.hero_title;
     document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+    document.getElementById('heroDescription').textContent = c.hero_description;
     document.getElementById('servicesTitle').textContent = c.services_title;
+    document.getElementById('whyUsTitle').textContent = c.why_us_title;
     document.getElementById('galleryTitle').textContent = c.gallery_title;
     document.getElementById('contactTitle').textContent = c.contact_title;
     
-    // Update service titles and prices
+    // Update service titles, descriptions and prices
     document.getElementById('service_1_title').textContent = c.service_1_title;
+    document.getElementById('service_1_desc').textContent = c.service_1_desc;
     document.getElementById('service_1_price').textContent = c.service_1_price;
     document.getElementById('service_2_title').textContent = c.service_2_title;
+    document.getElementById('service_2_desc').textContent = c.service_2_desc;
     document.getElementById('service_2_price').textContent = c.service_2_price;
     document.getElementById('service_3_title').textContent = c.service_3_title;
+    document.getElementById('service_3_desc').textContent = c.service_3_desc;
     document.getElementById('service_3_price').textContent = c.service_3_price;
     document.getElementById('service_4_title').textContent = c.service_4_title;
+    document.getElementById('service_4_desc').textContent = c.service_4_desc;
     document.getElementById('service_4_price').textContent = c.service_4_price;
     document.getElementById('service_5_title').textContent = c.service_5_title;
+    document.getElementById('service_5_desc').textContent = c.service_5_desc;
     document.getElementById('service_5_price').textContent = c.service_5_price;
-
-    // Font
-    document.querySelectorAll('.font-heading, h1, h2, h3').forEach(el => {
-      el.style.fontFamily = `${font}, Outfit, sans-serif`;
-    });
-    document.body.style.fontFamily = `DM Sans, ${font}, sans-serif`;
-
-    // Font size scaling
-    document.getElementById('heroTitle').style.fontSize = `${baseSize * 3.5}px`;
-    document.getElementById('heroSubtitle').style.fontSize = `${baseSize * 1.25}px`;
   }
 
   if (window.elementSdk) {
@@ -660,38 +750,33 @@
       defaultConfig,
       onConfigChange: async (config) => applyConfig(config),
       mapToCapabilities: (config) => ({
-        recolorables: [
-          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-          { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
-          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-        ],
+        recolorables: [],
         borderables: [],
-        fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
-          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
-        },
-        fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
-          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
-        }
+        fontEditable: undefined,
+        fontSizeable: undefined
       }),
       mapToEditPanelValues: (config) => new Map([
         ['hero_title', config.hero_title || defaultConfig.hero_title],
         ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['hero_description', config.hero_description || defaultConfig.hero_description],
         ['services_title', config.services_title || defaultConfig.services_title],
+        ['why_us_title', config.why_us_title || defaultConfig.why_us_title],
         ['gallery_title', config.gallery_title || defaultConfig.gallery_title],
         ['contact_title', config.contact_title || defaultConfig.contact_title],
         ['service_1_title', config.service_1_title || defaultConfig.service_1_title],
+        ['service_1_desc', config.service_1_desc || defaultConfig.service_1_desc],
         ['service_1_price', config.service_1_price || defaultConfig.service_1_price],
         ['service_2_title', config.service_2_title || defaultConfig.service_2_title],
+        ['service_2_desc', config.service_2_desc || defaultConfig.service_2_desc],
         ['service_2_price', config.service_2_price || defaultConfig.service_2_price],
         ['service_3_title', config.service_3_title || defaultConfig.service_3_title],
+        ['service_3_desc', config.service_3_desc || defaultConfig.service_3_desc],
         ['service_3_price', config.service_3_price || defaultConfig.service_3_price],
         ['service_4_title', config.service_4_title || defaultConfig.service_4_title],
+        ['service_4_desc', config.service_4_desc || defaultConfig.service_4_desc],
         ['service_4_price', config.service_4_price || defaultConfig.service_4_price],
         ['service_5_title', config.service_5_title || defaultConfig.service_5_title],
+        ['service_5_desc', config.service_5_desc || defaultConfig.service_5_desc],
         ['service_5_price', config.service_5_price || defaultConfig.service_5_price]
       ])
     });
@@ -699,5 +784,5 @@
 
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0ca483f3d406bc',t:'MTc3Njk0NDk0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0cb21140b206bc',t:'MTc3Njk0NTQ5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
