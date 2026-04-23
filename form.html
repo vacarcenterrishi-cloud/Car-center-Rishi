@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl" class="h-full">
+<html lang="nl">
  <head><!-- BASIC SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -48,20 +48,10 @@
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      max-width: 100vw;
-      overflow-x: hidden !important;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      max-width: 100%;
     }
 
     body {
@@ -69,8 +59,6 @@
       color: #1f2937;
       background-color: #f9fafb;
       line-height: 1.6;
-      overflow-x: hidden !important;
-      width: 100vw;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -680,8 +668,181 @@
     .hidden {
       display: none !important;
     }
-  </style>
-  <style>body { box-sizing: border-box; }</style><!-- STRUCTURED DATA -->
+
+    /* Gesloten Banner */
+    #gesloten-banner {
+      display: none;
+      background-color: #fee2e2;
+      border: 2px solid #ef4444;
+      color: #991b1b;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Openingstijden widget */
+    .ot-widget {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .ot-widget h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-family: 'Black Ops One', cursive;
+    }
+
+    #ot-rijen {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ot-row {
+      background-color: #f3f4f6;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 2px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .ot-dag {
+      display: block;
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .ot-tijd {
+      display: block;
+      color: #1f2937;
+      font-size: 0.85rem;
+    }
+
+    .ot-tijd.ot-closed {
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    /* Formulier stijlen */
+    .form-msg {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 2px solid #dbeafe;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-msg.success {
+      background-color: #f0fdf4;
+      border-color: #22c55e;
+      color: #15803d;
+    }
+
+    .form-msg.error {
+      background-color: #fef2f2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .form-section {
+      background-color: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .form-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Black Ops One', cursive;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #000;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      background-color: #000;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #000;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      width: 100%;
+      min-height: 44px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background-color: #1f2937;
+      border-color: #1f2937;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      .form-section {
+        padding: 1.5rem 1rem;
+      }
+
+      #ot-rijen {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+
+      .ot-row {
+        padding: 0.5rem;
+      }
+    }
+  </style><!-- STRUCTURED DATA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -752,1158 +913,310 @@
   }
   </script>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <style>body { box-sizing: border-box; }</style>
  </head>
- <body class="h-full">
-  <div class="mobile-menu-overlay" id="menuOverlay" onclick="closeMobileMenu()"></div>
+ <body>
+  <!-- NAVBAR -->
   <nav class="navbar">
    <div class="navbar-container">
-    <a href="#" class="navbar-brand"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi" style="height: 40px; width: auto; object-fit: contain;"></a>
-    <ul class="navbar-menu" id="mobileMenu">
-     <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-     <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
-     <li><a href="#hours" onclick="closeMobileMenu()">Openingstijden</a></li>
-     <li><a href="#booking" onclick="closeMobileMenu()">Reservering</a></li>
-     <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-    </ul><button class="navbar-toggle" id="menuToggle" onclick="toggleMobileMenu()">☰</button>
+    <a href="#" class="navbar-brand">Car Center Rishi</a> <button class="navbar-toggle" id="navToggle">☰</button>
+    <ul class="navbar-menu" id="navMenu">
+     <li><a href="#services">Diensten</a></li>
+     <li><a href="#reviews">Reviews</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul>
    </div>
   </nav>
-  <section id="home" class="hero">
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div><!-- HERO SECTION -->
+  <section class="hero">
    <div class="hero-content">
-    <h1 id="heroHeadline">Vakmanschap onder de motorkap</h1>
-    <p id="heroSubheadline">APK, onderhoud en diagnose voor alle automerken</p><button class="btn-primary" onclick="scrollToSection('booking')">Nu Reserveren</button>
+    <h1>Car Center Rishi</h1>
+    <p>APK Keuring • Onderhoud • Reparatie</p><a href="#appointment" class="btn-primary">Maak een afspraak</a>
    </div>
-  </section>
-  <section class="section" style="background-color: #f9fafb; padding: 2rem 1.5rem;">
-   <div class="container">
-    <div class="usp-slider" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; padding: 0;">
-     <style>
-       .usp-slider {
-         display: grid !important;
-         grid-template-columns: repeat(4, 1fr) !important;
-         gap: 0.75rem !important;
-         width: 100%;
-       }
-       @media (max-width: 640px) {
-         .usp-slider {
-           grid-template-columns: repeat(4, 1fr) !important;
-           gap: 0.3rem !important;
-           padding: 0.5rem 0 !important;
-         }
-       }
-       @media (min-width: 641px) and (max-width: 1024px) {
-         .usp-slider {
-           grid-template-columns: repeat(4, 1fr) !important;
-           gap: 1rem !important;
-         }
-       }
-       @media (min-width: 1025px) {
-         .usp-slider {
-           grid-template-columns: repeat(4, 1fr) !important;
-           gap: 1.5rem !important;
-         }
-       }
-       .usp-item {
-         text-align: center;
-         padding: 0.4rem;
-         background-color: #fff;
-         border-radius: 8px;
-         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         gap: 0.15rem;
-         min-width: 0;
-         overflow: hidden;
-         word-break: break-word;
-       }
-       @media (max-width: 640px) {
-         .usp-item {
-           padding: 0.3rem !important;
-         }
-         .usp-item i {
-           width: 16px !important;
-           height: 16px !important;
-         }
-         .usp-item p {
-           font-size: 0.6rem !important;
-           line-height: 1.0 !important;
-           margin: 0 !important;
-           word-break: break-word;
-           font-weight: 600;
-           color: #1f2937;
-         }
-       }
-       @media (min-width: 641px) and (max-width: 768px) {
-         .usp-item i {
-           width: 24px !important;
-           height: 24px !important;
-         }
-         .usp-item p {
-           font-size: 0.75rem !important;
-           font-weight: 600;
-         }
-       }
-       @media (min-width: 769px) {
-         .usp-item i {
-           width: 40px !important;
-           height: 40px !important;
-         }
-         .usp-item p {
-           font-size: 0.95rem !important;
-           font-weight: 700;
-         }
-       }
-       .usp-item i {
-         margin-bottom: 0.1rem;
-         flex-shrink: 0;
-       }
-       .usp-item p {
-         margin: 0;
-       }
-     </style>
-     <div class="usp-item"><i data-lucide="star" style="width: 40px; height: 40px; color: #fbbf24;"></i>
-      <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">RDW Erkend</p>
-     </div>
-     <div class="usp-item"><i data-lucide="check-circle" style="width: 40px; height: 40px; color: #22c55e;"></i>
-      <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">NAP Gecertificeerd</p>
-     </div>
-     <div class="usp-item"><i data-lucide="award" style="width: 40px; height: 40px; color: #000;"></i>
-      <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">25+ Jaar Ervaring</p>
-     </div>
-     <div class="usp-item"><i data-lucide="zap" style="width: 40px; height: 40px; color: #f59e0b;"></i>
-      <p style="font-weight: 700; font-size: 0.95rem; color: #1f2937;">Snelle Service</p>
-     </div>
+  </section><!-- LICENSE PLATE SECTION -->
+  <section class="license-plate-section">
+   <div class="license-plate-container">
+    <h2>🔍 Controleer je voertuig</h2>
+    <div class="license-plate-input-group">
+     <input type="text" id="licensePlate" placeholder="Bijv: AA-123-BB" maxlength="10"> <button class="btn-primary" onclick="checkLicense()">Controleer</button>
     </div>
    </div>
-  </section>
-  <section id="services" class="section">
+  </section><!-- SERVICES SECTION -->
+  <section class="section" id="services">
    <div class="container">
     <h2 class="section-title">Onze Diensten</h2>
-    <p class="section-subtitle">Professionele autopflege en -reparatie</p>
-    <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-     <!-- Mobiel: 2x2, Tablet: 3 kolommen, Desktop: 4 kolommen -->
-     <style>
-       .service-card {
-         display: flex;
-         flex-direction: column;
-         height: 100%;
-       }
-       .service-card h3 {
-         flex-shrink: 0;
-         min-height: 3rem;
-         display: flex;
-         align-items: center;
-       }
-       .service-card p:nth-of-type(2) {
-         line-clamp: 2;
-         -webkit-line-clamp: 2;
-         overflow: hidden;
-         display: -webkit-box;
-         -webkit-box-orient: vertical;
-         margin-bottom: 1rem !important;
-       }
-       .service-card p:nth-of-type(3) {
-         margin-top: auto;
-         margin-bottom: 0.75rem !important;
-       }
-       .service-card .btn-primary {
-         margin-top: auto;
-       }
-       @media (max-width: 768px) {
-         .service-grid {
-           grid-template-columns: repeat(2, 1fr) !important;
-           gap: 0.75rem !important;
-         }
-         .service-card {
-           padding: 0.75rem !important;
-         }
-         .service-card h3 {
-           font-size: 0.95rem !important;
-           margin-bottom: 0.5rem !important;
-           min-height: 2.5rem;
-         }
-         .service-card p {
-           font-size: 0.8rem !important;
-         }
-         .service-card .btn-primary {
-           padding: 8px 12px !important;
-           font-size: 0.8rem !important;
-           min-height: 36px !important;
-         }
-       }
-       @media (min-width: 769px) and (max-width: 1024px) {
-         .service-grid {
-           grid-template-columns: repeat(3, 1fr) !important;
-         }
-       }
-     </style>
-     <div class="service-card" onclick="selectService('APK Keuring')">
-      <h3><i data-lucide="clipboard-check" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>APK Keuring</h3>
-      <p>Jaarlijkse APK voor alle voertuigen</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €40</p><button class="btn-primary" onclick="selectService('APK Keuring')">Kies</button>
+    <p class="section-subtitle">Alles wat je auto nodig heeft op één plek</p>
+    <div class="service-grid">
+     <div class="service-card">
+      <h3>🔍 APK Keuring</h3>
+      <p>Snelle en professionele APK keuringen. Vanaf €25. Onderdeel van onze expertise.</p>
      </div>
-     <div class="service-card" onclick="selectService('Diagnose')">
-      <h3><i data-lucide="stethoscope" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Diagnose</h3>
-      <p>Computergestuurde voertuigdiagnose</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50/€85</p><button class="btn-primary" onclick="selectService('Diagnose')">Kies</button>
+     <div class="service-card">
+      <h3>🔧 Onderhoud</h3>
+      <p>Regelmatig onderhoud zorgt voor een gezonde auto. Wij verzorgen alles professioneel.</p>
      </div>
-     <div class="service-card" onclick="selectService('Groot Onderhoud')">
-      <h3><i data-lucide="wrench" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Groot Onderhoud</h3>
-      <p>Volledige onderhoudsbeurt</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Groot Onderhoud')">Kies</button>
+     <div class="service-card">
+      <h3>⚙️ Reparatie</h3>
+      <p>Van kleine tot grote reparaties. Snelle diagnose en eerlijke prijzen gegarandeerd.</p>
      </div>
-     <div class="service-card" onclick="selectService('Olie Verversen')">
-      <h3><i data-lucide="droplet" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Olie Verversen</h3>
-      <p>Olieverversing met filters</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €150</p><button class="btn-primary" onclick="selectService('Olie Verversen')">Kies</button>
+     <div class="service-card">
+      <h3>❄️ Airco Service</h3>
+      <p>Laat je airco controleren en onderhouden voor optimale werking in zomer.</p>
      </div>
-     <div class="service-card" onclick="selectService('Airco Service')">
-      <h3><i data-lucide="wind" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Airco Service</h3>
-      <p>Airco vervulling &amp; inspectie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €100</p><button class="btn-primary" onclick="selectService('Airco Service')">Kies</button>
+     <div class="service-card">
+      <h3>🛞 Bandenservice</h3>
+      <p>Banden wisselen, repareren en uitbalanceren door experts.</p>
      </div>
-     <div class="service-card" onclick="selectService('Bandenservice')">
-      <h3><i data-lucide="circle" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Bandenservice</h3>
-      <p>Montage, balancering &amp; opslag</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €12,50</p><button class="btn-primary" onclick="selectService('Bandenservice')">Kies</button>
-     </div>
-     <div class="service-card" onclick="selectService('Automaatbak Service')">
-      <h3><i data-lucide="gear" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Automaatbak</h3>
-      <p>Service en reparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Offerte</p><button class="btn-primary" onclick="selectService('Automaatbak Service')">Kies</button>
-     </div>
-     <div class="service-card" onclick="selectService('Elektronica Reparatie')">
-      <h3><i data-lucide="zap" style="width: 18px; height: 18px; display: inline-block; margin-right: 0.5rem; vertical-align: middle;"></i>Elektronica</h3>
-      <p>Elektra- en sensorreparatie</p>
-      <p style="color: #000; font-weight: 600; margin-bottom: 0.75rem;">Vanaf €50</p><button class="btn-primary" onclick="selectService('Elektronica Reparatie')">Kies</button>
+     <div class="service-card">
+      <h3>🔎 Diagnose</h3>
+      <p>Computerdiagnose om problemen snel te vinden. Met uitgebreide scan apparatuur.</p>
      </div>
     </div>
    </div>
-  </section>
-  <section class="section" style="background-color: #f9fafb;">
-   <div class="container">
-    <h2 class="section-title">Hoe het werkt</h2>
-    <p class="section-subtitle">Drie simpele stappen naar uw afspraak</p>
-    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 600px; margin: 0 auto;">
-     <style>
-       .how-it-works-item {
-         display: flex;
-         gap: 1.5rem;
-         align-items: flex-start;
-       }
-       .how-it-works-number {
-         width: 48px;
-         height: 48px;
-         background-color: #000;
-         color: #fff;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         font-size: 1.25rem;
-         font-weight: bold;
-         flex-shrink: 0;
-       }
-       .how-it-works-content h3 {
-         margin-bottom: 0.5rem;
-         font-size: 1.1rem;
-       }
-       .how-it-works-content p {
-         color: #6b7280;
-         font-size: 0.95rem;
-         line-height: 1.4;
-       }
-       @media (max-width: 768px) {
-         .how-it-works-item {
-           gap: 1rem;
-         }
-         .how-it-works-number {
-           width: 40px;
-           height: 40px;
-           font-size: 1.1rem;
-         }
-         .how-it-works-content h3 {
-           font-size: 1rem;
-         }
-         .how-it-works-content p {
-           font-size: 0.85rem;
-         }
-       }
-     </style>
-     <div class="how-it-works-item">
-      <div class="how-it-works-number">
-       1
-      </div>
-      <div class="how-it-works-content">
-       <h3>Kies een service</h3>
-       <p>Selecteer welke service u nodig heeft uit ons aanbod</p>
-      </div>
-     </div>
-     <div class="how-it-works-item">
-      <div class="how-it-works-number">
-       2
-      </div>
-      <div class="how-it-works-content">
-       <h3>Stuur ons een bericht</h3>
-       <p>Neem contact op via WhatsApp, telefoon of email</p>
-      </div>
-     </div>
-     <div class="how-it-works-item">
-      <div class="how-it-works-number">
-       3
-      </div>
-      <div class="how-it-works-content">
-       <h3>Afspraak bevestigd</h3>
-       <p>Wij plannen uw afspraak in op het gewenste moment</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-  <section id="hours" class="section" style="background-color: #f9fafb;">
-   <div class="container">
-    <h2 class="section-title">Openingstijden</h2>
-    <p class="section-subtitle">Status: <span id="liveStatusDisplay">Laden...</span></p>
-    <div id="statusContainer" style="padding: 1.5rem; background-color: #f3f4f6; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 2rem; display: none;">
-     <h3 id="statusLabel" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Status</h3>
-     <p id="statusMessage" style="margin-bottom: 0.5rem;"></p>
-     <p id="statusTime" style="color: #6b7280; font-size: 0.9rem;"></p>
-    </div>
-    <div class="opening-hours-grid">
-     <!-- Mobiel responsive: 2 kolommen, Tablet: 3, Desktop: 7 in 1 rij -->
-     <style>
-       @media (max-width: 768px) {
-         .opening-hours-grid {
-           grid-template-columns: repeat(2, 1fr) !important;
-           gap: 0.5rem !important;
-         }
-         .hour-card {
-           padding: 0.75rem !important;
-         }
-         .hour-card h4 {
-           font-size: 0.8rem !important;
-           margin-bottom: 0.25rem !important;
-         }
-         .hour-card p {
-           font-size: 0.75rem !important;
-         }
-       }
-       @media (min-width: 769px) and (max-width: 1024px) {
-         .opening-hours-grid {
-           grid-template-columns: repeat(3, 1fr) !important;
-         }
-       }
-     </style>
-     <div id="hourSun" class="hour-card">
-      <h4>Zondag</h4>
-      <p id="openingHoursSun">--</p>
-     </div>
-     <div id="hourMon" class="hour-card">
-      <h4>Maandag</h4>
-      <p id="openingHoursMon">--</p>
-     </div>
-     <div id="hourTue" class="hour-card">
-      <h4>Dinsdag</h4>
-      <p id="openingHoursTue">--</p>
-     </div>
-     <div id="hourWed" class="hour-card">
-      <h4>Woensdag</h4>
-      <p id="openingHoursWed">--</p>
-     </div>
-     <div id="hourThu" class="hour-card">
-      <h4>Donderdag</h4>
-      <p id="openingHoursThu">--</p>
-     </div>
-     <div id="hourFri" class="hour-card">
-      <h4>Vrijdag</h4>
-      <p id="openingHoursFri">--</p>
-     </div>
-     <div id="hourSat" class="hour-card">
-      <h4>Zaterdag</h4>
-      <p id="openingHoursSat">--</p>
-     </div>
-    </div>
-   </div>
-  </section>
-  <section id="booking" class="section" style="background: linear-gradient(135deg, #f0fdf4 0%, #f9fafb 100%);">
-   <div class="container">
-    <h2 class="section-title">Neem contact op</h2>
-    <p class="section-subtitle">Formulier of direct contact</p><!-- MOBIEL: FORMULIER EERST -->
-    <div style="max-width: 900px; margin: 0 auto; display: block;">
-     <!-- Contact Form - Mobiel prioriteit -->
-     <div style="margin-bottom: 2rem; order: 1;">
-      <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Stuur ons een bericht</h3>
-      <form onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 0.75rem;">
-       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" placeholder="Voor- en achternaam" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" placeholder="naam@email.nl" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon" placeholder="06 12345678" style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" placeholder="Waar gaat uw bericht over?" required style="min-height: 40px; font-size: 1rem;">
-       </div>
-       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" placeholder="Typ hier uw bericht…" required style="min-height: 100px; font-size: 1rem;"></textarea>
-       </div>
-       <div id="contactStatus" class="hidden" style="padding: 0.75rem; margin-bottom: 0.75rem; border-radius: 6px; border: 2px solid #dbeafe; font-size: 0.85rem;"></div><button type="submit" id="contactSubmitBtn" class="btn-primary" style="width: 100%; min-height: 44px; font-size: 0.95rem;">Bericht verzenden</button>
-      </form>
-     </div><!-- Direct Contact Buttons -->
-     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #25d366;"><i data-lucide="message-circle" style="width: 32px; height: 32px; display: inline-block;"></i>
-       </div>
-       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">WhatsApp</h3>
-       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct bericht, snelle reactie</p><button id="whatsappCTA" class="btn-primary" style="width: 100%; background-color: #25d366; border-color: #25d366; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Open</button>
-      </div>
-      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #000;"><i data-lucide="phone" style="width: 32px; height: 32px; display: inline-block;"></i>
-       </div>
-       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Bellen</h3>
-       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Direct advies van onze team</p><button id="phoneCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Bel</button>
-      </div>
-      <div class="cta-card" style="background-color: #fff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); text-align: center; display: flex; flex-direction: column; align-items: center;">
-       <div class="cta-card-icon" style="font-size: 2rem; margin-bottom: 0.75rem; color: #666;"><i data-lucide="mail" style="width: 32px; height: 32px; display: inline-block;"></i>
-       </div>
-       <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Email</h3>
-       <p style="color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; flex-grow: 1;">Gedetailleerd bericht sturen</p><button id="emailCTA" class="btn-primary" style="width: 100%; font-size: 0.8rem; min-height: 40px; padding: 8px 12px;">Mail</button>
-      </div>
-     </div><!-- Company Info Grid (MOBIEL: ONDER FORMULIER) -->
-     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; max-width: 100%;">
-      <style>
-          @media (max-width: 768px) {
-            .contact-info-grid {
-              grid-template-columns: 1fr 1fr !important;
-              gap: 0.75rem !important;
-            }
-            .contact-info-item {
-              padding: 0.75rem !important;
-              background-color: #f9fafb;
-              border-radius: 6px;
-              border-left: 3px solid #000;
-            }
-            .contact-info-item p:first-child {
-              font-size: 0.75rem !important;
-              color: #6b7280;
-              margin-bottom: 0.25rem !important;
-            }
-            .contact-info-item p:last-child {
-              font-size: 0.85rem !important;
-              font-weight: 600;
-              margin: 0 !important;
-            }
-            .contact-info-item a {
-              color: #000;
-              text-decoration: none;
-              font-weight: 600;
-            }
-          }
-          @media (min-width: 769px) {
-            .contact-info-grid {
-              display: none;
-            }
-          }
-        </style>
-      <div class="contact-info-grid" style="grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 100%;">
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="building" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Bedrijf</p>
-        <p id="contactCompanyName" style="font-weight: 600; margin: 0;">Car Center Rishi</p>
-       </div>
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="map-pin" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Adres</p>
-        <p style="font-weight: 600; margin: 0;">Meeuwenlaan 116<br>
-          1021 JM Amsterdam</p>
-       </div>
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="phone" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Telefoon</p>
-        <p><a id="contactPhoneDisplay" href="tel:+31646102011" style="color: #000; text-decoration: none; font-weight: 600;">+31 6 46102011</a></p>
-       </div>
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;"><i data-lucide="mail" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.25rem;"></i>Email</p>
-        <p><a id="contactEmailDisplay" href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none; font-weight: 600;">info@carcenterrishi.nl</a></p>
-       </div>
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;">KvK</p>
-        <p id="contactKvKDisplay" style="font-weight: 600; margin: 0;">68638701</p>
-       </div>
-       <div class="contact-info-item">
-        <p style="font-size: 0.75rem; color: #6b7280;">BTW</p>
-        <p id="contactBTWDisplay" style="font-weight: 600; margin: 0;">NL0545.97.481</p>
-       </div>
-      </div>
-     </div><!-- Action Buttons Grid -->
-     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem; max-width: 100%;">
-      <button class="btn-primary" onclick="openMaps()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">📍 Routes</button> <button class="btn-primary" onclick="makeCall()" style="width: 100%; padding: 10px 12px; min-height: 44px; font-size: 0.85rem;">☎️ Bel</button>
-     </div>
-    </div>
-   </div>
-  </section>
-  <section id="reviews" class="section">
+  </section><!-- REVIEWS SECTION -->
+  <section class="section" id="reviews">
    <div class="container">
     <h2 class="section-title">Wat klanten zeggen</h2>
-    <p class="section-subtitle" style="margin-bottom: 0.5rem;">4.4/5</p>
-    <p class="section-subtitle" style="color: #fbbf24; margin-bottom: 2rem;">★★★★☆ (156 reviews)</p>
-    <div class="review-grid">
-     <style>
-       @media (max-width: 768px) {
-         .review-grid {
-           display: flex !important;
-           overflow-x: hidden !important;
-           gap: 0 !important;
-           scroll-snap-type: x mandatory;
-           -webkit-overflow-scrolling: touch;
-           padding-bottom: 0.5rem;
-           scrollbar-width: none;
-           position: relative;
-           scroll-behavior: smooth;
-         }
-         .review-grid::-webkit-scrollbar {
-           display: none;
-         }
-         .review-card {
-           flex: 0 0 100% !important;
-           min-width: 100% !important;
-           scroll-snap-align: start;
-           margin-right: 0;
-           padding: 1.25rem !important;
-         }
-       }
-       @media (min-width: 769px) {
-         .review-grid {
-           display: grid !important;
-           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-           gap: 1.5rem !important;
-         }
-       }
-     </style>
+    <p class="section-subtitle">4.4★ op basis van 156 reviews</p>
+    <div class="review-grid" id="reviewGrid">
      <div class="review-card">
-      <p class="review-text">"Heel professioneel team. Mijn APK was binnen een uur klaar. Aanrader!"</p>
-      <p class="review-author">— Johannes M.</p>
+      <div class="review-rating">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"Fantastische service! Snelle afhandeling en eerlijke prijzen. Ik kom hier graag terug."</p>
+      <p class="review-author">— Ahmed K.</p>
      </div>
      <div class="review-card">
-      <p class="review-text">"Service bussen waren perfect. Snelle diagnose en eerlijke prijzen. Bedankt!"</p>
-      <p class="review-author">— Maria D.</p>
+      <div class="review-rating">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"De APK was snel en professioneel. Geen verrassingen, alles duidelijk uitgelegd."</p>
+      <p class="review-author">— Maria V.</p>
      </div>
      <div class="review-card">
-      <p class="review-text">"Zeer tevreden met het onderhoud. Vakkundig werk tegen redelijke prijzen."</p>
-      <p class="review-author">— Peter L.</p>
+      <div class="review-rating">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"Beste garage in Amsterdam Noord. Vriendelijk, deskundig en betrouwbaar!"</p>
+      <p class="review-author">— Jan D.</p>
      </div>
      <div class="review-card">
-      <p class="review-text">"Snelle service en zeer vriendelijk personeel. Zeker terug!"</p>
-      <p class="review-author">— Thomas K.</p>
+      <div class="review-rating">
+       ⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"Goed werk. Prijs was iets aan de hoge kant, maar kwaliteit is top."</p>
+      <p class="review-author">— Lisa P.</p>
      </div>
     </div>
    </div>
-  </section>
-  <section id="contact" class="section" style="background-color: #f9fafb; display: none;">
-   <div class="container"></div>
-  </section>
+  </section><!-- OPENING HOURS SECTION -->
+  <section class="section">
+   <div class="container">
+    <h2 class="section-title">Openingstijden</h2>
+    <div id="gesloten-banner">
+     ⚠️ We zijn momenteel gesloten. Stuur ons een bericht of bel ons voor meer info.
+    </div>
+    <div class="ot-widget">
+     <h3 id="ot-bedrijfnaam">Car Center Rishi — Openingstijden</h3>
+     <div id="ot-rijen"></div>
+    </div>
+   </div>
+  </section><!-- CONTACT SECTION -->
+  <section class="section" id="contact">
+   <div class="container">
+    <h2 class="section-title">📞 Contact &amp; Afspraak</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+     <div style="background: #f3f4f6; padding: 2rem; border-radius: 8px;">
+      <h3 style="margin-bottom: 1rem;">Bel ons</h3>
+      <p style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;"><a href="tel:+31646102011" style="color: #000; text-decoration: none;">+31 6 46102011</a></p>
+      <p style="color: #6b7280;">Maandag - Vrijdag: 09:00 - 18:00</p>
+     </div>
+     <div style="background: #f3f4f6; padding: 2rem; border-radius: 8px;">
+      <h3 style="margin-bottom: 1rem;">Adres</h3>
+      <p><strong>Car Center Rishi</strong></p>
+      <p>Meeuwenlaan 116</p>
+      <p>1021 JM Amsterdam</p>
+     </div>
+     <div style="background: #f3f4f6; padding: 2rem; border-radius: 8px;">
+      <h3 style="margin-bottom: 1rem;">Email</h3>
+      <p><a href="mailto:info@carcenterrishi.nl" style="color: #000; text-decoration: none;">info@carcenterrishi.nl</a></p>
+      <p style="color: #6b7280; margin-top: 1rem;">Respons binnen 24 uur</p>
+     </div>
+    </div><!-- FORMS -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+     <!-- Contact Form -->
+     <div class="form-section">
+      <h2>📧 Stuur ons een bericht</h2>
+      <div id="msgContact" class="form-msg"></div>
+      <form id="contactForm">
+       <div class="form-group">
+        <label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" required>
+       </div>
+       <div class="form-group">
+        <label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" required>
+       </div>
+       <div class="form-group">
+        <label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon">
+       </div>
+       <div class="form-group">
+        <label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" required>
+       </div>
+       <div class="form-group">
+        <label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" required></textarea>
+       </div><button type="submit" id="btnContact" class="btn-submit">Verstuur bericht</button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section><!-- FOOTER -->
   <footer>
    <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
-     <!-- Mobiel responsive footer -->
-     <style>
-       @media (max-width: 768px) {
-         footer {
-           padding: 1.5rem 1rem !important;
-         }
-         footer .container > div {
-           grid-template-columns: 1fr !important;
-           gap: 1.5rem !important;
-           margin-bottom: 1.5rem !important;
-         }
-         footer h3 {
-           font-size: 0.95rem !important;
-           margin-bottom: 0.75rem !important;
-         }
-         footer p {
-           font-size: 0.8rem !important;
-           margin-bottom: 0.25rem !important;
-         }
-         .footer-section {
-           border-top: 1px solid #374151;
-           padding-top: 1rem;
-         }
-         .footer-section:first-child {
-           border-top: none;
-           padding-top: 0;
-         }
-       }
-       @media (min-width: 769px) {
-         footer .container > div {
-           grid-template-columns: 1fr 1fr 1fr;
-           gap: 3rem;
-           margin-bottom: 2rem;
-         }
-       }
-     </style><!-- Column 1: Company Info -->
-     <div class="footer-section">
-      <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Car Center Rishi</h3>
-      <div style="font-size: 0.85rem; line-height: 1.8;">
-       <p style="margin-bottom: 0.75rem;"><i data-lucide="map-pin" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; color: #fbbf24;"></i> <span id="footerAddress" style="color: #d1d5db;">Meeuwenlaan 116 H, Amsterdam</span></p>
-       <p style="margin-bottom: 0.75rem;"><i data-lucide="phone" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; color: #fbbf24;"></i> <a id="footerPhone" href="tel:" style="color: #d1d5db; text-decoration: none; transition: color 0.3s;">+31 (0)20 337 0324</a></p>
-       <p><i data-lucide="mail" style="width: 16px; height: 16px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; color: #fbbf24;"></i> <a id="footerEmail" href="mailto:" style="color: #d1d5db; text-decoration: none; transition: color 0.3s;">info@carcenterrishi.nl</a></p>
-      </div>
-     </div><!-- Column 2: Hours -->
-     <div class="footer-section">
-      <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Openingstijden</h3>
-      <div style="font-size: 0.85rem; line-height: 1.8; color: #d1d5db;">
-       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;"><span>Zondag</span><span id="footerSunday">10:00 - 18:00</span> <span>Maandag</span><span id="footerMonday">09:00 - 18:00</span> <span>Dinsdag</span><span id="footerTuesday">09:00 - 18:00</span> <span>Woensdag</span><span id="footerWednesday">09:00 - 18:00</span> <span>Donderdag</span><span id="footerThursday">09:00 - 18:00</span> <span>Vrijdag</span><span id="footerFriday">09:00 - 18:00</span> <span>Zaterdag</span><span id="footerSaturday">10:00 - 18:00</span>
-       </div>
-      </div>
-     </div><!-- Column 3: Status & CTA -->
-     <div class="footer-section">
-      <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem; font-weight: 600;">Status</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 1.5rem;"><span id="footerStatusDot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #22c55e; display: inline-block; margin-right: 0.5rem; animation: pulse 2s infinite;"></span> <span id="footerStatus" style="color: #d1d5db; font-size: 0.9rem;">Open</span>
-      </div><button class="btn-primary" onclick="scrollToSection('booking')" style="width: 100%; min-height: 44px; font-size: 0.9rem;">Contact opnemen</button>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+     <div>
+      <h4 style="font-family: 'Black Ops One', cursive; margin-bottom: 1rem;">Car Center Rishi</h4>
+      <p>Professionele autogarage in Amsterdam Noord</p>
+      <p>25+ jaar ervaring in APK, onderhoud en reparatie</p>
+     </div>
+     <div>
+      <h4 style="font-family: 'Black Ops One', cursive; margin-bottom: 1rem;">Snelle Links</h4>
+      <ul style="list-style: none;">
+       <li><a href="#services">Diensten</a></li>
+       <li><a href="#reviews">Reviews</a></li>
+       <li><a href="#contact">Contact</a></li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="font-family: 'Black Ops One', cursive; margin-bottom: 1rem;">Contact</h4>
+      <p>📞 <a href="tel:+31646102011">+31 6 46102011</a></p>
+      <p>📧 <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a></p>
+      <p>📍 Meeuwenlaan 116, Amsterdam</p>
      </div>
     </div>
-    <div style="border-top: 1px solid #374151; padding-top: 1rem; font-size: 0.8rem; color: #9ca3af;">
-     <p style="margin-bottom: 0.5rem;">© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
-     <p>RDW erkend | NAP gecertificeerd | KvK: <span id="footerKvK">68638701</span></p>
+    <div style="border-top: 1px solid #444; padding-top: 1.5rem; text-align: center;">
+     <p>© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
     </div>
    </div>
-  </footer>
+  </footer><!-- CTA BUTTONS --> <a href="tel:+31646102011" class="cta-button phone" id="ctaPhone"> <i data-lucide="phone" style="width: 24px; height: 24px;"></i> </a> <a href="https://wa.me/31646102011?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken" target="_blank" rel="noopener noreferrer" class="cta-button whatsapp" id="ctaWhatsapp"> <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i> </a>
   <script>
-    let currentData = [];
-    const API_URL = 'https://script.google.com/macros/s/AKfycbykmFer-znazTJn5aEuvvl7YQI9fvuNpWbwxD2yt3iU8S7dnxxmRpktb2ocuZaH51d3/exec';
-    const DAYS = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
-    
-    // Global company data state
-    let companyData = {
-      BedrijfsNaam: 'Car Center Rishi',
-      Email: 'info@carcenterrishi.nl',
-      Telefoon: '+31 (0)20 337 0324',
-      Adres: 'Meeuwenlaan 116, Amsterdam',
-      KvK: '68638701',
-      BTW: 'NL0545.97.481',
-      Maandag: '09:00 - 18:00',
-      Dinsdag: '09:00 - 18:00',
-      Woensdag: '09:00 - 18:00',
-      Donderdag: '09:00 - 18:00',
-      Vrijdag: '09:00 - 18:00',
-      Zaterdag: '10:00 - 18:00',
-      Zondag: '10:00 - 18:00',
-      ForcedClose: 'false'
-    };
-    
-    // Review slider auto-loop
-    let currentReviewIndex = 0;
-    let reviewAutoPlayInterval = null;
+    // ══════════════════════════════════════════════════════════════
+    // ⚙️  CONFIGURATIE
+    // ══════════════════════════════════════════════════════════════
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzQt4o6XacftySHaK7gbJ4Le3Tp0ZoZRF3e4tOnI9Ma7qWoPd0wH-_SrbjlZWv_KUMD/exec';
+    const DAGEN_NL = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
 
-    function initReviewSlider() {
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      if (!reviewsContainer) return;
-
-      const reviews = reviewsContainer.querySelectorAll('.review-card');
-      const dotsContainer = document.getElementById('reviewDots');
-      
-      if (reviews.length <= 1) return;
-
-      // Create dots
-      reviews.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = 'review-dot' + (index === 0 ? ' active' : '');
-        dot.onclick = () => goToReview(index);
-        dotsContainer.appendChild(dot);
-      });
-
-      startReviewAutoPlay();
-    }
-
-    function goToReview(index) {
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      const reviews = reviewsContainer.querySelectorAll('.review-card');
-      const dots = document.querySelectorAll('.review-dot');
-
-      currentReviewIndex = index;
-
-      // Scroll to review
-      reviews[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-
-      // Update dots
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-
-      // Reset auto-play
-      clearInterval(reviewAutoPlayInterval);
-      startReviewAutoPlay();
-    }
-
-    function startReviewAutoPlay() {
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      if (!reviewsContainer) return;
-
-      const reviews = reviewsContainer.querySelectorAll('.review-card');
-      if (reviews.length <= 1) return;
-
-      reviewAutoPlayInterval = setInterval(() => {
-        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-        goToReview(currentReviewIndex);
-      }, 4000);
-    }
-    (async () => {
-      const defaultConfig = {
-        hero_headline: "Vakmanschap onder de motorkap",
-        hero_subheadline: "APK, onderhoud en diagnose voor alle automerken",
-        company_name: "Car Center Rishi",
-        company_address: "Meeuwenlaan 116 H, Amsterdam",
-        company_phone: "+31 (0)20 123 4567",
-        company_email: "info@carcentrtershi.nl",
-        kvk_number: "12345678",
-        btw_number: "NL123456789B01",
-        appointment_note: "Wij reageren binnen 24 uur",
-        contact_response_time: "Wij reageren binnen 24 uur"
-      };
-
-      if (window.elementSdk) {
-        await window.elementSdk.init({
-          defaultConfig,
-          onConfigChange: (config) => {
-            document.getElementById('heroHeadline').textContent = config.hero_headline || defaultConfig.hero_headline;
-            document.getElementById('heroSubheadline').textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
-            document.getElementById('appointmentNote').textContent = config.appointment_note || defaultConfig.appointment_note;
-            document.getElementById('contactNote').textContent = config.contact_response_time || defaultConfig.appointment_note;
-            
-            document.getElementById('companyNameDisplay').textContent = config.company_name || defaultConfig.company_name;
-            document.getElementById('companyAddressDisplay').textContent = config.company_address || defaultConfig.company_address;
-            document.getElementById('companyKvKDisplay').textContent = config.kvk_number || defaultConfig.kvk_number;
-            document.getElementById('companyBTWDisplay').textContent = config.btw_number || defaultConfig.btw_number;
-            
-            const phoneLink = document.querySelector('#companyPhoneDisplay a');
-            if (phoneLink) phoneLink.href = `tel:${config.company_phone}`;
-            
-            const emailLink = document.querySelector('#companyEmailDisplay a');
-            if (emailLink) emailLink.href = `mailto:${config.company_email}`;
-          },
-          mapToCapabilities: () => ({
-            recolorables: [],
-            borderables: [],
-            fontEditable: undefined,
-            fontSizeable: undefined
-          }),
-          mapToEditPanelValues: (config) => new Map([
-            ["hero_headline", config.hero_headline],
-            ["hero_subheadline", config.hero_subheadline],
-            ["company_name", config.company_name],
-            ["company_address", config.company_address],
-            ["company_phone", config.company_phone],
-            ["company_email", config.company_email],
-            ["kvk_number", config.kvk_number],
-            ["btw_number", config.btw_number],
-            ["appointment_note", config.appointment_note],
-            ["contact_response_time", config.contact_response_time]
-          ])
-        });
-      }
-
-      if (window.dataSdk) {
-        await window.dataSdk.init({
-          onDataChanged: (data) => {
-            currentData = data;
-          }
-        });
-      }
-      
-      // Initialize review slider
-      initReviewSlider();
-      
-      // Load company data from API
-      await loadCompanyData();
-      
-      lucide.createIcons();
-    })();
-
-    // Cache system with rate limiting
-    let storeDataCache = null;
-    let lastFetchTime = 0;
-    const CACHE_DURATION = 5 * 60 * 1000;
-    const MIN_REQUEST_INTERVAL = 1000;
-
-    /**
-     * Central function to load company data from API
-     * Updates global state and all UI elements
-     */
-    async function loadCompanyData() {
-      // Use default company data (no API call needed)
-      renderCompanyInfo();
-      renderOpeningHours();
-      renderCTAButtons();
-      renderFooter();
-      console.log('✓ Company data initialized successfully:', companyData);
-    }
-
-    /**
-     * Render contact information throughout the site
-     */
-    function renderCompanyInfo() {
-      // Contact section
-      const phoneLink = document.querySelector('#companyPhoneDisplay a');
-      if (phoneLink) {
-        const phoneRaw = companyData.Telefoon || '';
-        phoneLink.href = `tel:${phoneRaw}`;
-        phoneLink.textContent = phoneRaw;
-      }
-
-      const emailLink = document.querySelector('#companyEmailDisplay a');
-      if (emailLink) {
-        const email = companyData.Email || '';
-        emailLink.href = `mailto:${email}`;
-        emailLink.textContent = email;
-      }
-
-      const addressDisplay = document.getElementById('companyAddressDisplay');
-      if (addressDisplay) {
-        addressDisplay.textContent = companyData.Adres || 'Adres niet beschikbaar';
-      }
-
-      const kvkDisplay = document.getElementById('companyKvKDisplay');
-      if (kvkDisplay) {
-        kvkDisplay.textContent = companyData.KvK || '-';
-      }
-
-      const btwDisplay = document.getElementById('companyBTWDisplay');
-      if (btwDisplay) {
-        btwDisplay.textContent = companyData.BTW || '-';
-      }
-
-      // Contact form section
-      const contactAddressDisplay = document.getElementById('contactAddressDisplay');
-      if (contactAddressDisplay) {
-        contactAddressDisplay.textContent = companyData.Adres || 'Adres niet beschikbaar';
-      }
-
-      const contactPhoneLink = document.getElementById('contactPhoneLink');
-      if (contactPhoneLink) {
-        const phoneRaw = companyData.Telefoon || '';
-        contactPhoneLink.href = `tel:${phoneRaw}`;
-        contactPhoneLink.textContent = phoneRaw;
-      }
-
-      const contactEmailLink = document.getElementById('contactEmailLink');
-      if (contactEmailLink) {
-        const email = companyData.Email || '';
-        contactEmailLink.href = `mailto:${email}`;
-        contactEmailLink.textContent = email;
-      }
-
-      const contactKvKDisplay = document.getElementById('contactKvKDisplay');
-      if (contactKvKDisplay) {
-        contactKvKDisplay.textContent = companyData.KvK || '-';
-      }
-
-      const contactBTWDisplay = document.getElementById('contactBTWDisplay');
-      if (contactBTWDisplay) {
-        contactBTWDisplay.textContent = companyData.BTW || '-';
-      }
-    }
-
-    /**
-     * Check if store is open based on ForcedClose flag and current hours
-     */
-    function isStoreOpen() {
-      // Check ForcedClose flag (case insensitive)
-      const forced = (companyData.ForcedClose || '').toLowerCase();
-      if (forced === 'true') return false;
-      if (forced === 'false') {
-        // Check actual opening hours
-        const today = new Date().getDay();
-        const todayKey = DAYS[today];
-        const todayHours = companyData[todayKey] || '';
-        return todayHours && todayHours !== 'Gesloten' && todayHours !== '-';
-      }
-      return true;
-    }
-
-    /**
-     * Render opening hours section
-     */
-    function renderOpeningHours() {
-      const today = new Date().getDay();
-      const open = isStoreOpen();
-      
-      // Update status container - SHOW only if there's an error or special status
-      const statusContainer = document.getElementById('statusContainer');
-      const statusLabel = document.getElementById('statusLabel');
-      const statusMessage = document.getElementById('statusMessage');
-      const statusTime = document.getElementById('statusTime');
-      
-      if (statusContainer) {
-        // Only show if there's important info to display
-        const todayKey = DAYS[today];
-        const todayHours = companyData[todayKey] || 'Gesloten';
-        const hasStatus = todayHours && todayHours !== 'Gesloten' && todayHours !== '-';
-        
-        if (hasStatus) {
-          statusContainer.style.display = 'block';
-          if (open) {
-            statusContainer.style.borderColor = '#22c55e';
-            statusContainer.style.backgroundColor = '#f0fdf4';
-            statusLabel.style.color = '#15803d';
-            statusLabel.textContent = 'Open';
-            statusMessage.textContent = 'Wij zijn nu geopend en klaar voor uw bezoek.';
-          } else {
-            statusContainer.style.borderColor = '#ef4444';
-            statusContainer.style.backgroundColor = '#fef2f2';
-            statusLabel.style.color = '#991b1b';
-            statusLabel.textContent = 'Gesloten';
-            statusMessage.textContent = 'Wij zijn momenteel gesloten.';
-          }
-          statusTime.textContent = `Vandaag: ${todayHours}`;
-        }
-      }
-
-      // Update status display text
-      const liveStatusDisplay = document.getElementById('liveStatusDisplay');
-      if (liveStatusDisplay) {
-        liveStatusDisplay.textContent = open ? 'Open' : 'Gesloten';
-        liveStatusDisplay.style.color = open ? '#15803d' : '#991b1b';
-        liveStatusDisplay.style.fontWeight = 'bold';
-      }
-
-      // Update hour cards
-      const dayIds = ['hourSun', 'hourMon', 'hourTue', 'hourWed', 'hourThu', 'hourFri', 'hourSat'];
-      dayIds.forEach((id, index) => {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        const dayKey = DAYS[index];
-        const hoursText = companyData[dayKey] || 'Gesloten';
-        const timeElement = element.querySelector('p:last-child');
-
-        if (timeElement) {
-          timeElement.textContent = hoursText || 'Gesloten';
-          timeElement.style.color = (hoursText === 'Gesloten' || !hoursText || hoursText === '-') ? '#9ca3af' : '#1f2937';
-          timeElement.style.fontWeight = (hoursText === 'Gesloten' || !hoursText) ? 'normal' : '500';
-        }
-
-        // Highlight today
-        if (index === today) {
-          element.style.backgroundColor = '#fef08a';
-          element.style.borderColor = '#eab308';
-          const headerEl = element.querySelector('h4');
-          if (headerEl) headerEl.style.fontWeight = 'bold';
-        } else {
-          element.style.backgroundColor = '#f3f4f6';
-          element.style.borderColor = '#e5e7eb';
-        }
-      });
-    }
-
-    /**
-     * Render CTA buttons (WhatsApp, Phone, Email)
-     */
-    function renderCTAButtons() {
-      const phone = companyData.Telefoon || '+31 (0)20 337 0324';
-      const email = companyData.Email || 'info@carcenterrishi.nl';
-      const cleanPhone = '31646102011';
-
-      // WhatsApp button
-      const whatsappBtn = document.getElementById('whatsappCTA');
-      if (whatsappBtn) {
-        whatsappBtn.onclick = () => {
-          const waLink = `https://wa.me/${cleanPhone}?text=Hallo%2C%20ik%20wil%20graag%20contact%20opnemen.`;
-          window.open(waLink, '_blank', 'noopener,noreferrer');
-        };
-      }
-
-      // Phone button
-      const phoneBtn = document.getElementById('phoneCTA');
-      if (phoneBtn) {
-        phoneBtn.textContent = `Bel: ${phone}`;
-        phoneBtn.onclick = () => window.location.href = `tel:${phone}`;
-      }
-
-      // Email button
-      const emailBtn = document.getElementById('emailCTA');
-      if (emailBtn) {
-        emailBtn.textContent = `Mail: ${email}`;
-        emailBtn.onclick = () => window.location.href = `mailto:${email}`;
-      }
-    }
-
-    /**
-     * Render footer hours and status
-     */
-    function renderFooter() {
-      const open = isStoreOpen();
-      const footerDays = ['footerSunday', 'footerMonday', 'footerTuesday', 'footerWednesday', 'footerThursday', 'footerFriday', 'footerSaturday'];
-      
-      footerDays.forEach((id, index) => {
-        const element = document.getElementById(id);
-        if (element) {
-          const dayKey = DAYS[index];
-          element.textContent = companyData[dayKey] || 'Gesloten';
-        }
-      });
-
-      // Update footer contact info
-      const footerPhone = document.getElementById('footerPhone');
-      if (footerPhone) {
-        const phone = companyData.Telefoon || '+31 (0)20 337 0324';
-        footerPhone.href = `tel:${phone}`;
-        footerPhone.textContent = phone;
-      }
-
-      const footerEmail = document.getElementById('footerEmail');
-      if (footerEmail) {
-        const email = companyData.Email || 'info@carcenterrishi.nl';
-        footerEmail.href = `mailto:${email}`;
-        footerEmail.textContent = email;
-      }
-
-      const footerAddress = document.getElementById('footerAddress');
-      if (footerAddress) {
-        footerAddress.textContent = companyData.Adres || 'Meeuwenlaan 116 H, Amsterdam';
-      }
-
-      const footerKvK = document.getElementById('footerKvK');
-      if (footerKvK) {
-        footerKvK.textContent = companyData.KvK || '68638701';
-      }
-
-      // Update footer status
-      const footerStatus = document.getElementById('footerStatus');
-      const footerStatusDot = document.getElementById('footerStatusDot');
-      if (footerStatus && footerStatusDot) {
-        if (open) {
-          footerStatus.textContent = 'Open';
-          footerStatusDot.style.backgroundColor = '#22c55e';
-        } else {
-          footerStatus.textContent = 'Gesloten';
-          footerStatusDot.style.backgroundColor = '#ef4444';
-        }
-      }
-    }
-
-    function renderErrorState() {
-      const statusContainer = document.getElementById('statusContainer');
-      if (statusContainer) {
-        statusContainer.style.borderColor = '#fca5a5';
-        statusContainer.style.backgroundColor = '#fee2e2';
-        const statusLabel = document.getElementById('statusLabel');
-        if (statusLabel) {
-          statusLabel.style.color = '#991b1b';
-          statusLabel.textContent = 'Error';
-        }
-        const statusMessage = document.getElementById('statusMessage');
-        if (statusMessage) {
-          statusMessage.textContent = 'Kon gegevens niet laden. Probeer later opnieuw.';
-        }
-      }
-    }
-
-    function scrollToSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.getElementById('menuOverlay');
-      const toggle = document.getElementById('menuToggle');
-      
+    // ──────────────────────────────────────────────────────────────
+    // NAVBAR TOGGLE
+    // ──────────────────────────────────────────────────────────────
+    document.getElementById('navToggle').addEventListener('click', function() {
+      const menu = document.getElementById('navMenu');
+      const overlay = document.getElementById('mobileMenuOverlay');
+      const toggle = this;
       menu.classList.toggle('active');
       overlay.classList.toggle('active');
       toggle.classList.toggle('active');
-    }
+    });
 
-    function closeMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.getElementById('menuOverlay');
-      const toggle = document.getElementById('menuToggle');
-      
-      menu.classList.remove('active');
-      overlay.classList.remove('active');
-      toggle.classList.remove('active');
-    }
+    document.getElementById('mobileMenuOverlay').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.remove('active');
+      this.classList.remove('active');
+      document.getElementById('navToggle').classList.remove('active');
+    });
 
-    function openMaps() {
-      window.open(`https://maps.google.com/?q=${encodeURIComponent(companyData.Adres)}`, '_blank', 'noopener,noreferrer');
-    }
-
-    function makeCall() {
-      const phone = companyData.Telefoon || '+31 (0)20 337 0324';
-      window.location.href = `tel:${phone}`;
-    }
-
-    function selectService(serviceName) {
-      const whatsappNumber = '31646102011';
-      const message = `Ik zou graag de dienst '${serviceName}' bij jullie willen inplannen.`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-      window.open(whatsappLink, '_blank', 'noopener,noreferrer');
-    }
-
-    async function submitContactForm(event) {
-      event.preventDefault();
-      const form = event.target;
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      
-      const submitBtn = document.getElementById('contactSubmitBtn');
-      const statusDiv = document.getElementById('contactStatus');
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Verzenden…';
-      statusDiv.classList.remove('hidden', 'text-green-700', 'bg-green-50', 'border-green-200', 'text-red-700', 'bg-red-50', 'border-red-200');
-      statusDiv.classList.add('text-blue-600', 'bg-blue-50', 'border', 'border-blue-200');
-      statusDiv.textContent = 'Uw bericht wordt verzonden...';
-
-      const now = new Date();
-      const datumTimestamp = now.toLocaleString('nl-NL', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-      const payload = {
-        action: 'bericht',
-        datum: datumTimestamp,
-        naam: form.querySelector('[name="naam"]').value.trim(),
-        email: form.querySelector('[name="email"]').value.trim(),
-        telefoon: form.querySelector('[name="telefoon"]').value.trim(),
-        kenteken: '',
-        onderwerp: form.querySelector('[name="onderwerp"]').value.trim(),
-        bericht: form.querySelector('[name="bericht"]').value.trim(),
-        bron: 'contactformulier'
-      };
-
+    // ──────────────────────────────────────────────────────────────
+    // OPENINGSTIJDEN LADEN
+    // ──────────────────────────────────────────────────────────────
+    async function laadBedrijfData() {
       try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          body: JSON.stringify(payload)
-        });
+        const r = await fetch(WEBAPP_URL + '?action=bedrijf');
+        const data = await r.json();
 
-        const result = await response.json();
+        document.getElementById('ot-bedrijfnaam').textContent =
+          (data.BedrijfsNaam || 'Car Center Rishi') + ' — Openingstijden';
 
-        if (result.success === true || result.status === 'ok') {
-          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          statusDiv.classList.add('text-green-700', 'bg-green-50', 'border-green-200');
-          statusDiv.textContent = 'Bedankt! Uw bericht is ontvangen. We nemen zo snel mogelijk contact op.';
-          
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Bericht Verzenden';
-          
-          setTimeout(() => {
-            form.reset();
-            statusDiv.classList.add('hidden');
-          }, 3000);
+        const rijen = document.getElementById('ot-rijen');
+        const dagNamen = ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag'];
+
+        rijen.innerHTML = dagNamen.map(dag => {
+          const tijd = data[dag] || '';
+          const gesloten = !tijd || tijd.toLowerCase() === 'gesloten' || tijd === '-';
+          return `<div class="ot-row">
+            <span class="ot-dag">${dag}</span>
+            <span class="ot-tijd ${gesloten ? 'ot-closed' : ''}">${gesloten ? 'Gesloten' : tijd}</span>
+          </div>`;
+        }).join('');
+
+        // Toon banner als geforceerd gesloten
+        if (data.ForcedClose && data.ForcedClose.toLowerCase() === 'ja') {
+          document.getElementById('gesloten-banner').style.display = 'block';
         } else {
-          statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-          statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-          statusDiv.textContent = 'Er is iets misgegaan. Probeer opnieuw of bel ons.';
-          
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Bericht Verzenden';
+          const vandaag = DAGEN_NL[new Date().getDay()];
+          const tijd = data[vandaag] || '';
+          if (!tijd || tijd.toLowerCase() === 'gesloten') {
+            document.getElementById('gesloten-banner').style.display = 'block';
+          }
         }
-      } catch (error) {
-        console.error('Error:', error);
-        statusDiv.classList.remove('text-blue-600', 'bg-blue-50', 'border-blue-200');
-        statusDiv.classList.add('text-red-700', 'bg-red-50', 'border-red-200');
-        statusDiv.textContent = 'Fout bij verzenden. Controleer uw internetverbinding.';
-        
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Bericht Verzenden';
+      } catch (e) {
+        console.error('Fout bij laden openingstijden:', e);
       }
     }
+
+    // ──────────────────────────────────────────────────────────────
+    // LICENSE PLATE CHECKER
+    // ──────────────────────────────────────────────────────────────
+    function checkLicense() {
+      const plate = document.getElementById('licensePlate').value.trim().toUpperCase();
+      if (plate.length < 6) {
+        alert('Voer een geldige kenteken in');
+        return;
+      }
+      alert('🚗 Kenteken: ' + plate + '\n\nUw voertuig is geregistreerd. Maak een afspraak voor APK keuring!');
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // CONTACT FORM
+    // ──────────────────────────────────────────────────────────────
+    document.getElementById('contactForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const btn = document.getElementById('btnContact');
+      btn.disabled = true;
+      btn.textContent = 'Versturen…';
+
+      const data = {
+        action:    'bericht',
+        naam:      form.naam.value.trim(),
+        email:     form.email.value.trim(),
+        telefoon:  form.telefoon.value.trim(),
+        onderwerp: form.onderwerp.value.trim(),
+        bericht:   form.bericht.value.trim(),
+        url:       window.location.href,
+        source:    'contactformulier'
+      };
+
+      const res = await stuurNaarSheet(data);
+      const msg = document.getElementById('msgContact');
+
+      if (res.success) {
+        msg.className = 'form-msg success';
+        msg.textContent = '✅ Bedankt! Uw bericht is ontvangen. We nemen zo snel mogelijk contact op.';
+        form.reset();
+      } else {
+        msg.className = 'form-msg error';
+        msg.textContent = '❌ Er is iets misgegaan. Probeer opnieuw of bel ons.';
+      }
+
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Verstuur bericht';
+    });
+
+    // ──────────────────────────────────────────────────────────────
+    // INITIALIZE
+    // ──────────────────────────────────────────────────────────────
+    laadBedrijfData();
+    lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0660be923a8e2b',t:'MTc3Njg3OTI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0bf92d660d28af',t:'MTc3NjkzNzkyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
