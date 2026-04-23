@@ -1,1229 +1,396 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl" class="h-full">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Car Center Rishi | Garage Amsterdam Noord | APK, Onderhoud &amp; Reparatie</title>
-  <meta name="description" content="Car Center Rishi in Amsterdam Noord. APK keuring vanaf €25, onderhoud, diagnose en reparatie voor alle automerken. Snelle service, 25+ jaar ervaring. Bel direct.">
-  <meta name="keywords" content="garage Amsterdam, APK Amsterdam Noord, auto reparatie, onderhoud auto, diagnose auto, bandenservice, airco service, Car Center Rishi">
-  <meta name="author" content="Car Center Rishi">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#000000">
-  <link rel="canonical" href="https://www.carcenterrishi.nl/">
-  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Center Rishi - Amsterdam</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #1f2937;
-      background-color: #f9fafb;
-      line-height: 1.6;
-      min-height: 100svh;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Black Ops One', cursive;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    /* IMAGES */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .image-wrapper {
+    html, body { height: 100%; margin: 0; }
+    body { font-family: 'DM Sans', sans-serif; }
+    .app-wrapper { height: 100%; overflow-y: auto; overflow-x: hidden; }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
       position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      width: 100%;
     }
-
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      display: block;
-    }
-
-    .image-wrapper:hover img {
-      transform: scale(1.05);
-    }
-
-    /* NAVBAR */
-    .navbar {
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 40;
-    }
-
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .navbar-brand {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: #000;
-      text-decoration: none;
-      font-family: 'Black Ops One', cursive;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .navbar-brand img {
-      width: 40px;
-      height: 40px;
-      border-radius: 4px;
-    }
-
-    @media (max-width: 768px) {
-      .navbar-brand {
-        font-size: 1rem;
-      }
-
-      .navbar-brand img {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    .navbar-menu {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      list-style: none;
-    }
-
-    .navbar-menu a {
-      color: #1f2937;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      font-size: 14px;
-    }
-
-    .navbar-menu a:hover {
-      color: #000;
-    }
-
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      z-index: 60;
-    }
-
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 45;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .navbar-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        max-width: 320px;
-        height: 100vh;
-        flex-direction: column;
-        gap: 0;
-        background-color: #fff;
-        padding-top: 5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        z-index: 55;
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar-menu.active {
-        transform: translateX(0);
-      }
-
-      .navbar-menu a {
-        padding: 1rem 0;
-        border-bottom: 1px solid #e5e7eb;
-        font-size: 1.1rem;
-        display: block;
-        color: #1f2937;
-      }
-
-      .navbar-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-      }
-
-      .navbar-toggle.active {
-        position: fixed;
-        right: 1.5rem;
-        top: 1rem;
-      }
-    }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 4rem 1.5rem;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 6vw, 3rem);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      animation: slideInDown 0.6s ease-out;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 3.5vw, 1.25rem);
-      margin-bottom: 2rem;
-      opacity: 0.95;
-      animation: slideInUp 0.6s ease-out 0.2s backwards;
-      text-align: center;
-      word-break: keep-all;
-    }
-
-    @keyframes slideInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* BUTTONS */
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #000;
-      color: #fff;
-      text-decoration: none;
-      border: 2px solid #000;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-      animation: slideInUp 0.6s ease-out 0.4s backwards;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-primary:hover {
-      background-color: #1f2937;
-      border-color: #1f2937;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    /* LICENSE PLATE SECTION */
-    .license-plate-section {
-      background-color: #fff;
-      padding: 2rem 1.5rem;
-      padding-bottom: 6rem;
-      border-top: 3px solid #fbbf24;
-    }
-
-    .license-plate-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .license-plate-container h2 {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .license-plate-input-group {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .license-plate-input-group input {
-      flex: 1;
-      padding: 12px;
-      border: 2px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: border-color 0.3s ease;
-    }
-
-    .license-plate-input-group input:focus {
-      outline: none;
-      border-color: #000;
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .license-plate-input-group button {
-      padding: 12px 24px;
-    }
-
-    @media (max-width: 768px) {
-      .license-plate-input-group {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .license-plate-input-group input {
-        width: 100%;
-      }
-
-      .license-plate-input-group button {
-        width: 100%;
-      }
-    }
-
-    /* SERVICES */
-    .section {
-      padding: 3rem 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .section {
-        padding: 2rem 1.5rem;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    .section-title {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      color: #6b7280;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(220,38,38,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(14,165,233,0.1) 0%, transparent 50%);
     }
 
     .service-card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border-top: 4px solid #000;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
 
-    .service-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+    .gallery-img {
+      transition: transform 0.5s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
     }
 
-    .service-card p {
-      color: #6b7280;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp 0.7s forwards;
     }
-
-    /* GALLERY */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      width: 100%;
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
 
-    @media (min-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: auto auto;
-      }
+    .red-accent { color: #dc2626; }
+    .bg-red-accent { background-color: #dc2626; }
+    .bg-red-accent-hover:hover { background-color: #b91c1c; }
 
-      .gallery-item.large {
-        grid-row: span 2;
-      }
-    }
+    .rating-stars { color: #facc15; }
 
-    .gallery-item {
+    .nav-link {
       position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      transition: box-shadow 0.3s ease;
-      height: 240px;
-      width: 100%;
+      transition: color 0.3s;
     }
-
-    @media (max-width: 768px) {
-      .gallery-item {
-        height: 200px;
-      }
+    .nav-link::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: #dc2626;
+      transition: width 0.3s;
     }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #dc2626; }
 
-    .gallery-item:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    .scroll-smooth { scroll-behavior: smooth; }
+
+    .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      display: inline-block;
     }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      display: block;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
-    }
-
-    /* LIGHTBOX */
-    .lightbox-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .lightbox-overlay.active {
-      display: flex;
-    }
-
-    .lightbox-content {
-      position: relative;
-      max-width: 90%;
-      max-height: 90vh;
-      animation: zoomIn 0.3s ease;
-    }
-
-    .lightbox-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: transform 0.2s ease;
-    }
-
-    .lightbox-close:hover {
-      transform: scale(1.2);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* REVIEWS */
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .review-grid {
-        display: flex !important;
-        overflow-x: auto !important;
-        gap: 0 !important;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.5rem;
-        scrollbar-width: none;
-        position: relative;
-      }
-      .review-grid::-webkit-scrollbar {
-        display: none;
-      }
-      .review-card {
-        flex: 0 0 85vw !important;
-        min-width: 85vw !important;
-        max-width: 85vw !important;
-        scroll-snap-align: start;
-        margin-right: 0;
-      }
-    }
-
-    .review-card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #fbbf24;
-    }
-
-    .review-rating {
-      color: #fbbf24;
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .review-text {
-      color: #4b5563;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-
-    .review-author {
-      color: #1f2937;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* OPENING HOURS */
-    .ot-widget {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-    }
-
-    .ot-widget h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      font-family: 'Black Ops One', cursive;
-    }
-
-    #ot-rijen {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.75rem;
-    }
-
-    .ot-row {
-      background-color: #f3f4f6;
-      padding: 0.75rem;
-      border-radius: 6px;
-      border: 2px solid #e5e7eb;
-      text-align: center;
-    }
-
-    .ot-dag {
-      display: block;
-      font-weight: 600;
-      color: #1f2937;
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .ot-tijd {
-      display: block;
-      color: #1f2937;
-      font-size: 0.85rem;
-    }
-
-    .ot-tijd.ot-closed {
-      color: #9ca3af;
-      font-style: italic;
-    }
-
-    #gesloten-banner {
-      display: none;
-      background-color: #fee2e2;
-      border: 2px solid #ef4444;
-      color: #991b1b;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    /* CONTACT */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .contact-card {
-      background: #f3f4f6;
-      padding: 2rem;
-      border-radius: 8px;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 1rem;
-    }
-
-    .contact-card p {
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-card a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-image {
-      max-width: 500px;
-      margin: 2rem auto;
-      width: 100%;
-    }
-
-    /* FORMS */
-    .form-section {
-      background-color: #fff;
-      padding: 2rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-    }
-
-    .form-section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 2px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
-      min-height: 40px;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: #000;
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-msg {
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: 2px solid #dbeafe;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .form-msg.success {
-      background-color: #f0fdf4;
-      border-color: #22c55e;
-      color: #15803d;
-    }
-
-    .form-msg.error {
-      background-color: #fef2f2;
-      border-color: #ef4444;
-      color: #991b1b;
-    }
-
-    .btn-submit {
-      background-color: #000;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid #000;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      width: 100%;
-      min-height: 44px;
-    }
-
-    .btn-submit:hover:not(:disabled) {
-      background-color: #1f2937;
-      border-color: #1f2937;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    @media (max-width: 768px) {
-      .form-section {
-        padding: 1.5rem 1rem;
-      }
-
-      #ot-rijen {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-      }
-
-      .ot-row {
-        padding: 0.5rem;
-      }
-    }
-
-    /* CTA BUTTONS */
-    .cta-button {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      z-index: 30;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-
-    .cta-button.whatsapp {
-      background-color: #25d366;
-      bottom: 5.5rem;
-      right: 2rem;
-    }
-
-    .cta-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 768px) {
-      .cta-button {
-        width: 56px;
-        height: 56px;
-        font-size: 1.5rem;
-        bottom: 6rem;
-        right: 1.5rem;
-        box-shadow: 0 2px 12px rgba(37, 211, 102, 0.4);
-      }
-
-      .cta-button:active {
-        transform: scale(0.95);
-      }
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: #000;
-      color: #fff;
-      padding: 2rem 1.5rem;
-      margin-top: 3rem;
-    }
-
-    footer p {
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #fbbf24;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      font-family: 'Black Ops One', cursive;
-      margin-bottom: 1rem;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 1.5rem;
-      text-align: center;
+    .pulse-dot.open { background: #22c55e; animation: pulse 2s infinite; }
+    .pulse-dot.closed { background: #ef4444; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
- <body><!-- NAVBAR -->
-  <nav class="navbar">
-   <div class="navbar-container"><a href="#" class="navbar-brand"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" loading="eager" decoding="async"> <span>Car Center Rishi</span> </a> <button class="navbar-toggle" id="navToggle">☰</button>
-    <ul class="navbar-menu" id="navMenu">
-     <li><a href="#services">Diensten</a></li>
-     <li><a href="#reviews">Reviews</a></li>
-     <li><a href="#contact">Contact</a></li>
-    </ul>
-   </div>
-  </nav>
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div><!-- HERO SECTION -->
-  <section class="hero">
-   <div class="hero-content">
-    <h1>Car Center Rishi</h1>
-    <p>APK Keuring • Onderhoud • Reparatie</p><a href="https://wa.me/31646102011?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken" target="_blank" rel="noopener noreferrer" class="btn-primary">Maak een afspraak</a>
-   </div>
-  </section><!-- LICENSE PLATE SECTION -->
-  <section class="license-plate-section">
-   <div class="license-plate-container">
-    <h2>🔍 Controleer je voertuig</h2>
-    <div class="license-plate-input-group"><input type="text" id="licensePlate" placeholder="Bijv: AA-123-BB" maxlength="10"> <button class="btn-primary" onclick="checkLicense()">Controleer</button>
+ <body class="h-full">
+  <div class="app-wrapper scroll-smooth" id="top"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16 sm:h-20"><a href="#top" class="flex items-center gap-3"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" class="h-10 sm:h-12 rounded" loading="lazy" onerror="console.error('Logo failed:', this.src); this.style.display='none';"> <span class="font-heading font-bold text-white text-lg sm:text-xl hidden sm:block">Car Center Rishi</span> </a>
+      <div class="hidden md:flex items-center gap-8"><a href="#diensten" class="nav-link text-slate-300 text-sm font-medium">Diensten</a> <a href="#werkplaats" class="nav-link text-slate-300 text-sm font-medium">Werkplaats</a> <a href="#openingstijden" class="nav-link text-slate-300 text-sm font-medium">Openingstijden</a> <a href="#contact" class="nav-link text-slate-300 text-sm font-medium">Contact</a> <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:16px;height:16px;"></i> Bel Ons </a>
+      </div><button id="menuBtn" class="md:hidden text-white p-2"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
+     </div>
+    </div><!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4"><a href="#diensten" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Diensten</a> <a href="#werkplaats" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Werkplaats</a> <a href="#openingstijden" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Openingstijden</a> <a href="#contact" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Contact</a> <a href="tel:0646102011" class="mt-3 block text-center bg-red-accent text-white py-3 rounded-lg font-semibold">Bel Ons</a>
     </div>
-   </div>
-  </section><!-- SERVICES SECTION -->
-  <section class="section" id="services">
-   <div class="container">
-    <h2 class="section-title">Onze Diensten</h2>
-    <p class="section-subtitle">Alles wat je auto nodig heeft op één plek</p>
-    <div class="service-grid">
-     <div class="service-card">
-      <h3>🔍 APK Keuring</h3>
-      <p>Snelle en professionele APK keuringen. Vanaf €25. Onderdeel van onze expertise.</p>
-     </div>
-     <div class="service-card">
-      <h3>🔧 Onderhoud</h3>
-      <p>Regelmatig onderhoud zorgt voor een gezonde auto. Wij verzorgen alles professioneel.</p>
-     </div>
-     <div class="service-card">
-      <h3>⚙️ Reparatie</h3>
-      <p>Van kleine tot grote reparaties. Snelle diagnose en eerlijke prijzen gegarandeerd.</p>
-     </div>
-     <div class="service-card">
-      <h3>❄️ Airco Service</h3>
-      <p>Laat je airco controleren en onderhouden voor optimale werking in zomer.</p>
-     </div>
-     <div class="service-card">
-      <h3>🛞 Bandenservice</h3>
-      <p>Banden wisselen, repareren en uitbalanceren door experts.</p>
-     </div>
-     <div class="service-card">
-      <h3>🔎 Diagnose</h3>
-      <p>Computerdiagnose om problemen snel te vinden. Met uitgebreide scan apparatuur.</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- WERKPLAATS SECTION -->
-  <section class="section" style="background-color: #f3f4f6;">
-   <div class="container">
-    <h2 class="section-title">Onze Werkplaats</h2>
-    <p class="section-subtitle">Bekijk waar wij dagelijks werken aan uw auto</p>
-    <div class="gallery-grid">
-     <figure class="gallery-item large image-wrapper" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Werkplaats Car Center Rishi Amsterdam" loading="lazy" decoding="async" fetchpriority="high"> <span class="gallery-caption">🔧 Professionele werkplaats</span>
-     </figure>
-     <figure class="gallery-item image-wrapper" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Autoreparatie werkplaats Amsterdam Noord" loading="lazy" decoding="async"> <span class="gallery-caption">⚙️ Reparatie zone</span>
-     </figure>
-     <figure class="gallery-item image-wrapper" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Wachtruimte garage Car Center Rishi" loading="lazy" decoding="async"> <span class="gallery-caption">☕ Comfort wachtruimte</span>
-     </figure>
-    </div>
-   </div>
-  </section><!-- REVIEWS SECTION -->
-  <section class="section" id="reviews">
-   <div class="container">
-    <h2 class="section-title">Wat klanten zeggen</h2>
-    <p class="section-subtitle">4.4★ op basis van 156 reviews</p>
-    <div class="review-grid">
-     <div class="review-card">
-      <div class="review-rating">
-       ⭐⭐⭐⭐⭐
+   </nav><!-- Hero -->
+   <section class="hero-bg pt-32 pb-20 sm:pt-40 sm:pb-28 relative">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="max-w-3xl">
+      <div class="fade-up flex items-center gap-2 mb-4"><span class="rating-stars text-lg">★★★★★</span> <span class="text-slate-400 text-sm">4.470 recensies</span>
       </div>
-      <p class="review-text">"Fantastische service! Snelle afhandeling en eerlijke prijzen. Ik kom hier graag terug."</p>
-      <p class="review-author">— Ahmed K.</p>
-     </div>
-     <div class="review-card">
-      <div class="review-rating">
-       ⭐⭐⭐⭐⭐
+      <h1 id="heroTitle" class="fade-up delay-1 font-heading font-900 text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-4">Car Center Rishi</h1>
+      <p id="heroSubtitle" class="fade-up delay-2 text-slate-300 text-lg sm:text-xl mb-8 max-w-xl">Uw betrouwbare autogarage in Amsterdam Noord — vakkundig, eerlijk en betaalbaar.</p>
+      <div class="fade-up delay-3 flex flex-wrap gap-4"><a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:20px;height:20px;"></i> 06 46102011 </a> <a href="#diensten" class="border-2 border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white transition-colors"> Bekijk Diensten </a>
       </div>
-      <p class="review-text">"De APK was snel en professioneel. Geen verrassingen, alles duidelijk uitgelegd."</p>
-      <p class="review-author">— Maria V.</p>
-     </div>
-     <div class="review-card">
-      <div class="review-rating">
-       ⭐⭐⭐⭐⭐
+      <div class="fade-up delay-4 mt-10 flex flex-wrap gap-6 text-slate-400 text-sm"><span class="flex items-center gap-2"><i data-lucide="map-pin" style="width:16px;height:16px;" class="red-accent"></i> Meeuwenlaan 116, Amsterdam</span> <span class="flex items-center gap-2"><i data-lucide="shield-check" style="width:16px;height:16px;" class="red-accent"></i> RDW Erkend</span> <span class="flex items-center gap-2"><i data-lucide="clock" style="width:16px;height:16px;" class="red-accent"></i> Ma-Vr 9:00-18:00</span>
       </div>
-      <p class="review-text">"Beste garage in Amsterdam Noord. Vriendelijk, deskundig en betrouwbaar!"</p>
-      <p class="review-author">— Jan D.</p>
      </div>
-     <div class="review-card">
-      <div class="review-rating">
-       ⭐⭐⭐⭐
+    </div><!-- Decorative -->
+    <div class="absolute right-0 top-20 w-1/3 h-full opacity-10 hidden lg:block">
+     <svg viewbox="0 0 400 400" fill="none" class="w-full h-full"><circle cx="200" cy="200" r="180" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="140" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="100" stroke="#dc2626" stroke-width="0.5" />
+     </svg>
+    </div>
+   </section><!-- Services -->
+   <section id="diensten" class="bg-slate-50 py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Wat wij bieden</span>
+      <h2 id="servicesTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Diensten</h2>
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card bg-white rounded-2xl p-8 border border-slate-200">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="clipboard-check" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-xl text-slate-900 mb-2">APK Keuring</h3>
+       <p class="text-slate-500 mb-4">Snelle en betrouwbare APK keuring door onze RDW-erkende keurmeesters.</p>
+       <p class="font-heading font-800 text-2xl red-accent">vanaf €40</p>
       </div>
-      <p class="review-text">"Goed werk. Prijs was iets aan de hoge kant, maar kwaliteit is top."</p>
-      <p class="review-author">— Lisa P.</p>
+      <div class="service-card bg-white rounded-2xl p-8 border border-slate-200">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="search" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-xl text-slate-900 mb-2">Diagnose</h3>
+       <p class="text-slate-500 mb-4">Professionele foutdiagnose met de nieuwste apparatuur.</p>
+       <p class="font-heading font-800 text-2xl red-accent">vanaf €50/€85</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 border border-slate-200">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="droplets" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-xl text-slate-900 mb-2">Olie Verversen</h3>
+       <p class="text-slate-500 mb-4">Olieverversing met hoogwaardige olie voor optimale motorprestaties.</p>
+       <p class="font-heading font-800 text-2xl red-accent">vanaf €150</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 border border-slate-200">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="wind" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-xl text-slate-900 mb-2">Airco Service</h3>
+       <p class="text-slate-500 mb-4">Airco bijvullen, reinigen en controleren voor optimaal comfort.</p>
+       <p class="font-heading font-800 text-2xl red-accent">vanaf €100</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-8 border border-slate-200">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="circle" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 class="font-heading font-700 text-xl text-slate-900 mb-2">Banden Service</h3>
+       <p class="text-slate-500 mb-4">Bandenwissel, uitlijnen, balanceren en reparatie.</p>
+       <p class="font-heading font-800 text-2xl red-accent">vanaf €12,50</p>
+      </div>
+      <div class="service-card bg-slate-900 rounded-2xl p-8 flex flex-col justify-center items-center text-center"><i data-lucide="phone" style="width:32px;height:32px;" class="text-white mb-4"></i>
+       <h3 class="font-heading font-700 text-xl text-white mb-2">Andere vraag?</h3>
+       <p class="text-slate-400 mb-5">Neem vrijblijvend contact met ons op.</p><a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-6 py-3 rounded-lg font-semibold transition-colors">Bel Nu</a>
+      </div>
      </div>
     </div>
-   </div>
-  </section><!-- OPENING HOURS SECTION -->
-  <section class="section">
-   <div class="container">
-    <h2 class="section-title">Openingstijden</h2>
-    <div id="gesloten-banner">
-     ⚠️ We zijn momenteel gesloten. Stuur ons een bericht of bel ons voor meer info.
-    </div>
-    <div class="ot-widget">
-     <h3>Car Center Rishi — Openingstijden</h3>
-     <div id="ot-rijen"></div>
-    </div>
-   </div>
-  </section><!-- CONTACT SECTION -->
-  <section class="section" id="contact">
-   <div class="container">
-    <h2 class="section-title">📞 Contact &amp; Afspraak</h2>
-    <div class="contact-grid">
-     <div class="contact-card">
-      <h3>Bel ons</h3>
-      <p style="font-size: 1.25rem; font-weight: bold;"><a href="tel:+31646102011">+31 6 46102011</a></p>
-      <p style="color: #6b7280;">Maandag - Vrijdag: 09:00 - 18:00</p>
+   </section><!-- Gallery -->
+   <section id="werkplaats" class="bg-white py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Een kijkje binnen</span>
+      <h2 id="galleryTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Werkplaats</h2>
      </div>
-     <div class="contact-card">
-      <h3>Adres</h3>
-      <p><strong>Car Center Rishi</strong></p>
-      <p>Meeuwenlaan 116</p>
-      <p>1021 JM Amsterdam</p>
-     </div>
-     <div class="contact-card">
-      <h3>Email</h3>
-      <p><a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a></p>
-      <p style="color: #6b7280; margin-top: 1rem;">Respons binnen 24 uur</p>
-     </div>
-    </div>
-    <figure class="image-wrapper contact-image"><img src="https://i.postimg.cc/Gt82QvDB/73edfb7f-139d-4678-8409-dd0900375cc1.jpg" alt="Algemene voorwaarden Car Center Rishi bord" loading="lazy" decoding="async">
-    </figure>
-    <div class="form-section">
-     <h2>📧 Stuur ons een bericht</h2>
-     <div id="msgContact" class="form-msg"></div>
-     <form id="contactForm">
-      <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" required>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="lg:col-span-2 rounded-2xl overflow-hidden aspect-video"><img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Werkplaats Car Center Rishi" class="gallery-img w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='#1e293b'; this.alt='Afbeelding niet beschikbaar';">
       </div>
-      <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" required>
+      <div class="rounded-2xl overflow-hidden aspect-square"><img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Werkplaats sectie" class="gallery-img w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='#1e293b'; this.alt='Afbeelding niet beschikbaar';">
       </div>
-      <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon">
+      <div class="rounded-2xl overflow-hidden aspect-square"><img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Wachtruimte" class="gallery-img w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='#1e293b'; this.alt='Afbeelding niet beschikbaar';">
       </div>
-      <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" required>
+      <div class="rounded-2xl overflow-hidden aspect-video"><img src="https://i.postimg.cc/Gt82QvDB/73edfb7f-139d-4678-8409-dd0900375cc1.jpg" alt="Algemene voorwaarden" class="gallery-img w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='#1e293b'; this.alt='Afbeelding niet beschikbaar';">
       </div>
-      <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" required></textarea>
-      </div><button type="submit" id="btnContact" class="btn-submit">Verstuur bericht</button>
-     </form>
-    </div>
-   </div>
-  </section><!-- FOOTER -->
-  <footer>
-   <div class="container">
-    <div class="footer-grid">
-     <div class="footer-section">
-      <h4>Car Center Rishi</h4>
-      <p>Professionele autogarage in Amsterdam Noord</p>
-      <p>25+ jaar ervaring in APK, onderhoud en reparatie</p>
-     </div>
-     <div class="footer-section">
-      <h4>Snelle Links</h4>
-      <ul>
-       <li><a href="#services">Diensten</a></li>
-       <li><a href="#reviews">Reviews</a></li>
-       <li><a href="#contact">Contact</a></li>
-      </ul>
-     </div>
-     <div class="footer-section">
-      <h4>Contact</h4>
-      <p>📞 <a href="tel:+31646102011">+31 6 46102011</a></p>
-      <p>📧 <a href="mailto:info@carcenterrishi.nl">info@carcenterrishi.nl</a></p>
-      <p>📍 Meeuwenlaan 116, Amsterdam</p>
+      <div class="rounded-2xl overflow-hidden aspect-square md:aspect-video"><img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Gebouw Car Center Rishi" class="gallery-img w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='#1e293b'; this.alt='Afbeelding niet beschikbaar';">
+      </div>
      </div>
     </div>
-    <div class="footer-bottom">
-     <p>© 2024 Car Center Rishi. Alle rechten voorbehouden.</p>
+   </section><!-- Hours -->
+   <section id="openingstijden" class="bg-slate-900 py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div><span class="text-sm font-semibold tracking-widest uppercase red-accent">Wanneer kunt u langs</span>
+       <h2 class="font-heading font-800 text-3xl sm:text-4xl text-white mt-3 mb-8">Openingstijden</h2>
+       <div id="hoursGrid" class="space-y-3"><!-- Filled by JS -->
+       </div>
+       <p class="text-slate-500 text-sm mt-6 flex items-center gap-2"><i data-lucide="info" style="width:14px;height:14px;"></i> Openingstijden kunnen afwijken</p>
+      </div>
+      <div class="bg-slate-800 rounded-2xl p-8 sm:p-10">
+       <h3 class="font-heading font-700 text-2xl text-white mb-6">Bedrijfsgegevens</h3>
+       <div class="space-y-4 text-slate-300">
+        <div class="flex items-start gap-3"><i data-lucide="map-pin" style="width:18px;height:18px;min-width:18px;" class="red-accent mt-1"></i> <span>Meeuwenlaan 116, 1021 JM Amsterdam</span>
+        </div>
+        <div class="flex items-center gap-3"><i data-lucide="phone" style="width:18px;height:18px;min-width:18px;" class="red-accent"></i> <a href="tel:0203370324" class="hover:text-white transition-colors">020-3370324</a>
+        </div>
+        <div class="flex items-center gap-3"><i data-lucide="smartphone" style="width:18px;height:18px;min-width:18px;" class="red-accent"></i> <a href="tel:0646102011" class="hover:text-white transition-colors">06-46102011</a>
+        </div>
+        <div class="flex items-center gap-3"><i data-lucide="mail" style="width:18px;height:18px;min-width:18px;" class="red-accent"></i> <a href="mailto:info@carcenterrishi.nl" class="hover:text-white transition-colors">info@carcenterrishi.nl</a>
+        </div>
+        <div class="flex items-center gap-3"><i data-lucide="globe" style="width:18px;height:18px;min-width:18px;" class="red-accent"></i> <a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">www.carcenterrishi.nl</a>
+        </div>
+        <hr class="border-slate-700 my-2">
+        <div class="text-sm text-slate-500 space-y-1">
+         <p>KvK: 68638701</p>
+         <p>BTW: NL0545.97.481</p>
+         <p>IBAN: NL03 RABO 0318 1214 92</p>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
-   </div>
-  </footer><!-- CTA BUTTON --> <a href="https://wa.me/31646102011?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken" target="_blank" rel="noopener noreferrer" class="cta-button whatsapp"> <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i> </a> <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightboxOverlay">
-   <div class="lightbox-content"><button class="lightbox-close" onclick="closeLightbox()">×</button> <img id="lightboxImage" src="" alt="Lightbox image">
-   </div>
+   </section><!-- Contact / Map -->
+   <section id="contact" class="bg-slate-50 py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Kom langs</span>
+      <h2 id="contactTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Contact</h2>
+     </div>
+     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><a href="tel:0646102011" class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-red-300 transition-colors text-center group">
+       <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors"><i data-lucide="phone" style="width:28px;height:28px;" class="red-accent"></i>
+       </div><h3 class="font-heading font-700 text-lg text-slate-900 mb-1">Bel Ons</h3><p class="red-accent font-semibold">06 46102011</p></a> <a href="mailto:info@carcenterrishi.nl" class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-red-300 transition-colors text-center group">
+       <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors"><i data-lucide="mail" style="width:28px;height:28px;" class="red-accent"></i>
+       </div><h3 class="font-heading font-700 text-lg text-slate-900 mb-1">E-mail</h3><p class="red-accent font-semibold">info@carcenterrishi.nl</p></a> <a href="https://maps.google.com/?q=Meeuwenlaan+116+Amsterdam" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-red-300 transition-colors text-center group">
+       <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors"><i data-lucide="map-pin" style="width:28px;height:28px;" class="red-accent"></i>
+       </div><h3 class="font-heading font-700 text-lg text-slate-900 mb-1">Route</h3><p class="red-accent font-semibold">Bekijk op Google Maps</p></a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-slate-900 border-t border-slate-800 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Logo" class="h-8 rounded" loading="lazy" onerror="this.style.display='none';"> <span class="font-heading font-600 text-white">Car Center Rishi</span>
+      </div>
+      <p class="text-slate-500 text-sm">© 2025 Car Center Rishi. Alle rechten voorbehouden.</p>
+     </div>
+    </div>
+   </footer>
   </div>
   <script>
-    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzQt4o6XacftySHaK7gbJ4Le3Tp0ZoZRF3e4tOnI9Ma7qWoPd0wH-_SrbjlZWv_KUMD/exec';
-    const DAGEN_NL = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+  // Opening hours
+  const hours = [
+    { day: 'Maandag', time: '09:00 – 18:00' },
+    { day: 'Dinsdag', time: '09:00 – 18:00' },
+    { day: 'Woensdag', time: '09:00 – 18:00' },
+    { day: 'Donderdag', time: '09:00 – 18:00' },
+    { day: 'Vrijdag', time: '09:00 – 18:00' },
+    { day: 'Zaterdag', time: '12:00 – 18:00' },
+    { day: 'Zondag', time: 'Gesloten' }
+  ];
 
-    /* LIGHTBOX */
-    function openLightbox(src, caption) {
-      const overlay = document.getElementById('lightboxOverlay');
-      const img = document.getElementById('lightboxImage');
-      img.src = src;
-      img.alt = caption;
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      const overlay = document.getElementById('lightboxOverlay');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
+  function renderHours() {
+    const now = new Date();
+    const todayIndex = now.getDay() === 0 ? 6 : now.getDay() - 1;
+    const grid = document.getElementById('hoursGrid');
+    grid.innerHTML = '';
+    hours.forEach((h, i) => {
+      const isToday = i === todayIndex;
+      const isClosed = h.time === 'Gesloten';
+      let isOpen = false;
+      if (isToday && !isClosed) {
+        const [open, close] = h.time.split(' – ');
+        const [oh, om] = open.split(':').map(Number);
+        const [ch, cm] = close.split(':').map(Number);
+        const mins = now.getHours() * 60 + now.getMinutes();
+        isOpen = mins >= oh * 60 + om && mins < ch * 60 + cm;
+      }
+      const row = document.createElement('div');
+      row.className = `flex items-center justify-between py-3 px-4 rounded-lg ${isToday ? 'bg-slate-800 border border-slate-700' : ''}`;
+      row.innerHTML = `
+        <div class="flex items-center gap-3">
+          ${isToday ? `<span class="pulse-dot ${isOpen ? 'open' : 'closed'}"></span>` : '<span style="width:8px;display:inline-block;"></span>'}
+          <span class="${isToday ? 'text-white font-semibold' : 'text-slate-400'}">${h.day}</span>
+          ${isToday ? '<span class="text-xs text-slate-500 ml-1">vandaag</span>' : ''}
+        </div>
+        <span class="${isClosed ? 'text-red-400' : isToday ? 'text-white font-semibold' : 'text-slate-300'}">${h.time}</span>
+      `;
+      grid.appendChild(row);
     });
+  }
+  renderHours();
 
-    document.getElementById('lightboxOverlay')?.addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
+  // Mobile menu
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+  document.querySelectorAll('.mobile-nav').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('hidden');
     });
+  });
 
-    /* NAVBAR TOGGLE */
-    document.getElementById('navToggle').addEventListener('click', function() {
-      const menu = document.getElementById('navMenu');
-      const overlay = document.getElementById('mobileMenuOverlay');
-      const toggle = this;
-      menu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      toggle.classList.toggle('active');
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
+  });
 
-    document.getElementById('mobileMenuOverlay').addEventListener('click', function() {
-      document.getElementById('navMenu').classList.remove('active');
-      this.classList.remove('active');
-      document.getElementById('navToggle').classList.remove('active');
+  // Element SDK
+  const defaultConfig = {
+    hero_title: 'Car Center Rishi',
+    hero_subtitle: 'Uw betrouwbare autogarage in Amsterdam Noord — vakkundig, eerlijk en betaalbaar.',
+    services_title: 'Onze Diensten',
+    gallery_title: 'Onze Werkplaats',
+    contact_title: 'Contact',
+    background_color: '#0f172a',
+    surface_color: '#ffffff',
+    text_color: '#0f172a',
+    accent_color: '#dc2626',
+    secondary_action_color: '#64748b',
+    font_family: 'Outfit',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    const c = { ...defaultConfig, ...config };
+    const font = c.font_family || defaultConfig.font_family;
+    const baseSize = c.font_size || defaultConfig.font_size;
+
+    document.getElementById('heroTitle').textContent = c.hero_title;
+    document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+    document.getElementById('servicesTitle').textContent = c.services_title;
+    document.getElementById('galleryTitle').textContent = c.gallery_title;
+    document.getElementById('contactTitle').textContent = c.contact_title;
+
+    // Font
+    document.querySelectorAll('.font-heading, h1, h2, h3').forEach(el => {
+      el.style.fontFamily = `${font}, Outfit, sans-serif`;
     });
+    document.body.style.fontFamily = `DM Sans, ${font}, sans-serif`;
 
-    /* OPENING HOURS */
-    async function laadBedrijfData() {
-      try {
-        const r = await fetch(WEBAPP_URL + '?action=bedrijf');
-        const data = await r.json();
+    // Font size scaling
+    document.getElementById('heroTitle').style.fontSize = `${baseSize * 3.5}px`;
+    document.getElementById('heroSubtitle').style.fontSize = `${baseSize * 1.25}px`;
+  }
 
-        const rijen = document.getElementById('ot-rijen');
-        const dagNamen = ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag'];
-
-        rijen.innerHTML = dagNamen.map(dag => {
-          const tijd = data[dag] || '';
-          const gesloten = !tijd || tijd.toLowerCase() === 'gesloten' || tijd === '-';
-          return `<div class="ot-row">
-            <span class="ot-dag">${dag}</span>
-            <span class="ot-tijd ${gesloten ? 'ot-closed' : ''}">${gesloten ? 'Gesloten' : tijd}</span>
-          </div>`;
-        }).join('');
-
-        if (data.ForcedClose && data.ForcedClose.toLowerCase() === 'ja') {
-          document.getElementById('gesloten-banner').style.display = 'block';
-        } else {
-          const vandaag = DAGEN_NL[new Date().getDay()];
-          const tijd = data[vandaag] || '';
-          if (!tijd || tijd.toLowerCase() === 'gesloten') {
-            document.getElementById('gesloten-banner').style.display = 'block';
-          }
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
         }
-      } catch (e) {
-        console.error('Fout bij laden openingstijden:', e);
-      }
-    }
-
-    /* LICENSE PLATE */
-    function checkLicense() {
-      const plate = document.getElementById('licensePlate').value.trim().toUpperCase();
-      if (plate.length < 6) {
-        alert('Voer een geldige kenteken in');
-        return;
-      }
-      alert('🚗 Kenteken: ' + plate + '\n\nUw voertuig is geregistreerd. Maak een afspraak voor APK keuring!');
-    }
-
-    /* CONTACT FORM */
-    document.getElementById('contactForm').addEventListener('submit', async e => {
-      e.preventDefault();
-      const form = e.target;
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      const btn = document.getElementById('btnContact');
-      btn.disabled = true;
-      btn.textContent = 'Versturen…';
-
-      const data = {
-        action: 'bericht',
-        naam: form.naam.value.trim(),
-        email: form.email.value.trim(),
-        telefoon: form.telefoon.value.trim(),
-        onderwerp: form.onderwerp.value.trim(),
-        bericht: form.bericht.value.trim(),
-        url: window.location.href,
-        source: 'contactformulier'
-      };
-
-      try {
-        const res = await fetch(WEBAPP_URL, { method: 'POST', body: JSON.stringify(data) });
-        const result = await res.json();
-        const msg = document.getElementById('msgContact');
-
-        if (result.success) {
-          msg.className = 'form-msg success';
-          msg.textContent = '✅ Bedankt! Uw bericht is ontvangen. We nemen zo snel mogelijk contact op.';
-          form.reset();
-        } else {
-          msg.className = 'form-msg error';
-          msg.textContent = '❌ Er is iets misgegaan. Probeer opnieuw of bel ons.';
-        }
-
-        msg.style.display = 'block';
-      } catch (err) {
-        const msg = document.getElementById('msgContact');
-        msg.className = 'form-msg error';
-        msg.textContent = '❌ Netwerkfout. Probeer later opnieuw.';
-        msg.style.display = 'block';
-      }
-
-      btn.disabled = false;
-      btn.textContent = 'Verstuur bericht';
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['services_title', config.services_title || defaultConfig.services_title],
+        ['gallery_title', config.gallery_title || defaultConfig.gallery_title],
+        ['contact_title', config.contact_title || defaultConfig.contact_title]
+      ])
     });
+  }
 
-    laadBedrijfData();
-    lucide.createIcons();
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c1cf3877cd5d8',t:'MTc3NjkzOTM5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c2f8bf2f6e6d0',t:'MTc3Njk0MDE1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
