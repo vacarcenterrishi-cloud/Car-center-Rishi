@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="nl">
- <head><!-- BASIC SEO -->
+ <head>
+  <!-- BASIC SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Car Center Rishi | Garage Amsterdam Noord | APK, Onderhoud &amp; Reparatie</title>
@@ -59,12 +60,48 @@
       color: #1f2937;
       background-color: #f9fafb;
       line-height: 1.6;
+      min-height: 100svh;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Black Ops One', cursive;
       font-weight: 900;
       letter-spacing: -1px;
+    }
+
+    /* GLOBAAL AFBEELDINGS SYSTEEM */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .image-fixed {
+      height: 220px;
+    }
+
+    @media (max-width: 768px) {
+      .image-fixed {
+        height: 180px;
+      }
     }
 
     .btn-primary {
@@ -120,18 +157,22 @@
     .navbar-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .navbar-brand {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 900;
       color: #000;
       text-decoration: none;
       font-family: 'Black Ops One', cursive;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .navbar-menu {
@@ -245,17 +286,19 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 6vw, 3rem);
       margin-bottom: 1rem;
-      line-height: 1.1;
+      line-height: 1.2;
       animation: slideInDown 0.6s ease-out;
     }
 
     .hero p {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
       margin-bottom: 2rem;
       opacity: 0.95;
       animation: slideInUp 0.6s ease-out 0.2s backwards;
+      text-align: center;
+      word-break: keep-all;
     }
 
     .btn-primary {
@@ -294,23 +337,6 @@
       }
     }
 
-    .license-plate-section {
-      background-color: #fff;
-      padding: 2rem 1.5rem;
-      border-top: 3px solid #fbbf24;
-    }
-
-    .license-plate-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .license-plate-container h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
     .license-plate-input-group {
       display: flex;
       gap: 0.5rem;
@@ -338,6 +364,23 @@
       padding: 12px 24px;
     }
 
+    @media (max-width: 768px) {
+      .license-plate-input-group {
+        flex-direction: column;
+      }
+
+      .license-plate-input-group button {
+        width: 100%;
+      }
+    }
+
+    .license-plate-section {
+      background-color: #fff;
+      padding: 2rem 1.5rem;
+      padding-bottom: 6rem;
+      border-top: 3px solid #fbbf24;
+    }
+
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -345,11 +388,11 @@
       margin-top: 2rem;
     }
 
-    /* GALLERY BENTO LAYOUT */
+    /* WERKPLAATS SECTION */
     .gallery-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      grid-template-rows: 280px 280px;
+      grid-template-rows: auto auto;
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -486,8 +529,6 @@
         border-radius: 50%;
       }
     }
-
-    .service-card {
       background-color: #fff;
       padding: 1.5rem;
       border-radius: 8px;
@@ -684,14 +725,14 @@
 
     .cta-button.phone {
       background-color: #000;
-      bottom: 2rem;
+      bottom: 5.5rem;
       right: 2rem;
       display: none;
     }
 
     .cta-button.whatsapp {
       background-color: #25d366;
-      bottom: 2rem;
+      bottom: 5.5rem;
       right: 2rem;
       display: flex !important;
     }
@@ -706,7 +747,7 @@
         width: 56px;
         height: 56px;
         font-size: 1.5rem;
-        bottom: 1.5rem;
+        bottom: 6rem;
         right: 1.5rem;
         box-shadow: 0 2px 12px rgba(37, 211, 102, 0.4);
       }
@@ -717,9 +758,9 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 100%;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 15px;
       width: 100%;
       overflow-x: hidden;
     }
@@ -1060,11 +1101,9 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <style>body { box-sizing: border-box; }</style>
  </head>
- <body>
-  <!-- NAVBAR -->
+ <body><!-- NAVBAR -->
   <nav class="navbar">
-   <div class="navbar-container">
-    <a href="#" class="navbar-brand" style="display: flex; align-items: center; gap: 0.5rem;"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" width="40" height="40" loading="eager" decoding="async" style="border-radius: 4px;"> <span>Car Center Rishi</span> </a> <button class="navbar-toggle" id="navToggle">☰</button>
+   <div class="navbar-container"><a href="#" class="navbar-brand"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" width="40" height="40" loading="eager" decoding="async" style="border-radius: 4px;"> <span>Car Center Rishi</span> </a> <button class="navbar-toggle" id="navToggle">☰</button>
     <ul class="navbar-menu" id="navMenu">
      <li><a href="#services">Diensten</a></li>
      <li><a href="#reviews">Reviews</a></li>
@@ -1082,8 +1121,7 @@
   <section class="license-plate-section">
    <div class="license-plate-container">
     <h2>🔍 Controleer je voertuig</h2>
-    <div class="license-plate-input-group">
-     <input type="text" id="licensePlate" placeholder="Bijv: AA-123-BB" maxlength="10"> <button class="btn-primary" onclick="checkLicense()">Controleer</button>
+    <div class="license-plate-input-group"><input type="text" id="licensePlate" placeholder="Bijv: AA-123-BB" maxlength="10"> <button class="btn-primary" onclick="checkLicense()">Controleer</button>
     </div>
    </div>
   </section><!-- SERVICES SECTION -->
@@ -1128,11 +1166,14 @@
       <h2 class="section-title">Onze Werkplaats</h2>
       <p class="section-subtitle">Bekijk waar wij dagelijks werken aan uw auto</p>
       <div class="gallery-grid">
-       <figure class="gallery-item large" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Werkplaats Car Center Rishi Amsterdam" loading="lazy" decoding="async" fetchpriority="high"> <span class="gallery-caption">🔧 Professionele werkplaats</span>
+       <figure class="gallery-item large image-wrapper image-fixed" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)">
+        <img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Werkplaats Car Center Rishi Amsterdam" loading="lazy" decoding="async" fetchpriority="high"> <span class="gallery-caption">🔧 Professionele werkplaats</span>
        </figure>
-       <figure class="gallery-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Autoreparatie werkplaats Amsterdam Noord" loading="lazy" decoding="async"> <span class="gallery-caption">⚙️ Reparatie zone</span>
+       <figure class="gallery-item image-wrapper image-fixed" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)">
+        <img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Autoreparatie werkplaats Amsterdam Noord" loading="lazy" decoding="async"> <span class="gallery-caption">⚙️ Reparatie zone</span>
        </figure>
-       <figure class="gallery-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)"><img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Wachtruimte garage Car Center Rishi" loading="lazy" decoding="async"> <span class="gallery-caption">☕ Comfort wachtruimte</span>
+       <figure class="gallery-item image-wrapper image-fixed" onclick="openLightbox(this.querySelector('img').src, this.querySelector('.gallery-caption').textContent)">
+        <img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Wachtruimte garage Car Center Rishi" loading="lazy" decoding="async"> <span class="gallery-caption">☕ Comfort wachtruimte</span>
        </figure>
       </div>
      </div>
@@ -1208,29 +1249,22 @@
       <p style="color: #6b7280; margin-top: 1rem;">Respons binnen 24 uur</p>
      </div>
     </div>
-    <figure style="margin-top: 2rem; text-align: center;">
-     <img src="https://i.postimg.cc/Gt82QvDB/73edfb7f-139d-4678-8409-dd0900375cc1.jpg" alt="Algemene voorwaarden Car Center Rishi bord" loading="lazy" decoding="async" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; height: auto;">
+    <figure class="image-wrapper" style="max-width: 500px; margin: 2rem auto;"><img src="https://i.postimg.cc/Gt82QvDB/73edfb7f-139d-4678-8409-dd0900375cc1.jpg" alt="Algemene voorwaarden Car Center Rishi bord" loading="lazy" decoding="async">
     </figure><!-- FORMS -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-     <!-- Contact Form -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"><!-- Contact Form -->
      <div class="form-section">
       <h2>📧 Stuur ons een bericht</h2>
       <div id="msgContact" class="form-msg"></div>
       <form id="contactForm">
-       <div class="form-group">
-        <label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" required>
+       <div class="form-group"><label for="contactNaam">Naam *</label> <input type="text" id="contactNaam" name="naam" required>
        </div>
-       <div class="form-group">
-        <label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" required>
+       <div class="form-group"><label for="contactEmail">Email *</label> <input type="email" id="contactEmail" name="email" required>
        </div>
-       <div class="form-group">
-        <label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon">
+       <div class="form-group"><label for="contactPhone">Telefoon</label> <input type="tel" id="contactPhone" name="telefoon">
        </div>
-       <div class="form-group">
-        <label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" required>
+       <div class="form-group"><label for="contactSubject">Onderwerp *</label> <input type="text" id="contactSubject" name="onderwerp" required>
        </div>
-       <div class="form-group">
-        <label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" required></textarea>
+       <div class="form-group"><label for="contactMessage">Bericht *</label> <textarea id="contactMessage" name="bericht" required></textarea>
        </div><button type="submit" id="btnContact" class="btn-submit">Verstuur bericht</button>
       </form>
      </div>
@@ -1414,5 +1448,5 @@
     laadBedrijfData();
     lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c04c0d1a728af',t:'MTc3NjkzODM5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c0bc9738128af',t:'MTc3NjkzODY4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
