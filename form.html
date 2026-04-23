@@ -24,9 +24,9 @@
     }
   </script>
   <style>
-    html, body { height: 100%; margin: 0; }
-    body { font-family: 'DM Sans', sans-serif; }
-    .app-wrapper { height: 100%; overflow-y: auto; overflow-x: hidden; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; overflow-x: hidden; font-family: 'DM Sans', sans-serif; }
+    .app-wrapper { width: 100%; position: relative; }
     
     .hero-bg {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
@@ -111,206 +111,281 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div class="app-wrapper scroll-smooth" id="top">
-   <!-- Navigation -->
+  <div class="app-wrapper scroll-smooth" id="top"><!-- Navigation -->
    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex items-center justify-between h-16 sm:h-20">
-      <a href="#top" class="flex items-center gap-3"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" class="h-10 sm:h-12 rounded" loading="lazy" onerror="console.error('Logo failed:', this.src); this.style.display='none';"> <span class="font-heading font-bold text-white text-lg sm:text-xl hidden sm:block">Car Center Rishi</span> </a>
-      <div class="hidden md:flex items-center gap-8">
-       <a href="#diensten" class="nav-link text-slate-300 text-sm font-medium">Diensten</a> <a href="#werkplaats" class="nav-link text-slate-300 text-sm font-medium">Werkplaats</a> <a href="#contact" class="nav-link text-slate-300 text-sm font-medium">Contact</a> <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:16px;height:16px;"></i> Bel Ons </a>
+     <div class="flex items-center justify-between h-16 sm:h-20"><a href="#top" class="flex items-center gap-3"> <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Car Center Rishi logo" class="h-10 sm:h-12 rounded" loading="lazy" onerror="console.error('Logo failed:', this.src); this.style.display='none';"> <span class="font-heading font-bold text-white text-lg sm:text-xl hidden sm:block">Car Center Rishi</span> </a>
+      <div class="hidden md:flex items-center gap-8"><a href="#diensten" class="nav-link text-slate-300 text-sm font-medium">Diensten</a> <a href="#werkplaats" class="nav-link text-slate-300 text-sm font-medium">Werkplaats</a> <a href="#contact" class="nav-link text-slate-300 text-sm font-medium">Contact</a> <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:16px;height:16px;"></i> Bel Ons </a>
       </div><button id="menuBtn" class="md:hidden text-white p-2"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
      </div>
     </div><!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4">
-     <a href="#diensten" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Diensten</a> <a href="#werkplaats" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Werkplaats</a> <a href="#contact" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Contact</a> <a href="tel:0646102011" class="mt-3 block text-center bg-red-accent text-white py-3 rounded-lg font-semibold">Bel Ons</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pb-4"><a href="#diensten" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Diensten</a> <a href="#werkplaats" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Werkplaats</a> <a href="#contact" class="block py-3 text-slate-300 border-b border-slate-800 mobile-nav">Contact</a> <a href="tel:0646102011" class="mt-3 block text-center bg-red-accent text-white py-3 rounded-lg font-semibold">Bel Ons</a>
     </div>
    </nav><!-- Hero -->
    <section class="hero-bg pt-32 pb-20 sm:pt-40 sm:pb-28 relative">
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="max-w-3xl">
-      <div class="fade-up flex items-center gap-2 mb-4">
-       <span class="rating-stars text-lg">★★★★★</span> <span class="text-slate-400 text-sm">4.470 recensies</span>
+      <div class="fade-up flex items-center gap-2 mb-4"><span class="rating-stars text-lg">★★★★★</span> <span class="text-slate-400 text-sm">4.470 recensies</span>
       </div>
       <h1 id="heroTitle" class="fade-up delay-1 font-heading font-900 text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-4">Car Center Rishi</h1>
       <p id="heroSubtitle" class="fade-up delay-2 text-slate-300 text-lg sm:text-xl mb-8 max-w-xl">Uw betrouwbare autogarage in Amsterdam Noord — vakkundig, eerlijk en betaalbaar.</p>
-      <div class="fade-up delay-3 flex flex-wrap gap-4">
-       <a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:20px;height:20px;"></i> 06 46102011 </a> <a href="#diensten" class="border-2 border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white transition-colors"> Bekijk Diensten </a>
+      <div class="fade-up delay-3 flex flex-wrap gap-4"><a href="tel:0646102011" class="bg-red-accent bg-red-accent-hover text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"> <i data-lucide="phone" style="width:20px;height:20px;"></i> 06 46102011 </a> <a href="#diensten" class="border-2 border-slate-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white transition-colors"> Bekijk Diensten </a>
       </div>
-      <div class="fade-up delay-4 mt-10 flex flex-wrap gap-6 text-slate-400 text-sm">
-       <span class="flex items-center gap-2"><i data-lucide="map-pin" style="width:16px;height:16px;" class="red-accent"></i> Meeuwenlaan 116, Amsterdam</span> <span class="flex items-center gap-2"><i data-lucide="shield-check" style="width:16px;height:16px;" class="red-accent"></i> RDW Erkend</span> <span class="flex items-center gap-2"><i data-lucide="clock" style="width:16px;height:16px;" class="red-accent"></i> Ma-Vr 9:00-18:00</span>
+      <div class="fade-up delay-4 mt-10 flex flex-wrap gap-6 text-slate-400 text-sm"><span class="flex items-center gap-2"><i data-lucide="map-pin" style="width:16px;height:16px;" class="red-accent"></i> Meeuwenlaan 116, Amsterdam</span> <span class="flex items-center gap-2"><i data-lucide="shield-check" style="width:16px;height:16px;" class="red-accent"></i> RDW Erkend</span> <span class="flex items-center gap-2"><i data-lucide="clock" style="width:16px;height:16px;" class="red-accent"></i> Ma-Vr 9:00-18:00</span>
       </div>
      </div>
     </div><!-- Decorative -->
     <div class="absolute right-0 top-20 w-1/3 h-full opacity-10 hidden lg:block">
-     <svg viewbox="0 0 400 400" fill="none" class="w-full h-full">
-      <circle cx="200" cy="200" r="180" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="140" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="100" stroke="#dc2626" stroke-width="0.5" />
+     <svg viewbox="0 0 400 400" fill="none" class="w-full h-full"><circle cx="200" cy="200" r="180" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="140" stroke="#dc2626" stroke-width="0.5" /> <circle cx="200" cy="200" r="100" stroke="#dc2626" stroke-width="0.5" />
      </svg>
     </div>
    </section><!-- Services -->
    <section id="diensten" class="bg-slate-50 py-20 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16">
-      <span class="text-sm font-semibold tracking-widest uppercase red-accent">Wat wij bieden</span>
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Wat wij bieden</span>
       <h2 id="servicesTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Diensten</h2>
      </div>
-     <div class="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"><!-- Service 1: APK Keuring -->
       <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-        <i data-lucide="clipboard-check" style="width:28px;height:28px;" class="red-accent"></i>
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="clipboard-check" style="width:28px;height:28px;" class="red-accent"></i>
        </div>
-       <h3 class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">APK Keuring</h3>
+       <h3 id="service_1_title" class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">APK Keuring</h3>
        <p class="text-slate-500 mb-4 text-sm sm:text-base flex-grow">Snelle en betrouwbare APK keuring door onze RDW-erkende keurmeesters.</p>
-       <p class="font-heading font-800 text-xl sm:text-2xl red-accent">vanaf €40</p>
-      </div>
-      <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-        <i data-lucide="search" style="width:28px;height:28px;" class="red-accent"></i>
+       <div class="flex items-end justify-between">
+        <p id="service_1_price" class="font-heading font-800 text-lg sm:text-xl red-accent">Vanaf €40</p><button class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm font-semibold transition-colors min-h-10 sm:min-h-11">Kies</button>
        </div>
-       <h3 class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Diagnose</h3>
+      </div><!-- Service 2: Diagnose -->
+      <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="zap" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 id="service_2_title" class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Diagnose</h3>
        <p class="text-slate-500 mb-4 text-sm sm:text-base flex-grow">Professionele foutdiagnose met de nieuwste apparatuur.</p>
-       <p class="font-heading font-800 text-xl sm:text-2xl red-accent">vanaf €50/€85</p>
-      </div>
-      <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-        <i data-lucide="droplets" style="width:28px;height:28px;" class="red-accent"></i>
+       <div class="flex items-end justify-between">
+        <p id="service_2_price" class="font-heading font-800 text-lg sm:text-xl red-accent">Vanaf €50 / €85</p><button class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm font-semibold transition-colors min-h-10 sm:min-h-11">Kies</button>
        </div>
-       <h3 class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Olie Verversen</h3>
+      </div><!-- Service 3: Olie verversen -->
+      <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="droplets" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 id="service_3_title" class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Olie verversen</h3>
        <p class="text-slate-500 mb-4 text-sm sm:text-base flex-grow">Olieverversing met hoogwaardige olie voor optimale motorprestaties.</p>
-       <p class="font-heading font-800 text-xl sm:text-2xl red-accent">vanaf €150</p>
-      </div>
+       <div class="flex items-end justify-between">
+        <p id="service_3_price" class="font-heading font-800 text-lg sm:text-xl red-accent">Vanaf €150</p><button class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm font-semibold transition-colors min-h-10 sm:min-h-11">Kies</button>
+       </div>
+      </div><!-- Service 4: Airco Service -->
       <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
-       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-        <i data-lucide="wind" style="width:28px;height:28px;" class="red-accent"></i>
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="wind" style="width:28px;height:28px;" class="red-accent"></i>
        </div>
-       <h3 class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Airco Service</h3>
+       <h3 id="service_4_title" class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Airco service</h3>
        <p class="text-slate-500 mb-4 text-sm sm:text-base flex-grow">Airco bijvullen, reinigen en controleren voor optimaal comfort.</p>
-       <p class="font-heading font-800 text-xl sm:text-2xl red-accent">vanaf €100</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Gallery / Werkplaats -->
-   <section id="werkplaats" class="bg-white py-0">
-    <!-- Building Hero Banner -->
-    <div class="w-full h-64 sm:h-80 lg:h-96 overflow-hidden">
-     <img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Car Center Rishi gebouw" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'; this.alt='Gebouw niet beschikbaar';">
-    </div><!-- Content Section -->
-    <div class="bg-white py-20 sm:py-28">
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-       <span class="text-sm font-semibold tracking-widest uppercase red-accent">Transparantie &amp; Vertrouwen</span>
-       <h2 id="galleryTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Werkplaats</h2>
-       <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Zien wat u krijgt — onze moderne werkplaatsen zijn uitgerust met professionele apparatuur en gerund door ervaren monteurs.</p>
-      </div><!-- Bento Box Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[280px] sm:auto-rows-[320px] mb-16">
-       <!-- Main Workspace (2x2 on large) -->
-       <div class="lg:col-span-2 lg:row-span-2 rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-        <img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Hoofdwerkplaats" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Werkplaats niet beschikbaar';">
-       </div><!-- Section 2 (1x1) -->
-       <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-        <img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Werkplaats sectie 2" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Sectie niet beschikbaar';">
-       </div><!-- Info Card (1x1) -->
-       <div class="bg-slate-900 rounded-[12px] p-4 sm:p-6 flex flex-col justify-between shadow-lg hover:shadow-2xl transition-shadow text-white">
-        <div>
-         <i data-lucide="info" style="width:20px;height:20px;" class="text-red-500 mb-2 sm:mb-3"></i>
-         <h3 class="font-heading font-700 text-sm sm:text-lg mb-1 sm:mb-2">Openingsuren</h3>
-         <p class="text-xs sm:text-sm text-slate-300">Ma–Vr: 09:00–18:00</p>
-         <p class="text-xs sm:text-sm text-slate-300">Za: 12:00–18:00</p>
-        </div>
-       </div><!-- Waiting Room (1x1) -->
-       <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow relative group">
-        <img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Comfortabele wachtruimte" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Wachtruimte niet beschikbaar';">
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-         <p class="text-white text-center px-3 sm:px-4 font-semibold text-xs sm:text-sm">Wacht comfortabel terwijl wij uw auto verzorgen</p>
-        </div>
+       <div class="flex items-end justify-between">
+        <p id="service_4_price" class="font-heading font-800 text-lg sm:text-xl red-accent">Vanaf €100</p><button class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm font-semibold transition-colors min-h-10 sm:min-h-11">Kies</button>
        </div>
-      </div><!-- Important Info Section -->
-      <div class="bg-slate-50 rounded-[12px] border border-slate-200 p-8">
-       <h3 class="font-heading font-700 text-xl text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="clipboard-list" style="width:24px;height:24px;" class="red-accent"></i> Belangrijke Informatie</h3>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      </div><!-- Service 5: Banden Service -->
+      <div class="service-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
+       <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5"><i data-lucide="circle" style="width:28px;height:28px;" class="red-accent"></i>
+       </div>
+       <h3 id="service_5_title" class="font-heading font-700 text-lg sm:text-xl text-slate-900 mb-2">Banden service</h3>
+       <p class="text-slate-500 mb-4 text-sm sm:text-base flex-grow">Professionele bandenwisseling, balancering en reparatie.</p>
+       <div class="flex items-end justify-between">
+        <p id="service_5_price" class="font-heading font-800 text-lg sm:text-xl red-accent">Vanaf €12,50</p><button class="bg-red-accent hover:bg-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm font-semibold transition-colors min-h-10 sm:min-h-11">Kies</button>
+       </div>
+      </div><!-- Reviews Card: 6e kaart in grid -->
+      <div class="reviews-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 h-full flex flex-col">
+       <div class="flex items-center justify-between mb-6">
         <div>
-         <h4 class="font-heading font-600 text-slate-900 mb-2">Eigen Risico</h4>
-         <p class="text-slate-600 text-sm">Werkzaamheden worden alleen uitgevoerd na schriftelijke offerte. De klant aanvaardt het risico van beschadinging of verlies van voertuigen op onze locatie.</p>
+         <h3 class="font-heading font-700 text-lg sm:text-xl text-slate-900">Klantreviews</h3>
+         <p class="text-slate-500 text-sm">★★★★★ 4.4/5 van 70+ reviews</p>
         </div>
-        <div>
-         <h4 class="font-heading font-600 text-slate-900 mb-2">Parkeertijden</h4>
-         <p class="text-slate-600 text-sm">Voertuigen mogen niet langer dan 30 dagen gratis op ons terrein geparkeerd worden. Na 30 dagen wordt een opslagvergoeding van €10/dag berekend.</p>
+        <div class="flex gap-2"><button id="reviewPrev" class="p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Vorige review"> <i data-lucide="chevron-left" style="width:20px;height:20px;" class="text-slate-600"></i> </button> <button id="reviewNext" class="p-2 rounded-lg border border-slate-300 hover:border-slate-400 transition-colors" aria-label="Volgende review"> <i data-lucide="chevron-right" style="width:20px;height:20px;" class="text-slate-600"></i> </button>
         </div>
-        <div>
-         <h4 class="font-heading font-600 text-slate-900 mb-2">Betaling</h4>
-         <p class="text-slate-600 text-sm">Alle werkzaamheden dienen direct na afronding betaald te worden. Wij accepteren contant, PIN en bankoverschrijving.</p>
+       </div><!-- Reviews Carousel Container -->
+       <div class="overflow-hidden flex-grow">
+        <div id="reviewsCarousel" class="flex transition-transform duration-300 ease-out"><!-- Reviews will be inserted here by JS -->
         </div>
+       </div><!-- Dots -->
+       <div class="flex justify-center gap-2 mt-6" id="reviewDots"><!-- Dots will be inserted here by JS -->
        </div>
       </div>
      </div>
     </div>
-   </section><!-- Unified Contact Section -->
-   <section id="contact" class="bg-slate-900 py-16 sm:py-20">
+   </section>
+  </div><!-- Gallery / Werkplaats -->
+  <section id="werkplaats" class="bg-white py-0"><!-- Building Hero Banner -->
+   <div class="w-full h-64 sm:h-80 lg:h-96 overflow-hidden"><img src="https://i.postimg.cc/y6tWNrqQ/da444079-a7ad-495b-9490-6c3535801874.jpg" alt="Car Center Rishi gebouw" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #1e293b 0%, #0f172a 100%)'; this.alt='Gebouw niet beschikbaar';">
+   </div><!-- Content Section -->
+   <div class="bg-white py-20 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12">
-      <span class="text-sm font-semibold tracking-widest uppercase red-accent">Neem contact op</span>
-      <h2 id="contactTitle" class="font-heading font-800 text-3xl sm:text-4xl text-slate-900 mt-3">Contact &amp; Openingstijden</h2>
-     </div><!-- Contact Info Grid -->
-     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12"><!-- Phone -->
-      <div class="text-center sm:text-left">
-       <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-        <i data-lucide="phone" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">Bel ons</span>
-       </div><a href="tel:0646102011" class="block text-slate-600 hover:text-red-accent transition-colors font-medium mb-2">06 46102011</a> <a href="tel:0203370324" class="block text-slate-500 text-sm hover:text-slate-700 transition-colors">020-3370324</a>
-      </div><!-- Email -->
-      <div class="text-center sm:text-left">
-       <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-        <i data-lucide="mail" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">E-mail</span>
-       </div><a href="mailto:info@carcenterrishi.nl" class="text-slate-600 hover:text-red-accent transition-colors font-medium">info@carcenterrishi.nl</a>
-      </div><!-- Address -->
-      <div class="text-center sm:text-left">
-       <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-        <i data-lucide="map-pin" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">Adres</span>
+     <div class="text-center mb-16"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Transparantie &amp; Vertrouwen</span>
+      <h2 id="galleryTitle" class="font-heading font-800 text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-3">Onze Werkplaats</h2>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Zien wat u krijgt — onze moderne werkplaatsen zijn uitgerust met professionele apparatuur en gerund door ervaren monteurs.</p>
+     </div><!-- Bento Box Grid -->
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[280px] sm:auto-rows-[320px] mb-16"><!-- Main Workspace (2x2 on large) -->
+      <div class="lg:col-span-2 lg:row-span-2 rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"><img src="https://i.postimg.cc/gkLXqbq9/5e00d4b3-c588-4987-9b72-d66d2b76af2d.jpg" alt="Hoofdwerkplaats" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Werkplaats niet beschikbaar';">
+      </div><!-- Section 2 (1x1) -->
+      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"><img src="https://i.postimg.cc/g29wgtN6/95af8f4a-8335-44e0-a326-8f0fc18ec803.jpg" alt="Werkplaats sectie 2" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Sectie niet beschikbaar';">
+      </div><!-- Info Card (1x1) -->
+      <div class="bg-slate-900 rounded-[12px] p-4 sm:p-6 flex flex-col justify-between shadow-lg hover:shadow-2xl transition-shadow text-white">
+       <div><i data-lucide="info" style="width:20px;height:20px;" class="text-red-500 mb-2 sm:mb-3"></i>
+        <h3 class="font-heading font-700 text-sm sm:text-lg mb-1 sm:mb-2">Openingsuren</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Ma–Vr: 09:00–18:00</p>
+        <p class="text-xs sm:text-sm text-slate-300">Za: 12:00–18:00</p>
        </div>
-       <p class="text-slate-600 font-medium mb-1">Meeuwenlaan 116</p>
-       <p class="text-slate-500 text-sm">1021 JM Amsterdam</p>
+      </div><!-- Waiting Room (1x1) -->
+      <div class="rounded-[12px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow relative group"><img src="https://i.postimg.cc/y8FDthbF/356a6083-ad20-4be7-8814-72aaf536ca0f.jpg" alt="Comfortabele wachtruimte" class="w-full h-full object-cover" loading="lazy" onerror="console.error('Img failed:', this.src); this.style.background='linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'; this.alt='Wachtruimte niet beschikbaar';">
+       <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <p class="text-white text-center px-3 sm:px-4 font-semibold text-xs sm:text-sm">Wacht comfortabel terwijl wij uw auto verzorgen</p>
+       </div>
       </div>
-     </div><!-- CTA Buttons -->
-     <div class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-      <a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"> <i data-lucide="phone" style="width:18px;height:18px;"></i> Bel Nu </a> <a href="https://maps.google.com/?q=Meeuwenlaan+116+Amsterdam" target="_blank" rel="noopener noreferrer" class="border-2 border-slate-300 hover:border-slate-900 text-slate-900 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"> <i data-lucide="map-pin" style="width:18px;height:18px;"></i> Route </a>
-     </div><!-- Hours Grid -->
-     <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-      <h3 class="font-heading font-700 text-lg text-slate-900 mb-6">Openingstijden</h3>
-      <div id="hoursGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-       <!-- Filled by JS -->
+     </div><!-- Important Info Section -->
+     <div class="bg-slate-50 rounded-[12px] border border-slate-200 p-8">
+      <h3 class="font-heading font-700 text-xl text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="clipboard-list" style="width:24px;height:24px;" class="red-accent"></i> Belangrijke Informatie</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+       <div>
+        <h4 class="font-heading font-600 text-slate-900 mb-2">Eigen Risico</h4>
+        <p class="text-slate-600 text-sm">Werkzaamheden worden alleen uitgevoerd na schriftelijke offerte. De klant aanvaardt het risico van beschadinging of verlies van voertuigen op onze locatie.</p>
+       </div>
+       <div>
+        <h4 class="font-heading font-600 text-slate-900 mb-2">Parkeertijden</h4>
+        <p class="text-slate-600 text-sm">Voertuigen mogen niet langer dan 30 dagen gratis op ons terrein geparkeerd worden. Na 30 dagen wordt een opslagvergoeding van €10/dag berekend.</p>
+       </div>
+       <div>
+        <h4 class="font-heading font-600 text-slate-900 mb-2">Betaling</h4>
+        <p class="text-slate-600 text-sm">Alle werkzaamheden dienen direct na afronding betaald te worden. Wij accepteren contant, PIN en bankoverschrijving.</p>
+       </div>
       </div>
-      <p class="text-slate-500 text-xs mt-6 flex items-center gap-1"><i data-lucide="info" style="width:12px;height:12px;"></i> Openingstijden kunnen afwijken</p>
      </div>
     </div>
-   </section><!-- Footer -->
-   <footer class="bg-slate-900 border-t border-slate-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><!-- Business Info Grid -->
-     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pb-8 mb-8 border-b border-slate-800">
-      <div>
-       <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">KvK</p>
-       <p class="text-sm text-slate-300">68638701</p>
+   </div>
+  </section><!-- Unified Contact Section -->
+  <section id="contact" class="bg-slate-900 py-16 sm:py-20">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><span class="text-sm font-semibold tracking-widest uppercase red-accent">Neem contact op</span>
+     <h2 id="contactTitle" class="font-heading font-800 text-3xl sm:text-4xl text-slate-900 mt-3">Contact &amp; Openingstijden</h2>
+    </div><!-- Contact Info Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+     <!-- Phone -->
+     <div class="text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3"><i data-lucide="phone" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">Bel ons</span>
+      </div><a href="tel:0646102011" class="block text-slate-600 hover:text-red-accent transition-colors font-medium mb-2">06 46102011</a> <a href="tel:0203370324" class="block text-slate-500 text-sm hover:text-slate-700 transition-colors">020-3370324</a>
+     </div><!-- Email -->
+     <div class="text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3"><i data-lucide="mail" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">E-mail</span>
+      </div><a href="mailto:info@carcenterrishi.nl" class="text-slate-600 hover:text-red-accent transition-colors font-medium">info@carcenterrishi.nl</a>
+     </div><!-- Address -->
+     <div class="text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-3 mb-3"><i data-lucide="map-pin" style="width:20px;height:20px;" class="red-accent flex-shrink-0"></i> <span class="font-heading font-600 text-slate-900">Adres</span>
       </div>
-      <div>
-       <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">BTW</p>
-       <p class="text-sm text-slate-300">NL0545.97.481</p>
-      </div>
-      <div>
-       <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">IBAN</p>
-       <p class="text-sm text-slate-300">NL03 RABO 0318 1214 92</p>
-      </div>
-      <div>
-       <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">Website</p><a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer" class="text-sm text-red-accent hover:text-red-500 transition-colors">carcenterrishi.nl</a>
-      </div>
-     </div><!-- Bottom Section -->
-     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-       <img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Logo" class="h-8 rounded" loading="lazy" onerror="this.style.display='none';"> <span class="font-heading font-600 text-white text-sm">Car Center Rishi</span>
-      </div>
-      <p class="text-slate-500 text-xs text-center sm:text-right">© 2025 Car Center Rishi. Alle rechten voorbehouden.</p>
+      <p class="text-slate-600 font-medium mb-1">Meeuwenlaan 116</p>
+      <p class="text-slate-500 text-sm">1021 JM Amsterdam</p>
      </div>
+    </div><!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center mb-12"><a href="tel:0646102011" class="bg-red-accent hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"> <i data-lucide="phone" style="width:18px;height:18px;"></i> Bel Nu </a> <a href="https://maps.google.com/?q=Meeuwenlaan+116+Amsterdam" target="_blank" rel="noopener noreferrer" class="border-2 border-slate-300 hover:border-slate-900 text-slate-900 px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"> <i data-lucide="map-pin" style="width:18px;height:18px;"></i> Route </a>
+    </div><!-- Hours Grid -->
+    <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+     <h3 class="font-heading font-700 text-lg text-slate-900 mb-6">Openingstijden</h3>
+     <div id="hoursGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"><!-- Filled by JS -->
+     </div>
+     <p class="text-slate-500 text-xs mt-6 flex items-center gap-1"><i data-lucide="info" style="width:12px;height:12px;"></i> Openingstijden kunnen afwijken</p>
     </div>
-   </footer>
-  </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-12">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Business Info Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pb-8 mb-8 border-b border-slate-800">
+     <div>
+      <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">KvK</p>
+      <p class="text-sm text-slate-300">68638701</p>
+     </div>
+     <div>
+      <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">BTW</p>
+      <p class="text-sm text-slate-300">NL0545.97.481</p>
+     </div>
+     <div>
+      <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">IBAN</p>
+      <p class="text-sm text-slate-300">NL03 RABO 0318 1214 92</p>
+     </div>
+     <div>
+      <p class="text-xs text-slate-500 uppercase tracking-wide mb-1">Website</p><a href="https://www.carcenterrishi.nl" target="_blank" rel="noopener noreferrer" class="text-sm text-red-accent hover:text-red-500 transition-colors">carcenterrishi.nl</a>
+     </div>
+    </div><!-- Bottom Section -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+     <div class="flex items-center gap-3"><img src="https://i.postimg.cc/hP9XWdBj/images.png" alt="Logo" class="h-8 rounded" loading="lazy" onerror="this.style.display='none';"> <span class="font-heading font-600 text-white text-sm">Car Center Rishi</span>
+     </div>
+     <p class="text-slate-500 text-xs text-center sm:text-right">© 2025 Car Center Rishi. Alle rechten voorbehouden.</p>
+    </div>
+   </div>
+  </footer>
   <script>
+  // Reviews data
+  const reviews = [
+    { name: 'Digital Knight', stars: 5, text: 'They looked after my car as if it was theirs. They solved my problems really quickly and even picked me up from work so I can collect my car after it was finished. Couldn\'t be happier!' },
+    { name: 'Wilfred', stars: 5, text: 'Vanmorgen mijn auto gebracht voor reparatie van een startmotor. Ben goed ontvangen door het personeel. Qua service ook erg goed, je wordt op de hoogte gehouden via WhatsApp. Top!' },
+    { name: 'Anil Nandlal', stars: 5, text: 'Vandaag mijn Audi Q5 neergezet. Op en top service gekregen voor de wissel van alle 4 de banden tegen een goede prijs!!' },
+    { name: 'Marieke van Wamel', stars: 5, text: 'Mijn Twingootje is jaren in zeer goede handen geweest bij Rishi. Snelle en goede service, betaalbaar en vriendelijke mensen!' },
+    { name: 'Gone Fishing', stars: 5, text: 'Vriendelijk, snel en een lampje vervangen hoort gewoon bij de apk en kost niets extra. Aanrader!' },
+    { name: 'Julian McIntosh', stars: 5, text: 'Very friendly and knowledgeable crew. They really know what they\'re doing and give affordable rates. They\'ve been my go-to mechanics for the last 3 years.' }
+  ];
+
+  let currentReviewIndex = 0;
+
+  function renderReviews() {
+    const carousel = document.getElementById('reviewsCarousel');
+    carousel.innerHTML = '';
+    
+    reviews.forEach((review, i) => {
+      const reviewEl = document.createElement('div');
+      reviewEl.className = 'flex-shrink-0 w-full px-4 sm:px-6';
+      reviewEl.innerHTML = `
+        <div class="h-full">
+          <div class="flex gap-2 mb-3">
+            ${Array(review.stars).fill('★').map(() => '<span class="rating-stars text-lg">★</span>').join('')}
+          </div>
+          <p class="text-slate-600 text-sm sm:text-base mb-4 leading-relaxed">"${review.text}"</p>
+          <p class="text-slate-900 font-semibold text-sm">— ${review.name}</p>
+        </div>
+      `;
+      carousel.appendChild(reviewEl);
+    });
+
+    updateCarousel();
+    renderDots();
+  }
+
+  function updateCarousel() {
+    const carousel = document.getElementById('reviewsCarousel');
+    const offset = -(currentReviewIndex * 100);
+    carousel.style.transform = `translateX(${offset}%)`;
+  }
+
+  function renderDots() {
+    const dotsContainer = document.getElementById('reviewDots');
+    dotsContainer.innerHTML = '';
+    reviews.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `w-2 h-2 rounded-full transition-colors ${i === currentReviewIndex ? 'bg-red-accent' : 'bg-slate-300'}`;
+      dot.addEventListener('click', () => {
+        currentReviewIndex = i;
+        updateCarousel();
+        renderDots();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  document.getElementById('reviewNext').addEventListener('click', () => {
+    currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+    updateCarousel();
+    renderDots();
+  });
+
+  document.getElementById('reviewPrev').addEventListener('click', () => {
+    currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+    updateCarousel();
+    renderDots();
+  });
+
   // Opening hours
   const hours = [
     { day: 'Maandag', time: '09:00 – 18:00' },
@@ -352,6 +427,9 @@
     });
   }
   renderHours();
+
+  // Init reviews carousel
+  renderReviews();
 
   // Mobile menu
   document.getElementById('menuBtn').addEventListener('click', () => {
@@ -400,6 +478,18 @@
     document.getElementById('servicesTitle').textContent = c.services_title;
     document.getElementById('galleryTitle').textContent = c.gallery_title;
     document.getElementById('contactTitle').textContent = c.contact_title;
+    
+    // Update service titles and prices
+    document.getElementById('service_1_title').textContent = c.service_1_title;
+    document.getElementById('service_1_price').textContent = c.service_1_price;
+    document.getElementById('service_2_title').textContent = c.service_2_title;
+    document.getElementById('service_2_price').textContent = c.service_2_price;
+    document.getElementById('service_3_title').textContent = c.service_3_title;
+    document.getElementById('service_3_price').textContent = c.service_3_price;
+    document.getElementById('service_4_title').textContent = c.service_4_title;
+    document.getElementById('service_4_price').textContent = c.service_4_price;
+    document.getElementById('service_5_title').textContent = c.service_5_title;
+    document.getElementById('service_5_price').textContent = c.service_5_price;
 
     // Font
     document.querySelectorAll('.font-heading, h1, h2, h3').forEach(el => {
@@ -439,12 +529,22 @@
         ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
         ['services_title', config.services_title || defaultConfig.services_title],
         ['gallery_title', config.gallery_title || defaultConfig.gallery_title],
-        ['contact_title', config.contact_title || defaultConfig.contact_title]
+        ['contact_title', config.contact_title || defaultConfig.contact_title],
+        ['service_1_title', config.service_1_title || defaultConfig.service_1_title],
+        ['service_1_price', config.service_1_price || defaultConfig.service_1_price],
+        ['service_2_title', config.service_2_title || defaultConfig.service_2_title],
+        ['service_2_price', config.service_2_price || defaultConfig.service_2_price],
+        ['service_3_title', config.service_3_title || defaultConfig.service_3_title],
+        ['service_3_price', config.service_3_price || defaultConfig.service_3_price],
+        ['service_4_title', config.service_4_title || defaultConfig.service_4_title],
+        ['service_4_price', config.service_4_price || defaultConfig.service_4_price],
+        ['service_5_title', config.service_5_title || defaultConfig.service_5_title],
+        ['service_5_price', config.service_5_price || defaultConfig.service_5_price]
       ])
     });
   }
 
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c63d5537f06bc',t:'MTc3Njk0MjI5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f0c8fbc90b006bc',t:'MTc3Njk0NDA5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
